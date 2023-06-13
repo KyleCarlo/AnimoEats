@@ -8,6 +8,8 @@
     --secondary: #c7f6db;
     --accent: #DBDBDB;
     --borders: #595959;
+    --basic-text: black;
+    --basic-bg: white;
 }
 
 * {
@@ -18,7 +20,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--basic-text);
 }
 
 input {
@@ -60,7 +62,7 @@ nav .left{
 }
 
 .left img {
-    width: 50px;
+    width: 150px;
 }
 
 /* middle navbar */
@@ -73,7 +75,7 @@ nav .mid {
     align-items: center;
     justify-content: center;
     border-radius: 100px;
-    background-color: #DBDBDB;
+    background-color: var(--accent);
     margin: 0 10%;
     padding: 2.5px 0;
     border: 2px solid var(--borders);
@@ -88,7 +90,7 @@ nav .mid {
 .search-bar input{
     width: 80%;
     height: 25px;
-    background-color: #DBDBDB;
+    background-color: var(--accent);
     padding-left: 5px;
     padding-top: 3px;
 }
@@ -105,3 +107,16 @@ nav .right{
     border-radius: 100px;
 }
 
+#sign-up {
+    display:flex;
+    flex-direction:row;
+    margin: 150px;
+}
+
+#sign-up .left{
+    width: 750px;
+}
+
+#sign-up img{
+    width: 750px;
+}
