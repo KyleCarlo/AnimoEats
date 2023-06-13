@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap');
+
+:root{
+    --logo-font: 'M PLUS Rounded 1c', sans-serif;
+    --h1-font: ;
+    --body-font: ;
+    --primary: #008037;
+    --secondary: #c7f6db;
+    --accent: #DBDBDB;
+    --borders: #595959;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+body {
+    background-color: var(--secondary);
+}
+
+/* NAVBAR */
+nav{
+    display: flex;
+    padding: 3px 20px;
+    align-items: center;
+    border-bottom: var(--borders) solid 2px;
+    background-color: white;
+}
+
+/* left navbar */
+nav .left{
+    flex: 1;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 2em;
+    display: flex;
+    align-items: center;
+}
+
+.ANIMO{
+    color: var(--primary);
+}
+
+.EATS{
+    color: var(--borders);
+}
+
+.left img {
+    width: 50px;
+}
+
+/* middle navbar */
+nav .mid {
+    flex: 1;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: #DBDBDB;
+    margin: 0 10%;
+    padding: 2.5px 0;
+    border: 2px solid var(--borders);
+}
+
+.search-bar img {
+    height: 20px;
+    width: 20px;
+    margin: 4px 4px 4px 0;
+}
+
+.search-bar input{
+    width: 80%;
+    height: 25px;
+    background-color: #DBDBDB;
+    padding-left: 5px;
+    padding-top: 3px;
+}
+
+/* right navbar */
+nav .right{
+    flex: 1;
+    text-align: right;
+}
+
+.profile {
+    width: 50px;
+    margin: 4px 0 0 0;
+    border-radius: 100px;
+}
+
