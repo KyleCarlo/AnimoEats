@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 :root{
     --logo-font: 'M PLUS Rounded 1c', sans-serif;
-    --h1-font: ;
-    --body-font: ;
+    --def-font: 'Open Sans', sans-serif;
     --primary: #008037;
     --secondary: #c7f6db;
     --accent: #DBDBDB;
     --borders: #595959;
     --basic-text: black;
     --basic-bg: white;
+    font-family: var(--def-font);
 }
 
 * {
@@ -40,29 +41,21 @@ nav{
     display: flex;
     padding: 3px 20px;
     align-items: center;
-    border-bottom: var(--borders) solid 2px;
+    border-bottom: var(--borders) solid 1.5px;
     background-color: white;
 }
 
 /* left navbar */
 nav .left{
     flex: 1;
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    font-size: 2em;
+
     display: flex;
-    align-items: center;
-}
-
-.ANIMO{
-    color: var(--primary);
-}
-
-.EATS{
-    color: var(--borders);
+  
+  align-content: center;
 }
 
 .left img {
-    width: 150px;
+    width: 125px;
 }
 
 /* middle navbar */
@@ -73,26 +66,26 @@ nav .mid {
 .search-bar{
     display: flex;
     align-items: center;
-    justify-content: center;
-    border-radius: 100px;
+    justify-content: left;
+    border-radius: 80px;
     background-color: var(--accent);
     margin: 0 10%;
     padding: 2.5px 0;
-    border: 2px solid var(--borders);
+    border: 1.5px solid var(--borders);
 }
 
 .search-bar img {
-    height: 20px;
-    width: 20px;
-    margin: 4px 4px 4px 0;
+    height: 15px;
+    width: 15px;
+    margin: 4px 4px 4px 10px;
 }
 
 .search-bar input{
-    width: 80%;
-    height: 25px;
+    width: 85%;
+    height: 16px;
     background-color: var(--accent);
-    padding-left: 5px;
-    padding-top: 3px;
+    padding: 3px 5px 3px 5px;
+    border-radius: 80px;
 }
 
 /* right navbar */
@@ -102,21 +95,95 @@ nav .right{
 }
 
 .profile {
-    width: 50px;
+    width: 40px;
     margin: 4px 0 0 0;
-    border-radius: 100px;
+    border-radius: 100%;
 }
 
-#sign-up {
+/********* SIGN UP & LOG IN ************/
+
+.sign-up-log-in {
     display:flex;
-    flex-direction:row;
-    margin: 150px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+}   
+
+.sign-up-log-in .left{
+    flex: 1;
+    padding: 7.5% 2.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    min-width: 500px;
 }
 
-#sign-up .left{
-    width: 750px;
+.sign-up-log-in .right{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 7.5% 2.5%;
 }
 
-#sign-up img{
-    width: 750px;
+.sign-up-log-in img{
+    max-width: 100%;
+    min-width: 100px;
+}
+
+h1{
+    font: var(--h1-font);
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.sign-up-log-in .grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 45px 45px;
+    margin: 20px 0;
+    column-gap: 5px;
+    row-gap: 20px;
+}
+
+.sign-up-log-in input::placeholder{
+    font: var(--def-font); 
+    font-size: 15px;
+}
+
+.sign-up-log-in input{
+    font-family: inherit;
+    padding: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+}
+
+.sign-up-log-in .other{
+    grid-column: 1 / span 2;
+    
+}
+
+.sign-up-log-in .button{
+    grid-column: 1 / span 2;
+    background-color: var(--primary);
+    border: none;
+    color: white;
+}
+
+.sign-up-log-in .old-new-account{
+    text-align: end;
+}
+
+.sign-up-log-in a{
+    color: var(--primary);
+    text-decoration: underline;
+    text-align: right;
+}
+
+h2{
+    font: var(--h1-font);
+    font-weight: normal;
+    font-size: 32px;
 }
