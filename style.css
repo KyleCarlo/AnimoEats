@@ -36,6 +36,11 @@ body {
 }
 
 /* NAVBAR */
+#nav-placeholder{
+    position: sticky;
+    top: 0;
+}
+
 nav{
     display: flex;
     padding: 3px 20px;
@@ -119,4 +124,29 @@ nav .right{
 
 #sign-up img{
     width: 750px;
+}
+
+/* MAP */
+#map svg .map path{
+    fill: var(--primary);
+}
+
+#map svg .map #taftroad{
+    fill: var(--borders);
+}
+
+#map svg .pins path{
+    stroke: var(--basic-text);
+    stroke-width: 20px;
+}
+
+/*CARD HOVER*/
+img:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+
+.map:hover{
+    fill: black;
+    transition: fill 0.5s;
 }
