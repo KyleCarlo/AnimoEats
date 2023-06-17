@@ -36,7 +36,7 @@ body {
     background-color: var(--secondary);
 }
 
-/* NAVBAR */
+/********* NAVBAR ************/
 #nav-placeholder{
     position: sticky;
     top: 0;
@@ -194,7 +194,7 @@ h2{
     font-size: 32px;
 }
 
-/* MAP */
+/********* MAP ************/
 #map{
     position: relative;
     z-index: 1;
@@ -217,11 +217,7 @@ h2{
     fill: white;
 }
 
-/* #map svg .map #stjpath:hover{
-    fill: black;
-} */
-
-/*CARD HOVER*/
+/********* CARD HOVER ************/
 #card-container{
     position: absolute;
     height: 100px;
