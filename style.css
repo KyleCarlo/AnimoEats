@@ -34,6 +34,7 @@ input:focus{
 
 body {
     background-color: var(--secondary);
+    /* overflow: hidden; */
 }
 
 /********* NAVBAR ************/
@@ -139,7 +140,7 @@ nav .right{
     min-width: 100px;
 }
 
-h1{
+.sign-up-log-in h1{
     font: var(--h1-font);
     font-weight: bold;
     font-size: 36px;
@@ -188,7 +189,7 @@ h1{
     text-align: right;
 }
 
-h2{
+.sign-up-log-in h2{
     font: var(--h1-font);
     font-weight: normal;
     font-size: 32px;
@@ -218,7 +219,7 @@ h2{
 }
 
 /********* CARD HOVER ************/
-#card-container{
+#bb-holder{
     position: absolute;
     height: 100px;
     width: 100%;
@@ -226,73 +227,21 @@ h2{
     flex-direction: row-reverse;
 }
 
-#card-container img{
-    scale: 0.4;
+#bb-holder .content-holder{
     position: relative;
-    top: -4vw;
-    left: 5vw;
-}
-
-#billboard {
+    width: 30%;
     background-image: url("assets/sprites/billboard.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* Prevent image repetition */
-    width: 59vh;
-    /* Width of the small box */
-    height: 59vh;
-    /* Height of the small box */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2vh;
-}
-
-#billboard .cookie-policy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 53vh;
-    height: 53vh;
-    background: #f3efe6;
-    transform: scale(.8);
-    margin-top: -7%;
-}
-
-#billboard h1 {
-    color: #6c3a1f;
+    scale: 0.6;
+    left: 5vw;
+    top: -7vw;
+    padding: 6vw 5vw;
     text-align: center;
-    font-size: 36px;
-    margin: 0;
+    font-size: 2vw;
 }
 
-#billboard p {
-    color: #927859;
-    font-size: 14px;
-    margin-top: 0;
-    padding: 0 60px;
-    text-align: center;
-}
-
-#billboard button {
-    color: white;
-    background: #008037;
-    margin-top: 12px;
-    cursor: pointer;
-    font-size: 24px;
-    font-family: "Open Sans", sans-serif;
-    border-radius: 9px;
-    border: none;
-    width: 72%;
-    padding: 12px 0;
-    pointer-events: none;
-}
-
-#billboard img {
-    border-radius: 100%;
-    width: 18vh;
-    height: 18vh;
-    position: relative;
+#bb-holder .content-holder img{
+    width: 7vw;
 }
