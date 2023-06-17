@@ -237,11 +237,16 @@ nav .right{
     scale: 0.6;
     left: 5vw;
     top: -7vw;
-    padding: 6vw 5vw;
+    padding: 6vw 5vw 6vw 5vw;
     text-align: center;
     font-size: 2vw;
 }
 
 #bb-holder .content-holder img{
     width: 7vw;
+}
+
+#bb-holder h1 {
+    font-size: 3vw;
+    overflow: hiddenx;
 }
