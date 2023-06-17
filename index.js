@@ -1,29 +1,41 @@
 $(document).ready(function() {
+    execute();
+});
+
+function execute(){
+    loadComponents(hoverPath);
+};
+
+function loadComponents(callback){
     $("#nav-placeholder").load("navbar.html");
     $("#map").load("map.html");
-    $(".card").load("card-info.html");
-    // $("#nav-placeholder").css("position", "sticky");
-    // $("#nav-placeholder").css("top", "0");
+    $("#bb-holder").load("card-info.html");
+    setTimeout(function(){
+        callback();
+    }, 100);
+};
 
-    // function showInfo(event) {
-    //     var cardInfo = event.currentTarget.getElementByID("card--info")[0];
-    //     cardInfo.style.transform = "translateY(0%)";
-    //     }
+function hoverPath(){
+    var svg_map = $('#map svg #stjpath');
+    var card = $('#card-container')[0];
 
-    // function hideInfo(event) {
-    //     var cardInfo = event.currentTarget.getElementsByClassName("card--info")[0];
-    //     cardInfo.style.transform = "translateY(100%)";
+    card.style.top = ($('#nav-placeholder')[0].getBoundingClientRect().height) + 'px';
+    card.style.height = $('#map svg')[0].getBoundingClientRect().height + 'px';
+    $(window).resize(function() {
+        card.style.top = ($('#nav-placeholder')[0].getBoundingClientRect().height) + 'px';
+        card.style.height = $('#map svg')[0].getBoundingClientRect().height + 'px';
+    });
+
+    svg_map.on('mouseover', function(){
+    });
+
+    svg_map.on('mouseout', function(){
+    });
+
+    // idlist = [id1, id2 ... id n];
+    // for(){
+    //     id = '#map svg #' + idlist[i];
+
     // }
-
-    const path = document.getElementById('lspath');
-    const cardInfo = document.getElementById('card--info');
-
-    path.addEventListener('mouseover', () => {
-    cardInfo.classList.add('show');
-    });
-
-    path.addEventListener('mouseout', () => {
-    cardInfo.classList.remove('show');
-    });
-});
+};
     
