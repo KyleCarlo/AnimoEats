@@ -261,20 +261,20 @@ nav .right{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px 100px;
 }
 
 #profile-bio {
     display: grid;
-    grid-template-columns: 200fr 150fr 300fr 150fr 150fr;
-    grid-template-rows:  auto auto auto;
+    grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
+    grid-template-rows:  3fr 1fr 3fr;
     margin: .2vw 0;
     column-gap: 2vw;
-    row-gap: .2vw;
-    align-items: center;
+    row-gap: 1vw;
+    align-items: top;
     justify-content: center;
     background-color: white;
-    padding: 20px 20px;
+    padding: 20px 40px;
     border-radius: 20px;
     border: var(--borders) solid 1.5px;
 }
@@ -284,12 +284,24 @@ nav .right{
     font-weight: 800;
 }
 
+#profile-bio .username {
+    grid-column: 2 / span 2;
+    display: flex;
+    align-items: end;
+
+}
+
 #profile-bio .reviews, .photos{
     display: flex;
     align-items: center;
     justify-content: left;
     align-content: center;
+    /* color: var(--primary); */
 }
+
+/* #profile-bio .reviews img, .photos img{
+    border: black solid 1px;
+} */
 
 #profile-bio .profile-picture {
     grid-row: 1 / span 3;
@@ -299,25 +311,24 @@ nav .right{
 }
 
 #profile-bio .profile-picture img{
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
-    
+    border: var(--accent) solid 3px;
 }
 
-#profile-bio .username {
-    grid-column: 2 / span 2;
-    
-}
 
-#profile-bio .helpful {
+#profile-bio .helpful, .member-since {
     grid-column: 4 / span 2;
-    
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
 }
 
 #profile-bio .description {
     grid-column: 2 / span 2;
-    border: var(--accent) solid 1.5px;
     font-size: 14px;
     font-weight: lighter;
     padding: 0.25em;
@@ -328,7 +339,16 @@ nav .right{
     margin-right: 5px;
 }
 
-#profile-bio img {
+#profile-bio .icon {
     height: 25px;
     margin-right: 10px;
+}
+
+#profile-bio .update, .logout{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 14px;
+    font-style: italic;
+    color:var(--borders);
 }
