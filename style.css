@@ -238,31 +238,10 @@ nav .right{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    /* Prevent image repetition */
-    width: 59vh;
-    /* Width of the small box */
-    height: 59vh;
-    /* Height of the small box */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 2vh;
-}
-
-#billboard .cookie-policy {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 53vh;
-    height: 53vh;
-    background: #f3efe6;
-    transform: scale(.8);
-    margin-top: -7%;
-}
-
-#billboard h1 {
-    color: #6c3a1f;
+    scale: 0.6;
+    left: 5vw;
+    top: -7vw;
+    padding: 6vw 5vw 6vw 5vw;
     text-align: center;
     font-size: 2vw;
 }
