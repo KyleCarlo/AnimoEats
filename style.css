@@ -257,24 +257,24 @@ nav .right{
 }
 
 /********* PROFILE ************/
-.profile-page-top {
+.profile-page-top, .profile-page-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 15px;
+    padding: 20px 100px;
 }
 
 #profile-bio {
     display: grid;
-    grid-template-columns: 200fr 150fr 300fr 150fr 150fr;
-    grid-template-rows:  auto auto auto;
+    grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
+    grid-template-rows:  3fr 1fr 3fr;
     margin: .2vw 0;
     column-gap: 2vw;
-    row-gap: .2vw;
-    align-items: center;
+    row-gap: 1vw;
+    align-items: top;
     justify-content: center;
     background-color: white;
-    padding: 20px 20px;
+    padding: 20px 40px;
     border-radius: 20px;
     border: var(--borders) solid 1.5px;
 }
@@ -282,6 +282,12 @@ nav .right{
 #profile-bio h1{
     font-size: 3em;
     font-weight: 800;
+}
+
+#profile-bio .username {
+    grid-column: 2 / span 2;
+    display: flex;
+    align-items: end;
 }
 
 #profile-bio .reviews, .photos{
@@ -299,15 +305,19 @@ nav .right{
 }
 
 #profile-bio .profile-picture img{
-    width:200px;
-    height:200px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
-    
+    border: var(--accent) solid 3px;
 }
 
-#profile-bio .username {
-    grid-column: 2 / span 2;
-    
+#profile-bio .helpful, .member-since {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
 }
 
 #profile-bio .helpful {
@@ -317,7 +327,6 @@ nav .right{
 
 #profile-bio .description {
     grid-column: 2 / span 2;
-    border: var(--accent) solid 1.5px;
     font-size: 14px;
     font-weight: lighter;
     padding: 0.25em;
@@ -328,264 +337,111 @@ nav .right{
     margin-right: 5px;
 }
 
-#profile-bio img {
+#profile-bio .icon {
     height: 25px;
     margin-right: 10px;
 }
-@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root{
-    --logo-font: 'M PLUS Rounded 1c', sans-serif;
-    --def-font: 'Open Sans', sans-serif;
-    --primary: #008037;
-    --secondary: #c7f6db;
-    --accent: #DBDBDB;
-    --borders: #595959;
-    --basic-text: black;
-    --basic-bg: white;
-    font-family: var(--def-font);
-    font-size:16px;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-a {
-    text-decoration: none;
-    color: var(--basic-text);
-}
-    
-input {
-    border: none;
-}
-
-input:focus{
-    outline: none;
-}
-
-body {
-    background-color: var(--secondary);
-    /* overflow: hidden; */
-}
-
-/********* NAVBAR ************/
-#nav-placeholder{
-    position: sticky;
-    top: 0;
-    z-index: 2;
-}
-
-nav{
-    display: flex;
-    padding: 3px 20px;
-    align-items: center;
-    border-bottom: var(--borders) solid 1.5px;
-    background-color: white;
-}
-
-/* left navbar */
-nav .left{
-    flex: 1;
-
-    display: flex;
-  
-  align-content: center;
-}
-
-.left img {
-    width: 125px;
-}
-
-/* middle navbar */
-nav .mid {
-    flex: 1;
-}
-
-.search-bar{
+#profile-bio .update, .logout{
     display: flex;
     align-items: center;
-    justify-content: left;
-    border-radius: 80px;
-    background-color: var(--accent);
-    margin: 0 10%;
-    padding: 2.5px 0;
-    border: 1.5px solid var(--borders);
+    justify-content: right;
+    font-size: 14px;
+    font-style: italic;
+    color:var(--borders);
 }
 
-.search-bar img {
-    height: 15px;
-    width: 15px;
-    margin: 4px 4px 4px 10px;
-}
-
-.search-bar input{
-    width: 85%;
-    height: 16px;
-    background-color: var(--accent);
-    padding: 3px 5px 3px 5px;
-    border-radius: 80px;
-}
-
-/* right navbar */
-nav .right{
-    flex: 1;
-    text-align: right;
-}
-
-.profile {
-    width: 40px;
-    margin: 4px 0 0 0;
-    border-radius: 100%;
-}
-
-/********* SIGN UP & LOG IN ************/
-
-.sign-up-log-in {
-    display:flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 0px 100px;
-    height: 90vh;
-}   
-
-.sign-up-log-in .left{
-    flex: 2;
-    padding: 7.5% 2.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    min-width: 500px;
-}
-
-.sign-up-log-in .right{
-    flex: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 7.5% 2.5%;
-}
-
-.sign-up-log-in img{
-    max-width: 100%;
-    min-width: 375px;
-}
-
-.sign-up-log-in h1{
-    font: var(--h1-font);
-    font-weight: bold;
-    font-size: 36px;
-}
-
-.sign-up-log-in .grid{
+#profile-reviews {
     display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 45px 45px;
-    margin: 20px 0;
-    column-gap: 5px;
-    row-gap: 20px;
-}
-
-.sign-up-log-in input::placeholder{
-    font: var(--def-font);
-    font-size: 16px; 
-}
-
-.sign-up-log-in input{
-    font-family: inherit;
-    padding: 10px;
-    border: 2px solid var(--accent);
-    border-radius: 5px;
-}
-
-.sign-up-log-in .other{
-    grid-column: 1 / span 2;
-    display: flex;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    margin: .2vw 0;
+    column-gap: 1vw;
+    row-gap: .2vw;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
+    
+    padding: 20px 20px;
 }
 
-.sign-up-log-in .button{
-    font-size: 16px;
-    grid-column: 1 / span 2;
-    background-color: var(--primary);
-    border: none;
-    color: white;
+#top-reviews {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
+    row-gap: .2vw;
 }
 
-.sign-up-log-in .old-new-account{
-    text-align: end;
+#top-reviews .top-review {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 5px;
+    row-gap: 10px;
+    grid-auto-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "a a b b b"
+        "c c d e f"
+        "g g g e f"
+        "h i j k l";
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: var(--accent) solid 1px;
 }
 
-.sign-up-log-in a{
-    color: var(--primary);
-    text-decoration: underline;
-    text-align: right;
+#top-reviews h1 {
+    font-weight: 750;
 }
 
-.sign-up-log-in h2{
-    font: var(--h1-font);
-    font-weight: normal;
-    font-size: 32px;
+#top-reviews .top-review h3 {
+    grid-area: a;
+    font-weight: 700;
+    border-bottom: var(--accent) solid 1px;
 }
 
-/********* MAP ************/
-#map{
-    position: relative;
-    z-index: 1;
+#top-reviews .top-review h4 {
+    font-weight: 500;
+    grid-area: c;
 }
 
-#map svg .map path{
-    fill: var(--primary);
+#top-reviews .top-review .rating {
+    grid-area: d;
 }
 
-#map svg .road #taftroad{
-    fill: var(--borders);
+#top-reviews .top-review .preview {
+    grid-area: e;
 }
 
-#map svg .pins path{
-    stroke: var(--basic-text);
-    stroke-width: 20px;
+
+#top-reviews .top-review .images {
+    grid-area: f;
 }
 
-.map:hover{
-    fill: white;
+#top-reviews .top-review img {
+    width: 150px;
+    height: 130px;
+    border-radius: 10px;
+    padding: 5px;
 }
 
-/********* CARD HOVER ************/
-#bb-holder{
-    position: absolute;
-    height: 100px;
-    width: 100%;
-    display: flex;
-    flex-direction: row-reverse;
+#top-reviews .top-review .review-body {
+    grid-area: g;
+    font-size: 14px;
 }
 
-#bb-holder .content-holder{
-    position: relative;
-    width: 30%;
-    background-image: url("assets/sprites/billboard.png");
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    scale: 0.6;
-    left: 3vw;
-    top: -7vw;
-    padding: 6vw 5vw 6vw 5vw;
-    text-align: center;
-    font-size: 2vw;
+#top-reviews .top-review .timestamp {
+    grid-area: l;
+    font-weight: 200;
+    font-size: 12px;
 }
 
-#bb-holder .content-holder img{
-    width: 7vw;
-}
-
-#bb-holder h1 {
-    font-size: 3vw;
-    overflow: hidden;
+#recent-reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
 }
