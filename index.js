@@ -45,7 +45,7 @@ function hoverPath(){
     bloemen.on('mouseout', function(){
         $('#bb-holder .billboard img')[0].src = 'assets/sprites/pin-loc.png';
         $('#bb-holder .billboard h1')[0].innerHTML = 'AnimoEats';
-        $('#bb-holder .billboard p')[0].innerHTML = 'Hover over the pins to view our available locations.';
+        $('#bb-holder .billboard p')[0].innerHTML = 'Hover over the map to view more details.';
     });
 
     // idlist = [id1, id2 ... id n];
