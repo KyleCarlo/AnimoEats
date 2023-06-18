@@ -209,17 +209,17 @@ nav .right{
     fill: var(--primary);
 }
 
-#map svg .road{
+#map svg .map #taftroad{
     fill: var(--borders);
 }
 
-#map svg .pins{
+#map svg .pins path{
     stroke: var(--basic-text);
     stroke-width: 20px;
 }
 
-#map svg .pins {
-
+.map:hover{
+    fill: white;
 }
 
 /********* CARD HOVER ************/
