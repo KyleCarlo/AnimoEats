@@ -209,7 +209,7 @@ nav .right{
     fill: var(--primary);
 }
 
-#map svg .map #taftroad{
+#map svg .road #taftroad{
     fill: var(--borders);
 }
 
@@ -239,7 +239,7 @@ nav .right{
     background-position: center;
     background-repeat: no-repeat;
     scale: 0.6;
-    left: 5vw;
+    left: 3vw;
     top: -7vw;
     padding: 6vw 5vw 6vw 5vw;
     text-align: center;
