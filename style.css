@@ -204,17 +204,17 @@ h2{
     fill: var(--primary);
 }
 
-#map svg .map #taftroad{
+#map svg .road{
     fill: var(--borders);
 }
 
-#map svg .pins path{
+#map svg .pins{
     stroke: var(--basic-text);
     stroke-width: 20px;
 }
 
-.map:hover{
-    fill: white;
+#map svg .pins {
+
 }
 
 /********* CARD HOVER ************/
