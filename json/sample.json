@@ -1,6 +1,6 @@
 {
     "user": "Sebastian Diaz",
-    "top-reviews":
+    "top_reviews":
     [
         {
             "resto_name":"Kuya Mel's",
@@ -8,7 +8,7 @@
             "rating":4.0,
             "preview":"preview1.jpg",
             "images":["preview2.jpg"],
-            "body":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae nihil praesentium minima maiores optio illum tempora ea a, commodi veritatis id nobis fuga neque voluptatum quam eveniet adipisci modi corporis.",
+            "body":"Masarap sa Kuya Mel's. Sulit yung Salisbury.",
             "date":
             {
                 "month":3,
@@ -22,7 +22,7 @@
             "rating":4.0,
             "preview":"preview3.jpg",
             "images":["preview4.jpg"],
-            "body":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae nihil praesentium minima maiores optio illum tempora ea a, commodi veritatis id nobis fuga neque voluptatum quam eveniet adipisci modi corporis.",
+            "body":"Crispy Juicy Chicken 24 hours",
             "date":
             {
                 "month":3,
@@ -33,24 +33,10 @@
         {
             "resto_name":"Chef Bab's",
             "subject":"Go-to for sisig in Taft",
-            "rating":4.0,
+            "rating":2.4,
             "preview":"preview5.jpg",
             "images":["preview6.jpg"],
-            "body":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae nihil praesentium minima maiores optio illum tempora ea a, commodi veritatis id nobis fuga neque voluptatum quam eveniet adipisci modi corporis.",
-            "date":
-            {
-                "month":3,
-                "day":17,
-                "year":2023
-            }
-        },
-        {
-            "resto_name":"Kuya Mel's",
-            "subject":"Will definitely come back!",
-            "rating":4.0,
-            "preview":"preview1.jpg",
-            "images":["preview2.jpg"],
-            "body":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae nihil praesentium minima maiores optio illum tempora ea a, commodi veritatis id nobis fuga neque voluptatum quam eveniet adipisci modi corporis.",
+            "body":"Best sisig in town may libre pang sabaw.",
             "date":
             {
                 "month":3,
@@ -58,5 +44,9 @@
                 "year":2023
             }
         }
+    ],
+    "recent_reviews":
+    [
+
     ]
 }

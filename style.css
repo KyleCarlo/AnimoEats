@@ -356,43 +356,111 @@ nav .right{
     color:var(--borders);
 }
 /********* PROFILE-BOTTOM ************/
-.profile-page-bottom h1 {
-    font-weight: 800;
-}
-.profile-page-bottom h2 {
-    font-weight: 800;
-}
-.profile-page-bottom h3{
-    font-weight: 700;
-    font-style: italic;
-}
-.profile-page-bottom h4{
-    font-weight: 500;
-    font-size: 16px;
-}
-.profile-page-bottom h5{
-    font-weight: 400;
-    font-size: 12px;
-}
-.profile-page-bottom h6{
-    font-weight: 200;
-    font-size: 10px;
-    font-style:italic;
-    text-align: right;
-}
-
-
 #profile-reviews-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2.5fr 1fr;
     grid-template-rows: auto;
     margin: .2vw 0;
     column-gap: 1vw;
     row-gap: .2vw;
+    align-items: top;
+    justify-content: center;
+}
+/* FONTS */
+.profile-page-bottom h1 {
+    font-weight: 800;
+}
+.profile-page-bottom h2{
+    font-weight: 700;
+    font-size: 1.625em;
+}
+.profile-page-bottom h3{
+    font-weight: 600;
+    font-size: 1.25em;
+}
+.profile-page-bottom h4{
+    font-weight: 400;
+    font-size: 0.875em;
+}
+.profile-page-bottom h5{
+    font-weight: 200;
+    font-size: 0.625em;
+}
+.profile-page-bottom h6{
+    font-weight: 200;
+    font-size: 0.5em;
+}
+
+/* REVIEW */
+.review-restaurant {
+    grid-area: a;
+    border-bottom: var(--borders) solid 1px;
+    align-self: end;
+}
+
+.review-subject {
+    grid-area: c;
+    align-self: center;
+    font-style: oblique;
+}
+
+.review-rating, .smaller-flag {
+    grid-area: d;
+    align-self: center;
     align-items: center;
     justify-content: center;
-    
-    padding: 20px 20px;
+}
+
+.smaller-flag {
+    grid-area: d!important;
+    display: flex;
+    align-self: center;
+    align-items: end;
+    justify-content: end;
+}
+
+.review-preview {
+    grid-area: e;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    vertical-align: center;
+    align-self: center;
+}
+
+.review-images {
+    grid-area: f;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.review-body {
+    grid-area: g;
+    align-self: top!important;
+}
+
+.review-helpful{
+    grid-area: h;
+}
+
+.review-not-helpful{
+    grid-area: i;
+}
+
+.review-edit{
+    grid-area: j;
+}
+
+.review-delete{
+    grid-area: k;
+}
+
+.review-timestamp {
+    grid-area: l;
+    text-align: right;
+    font-style: italic;
 }
 /********* PROFILE-BOTTOM-LEFT ************/
 #top-reviews-grid {
@@ -411,54 +479,20 @@ nav .right{
 .top-review {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr 3fr 1fr;
-    column-gap: 5px;
-    
+    grid-template-rows: 1fr 1fr 2fr .25fr;
+    column-gap: .2vw;
     grid-template-areas:
         "a a b b b"
         "c c d e f"
         "g g g e f"
         "h i j k l";
-    align-items: center;
+    align-items: top;
     justify-content: center;
+    align-content: center;
     padding: 15px 20px 5px 20px;
     border-radius: 10px;
     border: var(--borders) solid 1px;
-}
-
-.top-review .restaurant {
-    grid-area: a;
-    border-bottom: var(--borders) solid 1px;
-}
-
-.top-review .subject {
-    grid-area: c;
-}
-
-.top-review .rating {
-    grid-area: d;
-}
-
-.top-review .preview {
-    grid-area: e;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-
-.top-review .images {
-    grid-area: f;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-}
-
-.top-review .review-body {
-    grid-area: g;
-}
-
-.top-review .timestamp {
-    grid-area: l;
+    vertical-align: center;
 }
 
 .top-review img {
@@ -474,13 +508,36 @@ nav .right{
     border: var(--borders) solid 1.5px;
 
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
     align-items: center;
     justify-content: center;
     align-content: center;
     padding: 20px 20px;
     background-color: white;
     border-radius: 20px;
-    border: var(--borders) solid 1.5px;
+    border: var(--borders) solid 2px;
     row-gap: .2vw;
+}
+
+.recent-review {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1.75fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a a"
+        "c c d"
+        "g g g"
+        "l l l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 7.5px 10px 2.5px 10px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.smaller-flag svg{
+    width: 50px!important;
 }
