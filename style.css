@@ -115,6 +115,7 @@ nav .right{
     justify-content: center;
     flex-wrap: wrap;
     margin: 0px 100px;
+    height: 90vh;
 }   
 
 .sign-up-log-in .left{
@@ -124,7 +125,7 @@ nav .right{
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    min-width: 375px;
+    min-width: 500px;
 }
 
 .sign-up-log-in .right{
@@ -239,7 +240,7 @@ nav .right{
     background-position: center;
     background-repeat: no-repeat;
     scale: 0.6;
-    left: 3vw;
+    left: 5vw;
     top: -7vw;
     padding: 6vw 5vw 6vw 5vw;
     text-align: center;
@@ -252,5 +253,291 @@ nav .right{
 
 #bb-holder h1 {
     font-size: 3vw;
-    overflow: hidden;
+    overflow: hiddenx;
+}
+
+/********* PROFILE ************/
+/********* PROFILE-TOP ************/
+.profile-page-top, .profile-page-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+}
+
+#profile-bio h1{
+    font-size: 3em;
+    font-weight: 800;
+}
+
+#profile-bio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
+    grid-template-rows:  3fr 1fr 3fr;
+    margin: .2vw 0;
+    column-gap: 2vw;
+    row-gap: 1vw;
+    align-items: top;
+    justify-content: center;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+}
+
+#profile-bio .username {
+    grid-column: 2 / span 2;
+    display: flex;
+    align-items: end;
+}
+
+#profile-bio .reviews, .photos{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    align-content: center;
+}
+
+#profile-bio .profile-picture {
+    grid-row: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-bio .profile-picture img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: var(--accent) solid 3px;
+}
+
+#profile-bio .helpful, .member-since {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
+}
+
+#profile-bio .helpful {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
+}
+
+#profile-bio .description {
+    grid-column: 2 / span 2;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 0.25em;
+}
+
+#profile-bio .count {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#profile-bio .icon {
+    height: 25px;
+    margin-right: 10px;
+}
+
+#profile-bio .update, .logout{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 14px;
+    font-style: italic;
+    color:var(--borders);
+}
+/********* PROFILE-BOTTOM ************/
+#profile-reviews-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: auto;
+    margin: .2vw 0;
+    column-gap: 1vw;
+    row-gap: .2vw;
+    align-items: top;
+    justify-content: center;
+}
+/* FONTS */
+.profile-page-bottom h1 {
+    font-weight: 800;
+}
+.profile-page-bottom h2{
+    font-weight: 700;
+    font-size: 1.625em;
+}
+.profile-page-bottom h3{
+    font-weight: 600;
+    font-size: 1.25em;
+}
+.profile-page-bottom h4{
+    font-weight: 400;
+    font-size: 0.875em;
+}
+.profile-page-bottom h5{
+    font-weight: 200;
+    font-size: 0.625em;
+}
+.profile-page-bottom h6{
+    font-weight: 200;
+    font-size: 0.5em;
+}
+
+/* REVIEW */
+.review-restaurant {
+    grid-area: a;
+    border-bottom: var(--borders) solid 1px;
+    align-self: end;
+}
+
+.review-subject {
+    grid-area: c;
+    align-self: center;
+    font-style: oblique;
+}
+
+.review-rating, .smaller-flag {
+    grid-area: d;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.smaller-flag {
+    grid-area: d!important;
+    display: flex;
+    align-self: center;
+    align-items: end;
+    justify-content: end;
+}
+
+.review-preview {
+    grid-area: e;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    vertical-align: center;
+    align-self: center;
+}
+
+.review-images {
+    grid-area: f;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.review-body {
+    grid-area: g;
+    align-self: top!important;
+}
+
+.review-helpful{
+    grid-area: h;
+}
+
+.review-not-helpful{
+    grid-area: i;
+}
+
+.review-edit{
+    grid-area: j;
+}
+
+.review-delete{
+    grid-area: k;
+}
+
+.review-timestamp {
+    grid-area: l;
+    text-align: right;
+    font-style: italic;
+}
+/********* PROFILE-BOTTOM-LEFT ************/
+#top-reviews-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.top-review {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 2fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a b b b"
+        "c c d e f"
+        "g g g e f"
+        "h i j k l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 15px 20px 5px 20px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.top-review img {
+    width: 150px;
+    height: 130px;
+    border-radius: 10px;
+}
+
+/********* PROFILE-BOTTOM-RIGHT ************/
+#recent-reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.recent-review {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1.75fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a a"
+        "c c d"
+        "g g g"
+        "l l l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 7.5px 10px 2.5px 10px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.smaller-flag svg{
+    width: 50px!important;
 }
