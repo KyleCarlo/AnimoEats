@@ -257,7 +257,7 @@ nav .right{
 }
 
 /********* PROFILE ************/
-.profile-page-top {
+.profile-page-top, .profile-page-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -311,8 +311,16 @@ nav .right{
     border: var(--accent) solid 3px;
 }
 
-
 #profile-bio .helpful, .member-since {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
+}
+
+#profile-bio .helpful {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
@@ -345,4 +353,99 @@ nav .right{
     font-size: 14px;
     font-style: italic;
     color:var(--borders);
+}
+
+#profile-reviews {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: auto;
+    margin: .2vw 0;
+    column-gap: 1vw;
+    row-gap: .2vw;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 20px 20px;
+}
+
+#top-reviews {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
+    row-gap: .2vw;
+}
+
+#top-reviews .top-review {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 5px;
+    row-gap: 10px;
+    grid-auto-rows: repeat(4, 1fr);
+    grid-template-areas:
+        "a a b b b"
+        "c c d e f"
+        "g g g e f"
+        "h i j k l";
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 10px;
+    border: var(--accent) solid 1px;
+}
+
+#top-reviews h1 {
+    font-weight: 750;
+}
+
+#top-reviews .top-review h3 {
+    grid-area: a;
+    font-weight: 700;
+    border-bottom: var(--accent) solid 1px;
+}
+
+#top-reviews .top-review h4 {
+    font-weight: 500;
+    grid-area: c;
+}
+
+#top-reviews .top-review .rating {
+    grid-area: d;
+}
+
+#top-reviews .top-review .preview {
+    grid-area: e;
+}
+
+
+#top-reviews .top-review .images {
+    grid-area: f;
+}
+
+#top-reviews .top-review img {
+    width: 150px;
+    height: 130px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+#top-reviews .top-review .review-body {
+    grid-area: g;
+    font-size: 14px;
+}
+
+#top-reviews .top-review .timestamp {
+    grid-area: l;
+    font-weight: 200;
+    font-size: 12px;
+}
+
+#recent-reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
 }
