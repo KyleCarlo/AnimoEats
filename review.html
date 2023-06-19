@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .review-container{
+                display: grid;
+                grid-template-columns: 1fr 2fr; 
+                grid-column-gap: 20px;
+                height:570px;
+            }
+            .review-container .panel1{
+                border:black solid 1px;
+                border-radius: 10px;
+                display: grid;
+                grid-template-rows: 10vw 5vw 9vw 3vw;
+            }
+
+            .review-container .panel1 .panel1-img{
+                background-image: url("assets/sprites/pexels-ella-olsson-1640772.jpg");
+                background-size: cover;
+                width:100%;
+                border-radius: 10px 10px 0 0;
+            }
+            .review-container .panel1 .header-deet{
+                display: grid; 
+                grid-template-rows: 0.1fr 0.5fr 3fr;
+                grid-template-columns: 1.5fr 1fr;
+                padding-top: 20px;
+            }
+
+            .review-container .panel1 .header-title{
+                font-family: 'Open Sans', sans-serif;
+                font-weight: bolder;
+                padding-left: 10%;
+                font-size: 36px;
+            } 
+
+            .review-container .panel1 .header-deet .header-icon{
+                display: grid;
+                grid-template-columns:1.25fr 1fr 1fr;
+                place-items: center;
+                font-family: "Open Sans";
+                padding-right: 20%;
+            }
+
+            .review-container .panel1 svg{
+                position: top;
+            }
+
+            .review-container .panel1 .description{
+                display:grid;
+                grid-template-rows: 4vw 1vw;
+                padding-left: 6%;
+                padding-right: 5%;
+                font-family: 'Open Sans', sans-serif;
+            }
+            .review-container .panel1 h2{
+                font-family: 'Open Sans', sans-serif;
+                font-weight: bolder;
+            }
+            .review-container.panel1 .description .content{
+                font-size: 1rem;
+            }
+
+            .review-container .panel1 .menu{
+                display: grid;
+                grid-template-rows: 4vw 4vw 4vw;
+                padding-left: 6%;
+                padding-right: 5%;
+            }
+
+            .review-container .panel1 .menu .img{
+                display: grid;
+                grid-template-columns: 6vw 1vw;
+                grid-column-gap: 20px;
+            }
+
+            .review-container .panel1 .menu .img .img1{
+                height: 100px;
+                width: 100px;
+            }
+
+            .review-container .panel1 .menu .img .img2{
+                height: 100px;
+                width: 100px;
+            }
+
+            .review-container .panel1 .menu .img .img3{
+                height: 100px;
+                width: 100px;
+            }
+
+            .review-container .panel1 .menu .img .img4{
+                height: 100px;
+                width: 100px;
+            }
+
+            .review-container .panel2{
+                border:black solid 1px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        
+        <div class="review-container">
+            <div class="panel1">
+                <div class="panel1-img"></div>
+                <div class ="header-deet">
+                    <div><span class="header-title">AnimoEats</span></div>
+                    <div class="header-icon">
+                        <div class="ave-rate">4.0</div>
+                        <div>
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                            width="70.000000pt" height="30.000000pt" viewBox="0 0 2560.000000 512.000000"
+                            preserveAspectRatio="xMidYMid meet">
+                                <g class="flag-1 green-flag" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
+                                -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
+                                -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
+                                l15 -54 52 49 c177 168 395 281 647 336 289 64 556 64 1215 -2 306 -31 566
+                                -44 710 -37 482 25 790 150 1067 434 95 97 118 137 118 207 0 52 8 46 -193
+                                156 -135 73 -335 204 -469 306 -145 110 -307 251 -320 278 -8 18 1 69 45 252
+                                111 453 194 893 246 1294 31 238 14 248 -144 89z"/>
+                                <path d="M158 4241 c-93 -30 -153 -110 -152 -201 1 -40 148 -578 547 -2004
+                                594 -2121 552 -1987 634 -2022 45 -20 75 -18 168 11 109 33 155 83 155 168 0
+                                18 -245 910 -545 1982 -439 1571 -550 1958 -572 1989 -16 22 -46 48 -67 59
+                                -43 23 -126 31 -168 18z"/>
+                                </g>
+            
+                                <g class="flag-2 green-flag" transform="translate(512.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
+                                -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
+                                -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
+                                l15 -54 52 49 c177 168 395 281 647 336 289 64 556 64 1215 -2 306 -31 566
+                                -44 710 -37 482 25 790 150 1067 434 95 97 118 137 118 207 0 52 8 46 -193
+                                156 -135 73 -335 204 -469 306 -145 110 -307 251 -320 278 -8 18 1 69 45 252
+                                111 453 194 893 246 1294 31 238 14 248 -144 89z"/>
+                                <path d="M158 4241 c-93 -30 -153 -110 -152 -201 1 -40 148 -578 547 -2004
+                                594 -2121 552 -1987 634 -2022 45 -20 75 -18 168 11 109 33 155 83 155 168 0
+                                18 -245 910 -545 1982 -439 1571 -550 1958 -572 1989 -16 22 -46 48 -67 59
+                                -43 23 -126 31 -168 18z"/>
+                                </g>
+            
+                                <g class="flag-3 green-flag" transform="translate(1024.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
+                                -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
+                                -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
+                                l15 -54 52 49 c177 168 395 281 647 336 289 64 556 64 1215 -2 306 -31 566
+                                -44 710 -37 482 25 790 150 1067 434 95 97 118 137 118 207 0 52 8 46 -193
+                                156 -135 73 -335 204 -469 306 -145 110 -307 251 -320 278 -8 18 1 69 45 252
+                                111 453 194 893 246 1294 31 238 14 248 -144 89z"/>
+                                <path d="M158 4241 c-93 -30 -153 -110 -152 -201 1 -40 148 -578 547 -2004
+                                594 -2121 552 -1987 634 -2022 45 -20 75 -18 168 11 109 33 155 83 155 168 0
+                                18 -245 910 -545 1982 -439 1571 -550 1958 -572 1989 -16 22 -46 48 -67 59
+                                -43 23 -126 31 -168 18z"/>
+                                </g>
+            
+                                <g class="flag-4 green-flag" transform="translate(1536.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
+                                -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
+                                -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
+                                l15 -54 52 49 c177 168 395 281 647 336 289 64 556 64 1215 -2 306 -31 566
+                                -44 710 -37 482 25 790 150 1067 434 95 97 118 137 118 207 0 52 8 46 -193
+                                156 -135 73 -335 204 -469 306 -145 110 -307 251 -320 278 -8 18 1 69 45 252
+                                111 453 194 893 246 1294 31 238 14 248 -144 89z"/>
+                                <path d="M158 4241 c-93 -30 -153 -110 -152 -201 1 -40 148 -578 547 -2004
+                                594 -2121 552 -1987 634 -2022 45 -20 75 -18 168 11 109 33 155 83 155 168 0
+                                18 -245 910 -545 1982 -439 1571 -550 1958 -572 1989 -16 22 -46 48 -67 59
+                                -43 23 -126 31 -168 18z"/>
+                                </g>
+                                
+                                <g class="flag-5 gray-flag" transform="translate(2048.000000,512.000000) scale(0.100000,-0.100000)"
+                                fill="#000000" stroke="none">
+                                <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
+                                -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
+                                -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
+                                l15 -54 52 49 c177 168 395 281 647 336 289 64 556 64 1215 -2 306 -31 566
+                                -44 710 -37 482 25 790 150 1067 434 95 97 118 137 118 207 0 52 8 46 -193
+                                156 -135 73 -335 204 -469 306 -145 110 -307 251 -320 278 -8 18 1 69 45 252
+                                111 453 194 893 246 1294 31 238 14 248 -144 89z"/>
+                                <path d="M158 4241 c-93 -30 -153 -110 -152 -201 1 -40 148 -578 547 -2004
+                                594 -2121 552 -1987 634 -2022 45 -20 75 -18 168 11 109 33 155 83 155 168 0
+                                18 -245 910 -545 1982 -439 1571 -550 1958 -572 1989 -16 22 -46 48 -67 59
+                                -43 23 -126 31 -168 18z"/>
+                                </g>
+                            </svg>
+                            </div>
+                            <div class="exp">₱₱</div> 
+                        </div>
+                    </div>
+                    <div class="description">
+                        <div><h2>Description</h2></div>
+                        <div class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Praesentium est, sit dolor possimus suscipit quam voluptas 
+                            quibusdam aliquam rerum id! Lorem ipsum dolor sit amet.
+                        </div>
+                    </div>
+                    <div class ="menu">
+                        <div><h2>Menu</h2></div>
+                        <div class="img">
+                            <img src="assets/sprites/pexels-ella-olsson-1640772.jpg" class="img1">
+                            <img src="assets/sprites/pexels-ash-376464.jpg" class="img2">
+
+                        </div>
+                    </div>
+            </div>
+            <div class="panel2">
+                <!-- Content for panel 2 -->
+            </div>
+        </div>
+        
+        
+        <script src="" async defer></script>
+    </body>
+</html>
