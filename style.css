@@ -210,7 +210,7 @@ nav .right{
     fill: var(--primary);
 }
 
-#map svg .map #taftroad{
+#map svg .road #taftroad{
     fill: var(--borders);
 }
 
