@@ -7,11 +7,16 @@ function execute(){
 };
 
 function loadComponents(callback){
-    $("#nav-placeholder").load("navbar.html");
-    $("#map").load("map.html");
-    
-    $("#card-sample").load("card-info.html");
+    $("#nav-placeholder").load("components/navbar.html");
+    $("#card-sample").load("components/card-info.html");
+    $(".top-review").load("components/top-review.html");
+
+    $("#map").load("assets/svg/map.html");
+
+    loadTopReviews('json/sample.json');
+
     setTimeout(function(){
+        $(".rating").load("assets/svg/flag.html");
         callback();
     }, 500);
 };
@@ -29,6 +34,7 @@ function hoverPath(){
 
         descripList=[]
     */
+
     card.style.top = ($('#nav-placeholder')[0].getBoundingClientRect().height) + 'px';
     card.style.height = $('#map svg')[0].getBoundingClientRect().height + 'px';
     $(window).resize(function() {
@@ -47,11 +53,14 @@ function hoverPath(){
         $('#bb-holder .billboard h1')[0].innerHTML = 'AnimoEats';
         $('#bb-holder .billboard p')[0].innerHTML = 'Hover over the map to view more details.';
     });
-
-    // idlist = [id1, id2 ... id n];
-    // for(){
-    //     id = '#map svg #' + idlist[i];
-
-    // }
 };
     
+function loadTopReviews(url){
+    $.ajax({
+        type:"GET",
+        url:url,
+        success:function(response){
+            console.log(response);
+        }
+    })
+}
