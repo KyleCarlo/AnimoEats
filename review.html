@@ -3,111 +3,16 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Review Page</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            .review-container{
-                display: grid;
-                grid-template-columns: 1fr 2fr; 
-                grid-column-gap: 20px;
-                height:570px;
-            }
-            .review-container .panel1{
-                border:black solid 1px;
-                border-radius: 10px;
-                display: grid;
-                grid-template-rows: 10vw 5vw 9vw 3vw;
-            }
-
-            .review-container .panel1 .panel1-img{
-                background-image: url("assets/sprites/pexels-ella-olsson-1640772.jpg");
-                background-size: cover;
-                width:100%;
-                border-radius: 10px 10px 0 0;
-            }
-            .review-container .panel1 .header-deet{
-                display: grid; 
-                grid-template-rows: 0.1fr 0.5fr 3fr;
-                grid-template-columns: 1.5fr 1fr;
-                padding-top: 20px;
-            }
-
-            .review-container .panel1 .header-title{
-                font-family: 'Open Sans', sans-serif;
-                font-weight: bolder;
-                padding-left: 10%;
-                font-size: 36px;
-            } 
-
-            .review-container .panel1 .header-deet .header-icon{
-                display: grid;
-                grid-template-columns:1.25fr 1fr 1fr;
-                place-items: center;
-                font-family: "Open Sans";
-                padding-right: 20%;
-            }
-
-            .review-container .panel1 svg{
-                position: top;
-            }
-
-            .review-container .panel1 .description{
-                display:grid;
-                grid-template-rows: 4vw 1vw;
-                padding-left: 6%;
-                padding-right: 5%;
-                font-family: 'Open Sans', sans-serif;
-            }
-            .review-container .panel1 h2{
-                font-family: 'Open Sans', sans-serif;
-                font-weight: bolder;
-            }
-            .review-container.panel1 .description .content{
-                font-size: 1rem;
-            }
-
-            .review-container .panel1 .menu{
-                display: grid;
-                grid-template-rows: 4vw 4vw 4vw;
-                padding-left: 6%;
-                padding-right: 5%;
-            }
-
-            .review-container .panel1 .menu .img{
-                display: grid;
-                grid-template-columns: 6vw 1vw;
-                grid-column-gap: 20px;
-            }
-
-            .review-container .panel1 .menu .img .img1{
-                height: 100px;
-                width: 100px;
-            }
-
-            .review-container .panel1 .menu .img .img2{
-                height: 100px;
-                width: 100px;
-            }
-
-            .review-container .panel1 .menu .img .img3{
-                height: 100px;
-                width: 100px;
-            }
-
-            .review-container .panel1 .menu .img .img4{
-                height: 100px;
-                width: 100px;
-            }
-
-            .review-container .panel2{
-                border:black solid 1px;
-            }
-
-        </style>
+        <link rel="stylesheet" href="style.css">
 
     </head>
     <body>
+
+        <!-- NAVBAR -->
+        <div id="nav-placeholder"></div>
         
         <div class="review-container">
             <div class="panel1">
@@ -213,14 +118,26 @@
                             <img src="assets/sprites/pexels-ash-376464.jpg" class="img2">
 
                         </div>
+                        <div class="gap"></div>
                     </div>
             </div>
             <div class="panel2">
                 <!-- Content for panel 2 -->
+                <div class="panel2-container"> 
+                    <div class="top-review"></div>
+                    <div class="top-review"></div>
+                    <div class="top-review"></div>
+                    <div class="top-review"></div>
+                    <div class="add-review">
+                        <button class="add-revbutton">+ Add Review</button>
+
+                    </div>
+                </div>
             </div>
+            <div class="add-review"></div>
         </div>
         
-        
-        <script src="" async defer></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="module" src="index.js"></script>
     </body>
 </html>

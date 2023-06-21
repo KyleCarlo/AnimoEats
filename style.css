@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root{
+:root {
     --logo-font: 'M PLUS Rounded 1c', sans-serif;
     --def-font: 'Open Sans', sans-serif;
     --primary: #008037;
@@ -11,7 +11,7 @@
     --basic-text: black;
     --basic-bg: white;
     font-family: var(--def-font);
-    font-size:16px;
+    font-size: 16px;
 }
 
 * {
@@ -24,13 +24,20 @@ a {
     text-decoration: none;
     color: var(--basic-text);
 }
-    
+
 input {
     border: none;
+    font-family: var(--def-font);
 }
 
-input:focus{
+input:focus {
     outline: none;
+}
+
+textarea {
+    resize: none;
+    border: none;
+    font-family: var(--def-font);
 }
 
 body {
@@ -39,13 +46,13 @@ body {
 }
 
 /********* NAVBAR ************/
-#nav-placeholder{
+#nav-placeholder {
     position: sticky;
     top: 0;
     z-index: 2;
 }
 
-nav{
+nav {
     display: flex;
     padding: 3px 20px;
     align-items: center;
@@ -54,12 +61,12 @@ nav{
 }
 
 /* left navbar */
-nav .left{
+nav .left {
     flex: 1;
 
     display: flex;
-  
-  align-content: center;
+
+    align-content: center;
 }
 
 .left img {
@@ -71,7 +78,7 @@ nav .mid {
     flex: 1;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -88,7 +95,7 @@ nav .mid {
     margin: 4px 4px 4px 10px;
 }
 
-.search-bar input{
+.search-bar input {
     width: 85%;
     height: 16px;
     background-color: var(--accent);
@@ -97,7 +104,7 @@ nav .mid {
 }
 
 /* right navbar */
-nav .right{
+nav .right {
     flex: 1;
     text-align: right;
 }
@@ -111,13 +118,13 @@ nav .right{
 /********* SIGN UP & LOG IN ************/
 
 .sign-up-log-in {
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0px 100px;
-}   
+}
 
-.sign-up-log-in .left{
+.sign-up-log-in .left {
     flex: 2;
     padding: 7.5% 2.5%;
     display: flex;
@@ -127,7 +134,7 @@ nav .right{
     min-width: 375px;
 }
 
-.sign-up-log-in .right{
+.sign-up-log-in .right {
     flex: 3;
     display: flex;
     align-items: center;
@@ -136,18 +143,18 @@ nav .right{
     padding: 7.5% 2.5%;
 }
 
-.sign-up-log-in img{
+.sign-up-log-in img {
     max-width: 100%;
     min-width: 375px;
 }
 
-.sign-up-log-in h1{
+.sign-up-log-in h1 {
     font: var(--h1-font);
     font-weight: bold;
     font-size: 36px;
 }
 
-.sign-up-log-in .grid{
+.sign-up-log-in .grid {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 45px 45px;
@@ -156,26 +163,26 @@ nav .right{
     row-gap: 20px;
 }
 
-.sign-up-log-in input::placeholder{
+.sign-up-log-in input::placeholder {
     font: var(--def-font);
-    font-size: 16px; 
+    font-size: 16px;
 }
 
-.sign-up-log-in input{
+.sign-up-log-in input {
     font-family: inherit;
     padding: 10px;
     border: 2px solid var(--accent);
     border-radius: 5px;
 }
 
-.sign-up-log-in .other{
+.sign-up-log-in .other {
     grid-column: 1 / span 2;
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-.sign-up-log-in .button{
+.sign-up-log-in .button {
     font-size: 16px;
     grid-column: 1 / span 2;
     background-color: var(--primary);
@@ -183,47 +190,47 @@ nav .right{
     color: white;
 }
 
-.sign-up-log-in .old-new-account{
+.sign-up-log-in .old-new-account {
     text-align: end;
 }
 
-.sign-up-log-in a{
+.sign-up-log-in a {
     color: var(--primary);
     text-decoration: underline;
     text-align: right;
 }
 
-.sign-up-log-in h2{
+.sign-up-log-in h2 {
     font: var(--h1-font);
     font-weight: normal;
     font-size: 32px;
 }
 
 /********* MAP ************/
-#map{
+#map {
     position: relative;
     z-index: 1;
 }
 
-#map svg .map path{
+#map svg .map path {
     fill: var(--primary);
 }
 
-#map svg .road #taftroad{
+#map svg .road #taftroad {
     fill: var(--borders);
 }
 
-#map svg .pins path{
+#map svg .pins path {
     stroke: var(--basic-text);
     stroke-width: 20px;
 }
 
-.map:hover{
+.map:hover {
     fill: white;
 }
 
 /********* CARD HOVER ************/
-#bb-holder{
+#bb-holder {
     position: absolute;
     height: 100px;
     width: 100%;
@@ -231,7 +238,7 @@ nav .right{
     flex-direction: row-reverse;
 }
 
-#bb-holder .content-holder{
+#bb-holder .content-holder {
     position: relative;
     width: 30%;
     background-image: url("assets/sprites/billboard.png");
@@ -246,11 +253,297 @@ nav .right{
     font-size: 2vw;
 }
 
-#bb-holder .content-holder img{
+#bb-holder .content-holder img {
     width: 7vw;
 }
 
 #bb-holder h1 {
     font-size: 3vw;
     overflow: hidden;
+}
+
+/********* PROFILE ************/
+/********* PROFILE-TOP ************/
+.profile-page-top, .profile-page-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 100px;
+}
+
+#profile-bio h1{
+    font-size: 3em;
+    font-weight: 800;
+}
+
+#profile-bio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
+    grid-template-rows:  3fr 1fr 3fr;
+    margin: .2vw 0;
+    column-gap: 2vw;
+    row-gap: 1vw;
+    align-items: top;
+    justify-content: center;
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+}
+
+#profile-bio .username {
+    grid-column: 2 / span 2;
+    display: flex;
+    align-items: end;
+}
+
+#profile-bio .reviews, .photos{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    align-content: center;
+}
+
+#profile-bio .profile-picture {
+    grid-row: 1 / span 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile-bio .profile-picture img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: var(--accent) solid 3px;
+}
+
+#profile-bio .helpful, .member-since {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
+}
+
+#profile-bio .helpful {
+    grid-column: 4 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-style: italic;
+    color:var(--borders);
+}
+
+#profile-bio .description {
+    grid-column: 2 / span 2;
+    font-size: 14px;
+    font-weight: lighter;
+    padding: 0.25em;
+}
+
+#profile-bio .count {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+#profile-bio .icon {
+    height: 25px;
+    margin-right: 10px;
+}
+
+#profile-bio .update, .logout{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 14px;
+    font-style: italic;
+    color:var(--borders);
+}
+/********* PROFILE-BOTTOM ************/
+#profile-reviews-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: auto;
+    margin: .2vw 0;
+    column-gap: 1vw;
+    row-gap: .2vw;
+    align-items: top;
+    justify-content: center;
+}
+/* FONTS */
+.profile-page-bottom h1 {
+    font-weight: 800;
+}
+.profile-page-bottom h2{
+    font-weight: 700;
+    font-size: 1.625em;
+}
+.profile-page-bottom h3{
+    font-weight: 600;
+    font-size: 1.25em;
+}
+.profile-page-bottom h4{
+    font-weight: 400;
+    font-size: 0.875em;
+}
+.profile-page-bottom h5{
+    font-weight: 200;
+    font-size: 0.625em;
+}
+.profile-page-bottom h6{
+    font-weight: 200;
+    font-size: 0.5em;
+}
+
+/* REVIEW */
+.review-restaurant {
+    grid-area: a;
+    border-bottom: var(--borders) solid 1px;
+    align-self: end;
+}
+
+.review-subject {
+    grid-area: c;
+    align-self: center;
+    font-style: oblique;
+}
+
+.review-rating, .smaller-flag {
+    grid-area: d;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.smaller-flag {
+    grid-area: d!important;
+    display: flex;
+    align-self: center;
+    align-items: end;
+    justify-content: end;
+}
+
+.review-preview {
+    grid-area: e;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    vertical-align: center;
+    align-self: center;
+}
+
+.review-images {
+    grid-area: f;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.review-body {
+    grid-area: g;
+    align-self: top!important;
+}
+
+.review-helpful{
+    grid-area: h;
+}
+
+.review-not-helpful{
+    grid-area: i;
+}
+
+.review-edit{
+    grid-area: j;
+}
+
+.review-delete{
+    grid-area: k;
+}
+
+.review-timestamp {
+    grid-area: l;
+    text-align: right;
+    font-style: italic;
+}
+/********* PROFILE-BOTTOM-LEFT ************/
+#top-reviews-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.top-review {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 2fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a b b b"
+        "c c d e f"
+        "g g g e f"
+        "h i j k l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 15px 20px 5px 20px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.top-review img {
+    width: 150px;
+    height: 130px;
+    border-radius: 10px;
+}
+
+/********* PROFILE-BOTTOM-RIGHT ************/
+#recent-reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.recent-review {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1.75fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a a"
+        "c c d"
+        "g g g"
+        "l l l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 7.5px 10px 2.5px 10px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.smaller-flag svg{
+    width: 50px!important;
 }

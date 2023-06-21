@@ -1,5 +1,6 @@
 $(document).ready(function() {
     execute();
+    createReview();
 });
 
 function execute(){
@@ -90,4 +91,84 @@ function hoverPath(){
         });
     }
 };
+function loadTopReviews(url){
+    var topReviews = [];
+    $.ajax({
+        type:"GET",
+        url:url,
+        success:function(response){
+            topReviews.push(response.top_reviews[0]);
+            topReviews.push(response.top_reviews[1]);
+            topReviews.push(response.top_reviews[2]);
+        }
+    });
+    setTimeout( function(){
+        console.log(topReviews);
+        console.log(topReviews.length);
+        console.log(Math.round(topReviews[0].rating));
+        for(var i = 0; i < topReviews.length; i++){
+            let name = $(".top-review .review-restaurant")[i];
+            let subject = $(".top-review .review-subject")[i];
+            let body = $(".top-review .review-body")[i];
+            let preview = $('.top-review .review-preview');
+            let images; 
+            let rating = ($(".top-review .review-rating svg")[i]);
+            let date = $(".top-review .review-timestamp")[i];
+            let month = {
+                1: "January",
+                2: "February",
+                3: "March",
+                4: "April",
+                5: "May",
+                6: "June",
+                7: "July",
+                8: "August",
+                9: "September",
+                10: "October",
+                11: "November",
+                12: "December",
+            }
+            name.innerHTML = topReviews[i].resto_name;
+            subject.innerHTML = topReviews[i].subject;
+            body.innerHTML = topReviews[i].body;
+            for (var j = 0 ; j < 5; j++){
+                if (j < Math.round(topReviews[i].rating)){
+                    if(Math.round(topReviews[i].rating) < 3){
+                        rating.children[j].style.fill = "#800037";
+                    }
+                    else{
+                        rating.children[j].style.fill = "#008037";
+                    }
+                }
+                else{
+                    rating.children[j].style.fill = "#595959";
+                }
+            }
+            date.innerHTML = "Posted on " +  month[topReviews[i].date.month] + " " + topReviews[i].date.day + ", " + topReviews[i].date.year;
+        }
+    }, 500);
+}
+
+function createReview(){
+    $(".add-revbutton").on("click", function (){
+        let body = $('body')[0];
+        body.innerHTML += '<div class="cover" style="position: fixed; z-index: 3; top: 0; background-color: black; width: 100%; height: 100vh; opacity: 0.5"></div>';
+        body.style.overflow = "hidden";
+        
+        $('.add-review').load('add.html');
+        let review = $('.add-review')[0];
+        review.style.zIndex = "4";
+
+        setTimeout(function(){
+            let x = $('.compose-header span');
+            console.log(x);
+            x.on('click', function(){
+                $('.cover').remove();
+                $('.add-review').remove();
+                body.style.overflow = "initial";
+            })
+        }, 300);
+        
+    })
+}
     
