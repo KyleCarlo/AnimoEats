@@ -1,6 +1,7 @@
 $(document).ready(function() {
     execute();
     createReview();
+    createReview();
 });
 
 function execute(){
