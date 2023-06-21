@@ -114,8 +114,8 @@ function loadTopReviews(url){
             let name = $(".top-review .review-restaurant")[i];
             let subject = $(".top-review .review-subject")[i];
             let body = $(".top-review .review-body")[i];
-            let preview = $('.top-review .review-preview');
-            let images; 
+            let preview = $('.top-review .review-preview')[i];
+            let images = $('.top-review .review-images')[i]; 
             let rating = ($(".top-review .review-rating svg")[i]);
             let date = $(".top-review .review-timestamp")[i];
             let month = {
@@ -135,6 +135,8 @@ function loadTopReviews(url){
             name.innerHTML = topReviews[i].resto_name;
             subject.innerHTML = topReviews[i].subject;
             body.innerHTML = topReviews[i].body;
+            preview.src = topReviews[i].preview;
+            images.src = topReviews[i].images;
             for (var j = 0 ; j < 5; j++){
                 if (j < Math.round(topReviews[i].rating)){
                     if(Math.round(topReviews[i].rating) < 3){

@@ -281,8 +281,9 @@ nav .right{
     justify-content: center;
     background-color: white;
     padding: 20px 40px;
-    border-radius: 20px;
-    border: var(--borders) solid 2px;
+    border-radius: 10px;
+    /* border: var(--borders) solid 2px; */
+    box-shadow: 15px 15px 0px 2.5px var(--accent);
 }
 
 #profile-bio .username {
@@ -383,7 +384,7 @@ nav .right{
     font-size: 0.875em;
 }
 .profile-page-bottom h5{
-    font-weight: 200;
+    font-weight: 300;
     font-size: 0.625em;
 }
 .profile-page-bottom h6{
@@ -443,24 +444,57 @@ nav .right{
 
 .review-helpful{
     grid-area: h;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7.5px;
+    border: var(--borders) dotted 1px;
+    padding: 1px;
+    color: var(--borders);
+
+    padding: 0 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }
 
 .review-not-helpful{
     grid-area: i;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7.5px;
+    border: var(--borders) dotted 1px;
+    padding: 1px;
+    color: var(--borders);
 }
 
 .review-edit{
     grid-area: j;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7.5px;
+    border: var(--borders) dotted 1px;
+    padding: 1px;
+    color: var(--borders);
 }
 
 .review-delete{
     grid-area: k;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7.5px;
+    border: var(--borders) dotted 1px;
+    padding: 1px;
+    color: var(--borders);
 }
 
 .review-timestamp {
     grid-area: l;
     text-align: right;
     font-style: italic;
+    align-self: end;
 }
 /********* PROFILE-BOTTOM-LEFT ************/
 #top-reviews-grid {
@@ -468,10 +502,10 @@ nav .right{
     grid-template-rows: auto auto auto auto;
     align-items: center;
     justify-content: center;
-    align-content: center;
+    align-content: top;
     padding: 20px 20px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     border: var(--borders) solid 2px;
     row-gap: .2vw;
 }
@@ -481,6 +515,7 @@ nav .right{
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr 2fr .25fr;
     column-gap: .2vw;
+    row-gap: .2vw;
     grid-template-areas:
         "a a b b b"
         "c c d e f"
@@ -489,16 +524,22 @@ nav .right{
     align-items: top;
     justify-content: center;
     align-content: center;
-    padding: 15px 20px 5px 20px;
+    padding: 15px 20px 10px 20px;
     border-radius: 10px;
     border: var(--borders) solid 1px;
     vertical-align: center;
 }
 
-.top-review img {
+.top-review .pics {
     width: 150px;
     height: 130px;
     border-radius: 10px;
+}
+
+.top-review .icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 7.5px;
 }
 
 /********* PROFILE-BOTTOM-RIGHT ************/
@@ -514,7 +555,7 @@ nav .right{
     align-content: center;
     padding: 20px 20px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     border: var(--borders) solid 2px;
     row-gap: .2vw;
 }
