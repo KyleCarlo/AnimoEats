@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-:root{
+:root {
     --logo-font: 'M PLUS Rounded 1c', sans-serif;
     --def-font: 'Open Sans', sans-serif;
     --primary: #008037;
@@ -11,7 +11,7 @@
     --basic-text: black;
     --basic-bg: white;
     font-family: var(--def-font);
-    font-size:16px;
+    font-size: 16px;
 }
 
 * {
@@ -24,13 +24,20 @@ a {
     text-decoration: none;
     color: var(--basic-text);
 }
-    
+
 input {
     border: none;
+    font-family: var(--def-font);
 }
 
-input:focus{
+input:focus {
     outline: none;
+}
+
+textarea {
+    resize: none;
+    border: none;
+    font-family: var(--def-font);
 }
 
 body {
@@ -39,13 +46,13 @@ body {
 }
 
 /********* NAVBAR ************/
-#nav-placeholder{
+#nav-placeholder {
     position: sticky;
     top: 0;
     z-index: 2;
 }
 
-nav{
+nav {
     display: flex;
     padding: 3px 20px;
     align-items: center;
@@ -54,12 +61,12 @@ nav{
 }
 
 /* left navbar */
-nav .left{
+nav .left {
     flex: 1;
 
     display: flex;
-  
-  align-content: center;
+
+    align-content: center;
 }
 
 .left img {
@@ -71,7 +78,7 @@ nav .mid {
     flex: 1;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -88,7 +95,7 @@ nav .mid {
     margin: 4px 4px 4px 10px;
 }
 
-.search-bar input{
+.search-bar input {
     width: 85%;
     height: 16px;
     background-color: var(--accent);
@@ -97,7 +104,7 @@ nav .mid {
 }
 
 /* right navbar */
-nav .right{
+nav .right {
     flex: 1;
     text-align: right;
 }
@@ -111,14 +118,14 @@ nav .right{
 /********* SIGN UP & LOG IN ************/
 
 .sign-up-log-in {
-    display:flex;
+    display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0px 100px;
     height: 90vh;
-}   
+}
 
-.sign-up-log-in .left{
+.sign-up-log-in .left {
     flex: 2;
     padding: 7.5% 2.5%;
     display: flex;
@@ -128,7 +135,7 @@ nav .right{
     min-width: 500px;
 }
 
-.sign-up-log-in .right{
+.sign-up-log-in .right {
     flex: 3;
     display: flex;
     align-items: center;
@@ -137,18 +144,18 @@ nav .right{
     padding: 7.5% 2.5%;
 }
 
-.sign-up-log-in img{
+.sign-up-log-in img {
     max-width: 100%;
     min-width: 375px;
 }
 
-.sign-up-log-in h1{
+.sign-up-log-in h1 {
     font: var(--h1-font);
     font-weight: bold;
     font-size: 36px;
 }
 
-.sign-up-log-in .grid{
+.sign-up-log-in .grid {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 45px 45px;
@@ -157,26 +164,26 @@ nav .right{
     row-gap: 20px;
 }
 
-.sign-up-log-in input::placeholder{
+.sign-up-log-in input::placeholder {
     font: var(--def-font);
-    font-size: 16px; 
+    font-size: 16px;
 }
 
-.sign-up-log-in input{
+.sign-up-log-in input {
     font-family: inherit;
     padding: 10px;
     border: 2px solid var(--accent);
     border-radius: 5px;
 }
 
-.sign-up-log-in .other{
+.sign-up-log-in .other {
     grid-column: 1 / span 2;
     display: flex;
     align-items: center;
     justify-content: left;
 }
 
-.sign-up-log-in .button{
+.sign-up-log-in .button {
     font-size: 16px;
     grid-column: 1 / span 2;
     background-color: var(--primary);
@@ -184,47 +191,47 @@ nav .right{
     color: white;
 }
 
-.sign-up-log-in .old-new-account{
+.sign-up-log-in .old-new-account {
     text-align: end;
 }
 
-.sign-up-log-in a{
+.sign-up-log-in a {
     color: var(--primary);
     text-decoration: underline;
     text-align: right;
 }
 
-.sign-up-log-in h2{
+.sign-up-log-in h2 {
     font: var(--h1-font);
     font-weight: normal;
     font-size: 32px;
 }
 
 /********* MAP ************/
-#map{
+#map {
     position: relative;
     z-index: 1;
 }
 
-#map svg .map path{
+#map svg .map path {
     fill: var(--primary);
 }
 
-#map svg .road #taftroad{
+#map svg .road #taftroad {
     fill: var(--borders);
 }
 
-#map svg .pins path{
+#map svg .pins path {
     stroke: var(--basic-text);
     stroke-width: 20px;
 }
 
-.map:hover{
+.map:hover {
     fill: white;
 }
 
 /********* CARD HOVER ************/
-#bb-holder{
+#bb-holder {
     position: absolute;
     height: 100px;
     width: 100%;
@@ -232,7 +239,7 @@ nav .right{
     flex-direction: row-reverse;
 }
 
-#bb-holder .content-holder{
+#bb-holder .content-holder {
     position: relative;
     width: 30%;
     background-image: url("assets/sprites/billboard.png");
@@ -247,7 +254,7 @@ nav .right{
     font-size: 2vw;
 }
 
-#bb-holder .content-holder img{
+#bb-holder .content-holder img {
     width: 7vw;
 }
 
@@ -258,14 +265,15 @@ nav .right{
 
 /********* PROFILE ************/
 /********* PROFILE-TOP ************/
-.profile-page-top, .profile-page-bottom {
+.profile-page-top,
+.profile-page-bottom {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 100px;
 }
 
-#profile-bio h1{
+#profile-bio h1 {
     font-size: 3em;
     font-weight: 800;
 }
@@ -273,7 +281,7 @@ nav .right{
 #profile-bio {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
-    grid-template-rows:  3fr 1fr 3fr;
+    grid-template-rows: 3fr 1fr 3fr;
     margin: .2vw 0;
     column-gap: 2vw;
     row-gap: 1vw;
@@ -291,7 +299,8 @@ nav .right{
     align-items: end;
 }
 
-#profile-bio .reviews, .photos{
+#profile-bio .reviews,
+.photos {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -305,20 +314,21 @@ nav .right{
     justify-content: center;
 }
 
-#profile-bio .profile-picture img{
+#profile-bio .profile-picture img {
     width: 200px;
     height: 200px;
     border-radius: 100%;
     border: var(--accent) solid 3px;
 }
 
-#profile-bio .helpful, .member-since {
+#profile-bio .helpful,
+.member-since {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
     justify-content: right;
     font-style: italic;
-    color:var(--borders);
+    color: var(--borders);
 }
 
 #profile-bio .helpful {
@@ -327,7 +337,7 @@ nav .right{
     align-items: center;
     justify-content: right;
     font-style: italic;
-    color:var(--borders);
+    color: var(--borders);
 }
 
 #profile-bio .description {
@@ -347,14 +357,16 @@ nav .right{
     margin-right: 10px;
 }
 
-#profile-bio .update, .logout{
+#profile-bio .update,
+.logout {
     display: flex;
     align-items: center;
     justify-content: right;
     font-size: 14px;
     font-style: italic;
-    color:var(--borders);
+    color: var(--borders);
 }
+
 /********* PROFILE-BOTTOM ************/
 #profile-reviews-grid {
     display: grid;
@@ -366,27 +378,33 @@ nav .right{
     align-items: top;
     justify-content: center;
 }
+
 /* FONTS */
 .profile-page-bottom h1 {
     font-weight: 800;
 }
-.profile-page-bottom h2{
+
+.profile-page-bottom h2 {
     font-weight: 700;
     font-size: 1.625em;
 }
-.profile-page-bottom h3{
+
+.profile-page-bottom h3 {
     font-weight: 600;
     font-size: 1.25em;
 }
-.profile-page-bottom h4{
+
+.profile-page-bottom h4 {
     font-weight: 400;
     font-size: 0.875em;
 }
-.profile-page-bottom h5{
+
+.profile-page-bottom h5 {
     font-weight: 200;
     font-size: 0.625em;
 }
-.profile-page-bottom h6{
+
+.profile-page-bottom h6 {
     font-weight: 200;
     font-size: 0.5em;
 }
@@ -404,7 +422,8 @@ nav .right{
     font-style: oblique;
 }
 
-.review-rating, .smaller-flag {
+.review-rating,
+.smaller-flag {
     grid-area: d;
     align-self: center;
     align-items: center;
@@ -412,7 +431,7 @@ nav .right{
 }
 
 .smaller-flag {
-    grid-area: d!important;
+    grid-area: d !important;
     display: flex;
     align-self: center;
     align-items: end;
@@ -438,22 +457,22 @@ nav .right{
 
 .review-body {
     grid-area: g;
-    align-self: top!important;
+    align-self: top !important;
 }
 
-.review-helpful{
+.review-helpful {
     grid-area: h;
 }
 
-.review-not-helpful{
+.review-not-helpful {
     grid-area: i;
 }
 
-.review-edit{
+.review-edit {
     grid-area: j;
 }
 
-.review-delete{
+.review-delete {
     grid-area: k;
 }
 
@@ -462,6 +481,7 @@ nav .right{
     text-align: right;
     font-style: italic;
 }
+
 /********* PROFILE-BOTTOM-LEFT ************/
 #top-reviews-grid {
     display: grid;
@@ -538,6 +558,180 @@ nav .right{
     vertical-align: center;
 }
 
-.smaller-flag svg{
-    width: 50px!important;
+.smaller-flag svg {
+    width: 50px !important;
+}
+
+/* REVIEW PAGE */
+.review-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 20px;
+    height: 600px;
+    row-gap: 50px;
+    margin-top: 20px;
+}
+
+.review-container .panel1 {
+    border-radius: 10px;
+    display: grid;
+    grid-template-rows: 11vw 4vw 8vw 5vw;
+    grid-gap: 20px;
+    background-color: white;
+    row-gap: 30px;
+}
+
+.review-container .panel1 .panel1-img {
+    background-image: url("assets/sprites/pexels-ella-olsson-1640772.jpg");
+    background-size: cover;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    padding: 0;
+}
+
+.review-container .panel1 .header-deet {
+    display: grid;
+    grid-template-rows: 0.1fr 0.5fr 3fr;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 30px;
+    padding-top: 20px;
+}
+
+.review-container .panel1 .header-title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+    padding-left: 10%;
+    font-size: 36px;
+}
+
+.review-container .panel1 .header-deet .header-icon {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    place-items: center;
+    font-family: "Open Sans";
+    margin-right: 10px;
+}
+
+.review-container .panel1 svg {
+    position: top;
+}
+
+.review-container .panel1 .description {
+    display: grid;
+    grid-template-rows: 3vw 5vw;
+    row-gap: 20px;
+    padding-left: 6%;
+    padding-right: 5%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.review-container .panel1 h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
+}
+
+.review-container.panel1 .description .content {
+    font-size: 1rem;
+}
+
+.review-container .panel1 .menu {
+    display: grid;
+    grid-template-rows: 2vw 4vw 4vw;
+    row-gap: 30px;
+    padding-left: 6%;
+    padding-right: 5%;
+    grid-column-gap: 10px;
+    padding-top: 1vw;
+    grid-gap: 30px;
+}
+
+.review-container .panel1 .menu .img .img1 {
+    height: 100px;
+    width: 100px;
+    margin-right: 20px;
+}
+
+
+.review-container .panel2 .panel2-container {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    display: grid;
+    row-gap: 10px;
+}
+
+.review-container .panel1 .menu .img .img2 {
+    height: 100px;
+    width: 100px;
+}
+
+.review-container .panel2 .add-review {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 40px;
+}
+
+.review-container .panel2 .add-review .add-revbutton {
+    font-family: 'Open Sans' sans-serif;
+    font-weight: bold;
+}
+
+@media (max-width: 1400px) {
+    .review-container .panel1 {
+        grid-template-rows: 1fr 0.01fr 0.15fr 0.15fr;
+        grid-template-columns: 3fr;
+        row-gap: 20px;
+    }
+
+    .review-container .panel1 .header-deet {
+        display: grid;
+        grid-template-rows: 0.1fr 0.5fr 3fr;
+        grid-template-columns: 1.5fr 1fr;
+        column-gap: 30px;
+    }
+}
+
+/* COMPOSE REVIEW */
+.compose-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 75%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.compose-container .compose-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e9e9e9;
+    padding: 10px;
+}
+
+.compose-container form {
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    font-family: var(--def-font);
+}
+
+.compose-container .subject {
+    border-bottom: #e9e9e9 solid 1px;
+    padding: 5px;
+}
+
+.compose-container .message {
+    padding: 5px;
+    height: 70vh;
+}
+
+.compose-container form img {
+    width: 25px;
+    padding-right: 10px;
 }
