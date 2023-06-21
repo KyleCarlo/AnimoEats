@@ -668,15 +668,10 @@ nav .right {
     width: 100px;
 }
 
-.review-container .panel2 .add-review {
-    display: grid;
-    grid-template-columns: 1fr;
-    height: 40px;
-}
-
-.review-container .panel2 .add-review .add-revbutton {
+.review-container .panel2 .add-revbutton {
     font-family: 'Open Sans' sans-serif;
     font-weight: bold;
+    height: 40px;
 }
 
 @media (max-width: 1400px) {
