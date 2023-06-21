@@ -1,5 +1,6 @@
 $(document).ready(function() {
     execute();
+    createReview();
 });
 
 function execute(){
@@ -151,4 +152,27 @@ function loadTopReviews(url){
             date.innerHTML = "Posted on " +  month[topReviews[i].date.month] + " " + topReviews[i].date.day + ", " + topReviews[i].date.year;
         }
     }, 500);
+}
+
+function createReview(){
+    $(".add-revbutton").on("click", function (){
+        let body = $('body')[0];
+        body.innerHTML += '<div class="cover" style="position: fixed; z-index: 3; top: 0; background-color: black; width: 100%; height: 100vh; opacity: 0.5"></div>';
+        body.style.overflow = "hidden";
+        
+        $('.add-review').load('add.html');
+        let review = $('.add-review')[0];
+        review.style.zIndex = "4";
+
+        setTimeout(function(){
+            let x = $('.compose-header span');
+            console.log(x);
+            x.on('click', function(){
+                $('.cover').remove();
+                $('.add-review').remove();
+                body.style.overflow = "initial";
+            })
+        }, 300);
+        
+    })
 }
