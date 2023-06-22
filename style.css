@@ -37,7 +37,13 @@ input:focus {
 textarea {
     resize: none;
     border: none;
-    font-family: var(--def-font);
+    font-family: var(--def-fonts);
+}
+
+textarea:focus {
+    border: var(--accent) solid 1px;
+    outline: none;
+    border-radius: 5px;
 }
 
 body {
@@ -399,7 +405,8 @@ nav .right {
     font-weight: 400;
     font-size: 0.875em;
 }
-.profile-page-bottom h5{
+
+.profile-page-bottom h5 {
     font-weight: 300;
     font-size: 0.625em;
 }
@@ -755,6 +762,16 @@ nav .right {
     font-family: 'Open Sans' sans-serif;
     font-weight: bold;
     height: 40px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    border: var(--borders) solid 1px;
+    color: white;
+}
+
+.review-container .panel2 .add-revbutton:hover {
+    cursor: pointer;
+    background-color: var(--secondary);
+    color: black;
 }
 
 @media (max-width: 1400px) {
@@ -780,13 +797,16 @@ nav .right {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
 .compose-container .compose-header {
     display: flex;
     justify-content: space-between;
-    background-color: #e9e9e9;
+    background-color: var(--secondary);
     padding: 10px;
+    border-radius: 10px 10px 0 0;
+
 }
 
 .compose-container form {
@@ -797,19 +817,29 @@ nav .right {
     padding: 10px;
     background-color: white;
     font-family: var(--def-font);
+    border-radius: 0 0 10px 10px;
 }
 
-.compose-container .subject {
-    border-bottom: #e9e9e9 solid 1px;
-    padding: 5px;
+.compose-container .compose-subject {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    border-bottom: var(--accent) solid 1px;
+    margin-bottom: 10px;
 }
 
 .compose-container .message {
     padding: 5px;
     height: 70vh;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.compose-container .add-icons {
+    display: grid;
+    grid-template-columns: 50fr 1fr;
 }
 
 .compose-container form img {
     width: 25px;
-    padding-right: 10px;
+    padding-left: 5px;
 }
