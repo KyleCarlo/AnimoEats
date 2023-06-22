@@ -300,8 +300,8 @@ nav .right {
     align-items: end;
 }
 
-#profile-bio .reviews,
-.photos {
+#profile-bio .reviews-count,
+.photos-count {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -322,8 +322,8 @@ nav .right {
     border: var(--accent) solid 3px;
 }
 
-#profile-bio .helpful,
-.member-since {
+#profile-bio .helpful-count,
+.member-since-date {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
@@ -332,7 +332,7 @@ nav .right {
     color: var(--borders);
 }
 
-#profile-bio .helpful {
+#profile-bio .helpful-count {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
@@ -341,24 +341,24 @@ nav .right {
     color: var(--borders);
 }
 
-#profile-bio .description {
+#profile-bio .profile-description {
     grid-column: 2 / span 2;
     font-size: 14px;
     font-weight: lighter;
     padding: 0.25em;
 }
 
-#profile-bio .count {
+#profile-bio .profile-count {
     font-weight: bold;
     margin-right: 5px;
 }
 
-#profile-bio .icon {
+#profile-bio .profile-icons {
     height: 25px;
     margin-right: 10px;
 }
 
-#profile-bio .update,
+#profile-bio .profile-update,
 .logout {
     display: flex;
     align-items: center;
@@ -602,7 +602,7 @@ nav .right {
     width: 50px !important;
 }
 
-/* RECENTS PAGE */
+/* RECENT REVIEWS PAGE */
 .profile-page-bottom #recent-reviews-grid {
     display: grid;
     grid-template-rows: auto auto;
