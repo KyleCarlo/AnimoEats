@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Edit Profile</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <style>
+        </style>
+    </head>
+    <body >
+        <form class="editprof-container">
+            <div class="profile-title">Edit Profile</div>
+                
+            <!--IMAGE -->
+            <div class="edit-photo">
+                <img src="assets/pics/seb-profile.jpg" alt="">
+                <div>
+                    <div class="username">sebastiandiaz</div>
+                    <div class="change-pp">Change profile picture</div>
+                </div>
+            </div>
+
+            <!-- FIRST NAME -->
+            <div class="first-name">First Name</div>
+            <div class="first-name-desc">This field is required.</div>
+            <input type="text" class="first-name-input" placeholder="Enter your First Name">
+
+            <!-- LAST NAME -->
+            <div class="last-name">Last Name</div>
+            <div class="last-name-desc">This field is required. Only your last initial will show on your profile.</div>
+            <input type="text" class="last-name-input" placeholder="Enter your Last Name">
+            
+            <!-- NICKNAME -->
+            <div class="nickname">Nickname</div>
+            <div class ="nickname-desc">The Boss, Calamity Jane, The Profilic Reviewer</div>
+            <input type="text" class="nickname-input" placeholder="Enter your Nickname">
+
+            <!-- BIO -->
+            <div class="biography">Biography</div>
+            <textarea class="bio-input" name="bio" rows="6" placeholder="Tell us about you"></textarea>
+
+            <input class="editsave" type="button" value="Save Changes">
+        </form>
+        
+        <script src="index.js"></script>
+    </body>
+</html>
