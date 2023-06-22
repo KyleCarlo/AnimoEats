@@ -1,26 +1,38 @@
 $(document).ready(function() {
-    execute();
-    createReview();
+    var path = window.location.pathname;
+    var page = path.split("/").pop();
+    execute(page);
     createReview();
 });
 
-function execute(){
-    loadComponents(hoverPath);
+function execute(page){
+    loadComponents(page, hoverPath, hoverStore);
 };
 
-function loadComponents(callback){
+function loadComponents(page, callback, callback2){
     $("#nav-placeholder").load("components/navbar.html");
     $("#card-sample").load("components/card-info.html");
     $(".top-review").load("components/top-review.html");
     $(".recent-review").load("components/recent-review.html");
     $(".recent-main").load("components/recent-main.html");
 
-    $("#map").load("assets/svg/map.html");
+    $("#map").load("assets/svg/map.html");  
+
+    for (var i = 0; i < 6; i++) {
+        $("#stores" + (i+1)).load("mini-card.html");
+    }
+
+    $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
         loadTopReviews("json/sample.json");
         $(".review-rating").load("assets/svg/flag.html");
-        callback();
+
+        if(page != 'map-specific.html'){
+            callback();
+        } else {
+            callback2();
+        }
     }, 500);
 };
 
@@ -180,6 +192,72 @@ function createReview(){
 
             createReview();
         }, 300);
-        
     })
 }
+
+function hoverStore(){
+    var card = $('.mini-card-container');
+    card[0].hidden = false;
+    
+    $('#map-specific .blackstem').on('mouseover', function(e){
+        card[0].style.position = 'absolute';
+        card[0].style.top = e.pageY + 'px';
+        card[0].style.left = (e.pageX+10) + 'px';
+        card.load('mini-card.html');
+    });
+
+    $('#map-specific .blackstem').on('mouseout', function(){
+        card[0].innerHTML = '';
+    });
+
+    $('#map-specific .jam-fruit').on('mouseover', function(e){
+        card[0].style.position = 'absolute';
+        card[0].style.top = e.pageY + 'px';
+        card[0].style.left = (e.pageX+10) + 'px';
+        card.load('mini-card.html');
+    });
+
+    $('#map-specific .jam-fruit').on('mouseout', function(){
+        card[0].innerHTML = '';
+    });
+
+    $('#map-specific .bowld').on('mouseover', function(e){
+        card[0].style.position = 'absolute';
+        card[0].style.top = e.pageY + 'px';
+        card[0].style.left = (e.pageX+10) + 'px';
+        card.load('mini-card.html');
+    });
+
+    $('#map-specific .bowld').on('mouseout', function(){
+        card[0].innerHTML = '';
+    });
+    $('#map-specific .queggs').on('mouseover', function(e){
+        card[0].style.position = 'absolute';
+        card[0].style.top = e.pageY + 'px';
+        card[0].style.left = (e.pageX+10) + 'px';
+        card.load('mini-card.html');
+    });
+
+    $('#map-specific .queggs').on('mouseout', function(){
+        card[0].innerHTML = '';
+    });
+    $('#map-specific .mongolian').on('mouseover', function(e){
+        card[0].style.position = 'absolute';
+        card[0].style.top = e.pageY + 'px';
+        card[0].style.left = (e.pageX+10) + 'px';
+        card.load('mini-card.html');
+    });
+
+    $('#map-specific .mongolian').on('mouseout', function(){
+        card[0].innerHTML = '';
+    });
+    card.hidden = true;
+    console.log('execution done');
+}
+
+// function initialize indexPage(){}
+// function initialize reviewPage(){}
+
+// <script>
+// if (document.getElementbyid(page1specificelement))
+// indexPage()
