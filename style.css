@@ -21,7 +21,7 @@
 }
 
 .clickable:hover{
-    cursor: pointer;
+    cursor: pointer!important;
 }
 
 a {
@@ -326,7 +326,6 @@ nav .right {
     justify-content: left;
     align-content: center;
 }
-
 
 .profile-helpful,
 .profile-member-since {
@@ -850,9 +849,10 @@ nav .right {
     display: flex;
     flex-direction: column;
     width: 60%;
-    margin: auto;
+    margin: 25px auto;
     background-color: white;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .editprof-container input,
@@ -882,6 +882,7 @@ nav .right {
     height: 100px;
     width: 100px;
     display: flex;
+    flex-direction: column;
     margin: 25px 0;
     align-items: center;
 }
@@ -892,16 +893,21 @@ nav .right {
     border-radius: 100%;
 }
 
-.editprof-container .username {
+/* .editprof-container .username {
+    grid-area: b;
+    align-self: end;
     width: 200%;
     margin: 0 20px;
     font-weight: bold;
-}
+    font-size:16px;
+} */
 
 .editprof-container .change-pp {
     width: 200%;
     margin: 0 20px;
     color: var(--primary);
+    font-size: 12px;
+    text-decoration: underline;
 }
 
 .edit .editprof-container .edit-photo div {
@@ -910,7 +916,7 @@ nav .right {
 
 .editprof-container .first-name,
 .editprof-container .last-name,
-.editprof-container .nickname,
+/* .editprof-container .nickname, */
 .editprof-container .biography {
     font-size: 24px;
     font-weight: bold;
@@ -918,20 +924,25 @@ nav .right {
 }
 
 .editprof-container .first-name-desc,
-.editprof-container .last-name-desc,
-.editprof-container .nickname-desc {
+.editprof-container .last-name-desc /*,
+.editprof-container .nickname-desc*/{ 
     color: gray;
     font-size: 12px;
     font-style: italic;
     padding: 0 0 5px 0;
 }
 
-.editprof-container .editsave {
+.editprof-container a{
+    width:max-content;
+}
+
+.editprof-container .editsave{
     background-color: var(--primary);
     color: white;
     margin: 10px 0;
     font-family: var(--def-font);
-
+    border-radius: 5px;
+    border: var(--accent) solid 1px;
 }
 
 .editprof-container .editsave:hover {
