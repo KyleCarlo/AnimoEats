@@ -3,7 +3,18 @@
     "bio":
     [
         {
-            
+            "username":"Sebastian Diaz",
+            "profile-picture":"assets/pics/preview1.jpg",
+            "helpful-count":1,
+            "reviews-count":1,
+            "photos-count":1,
+            "member-since-date":
+            {
+                "month":3,
+                "day":17,
+                "year":2023
+            },
+            "description": "Lorem Ipsum"
         }
     ],
     "top_reviews":

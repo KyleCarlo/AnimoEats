@@ -304,63 +304,49 @@ nav .right {
     box-shadow: 15px 15px 0px 2.5px var(--accent);
 }
 
-#profile-bio .username {
+#profile-bio .profile-picture {
+    grid-row: 1 / span 3;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    border: var(--accent) solid 3px;
+    align-self: center;
+}
+
+#profile-bio .profile-username {
     grid-column: 2 / span 2;
     display: flex;
     align-items: end;
 }
 
-#profile-bio .reviews,
-.photos {
+.profile-reviews,
+.profile-photos {
     display: flex;
     align-items: center;
     justify-content: left;
     align-content: center;
 }
 
-#profile-bio .profile-picture {
-    grid-row: 1 / span 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-#profile-bio .profile-picture img {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-    border: var(--accent) solid 3px;
-}
-
-#profile-bio .helpful,
-.member-since {
+.profile-helpful,
+.profile-member-since {
     grid-column: 4 / span 2;
-    display: flex;
-    align-items: center;
-    justify-content: right;
+    text-align: end;
+    align-self: center;
     font-style: italic;
     color: var(--borders);
 }
 
-#profile-bio .helpful {
-    grid-column: 4 / span 2;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    font-style: italic;
-    color: var(--borders);
-}
-
-#profile-bio .description {
+#profile-bio .profile-description {
     grid-column: 2 / span 2;
     font-size: 14px;
     font-weight: lighter;
     padding: 0.25em;
 }
 
-#profile-bio .count {
+.bold
+ {
     font-weight: bold;
-    margin-right: 5px;
 }
 
 #profile-bio .icon {
