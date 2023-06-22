@@ -843,3 +843,97 @@ nav .right {
     width: 25px;
     padding-left: 5px;
 }
+
+/* EDIT PROFILE */
+.editprof-container {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+}
+
+.editprof-container input,
+.editprof-container textarea {
+    border: var(--accent) solid 1px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.editprof-container .profile-title {
+    display: block;
+    border-bottom: var(--accent) solid 1px;
+    font-family: var(--def-font);
+    font-weight: bold;
+    font-size: 36px;
+    color: black;
+}
+
+.editprof-container .addedit-container {
+    font-family: var(--def-font);
+    font-weight: no;
+    font-size: 18px;
+}
+
+.editprof-container .edit-photo {
+    background-size: contain;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    margin: 25px 0;
+    align-items: center;
+}
+
+.editprof-container img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.editprof-container .username {
+    width: 200%;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+.editprof-container .change-pp {
+    width: 200%;
+    margin: 0 20px;
+    color: var(--primary);
+}
+
+.edit .editprof-container .edit-photo div {
+    color: black;
+}
+
+.editprof-container .first-name,
+.editprof-container .last-name,
+.editprof-container .nickname,
+.editprof-container .biography {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.editprof-container .first-name-desc,
+.editprof-container .last-name-desc,
+.editprof-container .nickname-desc {
+    color: gray;
+    font-size: 12px;
+    font-style: italic;
+    padding: 0 0 5px 0;
+}
+
+.editprof-container .editsave {
+    background-color: var(--primary);
+    color: white;
+    margin: 10px 0;
+    font-family: var(--def-font);
+
+}
+
+.editprof-container .editsave:hover {
+    background-color: var(--secondary);
+    color: black;
+}
