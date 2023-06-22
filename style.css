@@ -125,6 +125,25 @@ nav .right {
     border-radius: 100%;
 }
 
+.stores {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr 1fr;
+    justify-items: stretch;
+    justify-content: center;
+    grid-gap: 20px;
+}
+
+#map svg .pins path {
+    -webkit-animation: mover 1s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+}
+
+@keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
 /********* SIGN UP & LOG IN ************/
 
 .sign-up-log-in {
@@ -133,6 +152,7 @@ nav .right {
     flex-wrap: wrap;
     margin: 0px 100px;
     height: 90vh;
+    align-self: center;
 }
 
 .sign-up-log-in .left {
@@ -844,6 +864,19 @@ nav .right {
     padding-left: 5px;
 }
 
+/* MAP-SPECIFIC */
+#map-specific{
+    text-align: center;
+}
+
+#map-specific svg{
+    /* width: 100px; */
+}
+
+#map-specific svg g{
+    fill: var(--primary);
+}
+
 /* EDIT PROFILE */
 .editprof-container {
     display: flex;
@@ -948,4 +981,52 @@ nav .right {
 .editprof-container .editsave:hover {
     background-color: var(--secondary);
     color: black;
+}
+
+/* MINI CARD */
+.mini-card-container{
+    display: flex;
+    width:300px;
+    flex-direction: column;
+    font-family: "Open Sans" sans-serif;
+    
+}
+
+.mini-card-container .mini-top{
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/pics/icecream.jpg");
+    background-size: cover;
+    height:200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container .mini-name{
+margin:5px 10px 0px 10px;
+font-weight: bold;
+width: 300px;
+}
+
+.mini-card-container .mini-place{
+margin: 5px 10px;
+font-style: italic;
+}
+
+.mini-card-container .mini-review-container{
+background-color: white;
+}
+
+.mini-card-container .mini-review-container .mini-review-title, 
+.mini-card-container .mini-review-container .mini-review-content{
+margin: 10px 10px 10px 10px;
+font-family: "Open Sans" sans-serif;
+font-size: 12px;
+
+}
+
+.mini-card-container .mini-review-container .mini-review-title{
+font-weight: bold;
 }
