@@ -843,3 +843,12 @@ nav .right {
     width: 25px;
     padding-left: 5px;
 }
+
+/* MAP-SPECIFIC */
+#map-specific{
+    text-align: center;
+}
+
+#map-specific svg{
+    width: 100vh;
+}

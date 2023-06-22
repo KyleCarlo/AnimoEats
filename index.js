@@ -16,6 +16,7 @@ function loadComponents(callback){
     $(".recent-main").load("components/recent-main.html");
 
     $("#map").load("assets/svg/map.html");
+    $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
         loadTopReviews("json/sample.json");
