@@ -478,8 +478,8 @@ nav .right {
     color: var(--borders);
 
     padding: 0 20px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    /*border-top-right-radius: 0;*/
+    /*border-bottom-right-radius: 0;*/
 }
 
 .review-not-helpful {
@@ -607,6 +607,49 @@ nav .right {
 
 .smaller-flag svg {
     width: 50px !important;
+}
+
+/* RECENTS PAGE */
+.profile-page-bottom #recent-reviews-grid {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+    column-gap: .2vw;
+}
+
+#recent-reviews-grid h1 {
+    grid-column: 1 / span 2;
+}
+
+#recent-reviews-grid .recent-main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 2fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a d b b"
+        "c c c c e"
+        "g g g g e"
+        "h i j k l";
+    justify-content: center;
+    align-content: center;
+    padding: 15px 20px 5px 20px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+
+}
+
+#recent-reviews-grid .recent-main img {
+    width: 150px;
+    height: 130px;
+    border-radius: 10px;
 }
 
 /* REVIEW PAGE */

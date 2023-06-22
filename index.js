@@ -13,6 +13,7 @@ function loadComponents(callback){
     $("#card-sample").load("components/card-info.html");
     $(".top-review").load("components/top-review.html");
     $(".recent-review").load("components/recent-review.html");
+    $(".recent-main").load("components/recent-main.html");
 
     $("#map").load("assets/svg/map.html");
 
