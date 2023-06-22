@@ -1,5 +1,22 @@
 {
     "user": "Sebastian Diaz",
+    "bio":
+            [
+                {
+                    "username":"Sebastian Diaz",
+                    "profile-picture":"assets/pics/profile1.jpg",
+                    "helpful-count":1,
+                    "reviews-count":1,
+                    "photos-count":1,
+                    "member-since-date":
+                    {
+                        "month":3,
+                        "day":17,
+                        "year":2023
+                    },
+                    "description": "Lorem Ipsum"
+                }
+            ],
     "top_reviews":
     [
         {
@@ -11,7 +28,7 @@
             "body":"Masarap sa Kuya Mel's. Sulit yung Salisbury.",
             "date":
             {
-                "month":3,
+                "month":8,
                 "day":17,
                 "year":2023
             }
@@ -25,7 +42,7 @@
             "body":"Crispy Juicy Chicken 24 hours",
             "date":
             {
-                "month":3,
+                "month":1,
                 "day":17,
                 "year":2023
             }
@@ -41,6 +58,20 @@
             {
                 "month":3,
                 "day":17,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Angrydobo",
+            "subject":"Not that good of an adobo for an adobo place",
+            "rating":2.0,
+            "preview":"assets/pics/preview7.jpg",
+            "images":"assets/pics/preview8.jpg",
+            "body":"TBH, mas masarap pa adobo ng mom ko kesa dito. The place was nice though.",
+            "date":
+            {
+                "month":2,
+                "day":15,
                 "year":2023
             }
         }
