@@ -471,8 +471,8 @@ nav .right {
     color: var(--borders);
 
     padding: 0 20px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    /*border-top-right-radius: 0;*/
+    /*border-bottom-right-radius: 0;*/
 }
 
 .review-not-helpful {
