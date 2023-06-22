@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+.clickable:hover{
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     color: var(--basic-text);
@@ -306,8 +310,8 @@ nav .right {
     align-items: end;
 }
 
-#profile-bio .reviews,
-.photos {
+#profile-bio .reviews-count,
+.photos-count {
     display: flex;
     align-items: center;
     justify-content: left;
@@ -328,8 +332,8 @@ nav .right {
     border: var(--accent) solid 3px;
 }
 
-#profile-bio .helpful,
-.member-since {
+#profile-bio .helpful-count,
+.member-since-date {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
@@ -338,7 +342,7 @@ nav .right {
     color: var(--borders);
 }
 
-#profile-bio .helpful {
+#profile-bio .helpful-count {
     grid-column: 4 / span 2;
     display: flex;
     align-items: center;
@@ -347,24 +351,24 @@ nav .right {
     color: var(--borders);
 }
 
-#profile-bio .description {
+#profile-bio .profile-description {
     grid-column: 2 / span 2;
     font-size: 14px;
     font-weight: lighter;
     padding: 0.25em;
 }
 
-#profile-bio .count {
+#profile-bio .profile-count {
     font-weight: bold;
     margin-right: 5px;
 }
 
-#profile-bio .icon {
+#profile-bio .profile-icons {
     height: 25px;
     margin-right: 10px;
 }
 
-#profile-bio .update,
+#profile-bio .profile-update,
 .logout {
     display: flex;
     align-items: center;
@@ -416,7 +420,82 @@ nav .right {
     font-size: 0.5em;
 }
 
-/* REVIEW */
+/********* PROFILE-BOTTOM-LEFT ************/
+#top-reviews-grid {
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: top;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.top-review {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr 1fr 2fr 0.25fr;
+    column-gap: .2vw;
+    row-gap: .2vw;
+    grid-template-areas:
+        "a a b b b"
+        "c c d e f"
+        "g g g e f"
+        "h i j k l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 15px 20px 10px 20px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+/********* PROFILE-BOTTOM-RIGHT ************/
+#recent-reviews {
+    background-color: white;
+    border-radius: 20px;
+    border: var(--borders) solid 1.5px;
+
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: var(--borders) solid 2px;
+    row-gap: .2vw;
+}
+
+.recent-review {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 1.75fr .25fr;
+    column-gap: .2vw;
+    grid-template-areas:
+        "a a a"
+        "c c d"
+        "g g g"
+        "l l l";
+    align-items: top;
+    justify-content: center;
+    align-content: center;
+    padding: 7.5px 10px 2.5px 10px;
+    border-radius: 10px;
+    border: var(--borders) solid 1px;
+    vertical-align: center;
+}
+
+.smaller-flag svg {
+    width: 50px !important;
+}
+
+/*********** REVIEW ***************/
 .review-restaurant {
     grid-area: a;
     border-bottom: var(--borders) solid 1px;
@@ -469,28 +548,44 @@ nav .right {
 
 .review-helpful {
     grid-area: h;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 7.5px;
-    border: var(--borders) dotted 1px;
-    padding: 1px;
-    color: var(--borders);
-
-    padding: 0 20px;
-    /*border-top-right-radius: 0;*/
-    /*border-bottom-right-radius: 0;*/
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 0 7.5px;
 }
 
-.review-not-helpful {
-    grid-area: i;
+.review-thumbs-up, .review-thumbs-down{
     display: flex;
+    flex-direction: row;
+    align-content: center;
     align-items: center;
     justify-content: center;
     border-radius: 7.5px;
     border: var(--borders) dotted 1px;
-    padding: 1px;
-    color: var(--borders);
+    padding: 2.5px 0;
+}
+
+.review-thumbs-up:hover,
+.review-thumbs-down:hover,
+.review-edit:hover,
+.review-delete:hover{
+    background-color: var(--accent);
+    border-style: solid;
+}
+
+.review-thumbs-up{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.review-thumbs-down{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.review-icon {
+    height: 15px;
+    width: 15px;
+    margin-right: 7.5px;
 }
 
 .review-edit {
@@ -522,91 +617,10 @@ nav .right {
     align-self: end;
 }
 
-/********* PROFILE-BOTTOM-LEFT ************/
-#top-reviews-grid {
-    display: grid;
-    grid-template-rows: auto auto auto auto;
-    align-items: center;
-    justify-content: center;
-    align-content: top;
-    padding: 20px 20px;
-    background-color: white;
-    border-radius: 10px;
-    border: var(--borders) solid 2px;
-    row-gap: .2vw;
-}
-
-.top-review {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 1fr 1fr 2fr .25fr;
-    column-gap: .2vw;
-    row-gap: .2vw;
-    grid-template-areas:
-        "a a b b b"
-        "c c d e f"
-        "g g g e f"
-        "h i j k l";
-    align-items: top;
-    justify-content: center;
-    align-content: center;
-    padding: 15px 20px 10px 20px;
-    border-radius: 10px;
-    border: var(--borders) solid 1px;
-    vertical-align: center;
-}
-
-.top-review .pics {
+.review-pics {
     width: 150px;
     height: 130px;
     border-radius: 10px;
-}
-
-.top-review .icon {
-    height: 15px;
-    width: 15px;
-    margin-right: 7.5px;
-}
-
-/********* PROFILE-BOTTOM-RIGHT ************/
-#recent-reviews {
-    background-color: white;
-    border-radius: 20px;
-    border: var(--borders) solid 1.5px;
-
-    display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    padding: 20px 20px;
-    background-color: white;
-    border-radius: 10px;
-    border: var(--borders) solid 2px;
-    row-gap: .2vw;
-}
-
-.recent-review {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr 1fr 1.75fr .25fr;
-    column-gap: .2vw;
-    grid-template-areas:
-        "a a a"
-        "c c d"
-        "g g g"
-        "l l l";
-    align-items: top;
-    justify-content: center;
-    align-content: center;
-    padding: 7.5px 10px 2.5px 10px;
-    border-radius: 10px;
-    border: var(--borders) solid 1px;
-    vertical-align: center;
-}
-
-.smaller-flag svg {
-    width: 50px !important;
 }
 
 /* RECENTS PAGE */
@@ -769,7 +783,7 @@ nav .right {
 }
 
 .review-container .panel2 .add-revbutton:hover {
-    cursor: pointer;
+
     background-color: var(--secondary);
     color: black;
 }

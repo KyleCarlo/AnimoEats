@@ -1,0 +1,69 @@
+{
+    "user": "Daphne Go",
+    "bio":
+            [
+                {
+                    "username":"Daphne Go",
+                    "profile-picture":"assets/pics/profile3.jpg",
+                    "helpful-count":5,
+                    "reviews-count":25,
+                    "photos-count":18,
+                    "member-since-date":
+                    {
+                        "month":3,
+                        "day":8,
+                        "year":2023
+                    },
+                    "description": "You're on the phone with your girlfriend, she's upset. She's going off about something that you said."
+                }
+            ],
+    "top_reviews":
+    [
+        {
+            "resto_name":"Linfong Cuisine",
+            "subject":"Best resto in Taft!",
+            "rating":5.0,
+            "preview":"assets/pics/preview15.jpg",
+            "images":"assets/pics/preview16.jpg",
+            "body":"Linfong Cuisine offers a delightful culinary journey with its diverse menu, expertly crafted dishes, and impeccable presentation that will leave your taste buds tantalized and your dining experience truly memorable.",
+            "date":
+            {
+                "month":1,
+                "day":8,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Dixie's",
+            "subject":"Meh food",
+            "rating":2.5,
+            "preview":"assets/pics/preview17.jpg",
+            "images":"assets/pics/preview18.jpg",
+            "body":"Dixie's Filipino Grill is a culinary haven that transports you to the vibrant streets of the Philippines, serving up authentic flavors, sizzling grills, and a warm ambiance that will make you feel right at home while indulging in their mouthwatering Filipino delicacies.",
+            "date":
+            {
+                "month":4,
+                "day":26,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Tinuhog ni Benny",
+            "subject":"Sulit and masarap",
+            "rating":4.5,
+            "preview":"assets/pics/preview19.jpg",
+            "images":"assets/pics/preview20.jpg",
+            "body":"Tinuhog ni Benny is a barbecue haven that takes the art of grilling to new heights, offering perfectly charred and succulent meats skewered to perfection, accompanied by an array of delectable marinades and sauces that will ignite your taste buds and leave you craving for more.",
+            "date":
+            {
+                "month":1,
+                "day":15,
+                "year":2023
+            }
+        }
+    ],
+    "recent_reviews":
+    [
+
+    ]
+}

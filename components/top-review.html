@@ -9,20 +9,27 @@
     <h2 class="review-restaurant"></h2>
     <h3 class="review-subject"></h3>
     <div class="review-rating"></div>
-    <img class="review-preview pics"></img>
-    <img class="review-images pics"></img>
+    <img class="review-preview review-pics"></img>
+    <img class="review-images review-pics"></img>
     <h4 class="review-body"></h4>
     <div class="review-helpful">
-        <img class = "icon" src="assets/sprites/like-gray-hollow.png">
-        <img class = "icon" src="assets/sprites/like-gray-hollow.png">
+        
+        <div title="Helpful" class="review-thumbs-up clickable">
+            <img class = "review-icon" src="assets/sprites/like-gray-hollow.png">
+            <h5 class="review-helpful-count">123</h5>
+        </div>
+        
+        <div title="Not Helpful" class="review-thumbs-down clickable">
+            <img class = "review-icon" src="assets/sprites/dislike-gray-hollow.png">
+            <h5 class="review-unhelpful-count">12</h5>
+        </div>
     </div>
-    <!-- <div class="review-not-helpful">
-        <h5>Not Helpful</h5>
-    </div> -->
-    <div class="review-edit">
+    <div class="review-edit clickable">
+        <img class = "review-icon" src="assets/sprites/pen-gray-hollow.png">
         <h5>Edit</h5>
     </div>
-    <div class="review-delete">
+    <div class="review-delete clickable">
+        <img class = "review-icon" src="assets/sprites/trash-gray-hollow.png">
         <h5>Delete</h5>
     </div>
 
