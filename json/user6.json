@@ -14,7 +14,7 @@
                         "day":30,
                         "year":2023
                     },
-                    "description": "Pellentesque semper tellus eget nunc congue tincidunt. Morbi egestas tortor vitae urna pellentesque, sed fringilla neque malesuada."
+                    "description": "Always with friends trying out new things."
                 }
             ],
     "top_reviews":
@@ -25,7 +25,7 @@
             "rating":3.0,
             "preview":"assets/pics/preview33.jpg",
             "images":"assets/pics/preview34.jpg",
-            "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "body":"The quality is hit or miss. I recommend the honey garlic chicken, if you haven't tried it yet. It's the best thing on the menu.",
             "date":
             {
                 "month":2,
@@ -39,7 +39,7 @@
             "rating":5.0,
             "preview":"assets/pics/preview35.jpg",
             "images":"assets/pics/preview36.jpg",
-            "body":"Pellentesque luctus sed nunc nec sodales. Curabitur varius lacus et nibh vehicula, sed pretium eros ultrices.",
+            "body":"Hello? Wasabi flavor? I'm in heaven. If it's not Potato Corner, it's bad.",
             "date":
             {
                 "month":1,
@@ -53,7 +53,7 @@
             "rating":2.0,
             "preview":"assets/pics/preview37.jpg",
             "images":"assets/pics/preview38.jpg",
-            "body":"Duis faucibus tempus orci sed blandit. Vivamus vestibulum posuere arcu, et faucibus nisl congue eget.",
+            "body":"Taft has a lot more to offer when it comes to Infinitea. Go a couple of blocks down and you'd find Royaltea.",
             "date":
             {
                 "month":5,

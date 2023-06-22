@@ -14,7 +14,7 @@
                         "day":17,
                         "year":2023
                     },
-                    "description": "Lorem Ipsum"
+                    "description": "My reviews and comments do not reflect the views of the organizations I'm affiliated with."
                 }
             ],
     "top_reviews":
@@ -39,7 +39,7 @@
             "rating":4.0,
             "preview":"assets/pics/preview3.jpg",
             "images":"assets/pics/preview4.jpg",
-            "body":"Crispy Juicy Chicken 24 hours",
+            "body":"Crispy Juicy Chicken. 24 hours sana sila open.",
             "date":
             {
                 "month":1,

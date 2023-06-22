@@ -14,7 +14,7 @@
                         "day":8,
                         "year":2023
                     },
-                    "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    "description": "Looking for places to eat at. Email me at kyle_lasala@dlsu.edu.ph if you want to connect."
                 }
             ],
     "top_reviews":
@@ -25,7 +25,7 @@
             "rating":3.0,
             "preview":"assets/pics/preview21.jpg",
             "images":"assets/pics/preview22.jpg",
-            "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "body":"The sisig is sakto. Not bad, but not the best either. I'd recommend going here every once in a while though.",
             "date":
             {
                 "month":1,
@@ -39,7 +39,7 @@
             "rating":4.0,
             "preview":"assets/pics/preview23.jpg",
             "images":"assets/pics/preview24.jpg",
-            "body":"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "body":"RomBab is the best with thick-cut meats talaga. I love the pork belly and the beef. The chicken is also good, but I prefer the pork and beef.",
             "date":
             {
                 "month":9,
@@ -53,7 +53,7 @@
             "rating":1.5,
             "preview":"assets/pics/preview25.jpg",
             "images":"assets/pics/preview26.jpg",
-            "body":"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "body":"You can barely taste the cheese. The food is bland and the service is bad. I don't recommend this place at all.",
             "date":
             {
                 "month":2,
