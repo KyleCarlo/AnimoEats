@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+.clickable:hover{
+    cursor: pointer;
+}
+
 a {
     text-decoration: none;
     color: var(--basic-text);
@@ -561,8 +565,12 @@ nav .right {
     padding: 2.5px 0;
 }
 
-.review-icon:hover{
-    
+.review-thumbs-up:hover,
+.review-thumbs-down:hover,
+.review-edit:hover,
+.review-delete:hover{
+    background-color: var(--accent);
+    border-style: solid;
 }
 
 .review-thumbs-up{
@@ -614,12 +622,6 @@ nav .right {
     width: 150px;
     height: 130px;
     border-radius: 10px;
-}
-
-.top-review .icon {
-    height: 15px;
-    width: 15px;
-    margin-right: 7.5px;
 }
 
 /* RECENTS PAGE */
@@ -782,7 +784,7 @@ nav .right {
 }
 
 .review-container .panel2 .add-revbutton:hover {
-    cursor: pointer;
+
     background-color: var(--secondary);
     color: black;
 }
