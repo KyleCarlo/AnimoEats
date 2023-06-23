@@ -483,7 +483,7 @@ nav .right {
     border: var(--borders) solid 1.5px;
 
     display: grid;
-    
+
     align-items: top;
     justify-content: top;
     align-content: top;
@@ -513,7 +513,7 @@ nav .right {
     vertical-align: center;
 }
 
-.view-more{
+.view-more {
     text-align: center;
     text-decoration: underline;
 }
@@ -1195,7 +1195,8 @@ nav .right {
     text-align: center;
     margin: 20px 0;
 }
-#map-specific svg g{
+
+#map-specific svg g {
     fill: var(--primary);
 }
 
@@ -1425,6 +1426,66 @@ nav .right {
     flex-direction: column;
 }
 
+.mini-card-container .mini-top1 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/bowld/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container .mini-top2 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/infinitea/preview2.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container .mini-top3 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/mongolian/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container .mini-top4 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/potato-corner/menu-2.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container .mini-top5 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/queggs/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
 .mini-card-container .mini-name {
     margin: 5px 10px 0px 10px;
     font-weight: bold;
@@ -1453,29 +1514,30 @@ nav .right {
 }
 
 /* LOG OUT HOVER */
-.log-out-hover-container{
+.log-out-hover-container {
     display: grid;
     width: 70%;
     margin: auto;
     height: 80vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    grid-template-areas: 
-    "a a" 
-    "b c";
+    grid-template-areas:
+        "a a"
+        "b c";
     row-gap: 10px;
     column-gap: 100px;
     justify-items: center;
     align-items: center;
 }
 
-.log-out-hover-container h2{
+.log-out-hover-container h2 {
     grid-area: a;
     align-self: end;
     color: white;
 }
 
-.log-out-hover-container .out, .log-out-hover-container a {
+.log-out-hover-container .out,
+.log-out-hover-container a {
     grid-area: b;
     justify-self: right;
     background-color: var(--primary);
@@ -1485,16 +1547,16 @@ nav .right {
     border: none;
 }
 
-.log-out-hover-container .out{
+.log-out-hover-container .out {
     padding: 10px;
 }
 
-.log-out-hover-container .out:hover{
+.log-out-hover-container .out:hover {
     background-color: var(--secondary);
-    color:black;
+    color: black;
 }
 
-.log-out-hover-container .cancel{
+.log-out-hover-container .cancel {
     grid-area: c;
     padding: 10px;
     justify-self: left;
@@ -1505,7 +1567,7 @@ nav .right {
     border: none;
 }
 
-.log-out-hover-container .cancel:hover{
+.log-out-hover-container .cancel:hover {
     background-color: var(--secondary);
-    color:black;
+    color: black;
 }
