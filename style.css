@@ -668,7 +668,7 @@ nav .right {
         "a a d b b"
         "c c c c e"
         "g g g g e"
-        "h i j k l";
+        "h h j k l";
     justify-content: center;
     align-content: center;
     padding: 15px 20px 5px 20px;
@@ -677,11 +677,6 @@ nav .right {
 
 }
 
-#recent-reviews-grid .recent-main img {
-    width: 150px;
-    height: 130px;
-    border-radius: 10px;
-}
 
 /* REVIEW PAGE */
 .review-container {
@@ -918,6 +913,7 @@ nav .right {
     flex-direction: column;
     margin: 25px 0;
     align-items: center;
+    align-self: center;
 }
 
 .editprof-container img {
@@ -941,6 +937,7 @@ nav .right {
     color: var(--primary);
     font-size: 12px;
     text-decoration: underline;
+    text-align: center;
 }
 
 .edit .editprof-container .edit-photo div {

@@ -1,0 +1,62 @@
+{
+    "restaurant": "Bowl'd",
+    "bio":
+    [
+        {
+            "picture":"assets/sprites/pexels-ash-376464.jpg",
+            "name":"Bowl'd",
+            "rating":4.0,
+            "price":"",
+            "description":"sjadklajskldja",
+            "menu_pic_1":"assets/sprites/menu-1.jpg",
+            "menu_pic_2":"assets/sprites/menu-1.jpg",
+            "menu_pic_3":"assets/sprites/menu-1.jpg",
+            "menu_pic_4":"assets/sprites/menu-1.jpg"
+        }
+    ],
+    "restaurant_reviews":
+    [
+        {
+            "user_name":"Sebastian Diaz",
+            "subject":"Will definitely come back!",
+            "rating":4.0,
+            "preview":"assets/pics/preview1.jpg",
+            "images":"assets/pics/preview2.jpg",
+            "body":"Masarap sa Kuya Mel's. Sulit yung Salisbury.",
+            "date":
+            {
+                "month":3,
+                "day":17,
+                "year":2023
+            }
+        },
+        {
+            "user_name":"XXXXXXXXXX",
+            "subject":"Very good! Hello, hi, it's me!",
+            "rating":4.0,
+            "preview":"assets/pics/preview3.jpg",
+            "images":"assets/pics/preview4.jpg",
+            "body":"Crispy Juicy Chicken. 24 hours sana sila open.",
+            "date":
+            {
+                "month":8,
+                "day":17,
+                "year":2023
+            }
+        },
+        {
+            "user_name":"XXXXXXXXXX",
+            "subject":"Go-to for sisig in Taft",
+            "rating":2.4,
+            "preview":"assets/pics/preview5.jpg",
+            "images":"assets/pics/preview6.jpg",
+            "body":"Best sisig in town may libre pang sabaw.",
+            "date":
+            {
+                "month":3,
+                "day":17,
+                "year":2023
+            }
+        }
+    ]
+}
