@@ -1,31 +1,30 @@
 {
     "user": "Daphne Go",
     "bio":
-    [
-        {
-            "first_name":"Daphne",
-            "last_name":"Go",
-            "profile_picture":"assets/pics/profile3.jpg",
-            "helpful_count":5,
-            "reviews_count":25,
-            "photos_count":18,
-            "member_since_date":
-            {
-                "month":3,
-                "day":8,
-                "year":2023
-            },
-            "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
-        }
-    ],
+            [
+                {
+                    "username":"Daphne Go",
+                    "profile-picture":"assets/pics/profile3.jpg",
+                    "helpful-count":5,
+                    "reviews-count":25,
+                    "photos-count":18,
+                    "member-since-date":
+                    {
+                        "month":3,
+                        "day":8,
+                        "year":2023
+                    },
+                    "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
+                }
+            ],
     "top_reviews":
     [
         {
             "resto_name":"Linfong Cuisine",
             "subject":"Best resto in Taft!",
             "rating":5.0,
-            "preview":"assets/pics/preview15.jpg",
-            "images":"assets/pics/preview16.jpg",
+            "preview":"assets/pics/preview1.jpg",
+            "images":"assets/pics/preview2.jpg",
             "body":"Best Chinese-Japanese fusion restaurant in Taft. I recommend their beef noodle and kwapao specifically. 100/10",
             "date":
             {
@@ -38,8 +37,8 @@
             "resto_name":"Dixie's",
             "subject":"Meh food",
             "rating":2.5,
-            "preview":"assets/pics/preview17.jpg",
-            "images":"assets/pics/preview18.jpg",
+            "preview":"assets/pics/preview3.jpg",
+            "images":"assets/pics/preview4.jpg",
             "body":"Lasang usok 'yung food pero pwede na for the price. I recommend going to Tinuhog ni Benny if you want a similar set of offerngs.",
             "date":
             {
@@ -52,8 +51,8 @@
             "resto_name":"Tinuhog ni Benny",
             "subject":"Sulit and masarap",
             "rating":4.5,
-            "preview":"assets/pics/preview19.jpg",
-            "images":"assets/pics/preview20.jpg",
+            "preview":"assets/pics/preview5.jpg",
+            "images":"assets/pics/preview6.jpg",
             "body":"A HAVEN FOR BBQ LOVERS! Sulit to order a meal and their 80-peso sisig always. Sana mas mabilis lang service.",
             "date":
             {
@@ -61,10 +60,34 @@
                 "day":15,
                 "year":2023
             }
+        },
+        {
+            "resto_name":"Mang Inasal",
+            "subject":"Good food but slow service",
+            "rating":3.0,
+            "preview":"assets/pics/preview1.jpg",
+            "images":"assets/pics/preview2.jpg",
+            "body":"Cheap good bbq but the service is slow and not that good. Also, the place is very hot and humid.",
+            "date":
+            {
+                "month":3,
+                "day":20,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"House of Gogi",
+            "subject":"Amoy usok paglabas",
+            "rating":2.5,
+            "preview":"assets/pics/preview3.jpg",
+            "images":"assets/pics/preview4.jpg",
+            "body":"It's so nice to eat here but the smell of the food sticks to your clothes. I recommend eating here if you're not going anywhere else after.",
+            "date":
+            {
+                "month":1,
+                "day":19,
+                "year":2023
+            }
         }
-    ],
-    "recent_reviews":
-    [
-
     ]
 }

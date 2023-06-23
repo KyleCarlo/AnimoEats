@@ -1,23 +1,22 @@
 {
     "user": "Francis Doble",
     "bio":
-    [
-        {
-            "first_name":"Francis",
-            "last_name":"Doble",
-            "profile_picture":"assets/pics/profile6.jpg",
-            "helpful_count":50,
-            "reviews_count":23,
-            "photos_count":25,
-            "member_since_date":
-            {
-                "month":3,
-                "day":30,
-                "year":2023
-            },
-            "description": "Always with friends trying out new things."
-        }
-    ],
+            [
+                {
+                    "username":"Francis Doble",
+                    "profile-picture":"assets/pics/profile6.jpg",
+                    "helpful-count":50,
+                    "reviews-count":23,
+                    "photos-count":25,
+                    "member-since-date":
+                    {
+                        "month":3,
+                        "day":30,
+                        "year":2023
+                    },
+                    "description": "Always with friends trying out new things."
+                }
+            ],
     "top_reviews":
     [
         {
@@ -25,8 +24,8 @@
             "subject":"Good but not always worth it",
             "rating":3.0,
             "preview":"assets/pics/preview33.jpg",
-            "images":"assets/pics/preview34.jpg",
-            "body":"The quality is hit or miss. I recommend the honey garlic chicken, if you haven't tried it yet. It's the best thing on the menu.",
+            "images":"assets/pics/preview3.jpg",
+            "body":"The quality is hit ormiss. I recommend the honey garlic chicken, if you haven't tried it yet. It's the best thing on the menu.",
             "date":
             {
                 "month":2,
@@ -39,8 +38,8 @@
             "subject":"Always the best fries",
             "rating":5.0,
             "preview":"assets/pics/preview35.jpg",
-            "images":"assets/pics/preview36.jpg",
-            "body":"Hello? Wasabi flavor? I'm in heaven. If it's not Potato Corner, it's bad.",
+            "images":"assets/pics/preview3.jpg",
+            "body":"Hello? Wasabi flavor?I'm in heaven. If it's not Potato Corner, it's bad.",
             "date":
             {
                 "month":1,
@@ -53,18 +52,44 @@
             "subject":"Could be better",
             "rating":2.0,
             "preview":"assets/pics/preview37.jpg",
-            "images":"assets/pics/preview38.jpg",
-            "body":"Taft has a lot more to offer when it comes to Infinitea. Go a couple of blocks down and you'd find Royaltea.",
+            "images":"assets/pics/preview31jpg",
+            "body":"Taft has a lot more t2offer when it comes to Infinitea. Go a couple of blocks down and you'd find Royaltea.",
             "date":
             {
                 "month":5,
                 "day":15,
                 "year":2023
             }
-        }
-    ],
-    "recent_reviews":
-    [
+        },
+
+        {
+            "resto_name":"Queggs",
+            "subject":"Satisified my cravings for street food",
+            "rating":3.0,
+            "preview":"assets/pics/preview3.jpg",
+            "images":"assets/pics/preview34.jpg",
+            "body":"Cheap but a little bit oily, make sure to drink up afterwards",
+            "date":
+            {
+                "month":5,
+                "day": 5,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Fruitas",
+            "subject":"Good but Expensive",
+            "rating":3.0,
+            "preview":"assets/pics/preview1.jpg",
+            "images":"assets/pics/preview5.jpg",
+            "body":"The best fruit shake, the downside is it will probably cost your whole wallet",
+            "date":
+            {
+                "month":4,
+                "day": 5,
+                "year":2023
+            }
+        }     
 
     ]
 }
