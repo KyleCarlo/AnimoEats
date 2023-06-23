@@ -1,22 +1,23 @@
 {
     "user": "Sebastian Diaz",
     "bio":
-            [
-                {
-                    "username":"Sebastian Diaz",
-                    "profile-picture":"assets/pics/profile1.jpg",
-                    "helpful-count":1,
-                    "reviews-count":1,
-                    "photos-count":1,
-                    "member-since-date":
-                    {
-                        "month":3,
-                        "day":17,
-                        "year":2023
-                    },
-                    "description": "My reviews and comments do not reflect the views of the organizations I'm affiliated with."
-                }
-            ],
+    [
+        {
+            "first_name":"Sebastian",
+            "last_name":"Diaz",
+            "profile_picture":"assets/pics/profile1.jpg",
+            "helpful_count":1,
+            "reviews_count":1,
+            "photos_count":1,
+            "member_since-date":
+            {
+                "month":3,
+                "day":17,
+                "year":2023
+            },
+            "description": "My reviews and comments do not reflect the views of the organizations I'm affiliated with."
+        }
+    ],
     "top_reviews":
     [
         {

@@ -16,19 +16,19 @@
                 
             <!--IMAGE -->
             <div class="edit-photo">
-                <img src="assets/pics/seb-profile.jpg" alt="">
+                <img class="edit-profile-photo" alt="">
                 <div class="change-pp clickable">Change profile picture</div>
             </div>
 
             <!-- FIRST NAME -->
             <div class="first-name">First Name</div>
             <div class="first-name-desc">This field is required.</div>
-            <input type="text" class="first-name-input" name="first-name-input" value="Sebastian">
+            <input type="text" class="first-name-input" name="first-name-input">
 
             <!-- LAST NAME -->
             <div class="last-name">Last Name</div>
             <div class="last-name-desc">This field is required. Only your last initial will show on your profile.</div>
-            <input type="text" class="last-name-input" name="last-name-input" value="Diaz">
+            <input type="text" class="last-name-input" name="last-name-input">
             
             <!-- NICKNAME
             <div class="nickname">Nickname</div>
@@ -37,11 +37,13 @@
 
             <!-- BIO -->
             <div class="biography">Description</div>
-            <textarea class="bio-input" name="bio" rows="6" value=""></textarea>
+            <textarea class="bio-input" name="bio" rows="6"></textarea>
 
             <a href="profile.html"><input class="editsave clickable" type="button" name="savechanges" value="Save Changes"></a>
         </form>
         
-        <script src="index.js"></script>
+        <!-- JQuery Lib -->
+        <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+        <script type="module" src="index.js"></script>
     </body>
 </html>

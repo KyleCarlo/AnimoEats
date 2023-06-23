@@ -25,7 +25,8 @@ function loadComponents(page, callback, callback2){
     $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
-        loadTopReviews("json/sample.json");
+        loadTopReviews("json/user1.json");
+        loadEditProfile("json/user1.json");
         $(".review-rating").load("assets/svg/flag.html");
 
         if(page != 'map-specific.html'){
@@ -169,6 +170,33 @@ function loadTopReviews(url){
         }
     }, 500);
 }
+
+function loadEditProfile(url){
+    var profileBio = [];
+    $.ajax({
+        type:"GET",
+        url:url,
+        success:function(response){
+            profileBio.push(response.bio[0]);
+        }
+    });
+    setTimeout( function(){
+        console.log(profileBio);
+        console.log(profileBio.length);
+        console.log(Math.round(profileBio[0].rating));
+        for(var i = 0; i == 0; i++){
+            let pp = $(".editprof-container .edit-profile-photo")[i];
+            let first = $(".editprof-container .first-name-input")[i];
+            let last = $(".editprof-container .last-name-input")[i];
+            let desc = $(".editprof-container .bio-input")[i];
+            pp.src = profileBio[i].profile_picture;
+            first.value = profileBio[i].first_name;
+            last.value = profileBio[i].last_name;
+            desc.value = profileBio[i].description;
+        }
+    }, 500);
+}
+
 
 function createReview(){
     $(".add-revbutton").on("click", function (){
