@@ -7,7 +7,7 @@
         {
             "first_name":"Sebastian",
             "last_name":"Diaz",
-            "profile_picture":"assets/pics/profile1.jpg",
+            "profile_picture": "assets/pics/profile1.jpg",
             "helpful_count":1,
             "reviews_count":1,
             "photos_count":1,

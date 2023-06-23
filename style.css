@@ -936,7 +936,7 @@ nav .right {
 }
 
 /* RECENTS PAGE */
-.profile-page-bottom #recent-reviews-grid {
+#recent-reviews-grid {
     display: grid;
     grid-template-rows: auto auto;
     align-items: center;
@@ -954,16 +954,17 @@ nav .right {
     grid-column: 1 / span 2;
 }
 
-#recent-reviews-grid .recent-main {
+.recent-main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 1fr 1fr 2fr .25fr;
     column-gap: .2vw;
     grid-template-areas:
-        "a a d b b"
+        "a a b b d"
         "c c c c e"
         "g g g g e"
         "h h j k l";
+    align-items: top;
     justify-content: center;
     align-content: center;
     padding: 15px 20px 5px 20px;

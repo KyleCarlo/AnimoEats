@@ -29,39 +29,40 @@ function loadComponents(page, callback, callback2){
         $(".review-rating").load("assets/svg/flag.html");
         loadEditProfile("json/user1.json");
         
-        if (page == "user1.html"){
+        if (page == "user1.html" || page == "recent1.html"){
             path = "json/user1.json";
-            
         }
-        else if(page == "user2.html"){
+        else if(page == "user2.html" || page == "recent2.html"){
             path="json/user2.json";
             userView();
         }
-        else if(page == "user3.html"){
+        else if(page == "user3.html" || page == "recent3.html"){
             path="json/user3.json";
             userView();
         }
-        else if(page == "user4.html"){
+        else if(page == "user4.html" || page == "recent4.html"){
             path="json/user4.json";
             userView();
         }
-        else if(page == "user5.html"){
+        else if(page == "user5.html" || page == "recent5.html"){
             path="json/user5.json";
             userView();
         }
-        else if(page == "user6.html"){
+        else if(page == "user6.html" || page == "recent6.html"){
             path="json/user6.json";
             userView();
         }
         
-
-        // else if (page == "other-user.html") {
-        //     loadProfile("json/user2.json");
-        //     userView();
-            
-        // } 
-        loadProfile(path);
-        
+        if(page == "recent1.html" ||
+            page == "recent2.html" ||
+            page == "recent3.html" ||
+            page == "recent4.html" ||
+            page == "recent5.html"){
+                loadRecent(path);
+        }
+        else{
+            loadProfile(path);
+        }
         
 
         if (page != 'map-specific.html'){
@@ -193,7 +194,7 @@ function loadProfile(url){
         $('#profile-bio .helpful-count')[0].innerHTML = user[0].helpful_count;
         $('#profile-bio .reviews-count')[0].innerHTML = user[0].reviews_count;
         $('#profile-bio .photos-count')[0].innerHTML = user[0].photos_count;
-        console.log(user[0].member_since_date.month);
+        // console.log(user[0].member_since_date.month);
         $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
         profileClicks();
         
@@ -226,6 +227,7 @@ function loadProfile(url){
             }
             date.innerHTML = "Posted on " +  month[topReviews[i].date.month] + " " + topReviews[i].date.day + ", " + topReviews[i].date.year;
         }
+        
         for(var i = 0; i < 2; i++){
             let name1 = $(".recent-review .review-restaurant")[i];
             let subject1 = $(".recent-review .review-subject")[i];
@@ -433,4 +435,81 @@ function changeRev(num){
 
         createReview();
     }, 300);
+}
+
+function loadRecent(url) {
+    var user;
+    var allReviews = [];
+    let month = {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December",
+    };
+
+    $.ajax({
+        type:"GET",
+        url:url,
+        success:function(response){
+            user = response.bio;
+            for(var i = 0; i < 5; i++){
+                allReviews.push(response.top_reviews[i]);
+            }
+        }
+    });
+
+    setTimeout(function(){
+        // console.log(user.profile_picture);
+        // console.log(topReviews);
+        // console.log(topReviews.length);
+        // console.log(Math.round(topReviews[0].rating));
+        $('#profile-bio .profile-picture')[0].src = user[0].profile_picture;
+        $('#profile-bio .profile-username')[0].innerHTML = user[0].first_name + " " + user[0].last_name;
+        $('#profile-bio .profile-description')[0].innerHTML = user[0].description;
+        $('#profile-bio .helpful-count')[0].innerHTML = user[0].helpful_count;
+        $('#profile-bio .reviews-count')[0].innerHTML = user[0].reviews_count;
+        $('#profile-bio .photos-count')[0].innerHTML = user[0].photos_count;
+        // console.log(user[0].member_since_date.month);
+        $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
+        profileClicks();
+    
+        for(var i = 0; i < 5; i++){
+            let name = $(".recent-main .review-restaurant")[i];
+            let subject = $(".recent-main .review-subject")[i];
+            let body = $(".recent-main .review-body")[i];
+            let preview = $('.recent-main .review-preview')[i];
+            let rating = ($(".recent-main .review-rating svg")[i]);
+            let date = $(".recent-main .review-timestamp")[i];
+            // console.log(name, subject, body, preview, rating, date);
+            
+            name.innerHTML = allReviews[i].resto_name;
+            subject.innerHTML = allReviews[i].subject;
+            body.innerHTML = allReviews[i].body;
+            preview.src = allReviews[i].preview;
+            
+            
+            for (var j = 0 ; j < 5; j++){
+                if (j < Math.round(allReviews[i].rating)){
+                    if(Math.round(allReviews[i].rating) < 3){
+                        rating.children[j].style.fill = "#800037";
+                    }
+                    else{
+                        rating.children[j].style.fill = "#008037";
+                    }
+                }
+                else{
+                    rating.children[j].style.fill = "#595959";
+                }
+            }
+            date.innerHTML = "Posted on " +  month[allReviews[i].date.month] + " " + allReviews[i].date.day + ", " + allReviews[i].date.year;
+        }   
+    }, 500);
 }
