@@ -867,6 +867,7 @@ nav .right {
 /* MAP-SPECIFIC */
 #map-specific{
     text-align: center;
+    margin: 20px 0;
 }
 
 #map-specific svg{
@@ -976,7 +977,6 @@ nav .right {
     width:300px;
     flex-direction: column;
     font-family: "Open Sans" sans-serif;
-    
 }
 
 .mini-card-container .mini-top{
