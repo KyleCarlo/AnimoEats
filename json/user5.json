@@ -14,7 +14,7 @@
                         "day":27,
                         "year":2023
                     },
-                    "description": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
+                    "description": "A certified foodie from Bahrain. I love to eat and I love to travel. I'm a big fan of Japanese cuisine and I'm always on the lookout for the best ramen in town. I also love to cook and I'm always trying out new recipes."
                 }
             ],
     "top_reviews":
@@ -22,10 +22,10 @@
         {
             "resto_name":"Burger King",
             "subject":"My personal go-to",
-            "rating":3.0,
+            "rating":4.0,
             "preview":"assets/pics/preview27.jpg",
             "images":"assets/pics/preview28.jpg",
-            "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "body":"Honestly, Burger King is a no-brainer. Just go here if you're unsure where to eat. Best and safest choice for burgers.",
             "date":
             {
                 "month":2,
@@ -39,7 +39,7 @@
             "rating":3.0,
             "preview":"assets/pics/preview29.jpg",
             "images":"assets/pics/preview30.jpg",
-            "body":"Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?",
+            "body":"I like the tapsilog here. It's a bit pricey but it's worth it. The crepes are also good. I recommend the strawberry crepe.",
             "date":
             {
                 "month":3,
@@ -50,10 +50,10 @@
         {
             "resto_name":"Obscure Cafe",
             "subject":"Hindi sulit",
-            "rating":3.0,
+            "rating":2.0,
             "preview":"assets/pics/preview31.jpg",
             "images":"assets/pics/preview32.jpg",
-            "body":"Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+            "body":"There are better options in Taft. I'd even argue you go to Starbucks instead. The food here is overpriced and the taste is just okay.",
             "date":
             {
                 "month":4,
