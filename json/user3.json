@@ -14,7 +14,7 @@
                         "day":8,
                         "year":2023
                     },
-                    "description": "You're on the phone with your girlfriend, she's upset. She's going off about something that you said."
+                    "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
                 }
             ],
     "top_reviews":
@@ -25,7 +25,7 @@
             "rating":5.0,
             "preview":"assets/pics/preview15.jpg",
             "images":"assets/pics/preview16.jpg",
-            "body":"Linfong Cuisine offers a delightful culinary journey with its diverse menu, expertly crafted dishes, and impeccable presentation that will leave your taste buds tantalized and your dining experience truly memorable.",
+            "body":"Best Chinese-Japanese fusion restaurant in Taft. I recommend their beef noodle and kwapao specifically. 100/10",
             "date":
             {
                 "month":1,
@@ -39,7 +39,7 @@
             "rating":2.5,
             "preview":"assets/pics/preview17.jpg",
             "images":"assets/pics/preview18.jpg",
-            "body":"Dixie's Filipino Grill is a culinary haven that transports you to the vibrant streets of the Philippines, serving up authentic flavors, sizzling grills, and a warm ambiance that will make you feel right at home while indulging in their mouthwatering Filipino delicacies.",
+            "body":"Lasang usok 'yung food pero pwede na for the price. I recommend going to Tinuhog ni Benny if you want a similar set of offerngs.",
             "date":
             {
                 "month":4,
@@ -53,7 +53,7 @@
             "rating":4.5,
             "preview":"assets/pics/preview19.jpg",
             "images":"assets/pics/preview20.jpg",
-            "body":"Tinuhog ni Benny is a barbecue haven that takes the art of grilling to new heights, offering perfectly charred and succulent meats skewered to perfection, accompanied by an array of delectable marinades and sauces that will ignite your taste buds and leave you craving for more.",
+            "body":"A HAVEN FOR BBQ LOVERS! Sulit to order a meal and their 80-peso sisig always. Sana mas mabilis lang service.",
             "date":
             {
                 "month":1,
