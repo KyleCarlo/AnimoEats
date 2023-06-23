@@ -172,7 +172,7 @@ function loadProfile(url){
         type:"GET",
         url:url,
         success:function(response){
-            // console.log(response.bio);
+            console.log(response.top_reviews[0].resto_name);
             user = response.bio;
             topReviews.push(response.top_reviews[0]);
             topReviews.push(response.top_reviews[1]);
@@ -182,7 +182,7 @@ function loadProfile(url){
         }
     });
 
-    setTimeout( function(){
+    setTimeout(function(){
         console.log(user[0].profile_picture);
         console.log(topReviews);
         console.log(topReviews.length);
@@ -226,7 +226,7 @@ function loadProfile(url){
             }
             date.innerHTML = "Posted on " +  month[topReviews[i].date.month] + " " + topReviews[i].date.day + ", " + topReviews[i].date.year;
         }
-        for(var i = 4; i < 6; i++){
+        for(var i = 0; i < 2; i++){
             let name1 = $(".recent-review .review-restaurant")[i];
             let subject1 = $(".recent-review .review-subject")[i];
             let body1 = $(".recent-review .review-body")[i];
@@ -235,7 +235,7 @@ function loadProfile(url){
             let rating1 = ($(".recent-review .review-rating svg")[i]);
             let date1 = $(".recent-review .review-timestamp")[i];
             
-            name1.innerHTML = "recentReviews[i].resto_name";
+            name1.innerHTML = recentReviews[i].resto_name;
             subject1.innerHTML = recentReviews[i].subject;
             body1.innerHTML = recentReviews[i].body;
             // preview.src = recentReviews[i].preview;
