@@ -82,10 +82,14 @@
                         <h5 class="restaurant-review-timestamp">Posted on January 15, 2023</h5>
                     </div>
                     <!-- add for owner to comment -->
+                    <div class="comment-container1">
+                        <h4>Owner's Response</h4>
+                        <p></p>
+                    </div>
                     <div class="owner-comment">
-                        <textarea class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
+                        <textarea id="comment1" class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
                         <div class="comment-publish clickable">
-                            <h5>Publish</h5>
+                            <button id="commentPublish1" class="commentPublish"><h5>Publish</h5></button>
                         </div>
                     </div>
                     <div class="restaurant-review">
@@ -121,10 +125,14 @@
 
                         <h5 class="restaurant-review-timestamp">Posted on August 17, 2023</h5>
                     </div>
+                    <div class="comment-container2">
+                        <h4>Owner's Response</h4>
+                        <p></p>
+                    </div>
                     <div class="owner-comment">
-                        <textarea class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
+                        <textarea id="comment2" class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
                         <div class="comment-publish clickable">
-                            <h5>Publish</h5>
+                            <button id="commentPublish2" class="commentPublish"><h5>Publish</h5></button>
                         </div>
                     </div>
                     <div class="restaurant-review">
@@ -160,10 +168,14 @@
 
                         <h5 class="restaurant-review-timestamp">Posted on March 17, 2023</h5>
                     </div>
+                    <div class="comment-container3">
+                        <h4>Owner's Response</h4>
+                        <p></p>
+                    </div>
                     <div class="owner-comment">
-                        <textarea class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
+                        <textarea id="comment3" class="comment" name="comment" rows="6" placeholder="Enter your comment"></textarea>
                         <div class="comment-publish clickable">
-                            <h5>Publish</h5>
+                            <button id="commentPublish3" class="commentPublish"><h5>Publish</h5></button>
                         </div>
                     </div>
                 </div>
@@ -173,5 +185,41 @@
         
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script type="module" src="index.js"></script>
+
+        <script>
+            document.querySelector(".comment-container1").style.display ="none";
+            document.querySelector(".comment-container2").style.display ="none";
+            document.querySelector(".comment-container3").style.display ="none";
+            
+            function publishComment1() {
+                var comment = document.querySelector(".owner-comment  #comment1").value;
+
+                document.querySelector(".comment-container1").style.display="block";
+                document.querySelector(".comment-container1 p").innerHTML  = comment;
+    
+                document.querySelector(".owner-comment #comment1").value = "";
+            }
+             function publishComment2() {
+                var comment = document.querySelector(".owner-comment #comment2").value;
+
+                document.querySelector(".comment-container2").style.display="block";
+                document.querySelector(".comment-container2 p").innerHTML  = comment;
+    
+                document.querySelector(".owner-comment #comment2").value = "";
+            }
+             function publishComment3() {
+                var comment = document.querySelector(".owner-comment #comment3").value;
+
+                document.querySelector(".comment-container3").style.display="block";
+                document.querySelector(".comment-container3 p").innerHTML  = comment;
+    
+                document.querySelector(".owner-comment #comment3").value = "";
+            }
+            document.getElementById("commentPublish1").addEventListener("click", publishComment1);
+            document.getElementById("commentPublish2").addEventListener("click", publishComment2);
+            document.getElementById("commentPublish3").addEventListener("click", publishComment3);
+
+            
+        </script>
     </body>
 </html>
