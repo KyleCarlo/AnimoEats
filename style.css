@@ -863,11 +863,6 @@ nav .right {
     text-align: center;
     margin: 20px 0;
 }
-
-#map-specific svg{
-    /* width: 100px; */
-}
-
 #map-specific svg g{
     fill: var(--primary);
 }
@@ -1032,6 +1027,7 @@ font-weight: bold;
     display: grid;
     width: 70%;
     margin: auto;
+    height: 80vh;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas: 
@@ -1040,22 +1036,32 @@ font-weight: bold;
     row-gap: 10px;
     column-gap: 100px;
     justify-items: center;
+    align-items: center;
 }
 
 .log-out-hover-container h2{
     grid-area: a;
+    align-self: end;
+    color: white;
 }
 
-.log-out-hover-container .out{
+.log-out-hover-container .out, .log-out-hover-container a {
     grid-area: b;
-    padding: 10px;
     justify-self: right;
     background-color: var(--primary);
     color: white;
+    border-radius: 10px;
+    align-self: start;
+    border: none;
+}
+
+.log-out-hover-container .out{
+    padding: 10px;
 }
 
 .log-out-hover-container .out:hover{
     background-color: var(--secondary);
+    color:black;
 }
 
 .log-out-hover-container .cancel{
@@ -1064,4 +1070,12 @@ font-weight: bold;
     justify-self: left;
     background-color: var(--primary);
     color: white;
+    border-radius: 10px;
+    align-self: start;
+    border: none;
+}
+
+.log-out-hover-container .cancel:hover{
+    background-color: var(--secondary);
+    color:black;
 }

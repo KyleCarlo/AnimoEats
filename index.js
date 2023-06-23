@@ -161,7 +161,7 @@ function loadProfile(url){
         $('#profile-bio .photos-count')[0].innerHTML = user[0].photos_count;
         console.log(user[0].member_since_date.month);
         $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
-        logOut();
+        profileClicks();
         
         for(var i = 0; i < topReviews.length; i++){
             let name = $(".top-review .review-restaurant")[i];
@@ -321,17 +321,53 @@ function userView(){
     }
 }
 
-function logOut(){
+function profileClicks(){
     $('.logout').on('click', function(){
         var body = $('body');
-        body[0].innerHTML += '<div style="position:fixed; top:0; z-index: 4; width: 100%; height: 100vh; background-color: black; opacity: 0.7" class=".delete-hover"></div>';
+        body[0].innerHTML += '<div style="position:fixed; top:0; z-index: 4; width: 100%; height: 100vh; background-color: black; opacity: 0.7" class="delete-hover"></div>';
         body[0].style.overflow = "hidden";
-        console.log($('body')[0]);
+
+        body[0].innerHTML += '<div style="position:fixed; top:0; z-index: 5; width: 100%; height: 100vh;" class="log-out-confirm"></div>'
+        $('.log-out-confirm').load('log-out.html');
+
+        setTimeout(function(){
+            $('.log-out-confirm .cancel').on('click', function(){
+                $('.delete-hover').remove();
+                $('.log-out-confirm').remove();
+                body[0].style.overflow = "initial";
+            });
+
+            profileClicks();
+        }, 300);
     });
 
-    $('.logout').on('')
+    $('.review-edit').on('click', function(){
+        var revs = $('.top-review');
+        revs[0] > $('.review-edit').on('click', changeRev(1));
+        revs[1] > $('.review-edit').on('click', changeRev(2));
+        revs[2] > $('.review-edit').on('click', changeRev(3));
+    });
 }
 
-function deletePost(){
+function changeRev(num){
+    let body = $('body')[0];
+    body.innerHTML += '<div class="cover" style="position: fixed; z-index: 3; top: 0; background-color: black; width: 100%; height: 100vh; opacity: 0.5"></div>';
+    body.style.overflow = "hidden";
     
+    body.innerHTML += '<div class="add-review" style="position: fixed; top:0; z-index: 4;"></div>'
+    $('.add-review').load('change' + num + '.html');
+    let review = $('.add-review')[0];
+    review.style.zIndex = "4";
+
+    setTimeout(function(){
+        let x = $('.compose-header span');
+        console.log(x);
+        x.on('click', function(){
+            $('.cover').remove();
+            $('.add-review').remove();
+            body.style.overflow = "initial";
+        })
+
+        createReview();
+    }, 300);
 }
