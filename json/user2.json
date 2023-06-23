@@ -1,0 +1,69 @@
+{
+    "user": "Monica Manlises",
+    "bio":
+            [
+                {
+                    "username":"Monica Manlises",
+                    "profile-picture":"assets/pics/profile2.jpg",
+                    "helpful-count":10,
+                    "reviews-count":15,
+                    "photos-count":20,
+                    "member-since-date":
+                    {
+                        "month":1,
+                        "day":15,
+                        "year":2023
+                    },
+                    "description": "Ako si Mon, isang estudyante mula sa BSMS"
+                }
+            ],
+    "top_reviews":
+    [
+        {
+            "resto_name":"Ate Rica's Bacsilog",
+            "subject":"A staple that I can understand",
+            "rating":3.5,
+            "preview":"assets/pics/preview9.jpg",
+            "images":"assets/pics/preview10.jpg",
+            "body":"The bacsilog is a bit overrated, but it's good nonetheless.",
+            "date":
+            {
+                "month":3,
+                "day":17,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"24 Chicken",
+            "subject":"The food is good naman",
+            "rating":4.5,
+            "preview":"assets/pics/preview11.jpg",
+            "images":"assets/pics/preview12.jpg",
+            "body":"Their food is good, sana lang they're open for much longer",
+            "date":
+            {
+                "month":5,
+                "day":4,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Army Navy",
+            "subject":"Pricey but good",
+            "rating":4.0,
+            "preview":"assets/pics/preview13.jpg",
+            "images":"assets/pics/preview14.jpg",
+            "body":"One of the more expensive places in Taft, but the food is really good. I recommend getting the naked burrito.",
+            "date":
+            {
+                "month":1,
+                "day":15,
+                "year":2023
+            }
+        }
+    ],
+    "recent_reviews":
+    [
+
+    ]
+}
