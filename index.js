@@ -25,12 +25,18 @@ function loadComponents(page, callback, callback2){
     $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
-        loadTopReviews("json/sample.json");
+        loadProfile("json/user1.json");
         $(".review-rating").load("assets/svg/flag.html");
 
-        if(page != 'map-specific.html'){
+        if (page == 'other-user.html') {
+            userView();
+        } 
+        
+        if (page != 'map-specific.html'){
             callback();
-        } else {
+            console.log(page);
+            
+        }else {
             callback2();
         }
     }, 500);
@@ -110,21 +116,48 @@ function hoverPath(){
         });
     }
 };
-function loadTopReviews(url){
+
+function loadProfile(url){
+    var user;
     var topReviews = [];
+    let month = {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December",
+    };
+
     $.ajax({
         type:"GET",
         url:url,
         success:function(response){
+            // console.log(response.bio);
+            user = response.bio;
             topReviews.push(response.top_reviews[0]);
             topReviews.push(response.top_reviews[1]);
             topReviews.push(response.top_reviews[2]);
         }
     });
     setTimeout( function(){
+        console.log(user[0].profile_picture);
         console.log(topReviews);
         console.log(topReviews.length);
         console.log(Math.round(topReviews[0].rating));
+        $('#profile-bio .profile-picture')[0].src = user[0].profile_picture;
+        $('#profile-bio .profile-username')[0].innerHTML = user[0].first_name + " " + user[0].last_name;
+        $('#profile-bio .profile-description')[0].innerHTML = user[0].description;
+        $('#profile-bio .helpful-count')[0].innerHTML = user[0].helpful_count;
+        $('#profile-bio .reviews-count')[0].innerHTML = user[0].reviews_count;
+        $('#profile-bio .photos-count')[0].innerHTML = user[0].photos_count;
+        $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
         for(var i = 0; i < topReviews.length; i++){
             let name = $(".top-review .review-restaurant")[i];
             let subject = $(".top-review .review-subject")[i];
@@ -133,20 +166,7 @@ function loadTopReviews(url){
             let images = $('.top-review .review-images')[i]; 
             let rating = ($(".top-review .review-rating svg")[i]);
             let date = $(".top-review .review-timestamp")[i];
-            let month = {
-                1: "January",
-                2: "February",
-                3: "March",
-                4: "April",
-                5: "May",
-                6: "June",
-                7: "July",
-                8: "August",
-                9: "September",
-                10: "October",
-                11: "November",
-                12: "December",
-            }
+            
             name.innerHTML = topReviews[i].resto_name;
             subject.innerHTML = topReviews[i].subject;
             body.innerHTML = topReviews[i].body;
@@ -255,9 +275,20 @@ function hoverStore(){
     console.log('execution done');
 }
 
-// function initialize indexPage(){}
-// function initialize reviewPage(){}
+function logIn(){
+    var login = $('.sign-up-log-in form .button')[0];
+    console.log(login);
+}
 
-// <script>
-// if (document.getElementbyid(page1specificelement))
-// indexPage()
+function userView(){
+    var top_revs = $('.top-review');
+
+    for (var i = 0; i < top_revs.length; i++){
+        top_revs[i] > $('.review-edit').remove();
+        top_revs[i] > $('.review-delete').remove();
+    }
+}
+
+function deletePost(){
+    
+}
