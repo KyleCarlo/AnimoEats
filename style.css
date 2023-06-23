@@ -1026,3 +1026,42 @@ font-size: 12px;
 .mini-card-container .mini-review-container .mini-review-title{
 font-weight: bold;
 }
+
+/* LOG OUT HOVER */
+.log-out-hover-container{
+    display: grid;
+    width: 70%;
+    margin: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "a a" 
+    "b c";
+    row-gap: 10px;
+    column-gap: 100px;
+    justify-items: center;
+}
+
+.log-out-hover-container h2{
+    grid-area: a;
+}
+
+.log-out-hover-container .out{
+    grid-area: b;
+    padding: 10px;
+    justify-self: right;
+    background-color: var(--primary);
+    color: white;
+}
+
+.log-out-hover-container .out:hover{
+    background-color: var(--secondary);
+}
+
+.log-out-hover-container .cancel{
+    grid-area: c;
+    padding: 10px;
+    justify-self: left;
+    background-color: var(--primary);
+    color: white;
+}

@@ -25,7 +25,7 @@ function loadComponents(page, callback, callback2){
     $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
-        loadTopReviews("json/user1.json");
+        loadProfile("json/user1.json");
         loadEditProfile("json/user1.json");
         $(".review-rating").load("assets/svg/flag.html");
 
@@ -147,6 +147,7 @@ function loadProfile(url){
             topReviews.push(response.top_reviews[2]);
         }
     });
+
     setTimeout( function(){
         console.log(user[0].profile_picture);
         console.log(topReviews);
@@ -158,7 +159,10 @@ function loadProfile(url){
         $('#profile-bio .helpful-count')[0].innerHTML = user[0].helpful_count;
         $('#profile-bio .reviews-count')[0].innerHTML = user[0].reviews_count;
         $('#profile-bio .photos-count')[0].innerHTML = user[0].photos_count;
+        console.log(user[0].member_since_date.month);
         $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
+        logOut();
+        
         for(var i = 0; i < topReviews.length; i++){
             let name = $(".top-review .review-restaurant")[i];
             let subject = $(".top-review .review-subject")[i];
@@ -315,6 +319,17 @@ function userView(){
         top_revs[i] > $('.review-edit').remove();
         top_revs[i] > $('.review-delete').remove();
     }
+}
+
+function logOut(){
+    $('.logout').on('click', function(){
+        var body = $('body');
+        body[0].innerHTML += '<div style="position:fixed; top:0; z-index: 4; width: 100%; height: 100vh; background-color: black; opacity: 0.7" class=".delete-hover"></div>';
+        body[0].style.overflow = "hidden";
+        console.log($('body')[0]);
+    });
+
+    $('.logout').on('')
 }
 
 function deletePost(){
