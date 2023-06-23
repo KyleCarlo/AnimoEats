@@ -10,6 +10,7 @@ function execute(page){
 };
 
 function loadComponents(page, callback, callback2){
+    var path;
     $("#nav-placeholder").load("components/navbar.html");
     $("#card-sample").load("components/card-info.html");
     $(".top-review").load("components/top-review.html");
@@ -25,14 +26,44 @@ function loadComponents(page, callback, callback2){
     $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
-        loadProfile("json/user1.json");
-        loadEditProfile("json/user1.json");
         $(".review-rating").load("assets/svg/flag.html");
-
-        if (page == 'other-user.html') {
-            userView();
-        } 
+        loadEditProfile("json/user1.json");
         
+        if (page == "user1.html"){
+            path = "json/user1.json";
+            
+        }
+        else if(page == "user2.html"){
+            path="json/user2.json";
+            userView();
+        }
+        else if(page == "user3.html"){
+            path="json/user3.json";
+            userView();
+        }
+        else if(page == "user4.html"){
+            path="json/user4.json";
+            userView();
+        }
+        else if(page == "user5.html"){
+            path="json/user5.json";
+            userView();
+        }
+        else if(page == "user6.html"){
+            path="json/user6.json";
+            userView();
+        }
+        
+
+        // else if (page == "other-user.html") {
+        //     loadProfile("json/user2.json");
+        //     userView();
+            
+        // } 
+        loadProfile(path);
+        
+        
+
         if (page != 'map-specific.html'){
             callback();
             console.log(page);
@@ -121,6 +152,7 @@ function hoverPath(){
 function loadProfile(url){
     var user;
     var topReviews = [];
+    var recentReviews = [];
     let month = {
         1: "January",
         2: "February",
@@ -145,6 +177,8 @@ function loadProfile(url){
             topReviews.push(response.top_reviews[0]);
             topReviews.push(response.top_reviews[1]);
             topReviews.push(response.top_reviews[2]);
+            recentReviews.push(response.top_reviews[3]);
+            recentReviews.push(response.top_reviews[4]);
         }
     });
 
@@ -163,7 +197,7 @@ function loadProfile(url){
         $('#profile-bio .member-since-date')[0].innerHTML = month[user[0].member_since_date.month] + " " + user[0].member_since_date.year;
         profileClicks();
         
-        for(var i = 0; i < topReviews.length; i++){
+        for(var i = 0; i < 3; i++){
             let name = $(".top-review .review-restaurant")[i];
             let subject = $(".top-review .review-subject")[i];
             let body = $(".top-review .review-body")[i];
@@ -191,6 +225,35 @@ function loadProfile(url){
                 }
             }
             date.innerHTML = "Posted on " +  month[topReviews[i].date.month] + " " + topReviews[i].date.day + ", " + topReviews[i].date.year;
+        }
+        for(var i = 4; i < 6; i++){
+            let name1 = $(".recent-review .review-restaurant")[i];
+            let subject1 = $(".recent-review .review-subject")[i];
+            let body1 = $(".recent-review .review-body")[i];
+            // let preview = $('.top-review .review-preview')[i];
+            // let images = $('.top-review .review-images')[i]; 
+            let rating1 = ($(".recent-review .review-rating svg")[i]);
+            let date1 = $(".recent-review .review-timestamp")[i];
+            
+            name1.innerHTML = "recentReviews[i].resto_name";
+            subject1.innerHTML = recentReviews[i].subject;
+            body1.innerHTML = recentReviews[i].body;
+            // preview.src = recentReviews[i].preview;
+            // images.src = recentReviews[i].images;
+            for (var j = 0 ; j < 5; j++){
+                if (j < Math.round(recentReviews[i].rating)){
+                    if(Math.round(recentReviews[i].rating) < 3){
+                        rating1.children[j].style.fill = "#800037";
+                    }
+                    else{
+                        rating1.children[j].style.fill = "#008037";
+                    }
+                }
+                else{
+                    rating1.children[j].style.fill = "#595959";
+                }
+            }
+            date1.innerHTML = "Posted on " +  month[recentReviews[i].date.month] + " " + recentReviews[i].date.day + ", " + recentReviews[i].date.year;
         }
     }, 500);
 }
@@ -229,7 +292,7 @@ function createReview(){
         body.style.overflow = "hidden";
         
         body.innerHTML += '<div class="add-review" style="position: fixed; top:0; z-index: 4;"></div>'
-        $('.add-review').load('add.html');
+        $('.add-review').load('components/add.html');
         let review = $('.add-review')[0];
         review.style.zIndex = "4";
 

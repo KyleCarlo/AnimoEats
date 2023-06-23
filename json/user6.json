@@ -1,22 +1,23 @@
 {
     "user": "Francis Doble",
     "bio":
-            [
-                {
-                    "username":"Francis Doble",
-                    "profile-picture":"assets/pics/profile6.jpg",
-                    "helpful-count":50,
-                    "reviews-count":23,
-                    "photos-count":25,
-                    "member-since-date":
-                    {
-                        "month":3,
-                        "day":30,
-                        "year":2023
-                    },
-                    "description": "Always with friends trying out new things."
-                }
-            ],
+    [
+        {
+            "first_name":"Francis",
+            "last_name":"Doble",
+            "profile_picture":"assets/pics/profile6.jpg",
+            "helpful_count":50,
+            "reviews_count":23,
+            "photos_count":25,
+            "member_since_date":
+            {
+                "month":3,
+                "day":30,
+                "year":2023
+            },
+            "description": "Always with friends trying out new things."
+        }
+    ],
     "top_reviews":
     [
         {
