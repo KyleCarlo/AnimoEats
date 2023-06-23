@@ -1339,6 +1339,13 @@ nav .right {
     align-self: top;
 }
 
+.panel2 .comment-container1 h4,
+.panel2 .comment-container2 h4,
+.panel2 .comment-container3 h4 {
+    text-align: right;
+
+}
+
 .comment-publish:hover {
     background-color: var(--accent);
     border-style: solid;
@@ -1362,9 +1369,39 @@ nav .right {
     font-weight: bold;
 }
 
+.commentPublish {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    width: 100%;
+}
+
 .comment-publish clickable {
     grid-area: l;
     place-items: center;
+}
+
+.panel2-container p {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 0.5fr 0.25fr;
+    column-gap: .2vw;
+    row-gap: .25vw;
+    grid-template-areas:
+        "a a a a a"
+        "h i j k l";
+    align-items: top;
+    justify-content: space-between;
+    align-content: center;
+    padding: 5px 20px 0px 20px;
+    border-radius: 10px;
+    margin: 0 0 0 80px;
+    border: var(--borders) dotted 1px;
+    font-size: 14px;
 }
 
 
