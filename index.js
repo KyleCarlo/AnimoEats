@@ -205,7 +205,7 @@ function createReview(){
         body.style.overflow = "hidden";
         
         body.innerHTML += '<div class="add-review" style="position: fixed; top:0; z-index: 4;"></div>'
-        $('.add-review').load('add.html');
+        $('.add-review').load('components/add.html');
         let review = $('.add-review')[0];
         review.style.zIndex = "4";
 
