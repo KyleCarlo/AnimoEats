@@ -1,29 +1,23 @@
 {
-    "user": "Sebastian Diaz",
-    "email": "sebdiaz@gmail.com",
-    "password": "123456",
+    "restaurant": "Bowl'd",
     "bio":
     [
         {
-            "first_name":"Sebastian",
-            "last_name":"Diaz",
-            "profile_picture":"assets/pics/profile1.jpg",
-            "helpful_count":1,
-            "reviews_count":1,
-            "photos_count":1,
-            "member_since-date":
-            {
-                "month":3,
-                "day":17,
-                "year":2023
-            },
-            "description": "My reviews and comments do not reflect the views of the organizations I'm affiliated with."
+            "picture":"assets/sprites/pexels-ash-376464.jpg",
+            "name":"Bowl'd",
+            "rating":4.0,
+            "price":"",
+            "description":"sjadklajskldja",
+            "menu_pic_1":"assets/sprites/menu-1.jpg",
+            "menu_pic_2":"assets/sprites/menu-1.jpg",
+            "menu_pic_3":"assets/sprites/menu-1.jpg",
+            "menu_pic_4":"assets/sprites/menu-1.jpg"
         }
     ],
-    "top_reviews":
+    "restaurant_reviews":
     [
         {
-            "resto_name":"Kuya Mel's",
+            "user_name":"Sebastian Diaz",
             "subject":"Will definitely come back!",
             "rating":4.0,
             "preview":"assets/pics/preview1.jpg",
@@ -37,7 +31,7 @@
             }
         },
         {
-            "resto_name":"24 Chicken",
+            "user_name":"XXXXXXXXXX",
             "subject":"Very good! Hello, hi, it's me!",
             "rating":4.0,
             "preview":"assets/pics/preview3.jpg",
@@ -51,7 +45,7 @@
             }
         },
         {
-            "resto_name":"Chef Bab's",
+            "user_name":"XXXXXXXXXX",
             "subject":"Go-to for sisig in Taft",
             "rating":2.4,
             "preview":"assets/pics/preview5.jpg",
@@ -64,8 +58,5 @@
                 "year":2023
             }
         }
-    ],
-    "recent_reviews":
-    [
     ]
 }

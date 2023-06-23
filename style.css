@@ -213,13 +213,24 @@ nav .right {
     justify-content: left;
 }
 
-.sign-up-log-in .button {
+.sign-up-log-in .button,
+.sign-up-log-in .button-inside {
     font-size: 16px;
     grid-column: 1 / span 2;
     background-color: var(--primary);
-    border: none;
+    border: none!important;
     color: white;
+    align-self: center;
+    border-radius: 5px;
+    text-decoration: none!important;
 }
+
+.button-inside {
+    margin: auto;
+    display: block;
+    text-decoration: none!important;
+}
+
 
 .sign-up-log-in .old-new-account {
     text-align: end;
@@ -657,7 +668,7 @@ nav .right {
         "a a d b b"
         "c c c c e"
         "g g g g e"
-        "h i j k l";
+        "h h j k l";
     justify-content: center;
     align-content: center;
     padding: 15px 20px 5px 20px;
@@ -666,11 +677,6 @@ nav .right {
 
 }
 
-#recent-reviews-grid .recent-main img {
-    width: 150px;
-    height: 130px;
-    border-radius: 10px;
-}
 
 /* REVIEW PAGE */
 .review-container {
@@ -684,60 +690,60 @@ nav .right {
 
 .review-container .panel1 {
     border-radius: 10px;
-    display: grid;
-    grid-template-rows: 11vw 4vw 8vw 5vw;
-    grid-gap: 20px;
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    row-gap: 30px;
+    height: fit-content;
 }
 
 .review-container .panel1 .panel1-img {
     background-image: url("assets/sprites/pexels-ella-olsson-1640772.jpg");
     background-size: cover;
     width: 100%;
+    height: 300px;
     border-radius: 10px 10px 0 0;
     padding: 0;
 }
 
 .review-container .panel1 .header-deet {
-    display: grid;
-    grid-template-rows: 0.1fr 0.5fr 3fr;
-    grid-template-columns: 1.5fr 1fr;
-    column-gap: 30px;
-    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    margin: 20px 10px 40px 30px;
 }
 
-.review-container .panel1 .header-title {
+.review-container .panel1 .header-deet .header-title {
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
-    padding-left: 10%;
     font-size: 36px;
+    justify-content: flex-start;
+    margin: 0 70px 0 0;
 }
 
 .review-container .panel1 .header-deet .header-icon {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr 1fr;
-    place-items: center;
-    font-family: "Open Sans";
-    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-family: var(--def-fonts);
 }
 
-.review-container .panel1 svg {
-    position: top;
+.review-container .panel1 .header-deet .header-icon .exp {
+    font-family: "Google sans", arial, sans-serif;
 }
+
 
 .review-container .panel1 .description {
-    display: grid;
-    grid-template-rows: 3vw 5vw;
-    row-gap: 20px;
+    display: flex;
+    flex-direction: column;
     padding-left: 6%;
     padding-right: 5%;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 20px;
 }
 
 .review-container .panel1 h2 {
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
+    margin-bottom: 10px;
 }
 
 .review-container.panel1 .description .content {
@@ -745,14 +751,16 @@ nav .right {
 }
 
 .review-container .panel1 .menu {
-    display: grid;
-    grid-template-rows: 2vw 4vw 4vw;
-    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
     padding-left: 6%;
     padding-right: 5%;
-    grid-column-gap: 10px;
     padding-top: 1vw;
-    grid-gap: 30px;
+    padding-bottom: 2vw;
+}
+
+.review-container .panel1 .menu h2 {
+    margin-bottom: 20px;
 }
 
 .review-container .panel1 .menu .img .img1 {
@@ -794,20 +802,6 @@ nav .right {
     color: black;
 }
 
-@media (max-width: 1400px) {
-    .review-container .panel1 {
-        grid-template-rows: 1fr 0.01fr 0.15fr 0.15fr;
-        grid-template-columns: 3fr;
-        row-gap: 20px;
-    }
-
-    .review-container .panel1 .header-deet {
-        display: grid;
-        grid-template-rows: 0.1fr 0.5fr 3fr;
-        grid-template-columns: 1.5fr 1fr;
-        column-gap: 30px;
-    }
-}
 
 /* COMPOSE REVIEW */
 .compose-container {
@@ -919,6 +913,7 @@ nav .right {
     flex-direction: column;
     margin: 25px 0;
     align-items: center;
+    align-self: center;
 }
 
 .editprof-container img {
@@ -942,6 +937,7 @@ nav .right {
     color: var(--primary);
     font-size: 12px;
     text-decoration: underline;
+    text-align: center;
 }
 
 .edit .editprof-container .edit-photo div {
