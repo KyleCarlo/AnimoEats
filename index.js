@@ -10,6 +10,7 @@ function execute(page){
 };
 
 function loadComponents(page, callback, callback2){
+    var path;
     $("#nav-placeholder").load("components/navbar.html");
     $("#card-sample").load("components/card-info.html");
     $(".top-review").load("components/top-review.html");
@@ -25,14 +26,44 @@ function loadComponents(page, callback, callback2){
     $("#map-specific").load("assets/svg/bloemen.html");
 
     setTimeout(function(){
-        loadProfile("json/user1.json");
-        loadEditProfile("json/user1.json");
         $(".review-rating").load("assets/svg/flag.html");
-
-        if (page == 'other-user.html') {
-            userView();
-        } 
+        loadEditProfile("json/user1.json");
         
+        if (page == "user1.html"){
+            path = "json/user1.json";
+            
+        }
+        else if(page == "user2.html"){
+            path="json/user2.json";
+            userView();
+        }
+        else if(page == "user3.html"){
+            path="json/user3.json";
+            userView();
+        }
+        else if(page == "user4.html"){
+            path="json/user4.json";
+            userView();
+        }
+        else if(page == "user5.html"){
+            path="json/user5.json";
+            userView();
+        }
+        else if(page == "user6.html"){
+            path="json/user6.json";
+            userView();
+        }
+        
+
+        // else if (page == "other-user.html") {
+        //     loadProfile("json/user2.json");
+        //     userView();
+            
+        // } 
+        loadProfile(path);
+        
+        
+
         if (page != 'map-specific.html'){
             callback();
             console.log(page);

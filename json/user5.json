@@ -1,22 +1,23 @@
 {
     "user": "Mezen Lababidi",
     "bio":
-            [
-                {
-                    "username":"Mezen Lababidi",
-                    "profile-picture":"assets/pics/profile5.jpg",
-                    "helpful-count":80,
-                    "reviews-count":93,
-                    "photos-count":90,
-                    "member-since-date":
-                    {
-                        "month":7,
-                        "day":27,
-                        "year":2023
-                    },
-                    "description": "A certified foodie from Bahrain. I love to eat and I love to travel. I'm a big fan of Japanese cuisine and I'm always on the lookout for the best ramen in town. I also love to cook and I'm always trying out new recipes."
-                }
-            ],
+    [
+        {
+            "first_name":"Mezen",
+            "last_name":"Lababidi",
+            "profile_picture":"assets/pics/profile5.jpg",
+            "helpful_count":80,
+            "reviews_count":93,
+            "photos_count":90,
+            "member_since_date":
+            {
+                "month":7,
+                "day":27,
+                "year":2023
+            },
+            "description": "A certified foodie from Bahrain. I love to eat and I love to travel. I'm a big fan of Japanese cuisine and I'm always on the lookout for the best ramen in town. I also love to cook and I'm always trying out new recipes."
+        }
+    ],
     "top_reviews":
     [
         {

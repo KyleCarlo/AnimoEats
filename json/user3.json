@@ -1,22 +1,23 @@
 {
     "user": "Daphne Go",
     "bio":
-            [
-                {
-                    "username":"Daphne Go",
-                    "profile-picture":"assets/pics/profile3.jpg",
-                    "helpful-count":5,
-                    "reviews-count":25,
-                    "photos-count":18,
-                    "member-since-date":
-                    {
-                        "month":3,
-                        "day":8,
-                        "year":2023
-                    },
-                    "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
-                }
-            ],
+    [
+        {
+            "first_name":"Daphne",
+            "last_name":"Go",
+            "profile_picture":"assets/pics/profile3.jpg",
+            "helpful_count":5,
+            "reviews_count":25,
+            "photos_count":18,
+            "member_since_date":
+            {
+                "month":3,
+                "day":8,
+                "year":2023
+            },
+            "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
+        }
+    ],
     "top_reviews":
     [
         {

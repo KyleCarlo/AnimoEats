@@ -1,22 +1,23 @@
 {
     "user": "Kyle Lasala",
     "bio":
-            [
-                {
-                    "username":"Kyle Lasala",
-                    "profile-picture":"assets/pics/profile4.jpg",
-                    "helpful-count":3,
-                    "reviews-count":2,
-                    "photos-count":10,
-                    "member-since-date":
-                    {
-                        "month":1,
-                        "day":8,
-                        "year":2023
-                    },
-                    "description": "Looking for places to eat at. Email me at kyle_lasala@dlsu.edu.ph if you want to connect."
-                }
-            ],
+    [
+        {
+            "first_name":"Kyle",
+            "last_name":"Lasala",
+            "profile_picture":"assets/pics/profile4.jpg",
+            "helpful_count":3,
+            "reviews_count":2,
+            "photos_count":10,
+            "member_since_date":
+            {
+                "month":1,
+                "day":8,
+                "year":2023
+            },
+            "description": "Looking for places to eat at. Email me at kyle_lasala@dlsu.edu.ph if you want to connect."
+        }
+    ],
     "top_reviews":
     [
         {

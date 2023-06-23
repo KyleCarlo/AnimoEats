@@ -1,22 +1,22 @@
 {
     "user": "Monica Manlises",
     "bio":
-            [
-                {
-                    "username":"Monica Manlises",
-                    "profile-picture":"assets/pics/profile2.jpg",
-                    "helpful-count":10,
-                    "reviews-count":15,
-                    "photos-count":20,
-                    "member-since-date":
-                    {
-                        "month":1,
-                        "day":15,
-                        "year":2023
-                    },
-                    "description": "Ako si Mon, isang estudyante mula sa BSMS"
-                }
-            ],
+    [{
+        "first_name":"Monica",
+        "last_name":"Manlises",
+        "profile_picture":"assets/pics/profile2.jpg",
+        "helpful_count":10,
+        "reviews_count":15,
+        "photos_count":20,
+        "member_since_date":
+        {
+            "month":1,
+            "day":15,
+            "year":2023
+        },
+        "description": "Ako si Mon, isang estudyante mula sa BSMS"
+    }]
+    ,
     "top_reviews":
     [
         {
