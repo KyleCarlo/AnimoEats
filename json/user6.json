@@ -1,0 +1,69 @@
+{
+    "user": "Francis Doble",
+    "bio":
+            [
+                {
+                    "username":"Francis Doble",
+                    "profile-picture":"assets/pics/profile6.jpg",
+                    "helpful-count":50,
+                    "reviews-count":23,
+                    "photos-count":25,
+                    "member-since-date":
+                    {
+                        "month":3,
+                        "day":30,
+                        "year":2023
+                    },
+                    "description": "Pellentesque semper tellus eget nunc congue tincidunt. Morbi egestas tortor vitae urna pellentesque, sed fringilla neque malesuada."
+                }
+            ],
+    "top_reviews":
+    [
+        {
+            "resto_name":"Kanto Freestyle",
+            "subject":"Good but not always worth it",
+            "rating":3.0,
+            "preview":"assets/pics/preview33.jpg",
+            "images":"assets/pics/preview34.jpg",
+            "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "date":
+            {
+                "month":2,
+                "day":9,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Potato Corner",
+            "subject":"Always the best fries",
+            "rating":5.0,
+            "preview":"assets/pics/preview35.jpg",
+            "images":"assets/pics/preview36.jpg",
+            "body":"Pellentesque luctus sed nunc nec sodales. Curabitur varius lacus et nibh vehicula, sed pretium eros ultrices.",
+            "date":
+            {
+                "month":1,
+                "day":14,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Infinitea",
+            "subject":"Could be better",
+            "rating":2.0,
+            "preview":"assets/pics/preview37.jpg",
+            "images":"assets/pics/preview38.jpg",
+            "body":"Duis faucibus tempus orci sed blandit. Vivamus vestibulum posuere arcu, et faucibus nisl congue eget.",
+            "date":
+            {
+                "month":5,
+                "day":15,
+                "year":2023
+            }
+        }
+    ],
+    "recent_reviews":
+    [
+
+    ]
+}
