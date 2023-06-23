@@ -63,9 +63,35 @@
                 "day":17,
                 "year":2023
             }
+        },
+        {
+            "resto_name":"Bowl'd",
+            "subject":"Very Good",
+            "rating":5.0,
+            "preview":"assets/pics/preview5.jpg",
+            "images":"assets/pics/preview6.jpg",
+            "body":"Nice food po sa Bowl'd hehe",
+            "date":
+            {
+                "month":6,
+                "day":23,
+                "year":2023
+            }
+        },
+        {
+            "resto_name":"Mongolian",
+            "subject":"Very Good",
+            "rating":5.0,
+            "preview":"assets/pics/preview5.jpg",
+            "images":"assets/pics/preview6.jpg",
+            "body":"Nice food I create my own food, nothing's the same",
+            "date":
+            {
+                "month":2,
+                "day":14,
+                "year":2023
+            }
         }
-    ],
-    "recent_reviews":
-    [
     ]
+    
 }
