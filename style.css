@@ -349,7 +349,7 @@ nav .right {
     align-self: center;
 }
 
-#profile-bio .profile-username {
+#profile-bio .name-holder {
     grid-column: 2 / span 2;
     display: flex;
     align-items: end;
@@ -960,7 +960,7 @@ nav .right {
     grid-template-rows: 1fr 1fr 2fr .25fr;
     column-gap: .2vw;
     grid-template-areas:
-        "a a b b d"
+        "a a a a d"
         "c c c c e"
         "g g g g e"
         "h h j k l";
@@ -1415,7 +1415,27 @@ nav .right {
     font-family: "Open Sans" sans-serif;
 }
 
+
+.mini-card-container2 {
+    display: flex;
+    width: 300px;
+    flex-direction: column;
+    font-family: "Open Sans" sans-serif;
+}
+
 .mini-card-container .mini-top {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/pics/icecream.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container2 .mini-top {
     border-radius: 15px 15px 0 0;
     background-image: url("assets/pics/icecream.jpg");
     background-size: cover;
@@ -1439,7 +1459,31 @@ nav .right {
     flex-direction: column;
 }
 
+.mini-card-container2 .mini-top1 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/bowld/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
 .mini-card-container .mini-top2 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/infinitea/preview2.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container2 .mini-top2 {
     border-radius: 15px 15px 0 0;
     background-image: url("assets/sprites/restaurants/infinitea/preview2.jpg");
     background-size: cover;
@@ -1463,7 +1507,31 @@ nav .right {
     flex-direction: column;
 }
 
+.mini-card-container2 .mini-top3 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/mongolian/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
 .mini-card-container .mini-top4 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/potato-corner/menu-2.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
+.mini-card-container2 .mini-top4 {
     border-radius: 15px 15px 0 0;
     background-image: url("assets/sprites/restaurants/potato-corner/menu-2.jpg");
     background-size: cover;
@@ -1487,18 +1555,51 @@ nav .right {
     flex-direction: column;
 }
 
+.mini-card-container2 .mini-top5 {
+    border-radius: 15px 15px 0 0;
+    background-image: url("assets/sprites/restaurants/queggs/preview1.jpg");
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    flex-direction: column;
+}
+
 .mini-card-container .mini-name {
     margin: 5px 10px 0px 10px;
     font-weight: bold;
     width: 300px;
+    text-shadow: 1px 1px 2px var(--borders), 0 0 25px var(--secondary), 0 0 5px var(--primary);
+
+}
+
+.mini-card-container2 .mini-name {
+    margin: 5px 10px 0px 10px;
+    font-weight: bold;
+    width: 300px;
+    text-shadow: 1px 1px 2px var(--borders), 0 0 25px var(--secondary), 0 0 5px var(--primary);
+
 }
 
 .mini-card-container .mini-place {
     margin: 5px 10px;
     font-style: italic;
+    text-shadow: 1px 1px 2px var(--borders), 0 0 25px var(--secondary), 0 0 5px var(--primary);
+}
+
+.mini-card-container2 .mini-place {
+    margin: 5px 10px;
+    font-style: italic;
+    text-shadow: 1px 1px 2px var(--borders), 0 0 25px var(--secondary), 0 0 5px var(--primary);
 }
 
 .mini-card-container .mini-review-container {
+    background-color: white;
+}
+
+.mini-card-container2 .mini-review-container {
     background-color: white;
 }
 
@@ -1510,7 +1611,19 @@ nav .right {
 
 }
 
+.mini-card-container2 .mini-review-container .mini-review-title,
+.mini-card-container2 .mini-review-container .mini-review-content {
+    margin: 10px 10px 10px 10px;
+    font-family: "Open Sans" sans-serif;
+    font-size: 12px;
+
+}
+
 .mini-card-container .mini-review-container .mini-review-title {
+    font-weight: bold;
+}
+
+.mini-card-container2 .mini-review-container .mini-review-title {
     font-weight: bold;
 }
 

@@ -11,15 +11,15 @@
         <div class="compose-container">
             <div class="compose-header">
                 <h4>Create a Review</h4>
-                <span><strong>x</strong></span>
+                <span class="clickable"><strong>x</strong></span>
             </div>
             <form>
                 <div class="compose-subject">
                 <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                 width="70.000000pt" height="30.000000pt" viewBox="0 0 2560.000000 512.000000"
-                preserveAspectRatio="xMidYMid meet">
+                preserveAspectRatio="xMidYMid meet" fill="#595959">
                     <g class="flag-1 green-flag" transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
-                    fill="#000000" stroke="none">
+                     stroke="none" fill="#595959">
                     <path d="M4275 5010 c-130 -131 -243 -214 -380 -280 -324 -156 -666 -190
                     -1305 -130 -118 11 -287 27 -375 36 -674 64 -1079 -1 -1412 -225 -115 -78
                     -226 -179 -220 -200 3 -9 159 -565 346 -1236 188 -671 348 -1244 357 -1273
@@ -105,5 +105,39 @@
         <!-- JQuery Lib -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script src="index.js"></script>
+        <script>
+            var rating = 0;
+            setInterval(function(){
+                
+                $('form svg .flag-1').on('click', function(){
+                    rating = 1;
+                })
+                $('form svg .flag-2').on('click', function(){
+                    rating = 2;
+                })
+                $('form svg .flag-3').on('click', function(){
+                    rating = 3;
+                })
+                $('form svg .flag-4').on('click', function(){
+                    rating = 4;
+                })
+                $('form svg .flag-5').on('click', function(){
+                    rating = 5;
+                })
+
+                for(var i = 0; i < 5; i++){
+                    if(i < rating){
+                        if(rating < 3){
+                            $('form svg .flag-' + (i + 1)).css('fill', '#800037');
+                        } else {
+                            $('form svg .flag-' + (i + 1)).css('fill', '#008037');
+                        }
+                    }else{
+                        $('form svg .flag-' + (i + 1)).css('fill', '#595959');
+                    }
+                }
+            }, 100)
+            
+        </script>
     </body>
 </html>

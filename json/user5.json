@@ -3,12 +3,13 @@
     "bio":
             [
                 {
-                    "username":"Mezen Lababidi",
-                    "profile-picture":"assets/pics/profile5.jpg",
-                    "helpful-count":80,
-                    "reviews-count":93,
-                    "photos-count":90,
-                    "member-since-date":
+                    "first_name":"Mezen",
+                    "last_name":"Lababidi",
+                    "profile_picture":"assets/pics/profile5.jpg",
+                    "helpful_count":80,
+                    "reviews_count":93,
+                    "photos_count":90,
+                    "member_since_date":
                     {
                         "month":7,
                         "day":27,

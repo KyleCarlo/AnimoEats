@@ -1,29 +1,30 @@
 {
     "user": "Daphne Go",
     "bio":
-            [
-                {
-                    "username":"Daphne Go",
-                    "profile-picture":"assets/pics/profile3.jpg",
-                    "helpful-count":5,
-                    "reviews-count":25,
-                    "photos-count":18,
-                    "member-since-date":
-                    {
-                        "month":3,
-                        "day":8,
-                        "year":2023
-                    },
-                    "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
-                }
-            ],
+    [
+        {
+            "first_name":"Daphne",
+            "last_name": "Go",
+            "profile_picture":"assets/pics/profile3.jpg",
+            "helpful_count":5,
+            "reviews_count":25,
+            "photos_count":18,
+            "member_since_date":
+            {
+                "month":3,
+                "day":8,
+                "year":2023
+            },
+            "description": "Reviewing food we eat every once in a while. Let me know your recommendations!"
+        }
+    ],
     "top_reviews":
     [
         {
             "resto_name":"Linfong Cuisine",
             "subject":"Best resto in Taft!",
             "rating":5.0,
-            "preview":"assets/pics/preview1.jpg",
+            "preview":"assets/pics/preview2.jpg",
             "images":"assets/pics/preview2.jpg",
             "body":"Best Chinese-Japanese fusion restaurant in Taft. I recommend their beef noodle and kwapao specifically. 100/10",
             "date":
@@ -51,8 +52,8 @@
             "resto_name":"Tinuhog ni Benny",
             "subject":"Sulit and masarap",
             "rating":4.5,
-            "preview":"assets/pics/preview5.jpg",
-            "images":"assets/pics/preview6.jpg",
+            "preview":"assets/pics/preview1.jpg",
+            "images":"assets/pics/preview3.jpg",
             "body":"A HAVEN FOR BBQ LOVERS! Sulit to order a meal and their 80-peso sisig always. Sana mas mabilis lang service.",
             "date":
             {

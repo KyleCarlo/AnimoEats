@@ -57,7 +57,8 @@ function loadComponents(page, callback, callback2){
             page == "recent2.html" ||
             page == "recent3.html" ||
             page == "recent4.html" ||
-            page == "recent5.html"){
+            page == "recent5.html" ||
+            page == "recent6.html"){
                 loadRecent(path);
         }
         else{
@@ -90,7 +91,7 @@ function hoverPath(){
     "johnhall", "nolist1", "nolist2", "velascohall", "starbucks", "711R", "ampi", "quad", 
     "brandrew", "greenmall", "archersplace", "mcdoU", "gokshall", "castrost", "univmall", "wh", 
     "egitower", "vistataft", "burg", "estradast", "sherwoodplace"];
-    var buildings=["SJ Path", "Faculty Center", "Research Center",
+    var buildings=["SJ Walk", "Faculty Center", "Research Center",
                 "Razon", "St. Murien", "St. Miguel", "Bloemen Hall",
                 "Yuchengco","Beside Agno", "Connon Hall", "Henry Sy", "LS Path",
                 "Agno", "John Hall", "Noli Street", "Noli Street", "Velasco Hall",
@@ -104,7 +105,7 @@ function hoverPath(){
     "Main Sports Building for Physical Education",
     "Houses History and Engineering Students, Known for Its Scary Vibe",
     "Houses the College of Liberal Arts",
-    "Place for Quick Snacks and Refreshers Inside Campus",
+    "Quick Snacks and Refreshers",
     "Artistic and Architectural Piece with the Museum Inside It",
     "Place Beside the Main Food Hub in DLSU",
     "Housing the Clinic and Student Government Offices",
@@ -381,6 +382,12 @@ function userView(){
     var top_revs = $('.top-review');
 
     for (var i = 0; i < top_revs.length; i++){
+        top_revs[i] > $('.review-edit').remove();
+        top_revs[i] > $('.review-delete').remove();
+    }
+
+    var all_revs = $('.recent-main');
+    for (var i = 0; i < all_revs.length; i++){
         top_revs[i] > $('.review-edit').remove();
         top_revs[i] > $('.review-delete').remove();
     }
