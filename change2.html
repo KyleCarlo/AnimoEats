@@ -11,7 +11,7 @@
         <div class="compose-container">
             <div class="compose-header">
                 <h4>Edit Review</h4>
-                <span><strong>x</strong></span>
+                <span class="clickable"><strong>x</strong></span>
             </div>
             <form>
                 <div class="compose-subject">
@@ -105,5 +105,39 @@
         <!-- JQuery Lib -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script src="index.js"></script>
+        <script>
+            var rating = 0;
+            setInterval(function(){
+                
+                $('form svg .flag-1').on('click', function(){
+                    rating = 1;
+                })
+                $('form svg .flag-2').on('click', function(){
+                    rating = 2;
+                })
+                $('form svg .flag-3').on('click', function(){
+                    rating = 3;
+                })
+                $('form svg .flag-4').on('click', function(){
+                    rating = 4;
+                })
+                $('form svg .flag-5').on('click', function(){
+                    rating = 5;
+                })
+
+                for(var i = 0; i < 5; i++){
+                    if(i < rating){
+                        if(rating < 3){
+                            $('form svg .flag-' + (i + 1)).css('fill', '#800037');
+                        } else {
+                            $('form svg .flag-' + (i + 1)).css('fill', '#008037');
+                        }
+                    }else{
+                        $('form svg .flag-' + (i + 1)).css('fill', '#595959');
+                    }
+                }
+            }, 100)
+            
+        </script>
     </body>
 </html>
