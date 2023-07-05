@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Store Preview</title>
+    <style>
+        .store-prev-main {
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            background: linear-gradient(143deg, #FEF7DE 46.56%, #F8C1B4 100%);
+            border-radius: 15px;
+            height: auto;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+        .store-prev-main .store-prev-header{
+            height:200px;
+            width: 100%;
+            background-image: url("assets/jpg/preview5.jpg");
+            background-size:cover;
+            border-radius: 15px 15px 0px 0px;
+        }
+            
+        .store-prev-main .store-prev-content{
+            display: grid;
+            padding: 25px;
+            grid-template-areas: 
+            "a b"
+            "c b"
+            "d d";
+        }
+            
+        .store-prev-main .store-prev-content .store-name{
+            grid-area:a;
+            color: #002812;
+            font-size: 20px;
+            font-family: "Open Sans";
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+            
+        .store-prev-main .store-prev-content .store-location{
+            grid-area: c;
+            color: #002812;
+            font-size: 14px;
+            font-family: "Open Sans";
+            font-style: italic;
+            font-weight: 400;
+            line-height: normal;
+        }
+            
+            
+        .store-prev-main .store-prev-content .store-flag{
+            grid-area: b;
+            text-align: right;
+        }
+            
+            
+        .store-prev-main .store-prev-content .store-description{
+            grid-area: d;
+            color: #002812;
+            text-align: justify;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            font-family: "Open Sans";
+            padding-top:10px;
+            
+        }
+        .store-prev-main .store-prev-content .read-more{
+            color: gray;
+            text-align: justify;
+            font-size: 8px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: normal;
+            font-family: "Open Sans";
+            padding-top:15px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="store-prev-main">
+        <div class="store-prev-header"></div>
+        <div class="store-prev-content">
+            <div class="store-name">Resto Name</div>
+            <div class="store-location">location</div>
+            <div class="store-flag"><img src="assets/svg/ind-flag.svg" alt="single-flag"></div>
+            <div class="store-description">
+                <span class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Iste laboriosam in incidunt, esse amet saepe sequi, 
+                quas ut cum quaerat, necessitatibus natus aliquam! 
+                Eum culpa dolore magni ab, nobis autem! Lorem, 
+                ipsum dolor sit amet consectetur adipisicing elit. 
+                Animi accusamus quae, enim eius a odio quis sit sequi obcaecati! 
+                Iure voluptas ratione in. Reiciendis quam harum adipisci natus, cumque dignissimos.</span>
+                <span class="read-more">Read More</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var fullText= $(".store-description .main-text").text();
+            console.log(fullText);
+            var prevText = fullText.slice(0,300)+"...";
+            $(".store-description .main-text").text(prevText);
+            $(".store-prev-main .read-more").click(function(){
+                $(".store-description .main-text").text(fullText);
+                $(".store-prev-main .read-more").remove();
+            });
+        });
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+    --def-font: 'Open Sans', sans-serif;
+    font-family: var(--def-font);
+    font-size: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.review-card{
+    background-color: #002812;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    display: grid;
+    grid-template-areas:
+        "a b d"
+        "e e e"
+        "f f f"
+        "g g j"
+        "h h h"
+        "i i i";
+    width: 470px;
+    /* height: 475px; */
+    padding: 15px;
+    column-gap: 10px;
+    row-gap: 15px;
+    color: white;
+    align-items: top;
+    margin-left: 50px;
+}
+
+.review-card .profile-picture{
+    grid-area: a;
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+}
+
+.review-card .identifiers{
+    grid-area: b;
+    height: 35px;
+    width: 270px;
+}
+
+.review-card .username{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.review-card .restaurant{
+    font-size: 12px;
+}
+
+.review-card .rating{
+    grid-area: d;
+    align-self: center;
+    justify-self: right;
+    width: 115px;
+}
+
+.review-card .title{
+    font-weight: bold;
+    grid-area: e;
+}
+
+.review-card .body{
+    grid-area: f;
+}
+
+.review-card .helpful_buttons{
+    grid-area: g;
+}
+
+.review-card .edit_delete{
+    grid-area: j;
+}
+
+.review-card .images{
+    grid-area: h;
+}
+.review-card .reply{
+    border-top: 1px white solid;
+    grid-area: i;
+    min-height: 15px;
+    align-content: center;
+}
+.review-card .read-more{
+    opacity: 60%;
+    font-size: 13px;;
+}
+
+.review-card .add-reply{
+    width: 400px;  
+    background-color: transparent;
+    border: none;
+    font-size: 12px;
+    color:white;
+    resize: none;
+}
+
+.review-card .add-reply::placeholder{
+    font-weight: bold;
+    font-size: 12px;
+    color:white;
+    font-family: var(--def-font);
+    
+}
+
+.review-card .add-reply:focus{
+    outline: none;
+    border: none;
+    caret-color: white;
+}
+
+.review-card .post-reply{
+    text-align: right;
+    background-color: transparent;
+    border: none;
+    color:#CFE7C3;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
