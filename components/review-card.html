@@ -74,7 +74,7 @@
 
         <div class="images">
             <!-- CAROUSEL BULLETS -->
-            <svg class="bullets" width="36" height="7" viewBox="0 0 36 7" xmlns="http://www.w3.org/2000/svg">
+            <svg class="bullets" width="100%" height="7" viewBox="0 0 36 7" xmlns="http://www.w3.org/2000/svg">
                 <circle class="bullet-1" cx="3" cy="3.36317" r="3" fill="#7FBF8D"/>
                 <circle class="bullet-2" cx="13" cy="3.36317" r="3" fill="#EEF6D9"/>
                 <circle class="bullet-3" cx="23" cy="3.36317" r="3" fill="#EEF6D9"/>
@@ -105,10 +105,10 @@
             </button>
         </div>
 
-        <!-- <div class="reply">
+        <div class="reply">
             <textarea class="add-reply" name="owners-reply" placeholder="Add a reply..." rows ="1"></textarea>
             <input class="post-reply" name="post-reply" type="button" value="Post">
-        </div> -->
+        </div>
     </div>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -158,11 +158,17 @@
                 let className = e.currentTarget.classList[0];
                 let pressedButton = $('.buttons .like-dislike .' + className);
                 let unpressedButton = $('.buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
-                pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
-                unpressedButton.css('fill', 'none');
+                
+                if (pressedButton.css('fill') != 'none')
+                    pressedButton.css('fill', 'none');
+                else {
+                    pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
+                    pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
+                    unpressedButton.css('fill', 'none');
+                }
             });
 
-            // // CHANGE BULLET FUNCTIONALITY
+            // CHANGE BULLET FUNCTIONALITY
             // var num_of_images = 2; // THIS IS A VARIABLE FROM THE USER
             // var bullets = $('.images .bullets');
             // if (num_of_images > 0){
@@ -180,32 +186,6 @@
             //     $('.images').css('display', 'none');
             // }
 
-            // CHANGE IMAGE FUNCTIONALITY
-            // var left_right = $('.images .img-container *');
-            // left_right.on('click', function(e){
-            //     let direction = e.currentTarget.className;
-            //     let imgContainer = $('.images .img-container');
-            //     let currentImage = imgContainer.css('background-image').split('/').pop().split('.')[0];
-            //     let imageNum = currentImage[currentImage.length - 1];
-            //     if (direction == 'left') {
-            //         console.log('left');
-            //         if (imageNum == 1) {
-            //             imageNum = num_of_images;
-            //         } else {
-            //             imageNum--;
-            //         }
-            //     } else {
-            //         console.log('right');
-            //         if (imageNum == num_of_images) {
-            //             imageNum = 1;
-            //         } else {
-            //             imageNum++;
-            //         }
-            //     }
-            //     currentImage = imgContainer.css('background-image', 'url(assets/jpg/preview' + imageNum + '.jpg');
-            //     $('.images .bullets circle').css('fill', '#EEF6D9');
-            //     $('.images .bullets .bullet-' + imageNum).css('fill', '#7FBF8D');
-            // });
             var tracker = $('.images .img-container .tracker');
             var slides = $('.images .img-container .tracker .slide');
             var prev = $('.images .left');
@@ -243,7 +223,7 @@
                     moveToSlide(tracker, currentSlide, prevSlide);
                     updateBullets(-1);
                 }
-            })
+            });
 
             next.on('click', function(e){
                 let currentSlide = tracker.find('.current-slide');
@@ -259,7 +239,14 @@
                     moveToSlide(tracker, currentSlide, nextSlide);
                     updateBullets(1);
                 }
-            })
+            });
+
+            var textarea = $('.reply .add-reply');
+            textarea.on('keyup', function(e){
+                textarea[0].style.height = "auto";
+                let scHeight = e.target.scrollHeight;
+                textarea[0].style.height = scHeight + "px";
+            });
         });
 
     </script>
