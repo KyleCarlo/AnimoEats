@@ -12,7 +12,7 @@
         <div class="resto-header"></div>
         <div class="resto-content">
             <div class="name-rating">
-                <div class="resto-name">Resto Name</div>
+                <div class="resto-name">Mongolian Bowl</div>
                 <span class="rating-num">3.2</span>
                 <svg class="rating" width="115" height="22" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g class="flag-1 clickable" fill="#595959">
@@ -53,7 +53,11 @@
             </div>
 
             <div class="resto-images">
-                
+                <img class="resto-single-image" src="\assets\jpg\preview1.jpg">
+                <img class="resto-single-image" src="\assets\jpg\preview2.jpg">
+                <img class="resto-single-image" src="\assets\jpg\preview3.jpg">
+                <img class="resto-single-image" src="\assets\jpg\preview4.jpg">
+                <img class="resto-single-image" src="\assets\jpg\preview5.jpg">
             </div>
         </div>
     </div>
@@ -62,10 +66,10 @@
     <script>
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
-            var fullText= $(".store-description .main-text").text();
-            if (fullText.length > 300) {
-                var prevText = fullText.slice(0,280)+"...";
-                $(".resto-descriptionn .main-text").text(prevText);
+            var fullText= $(".resto-description .main-text").text();
+            if (fullText.length > 250) {
+                var prevText = fullText.slice(0,220)+"...";
+                $(".resto-description .main-text").text(prevText);
                 $(".resto-card .read-more").click(function(){
                     $(".resto-description .main-text").text(fullText);
                     $(".resto-card .read-more").css('display', 'none');
