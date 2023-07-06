@@ -344,5 +344,34 @@
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
+/*** ADD REVIEW BUTTON ***/
+.add-review-btn {
+    width: 398px;
+    height: 29px;
+    background-color: #BFDFB8;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
 
+.add-review-btn:hover {
+    background-color: #8EB583;
+}
 
+/*** VIEW MORE REVIEWS BUTTON ***/
+.view-more-btn {
+    width: 398px;
+    height: 29px;
+    background-color: #F6D8D0;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.view-more-btn:hover {
+    background-color: #E8BCB1;
+}
