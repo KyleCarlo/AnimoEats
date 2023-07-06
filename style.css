@@ -344,7 +344,66 @@
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
-/*** ADD REVIEW BUTTON ***/
+/***** SIDE-BAR COMPONENT *****/
+.side-bar{
+    display: flex;
+    align-items: end;
+}
+
+.side-bar .search-bar{
+    background: #F8C1B4;
+    padding: 14px 15px;
+    border-radius: 20px 0 0 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transform-origin: 100% 0;
+    transition: transform 0.5s;
+}
+
+#search{
+    font-size: 14px;
+    background: transparent;
+    border: none;
+    font-family: "Open Sans";
+    outline: none;
+    width: 250px;
+}
+
+#search:focus{
+    outline: none;
+}
+
+.side-bar-pink{
+    width: 60px;
+    height: auto;
+    border-radius: 7px;
+    background: #F8C1B4;
+}
+
+.side-bar-green{
+    width: 50px;
+    height: auto;
+    border-radius: 7px;
+    background: #002812;
+    padding: 5px 0px;
+}
+
+.side-bar-green div{
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.side-bar-green div svg{
+    width: 100%;
+}
+
+.side-bar-green .selected{
+    background: #F8C1B4;
+    border-radius: 20px 0 0 20px;
+    margin: 2px 0 2px 5px;
+}
+
+/***** ADD-REVIEW-BTN *****/
 .add-review-btn {
     width: 398px;
     height: 29px;
@@ -360,7 +419,7 @@
     background-color: #8EB583;
 }
 
-/*** VIEW MORE REVIEWS BUTTON ***/
+/***** VIEW-MORE-REVIEW-BTN *****/
 .view-more-btn {
     width: 398px;
     height: 29px;
