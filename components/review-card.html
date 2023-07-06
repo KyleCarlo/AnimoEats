@@ -67,25 +67,48 @@
                 <span class="dislike-count">100</span>                
             </div>
             <div class="edit_delete">
-                <img class="clickable" src="assets/svg/pen-comment.svg" alt="edit">
-                <img class="clickable" src="assets/svg/trash-can.svg" alt="delete">
+                <img class="edit clickable" src="assets/svg/pen-comment.svg" alt="edit">
+                <img class="delete clickable" src="assets/svg/trash-can.svg" alt="delete">
             </div>
         </div>
 
         <div class="images">
-            <svg class="bullets" width="36" height="7" viewBox="0 0 36 7" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
-            <!-- <img class = "bullets" src="assets/svg/bullets.svg"> -->
-            
+            <!-- CAROUSEL BULLETS -->
+            <svg class="bullets" width="36" height="7" viewBox="0 0 36 7" xmlns="http://www.w3.org/2000/svg">
+                <circle class="bullet-1" cx="3" cy="3.36317" r="3" fill="#7FBF8D"/>
+                <circle class="bullet-2" cx="13" cy="3.36317" r="3" fill="#EEF6D9"/>
+                <circle class="bullet-3" cx="23" cy="3.36317" r="3" fill="#EEF6D9"/>
+                <circle class="bullet-4" cx="33" cy="3.36317" r="3" fill="#EEF6D9"/>
+            </svg>
+            <!-- CAROUSEL EFFECT -->
+            <button class="left clickable">
+                <img  src="assets/svg/left-arrow-btn.svg" alt="left">
+            </button>
             <div class="img-container">
-                <img class="left" src="assets/svg/left-arrow-btn.svg" alt="left">
-                <img class="right" src="assets/svg/right-arrow-btn.svg" alt="right">
+                <ul class="tracker">
+                    <li class="slide current-slide">
+                        <img src="assets/jpg/preview1.jpg" alt="review-pic-1">
+                    </li>
+                    <li class="slide">
+                        <img src="assets/jpg/preview2.jpg" alt="review-pic-2">
+                    </li>
+                    <li class="slide">
+                        <img src="assets/jpg/preview3.jpg" alt="review-pic-3">
+                    </li>
+                    <li class="slide">
+                        <img src="assets/jpg/preview4.jpg" alt="review-pic-4">
+                    </li>
+                </ul>
             </div>
+            <button class="right clickable">
+                <img src="assets/svg/right-arrow-btn.svg" alt="right">
+            </button>
         </div>
 
-        <div class="reply">
+        <!-- <div class="reply">
             <textarea class="add-reply" name="owners-reply" placeholder="Add a reply..." rows ="1"></textarea>
             <input class="post-reply" name="post-reply" type="button" value="Post">
-        </div>
+        </div> -->
     </div>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -139,50 +162,104 @@
                 unpressedButton.css('fill', 'none');
             });
 
-            // CHANGE BULLET FUNCTIONALITY
-            var num_of_images = 3; // THIS IS A VARIABLE FROM THE USER
-            var bullets = $('.images .bullets');
-            if (num_of_images > 0){
-                if (num_of_images > 1){
-                    let gaps = [20,10,5,0];
-                    for (let index = 1; index < num_of_images + 1; index++) {
-                        let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
-                        let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + cx + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
-                        bullets[0].innerHTML += circle;
-                    }
-                } else {
-                    $('.images .img-container *').css('display', 'none');
-                }
-            } else {
-                $('.images').css('display', 'none');
-            }
+            // // CHANGE BULLET FUNCTIONALITY
+            // var num_of_images = 2; // THIS IS A VARIABLE FROM THE USER
+            // var bullets = $('.images .bullets');
+            // if (num_of_images > 0){
+            //     if (num_of_images > 1){
+            //         let gaps = [20,10,5,0];
+            //         for (let index = 1; index < num_of_images + 1; index++) {
+            //             let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
+            //             let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + cx + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
+            //             bullets[0].innerHTML += circle;
+            //         }
+            //     } else {
+            //         $('.images .img-container *').css('display', 'none');
+            //     }
+            // } else {
+            //     $('.images').css('display', 'none');
+            // }
 
             // CHANGE IMAGE FUNCTIONALITY
-            var left_right = $('.images .img-container *');
-            left_right.on('click', function(e){
-                let direction = e.currentTarget.className;
-                let imgContainer = $('.images .img-container');
-                let currentImage = imgContainer.css('background-image').split('/').pop().split('.')[0];
-                let imageNum = currentImage[currentImage.length - 1];
-                if (direction == 'left') {
-                    console.log('left');
-                    if (imageNum == 1) {
-                        imageNum = num_of_images;
-                    } else {
-                        imageNum--;
-                    }
-                } else {
-                    console.log('right');
-                    if (imageNum == num_of_images) {
-                        imageNum = 1;
-                    } else {
-                        imageNum++;
-                    }
-                }
-                currentImage = imgContainer.css('background-image', 'url(assets/jpg/preview' + imageNum + '.jpg');
+            // var left_right = $('.images .img-container *');
+            // left_right.on('click', function(e){
+            //     let direction = e.currentTarget.className;
+            //     let imgContainer = $('.images .img-container');
+            //     let currentImage = imgContainer.css('background-image').split('/').pop().split('.')[0];
+            //     let imageNum = currentImage[currentImage.length - 1];
+            //     if (direction == 'left') {
+            //         console.log('left');
+            //         if (imageNum == 1) {
+            //             imageNum = num_of_images;
+            //         } else {
+            //             imageNum--;
+            //         }
+            //     } else {
+            //         console.log('right');
+            //         if (imageNum == num_of_images) {
+            //             imageNum = 1;
+            //         } else {
+            //             imageNum++;
+            //         }
+            //     }
+            //     currentImage = imgContainer.css('background-image', 'url(assets/jpg/preview' + imageNum + '.jpg');
+            //     $('.images .bullets circle').css('fill', '#EEF6D9');
+            //     $('.images .bullets .bullet-' + imageNum).css('fill', '#7FBF8D');
+            // });
+            var tracker = $('.images .img-container .tracker');
+            var slides = $('.images .img-container .tracker .slide');
+            var prev = $('.images .left');
+            var next = $('.images .right');
+            var bullets = $('.images .bullets');
+            var slideWidth = slides[0].clientWidth;
+            var currentBullet = 1;
+            var moveToSlide = (tracker, currentSlide, targetSlide) => {
+                tracker.css('transform', 'translateX(-' + targetSlide[0].style.left + ')');
+                currentSlide.removeClass('current-slide');
+                targetSlide.addClass('current-slide');
+            }
+            var updateBullets = (change) => {
                 $('.images .bullets circle').css('fill', '#EEF6D9');
-                $('.images .bullets .bullet-' + imageNum).css('fill', '#7FBF8D');
-            });
+                currentBullet += change;
+                $('.images .bullets .bullet-' + currentBullet).css('fill', '#7FBF8D');
+            }
+
+            prev.css('display', 'none');
+
+            for (let index = 0; index < slides.length; index++) {
+                slides[index].style.left = index * slideWidth + 'px';                
+            }
+
+            prev.on('click', function(e){
+                let currentSlide = tracker.find('.current-slide');
+                let prevSlide = currentSlide.prev();
+
+                if (currentBullet == 1+1){                
+                    prev.css('display', 'none');
+                    moveToSlide(tracker, currentSlide, prevSlide);
+                    updateBullets(-1);
+                } else {
+                    next.css('display', 'initial');
+                    moveToSlide(tracker, currentSlide, prevSlide);
+                    updateBullets(-1);
+                }
+            })
+
+            next.on('click', function(e){
+                let currentSlide = tracker.find('.current-slide');
+                let nextSlide = currentSlide.next();
+
+                currentSlide.css('animation', 'moveLeft 0.5s ease-in-out');
+                if (currentBullet == 4-1){                
+                    next.css('display', 'none');
+                    moveToSlide(tracker, currentSlide, nextSlide);
+                    updateBullets(1);
+                } else {
+                    prev.css('display', 'initial');
+                    moveToSlide(tracker, currentSlide, nextSlide);
+                    updateBullets(1);
+                }
+            })
         });
 
     </script>
