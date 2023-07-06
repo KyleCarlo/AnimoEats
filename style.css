@@ -2,6 +2,7 @@
 
 :root {
     --def-font: 'Open Sans', sans-serif;
+    --primary: #008037;
     font-family: var(--def-font);
     font-size: 16px;
 }
@@ -9,6 +10,7 @@
 * {
     margin: 0;
     padding: 0;
+    background: #FEFEE3;
 }
 
 /***** TYPE-DEPENDENT CLASS *****/
@@ -344,5 +346,123 @@
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
 }
 
+/********* SIGN UP & LOG IN ************/
+
+.sign-up-log-in {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 90vh;
+    align-self: center;
+    
+}
+
+.sign-up-log-in .waves{
+    background-color: var(--primary);
+    height: 100vh;
+}
+
+.sign-up-log-in .left {
+    flex: 2;
+    /* padding: 7.5% 2.5%; */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    min-width: 500px;
+}
+
+.sign-up-log-in .right {
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.sign-up-log-in .right .logo{
+    vertical-align: middle;
+    
+}
+
+.sign-up-log-in .left h1 {
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.sign-up-log-in .left .grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 45px 45px;
+    margin: 20px 0;
+    column-gap: 5px;
+    row-gap: 20px;
+}
+
+.sign-up-log-in .left input::placeholder {
+    font: var(--def-font);
+    font-size: 16px;
+}
+
+.sign-up-log-in .left input {
+    font-family: inherit;
+    padding: 10px;
+    border: 2px solid #C6C6C6;
+    border-radius: 5px;
+    background: transparent;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
 
 
+.sign-up-log-in .left .other {
+    grid-column: 1 / span 2;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.sign-up-log-in .left .button {
+    font-size: 16px;
+    font-weight: 600;
+    grid-column: 1 / span 2;
+    background-color: #BFDFB8;
+    border: none !important;
+    color: black;
+    align-self: center;
+    border-radius: 5px;
+    text-decoration: none !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sign-up-log-in .left .button-inside {
+    font-size: 16px;
+    font-weight: 600;
+    grid-column: 1 / span 2;
+    background-color: #BFDFB8;
+    border: none !important;
+    color: black;
+    align-self: center;
+    border-radius: 5px;
+    text-decoration: none !important;
+    margin: auto;
+    display: block;
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+
+.sign-up-log-in .left .old-new-account {
+    text-align: end;
+}
+
+.sign-up-log-in .left a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-align: right;
+}
+
+.sign-up-log-in .left h2 {
+    font-weight: normal;
+    font-size: 32px;
+}
