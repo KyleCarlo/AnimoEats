@@ -323,6 +323,7 @@
 .resto-card .resto-description{
     margin: 0 0 7.5px 0;
     font-size: 15px;
+    text-align: justify;
 }
 
 .resto-card .resto-description .read-more{
