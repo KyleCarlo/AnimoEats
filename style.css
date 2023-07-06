@@ -62,6 +62,15 @@
     flex: 1;
 }
 
+.review-card .username{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.review-card .restaurant{
+    font-size: 12px;
+}
+
 .review-card .title{
     font-weight: bold;
     margin: 0 20px 7.5px 20px;
@@ -155,7 +164,7 @@
     color: #CFE7C3;
     font-size: 12px;
     font-family: var(--def-font);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
 }
 
@@ -237,3 +246,64 @@
     font-family: "Open Sans";
     padding-top:15px; 
 }
+
+/***** RESTAURANT CARD COMPONENT *****/
+.resto-card {
+    display: flex;
+    flex-direction: column;
+    width: 445px;
+    background: linear-gradient(143deg, #FEF7DE 46.56%, #F8C1B4 100%);
+    border-radius: 15px;
+    height: auto;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.resto-card .resto-header{
+    height: 320px;
+    width: 100%;
+    background-image: url("assets/jpg/preview5.jpg");
+    background-size:cover;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.resto-card .resto-content{
+    display: flex;
+    padding: 20px 25px 25px 25px;
+    align-items: left;
+    flex-direction: column;
+}
+
+.resto-content .name-rating{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.name-rating .resto-name{
+    flex: 1;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.name-rating .rating-num{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0 10px 0 10px;
+}
+
+.resto-content .loc-price-rev{
+    display: flex;
+    align-items: center;
+    font-style: italic;
+}
+
+.loc-price-rev .resto-loc{
+    flex: 1;
+}
+
+.loc-price-rev .resto-reviews{
+    font-weight: 600;
+}
+
+
