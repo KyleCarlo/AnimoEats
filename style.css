@@ -503,8 +503,6 @@
     height: 100vh;
     object-fit: contain;
     overflow: hidden;
-    position: sticky;
-    top: 0;
 }
 
 .sign-up-log-in-bg img{
@@ -518,9 +516,33 @@
     position: absolute;
     justify-content: center;
     top: 0;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+.sign-up-log-in-content .content{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    max-height:100vh;
 }
 
-.sign-up-log-in .grid{
+.content .left{
+    flex:1;
+    display:flex;
+    flex-direction: column;
+    max-width: 750px;
+
+}
+
+.content .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.sign-up-log-in-content .grid{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 45px 45px 45px 45px;
@@ -534,4 +556,8 @@
 
 .grid .button{
     grid-column: 1/span 2;
+}
+
+.right a{
+    vertical-align: middle;
 }
