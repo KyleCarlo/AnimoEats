@@ -540,3 +540,60 @@
 
     text-decoration: none !important;
 }
+
+
+/*ADD REVIEW*/
+
+.compose-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-family: "Open Sans";
+}
+
+.compose-container .compose-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #c7f6db;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.compose-container form {
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    font-family: "Open Sans";
+    border-radius: 0 0 10px 10px;
+}
+
+.compose-container .compose-subject {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    border-bottom: #DBDBDB solid 1px;
+    margin-bottom: 10px;
+}
+
+.compose-container .message {
+    padding: 5px;
+    height: 40vh;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.compose-container .add-icons {
+    display: grid;
+    grid-template-columns: 50fr 1fr;
+}
+
+.compose-container form img {
+    width: 25px;
+    padding-left: 5px;
+}

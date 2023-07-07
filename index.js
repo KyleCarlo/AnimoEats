@@ -9,4 +9,5 @@ function loadComponents(){
     $('.add-review-btn').load('components/add-review-btn.html');
     $('.view-more-btn').load('components/view-more-btn.html');
     $('.side-bar').load('components/side-bar.html');
+    $('.create-review').load('components/create-review.html');
 };
