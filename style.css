@@ -348,202 +348,40 @@
 
 /********* SIGN UP & LOG IN ************/
 
-/* .sign-up-log-in {
+.sign-up-log-in-body{
+    min-height: 100vh; 
     display: flex;
-    justify-content: space-between;
-    align-self: center;
-    max-width: 100%;
-}
-
-.sign-up-log-in .waves{
-    background-color: var(--primary);
-    flex-grow: 1;
-    flex-shrink: 1; 
-}
-
-.sign-up-log-in .content{
-    display: flex;
-}
-
-.sign-up-log-in .left {
-    /* flex: 2; */
-    /* padding: 7.5% 2.5%; */
-    /* display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center; */
-    /* min-width: 500px; */
-    /*
-}
-
-.sign-up-log-in .right {
-    /* flex: 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-     */
-     /*
-}
-
-.sign-up-log-in .left h1 {
-    font-weight: bold;
-    font-size: 36px;
-}
-
-.sign-up-log-in .left .grid {
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: 45px 45px;
-    margin: 20px 0;
-    column-gap: 5px;
-    row-gap: 20px;
-}
-
-.sign-up-log-in .left input::placeholder {
-    font: var(--def-font);
-    font-size: 16px;
-}
-
-.sign-up-log-in .left input {
-    font-family: inherit;
-    padding: 10px;
-    border: 2px solid #C6C6C6;
-    border-radius: 5px;
-    background: transparent;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-
-.sign-up-log-in .left .other {
-    grid-column: 1 / span 2;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-}
-
-.sign-up-log-in .left .button {
-    font-size: 16px;
-    font-weight: 600;
-    grid-column: 1 / span 2;
-    background-color: #BFDFB8;
-    border: none !important;
-    color: black;
-    align-self: center;
-    border-radius: 5px;
-    text-decoration: none !important;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.sign-up-log-in .left .button-inside {
-    font-size: 16px;
-    font-weight: 600;
-    grid-column: 1 / span 2;
-    background-color: #BFDFB8;
-    border: none !important;
-    color: black;
-    align-self: center;
-    border-radius: 5px;
-    text-decoration: none !important;
-    margin: auto;
-    display: block;
-    text-decoration: none !important;
-    box-shadow: none !important;
-}
-
-
-.sign-up-log-in .left .old-new-account {
-    text-align: end;
-}
-
-.sign-up-log-in .left a {
-    color: var(--primary);
-    text-decoration: underline;
-    text-align: right;
-}
-
-.sign-up-log-in .left h2 {
-    font-weight: normal;
-    font-size: 32px;
-} */
-/* 
-.sign-up-log-in {
-    display: flex;
-    justify-content: space-between;
-    align-self: center;
-    height: 100vh;
-}
-
-.sign-up-log-in .waves{
-    background-color: var(--primary);
-    width: 10vw;
-}
-
-.sign-up-log-in .center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    flex-wrap: wrap;
-    overflow: hidden;
-}
-
-.sign-up-log-in .center .right{
-    flex-grow: 1;
-}
-
-.sign-up-log-in .center .right img{
-
-} */
-
-/* .sign-up-log-in  */
-
-.sign-up-log-in-bg{
-    background: url('assets/svg/sign-in-bg.svg');
-    height: 100vh;
-    /* object-fit: contain; */
-    /* overflow: hidden; */
+    background-image: url("assets/svg/sign-in-bg.svg");
+    background-size: 100%;
     background-repeat: repeat-y;
 }
 
-/* .sign-up-log-in-bg img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-} */
-
 .sign-up-log-in-content{
     display: flex;
-    position: absolute;
     justify-content: center;
-    top: 0;
     align-items: center;
     width: 100%;
-    height: 100%;
-    
 }
 .sign-up-log-in-content .content{
     display: flex;
     flex-wrap: wrap;
     width: 60vw;
-    max-height:100vh;
-    justify-content:center;
-    padding: 37.5vh 22.5vw;
+    justify-content: center;
 }
 
 .content .left{
     flex:auto;
     display:flex;
     flex-direction: column;
-    max-width: 750px;
+    max-width: 500px;
 }
 
-.content .right{
+.content .right {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
+
 .sign-up-log-in-content .grid{
     display: grid;
     grid-template-columns: auto auto;
