@@ -20,6 +20,54 @@
     cursor: pointer;
 }
 
+
+.logo{
+    width: 10%;
+    max-width: 20vw;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+}
+
+.sidebar{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+/***** VIEW-MORE-REVIEW-BTN *****/
+.view-more-btn {
+    width: 398px;
+    height: 29px;
+    background-color: #F6D8D0;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.view-more-btn:hover {
+    background-color: #E8BCB1;
+}
+
+/***** ADD-REVIEW-BTN *****/
+.add-review-btn {
+    width: 100%;
+    height: 29px;
+    background-color: #BFDFB8;
+    border: none;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.add-review-btn:hover {
+    background-color: #8EB583;
+}
+
 /***** REVIEW CARD COMPONENT *****/
 
 .review-card {
@@ -490,22 +538,6 @@
     margin: 2px 0 2px 5px;
 }
 
-/***** ADD-REVIEW-BTN *****/
-.add-review-btn {
-    width: 398px;
-    height: 29px;
-    background-color: #BFDFB8;
-    border: none;
-    color: black;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    border-radius: 8px;
-}
-
-.add-review-btn:hover {
-    background-color: #8EB583;
-}
-
 .sign-up-log-in-content .button,
 .sign-up-log-in-content .button-inside {
     font-size: 16px;
@@ -519,22 +551,6 @@
     text-decoration: none !important;
 }
 
-/***** VIEW-MORE-REVIEW-BTN *****/
-.view-more-btn {
-    width: 398px;
-    height: 29px;
-    background-color: #F6D8D0;
-    border: none;
-    color: black;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    border-radius: 8px;
-}
-
-.view-more-btn:hover {
-    background-color: #E8BCB1;
-}
-
 .button-inside {
     margin: auto;
     display: block;
@@ -543,44 +559,58 @@
 }
 
 /***** EDIT PROFILE *****/
-.logo{
-    width: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
 
 .edit-prof-body{
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('assets/svg/edit-prof-bg.svg');
+    background-size: 100%;
 }
 
 .edit-prof{
-    width: 600px;
+    color: white;
+    width: 43%;
     display: grid;
     grid-template-areas: 
-    "pic change"
-    "pic change"
-    "fname req1"
-    "lname req2"
-    "desc indesc"
-    "button button";
+    "pic pic change change"
+    "pic pic change change"
+    "fname fname req1 req1"
+    "lname lname req2 req2"
+    "uname uname req3 req3"
+    "desc desc indesc indesc"
+    "button button button button";
     column-gap: 20px;
     row-gap: 20px;
+    margin: 2% 0;
+}
+
+.edit-prof input[type=text], .edit-prof textarea{
+    background: var(--white);
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.edit-prof label{
+    font-style: italic;
+    font-size: 0.8rem;
 }
 
 .edit-prof .prof-pic{
     grid-area: pic;
-    border-radius: 140px;
+    border-radius: 100%;
     width: 140px;
     height: 140px;
     overflow: hidden;
-    justify-self: end;
-    /* margin-right: 20px; */
+    justify-self: flex-end;
 }
 
 .edit-prof h1{
     font-size: 1.5rem;
+    padding: 2px;
 }
 
 .edit-prof .prof-pic img {
@@ -597,11 +627,11 @@
 
 .edit-prof .prof-pic-right span{
     font-style: italic;
-    font-weight: bold;
 }
 
 .edit-prof .fname{
     grid-area: fname;
+    align-self: flex-end;
 }
 
 .edit-prof .fname-field{
@@ -609,16 +639,13 @@
     align-self: center;
 }
 
-.edit-prof .fname-field label{
-    font-style: italic;
-}
-
 .edit-prof .fname-field input{
-    width: 95%
+    width: 95%;
 }
 
 .edit-prof .lname{
     grid-area: lname;
+    align-self: flex-end;
 }
 
 .edit-prof .lname-field{
@@ -626,16 +653,27 @@
     align-self: center;
 }
 
-.edit-prof .lname-field label{
-    font-style: italic;
+.edit-prof .lname-field input{
+    width: 95%;
 }
 
-.edit-prof .lname-field input{
-    width: 99%;
+.edit-prof .uname{
+    grid-area: uname;
+    align-self: flex-end;
+}
+
+.edit-prof .uname-field input{
+    width: 95%;
+}
+
+.edit-prof .uname-field{
+    grid-area: req3;
+    align-self: center;
 }
 
 .edit-prof .desc{
     grid-area: desc;
+    margin-top: 10px;
 }
 
 .edit-prof #description{
@@ -645,10 +683,47 @@
     resize: none;
     overflow: hidden;
     font-family: var(--def-font);
+    width: 95%;
+    margin-top: 15px;
 }
 
 .edit-prof #submit{
     grid-area: button;
+}
+
+@media (max-width:800px){
+    .edit-prof{
+        color: white;
+        width: 43%;
+        display: grid;
+        grid-template-areas: 
+        "pic"
+        "change"
+        "fname"
+        "req1"
+        "lname"
+        "req2"
+        "uname"
+        "req3"
+        "desc"
+        "indesc"
+        "button";
+        row-gap: 1%;
+    }
+
+    .edit-prof .prof-pic{
+        justify-self: center;
+    }
+
+    .edit-prof .prof-pic-right{
+        justify-self: center;
+        margin: 0;
+        text-align: center;
+    }
+
+    .edit-prof #submit{
+        margin-top: 35px;
+    }
 }
 
 
