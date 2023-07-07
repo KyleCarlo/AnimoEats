@@ -499,17 +499,18 @@
 /* .sign-up-log-in  */
 
 .sign-up-log-in-bg{
-    background: var(--primary);
+    background: url('assets/svg/sign-in-bg.svg');
     height: 100vh;
-    object-fit: contain;
-    overflow: hidden;
+    /* object-fit: contain; */
+    /* overflow: hidden; */
+    background-repeat: repeat-y;
 }
 
-.sign-up-log-in-bg img{
+/* .sign-up-log-in-bg img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+} */
 
 .sign-up-log-in-content{
     display: flex;
@@ -526,14 +527,15 @@
     flex-wrap: wrap;
     width: 60vw;
     max-height:100vh;
+    justify-content:center;
+    padding: 37.5vh 22.5vw;
 }
 
 .content .left{
-    flex:1;
+    flex:auto;
     display:flex;
     flex-direction: column;
     max-width: 750px;
-
 }
 
 .content .right{
@@ -546,8 +548,9 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 45px 45px 45px 45px;
+    margin: 20px 0;
+    column-gap: 5px;
     row-gap: 20px;
-    column-gap: 10px;
 }
 
 .grid .other{
@@ -560,4 +563,48 @@
 
 .right a{
     vertical-align: middle;
+}
+
+.sign-up-log-in input::placeholder {
+    font: var(--def-font);
+    font-size: 16px;
+}
+
+.sign-up-log-in-content .name,
+.sign-up-log-in-content .other {
+    border-radius: 5px;
+    border: 1px solid #C6C6C6;
+    background: #FEFEE3;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+}
+
+.sign-up-log-in .old-new-account {
+    text-align: end;
+}
+
+.sign-up-log-in a {
+    color: var(--primary);
+    text-decoration: underline;
+    text-align: right;
+}
+
+.sign-up-log-in-content .button,
+.sign-up-log-in-content .button-inside {
+    font-size: 16px;
+    grid-column: 1 / span 2;
+    background-color: #BFDFB8;
+    border: none !important;
+    font-family: var(--def-font);
+    font-weight:600;
+    align-self: center;
+    border-radius: 5px;
+    text-decoration: none !important;
+}
+
+.button-inside {
+    margin: auto;
+    display: block;
+    
+    text-decoration: none !important;
 }
