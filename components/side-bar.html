@@ -44,9 +44,9 @@
     <script> 
          $(document).ready(function(){
             var iconContainers = $('.side-bar-pink .side-bar-green div');
+            var searchBar = $('.side-bar .search-bar');
 
             $('.side-bar-pink .side-bar-green .selected svg').attr('fill','black');
-            $(".side-bar .search-bar").css('transform', 'scaleX(0%)');
             
             iconContainers.on('click', function(e){
                 let target = e.currentTarget.className;
@@ -56,10 +56,14 @@
                 $('.side-bar-pink .side-bar-green .' + target + ' svg').attr('fill','black');
                 console.log($('.side-bar-pink .side-bar-green .' + target + ' svg'));
 
+
                 if (target == 'side-search'){
-                    $('.side-bar .search-bar').css('transform', 'scaleX(100%)');
+                    // searchBar.css('transform', 'scaleX(100%)');
+                    searchBar.css('padding', '14px 15px');
+                    searchBar.find('#search').css('width', '250px');
                 } else {
-                    $(".side-bar .search-bar").css('transform', 'scaleX(0%)');
+                    searchBar.find('#search').css('width', '0');
+                    searchBar.css('padding', '14px 0');
                 }
             });
          });

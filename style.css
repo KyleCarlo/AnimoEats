@@ -14,6 +14,11 @@
     /* background: #FEFEE3; */
 }
 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
 /***** TYPE-DEPENDENT CLASS *****/
 
 .clickable {
@@ -24,7 +29,7 @@
 .logo{
     width: 10%;
     max-width: 20vw;
-    position: fixed;
+    position: absolute;
     top: 20px;
     left: 20px;
 }
@@ -33,6 +38,10 @@
     position: fixed;
     top: 20px;
     right: 20px;
+}
+
+.bold{
+    font-weight: bold;
 }
 
 /***** VIEW-MORE-REVIEW-BTN *****/
@@ -487,12 +496,20 @@
 
 .side-bar .search-bar {
     background: #F8C1B4;
-    padding: 14px 15px;
+    padding: 14px 0;
     border-radius: 20px 0 0 20px;
     margin-bottom: 10px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     transform-origin: 100% 0;
-    transition: transform 0.5s;
+    transition: padding 0.8s;
+    /* transition: width 0.1s; */
+    /* transform: translateX(0%); */
+    /* visibility: hidden; */
+}
+
+.side-bar .search-bar #search{
+    width: 0;;
+    transition: width 0.5s;
 }
 
 #search {
@@ -556,6 +573,63 @@
     display: block;
 
     text-decoration: none !important;
+}
+
+
+/***** EDIT PROFILE COMPONENT *****/
+
+.compose-container {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    font-family: "Open Sans";
+}
+
+.compose-container .compose-header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #c7f6db;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.compose-container form {
+    margin: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: white;
+    font-family: "Open Sans";
+    border-radius: 0 0 10px 10px;
+}
+
+.compose-container .compose-subject {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    border-bottom: #DBDBDB solid 1px;
+    margin-bottom: 10px;
+}
+
+.compose-container .message {
+    padding: 5px;
+    height: 40vh;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.compose-container .add-icons {
+    display: grid;
+    grid-template-columns: 50fr 1fr;
+}
+
+.compose-container form img {
+    width: 25px;
+    padding-left: 5px;
 }
 
 /***** EDIT PROFILE *****/
@@ -726,59 +800,84 @@
     }
 }
 
-
-/*ADD REVIEW*/
-
-.compose-container {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    width: 40%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    font-family: "Open Sans";
+/***** PROFILE PAGE *****/
+.profile-page-body{
+    background-color: var(--white);
 }
 
-.compose-container .compose-header {
-    display: flex;
-    justify-content: space-between;
-    background-color: #c7f6db;
-    padding: 10px;
-    border-radius: 10px 10px 0 0;
-}
-
-.compose-container form {
+.profile-page-top .profile-bio{
     margin: auto;
-    background-color: white;
+    padding-top: 60px;
+    width: 80%;
+    display: grid;
+    grid-template-areas: 
+    "pic name name review review"
+    "pic numr nump member member"
+    "pic desc desc update logout";
+    grid-template-columns: 1fr 1fr 2fr .75fr .75fr;
+    column-gap: 20px;
+    align-items: center;
+}
+
+.profile-page-top .profile-bio .profile-picture{
+    grid-area: pic;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+.profile-page-top .profile-bio .name-holder{
+    grid-area: name;
+}
+
+.profile-page-top .profile-bio .profile-helpful{
+    grid-area: review;
+}
+
+.profile-page-top .profile-bio .profile-reviews{
+    grid-area: numr;
+}
+
+.profile-page-top .profile-bio .profile-reviews *,
+.profile-page-top .profile-bio .profile-photos *{
+    vertical-align: middle;
+}
+
+.profile-page-top .profile-bio .profile-photos{
+    grid-area: nump;
+}
+
+.profile-page-top .profile-bio .profile-member-since{
+    grid-area: member;
+}
+
+.profile-page-top .profile-bio .profile-description{
+    grid-area: desc;
+    font-weight: lighter;
+}
+
+.profile-page-top .profile-bio .update{
+    grid-area: update;
+}
+
+.profile-page-top .profile-bio .logout{
+    grid-area: logout;
+}
+
+.profile-page-body .waves{
+    width: 100%;
+    margin-bottom: -10px;
+}
+
+.profile-page-bot{
+    background-color: var(--primary);
+    padding: 40px;
+}
+
+.profile-page-bot .carousel {
     display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: white;
-    font-family: "Open Sans";
-    border-radius: 0 0 10px 10px;
 }
 
-.compose-container .compose-subject {
-    display: grid;
-    grid-template-columns: 1fr 10fr;
-    border-bottom: #DBDBDB solid 1px;
-    margin-bottom: 10px;
-}
-
-.compose-container .message {
-    padding: 5px;
-    height: 40vh;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.compose-container .add-icons {
-    display: grid;
-    grid-template-columns: 50fr 1fr;
-}
-
-.compose-container form img {
-    width: 25px;
-    padding-left: 5px;
+.profile-page-bot .carousel .item{
+    margin: 10px;
 }
