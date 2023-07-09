@@ -38,6 +38,7 @@ a{
     position: fixed;
     top: 20px;
     right: 20px;
+    z-index: 3;
 }
 
 .bold{
@@ -148,7 +149,7 @@ a{
     justify-content: space-between;
 }
 
-/* CAROUSEL */
+/* REVIEW CARD CAROUSEL */
 .review-card .images {
     position: relative;
     width: 100%;
@@ -871,13 +872,127 @@ a{
 
 .profile-page-bot{
     background-color: var(--primary);
-    padding: 40px;
+    width: 100%;
+    height: 550px;
+    position: relative;
+    overflow-x: hidden;
+    transition: height 0.5s;
 }
 
-.profile-page-bot .carousel {
+.profile-page-bot::-webkit-scrollbar{
+    display: none;
+}
+
+/* PROFILE PAGE CAROUSEL */
+.carousel{
+    width: 100%;
     display: flex;
+    justify-content: center;
 }
 
-.profile-page-bot .carousel .item{
-    margin: 10px;
+.track {
+    list-style: none;
+    display: flex;
+    padding: 10px 0;
+    gap: 8%;
+    transform: translateX(calc(-470px / 2 + (-0 * (470px + 8%))));
+    transition: transform 0.5s;
+    position: absolute;
+    left: 50%;
+}
+
+.track *{
+    scale: 0.7;
+    transition: scale 0.5s;
+}
+
+.track .slide::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    border-radius: 15px;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+}
+
+.track .selected{
+    scale: 1;
+}
+
+.track .selected::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    border-radius: 15px;
+    opacity: 0.0;
+    transition: all 0.5s;
+}
+
+.carousel button{
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 230px;
+}
+
+.carousel button:hover{
+    top: 235px;
+    transition: all 0.2s;
+    filter: hue-rotate(90deg);
+}
+
+.carousel .button-left{
+    left: 25%;
+}
+
+.carousel .button-right{
+    right: 25%;
+}
+
+@media screen and (max-width: 1200px){
+    .carousel .button-left{
+        left: 15%;
+    }
+    
+    .carousel .button-right{
+        right: 15%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .carousel .button-left{
+        left: 5%;
+    }
+    
+    .carousel .button-right{
+        right: 5%;
+    }
+}
+
+.profile-footer{
+    margin-top: -2px;
+    background: var(--primary);
+    padding: 10px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-page-more-rev{
+    padding: 10px 0 20px 0;
+    background: var(--primary);
+    display: none;
+    grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    transition: height 0.5s;
 }

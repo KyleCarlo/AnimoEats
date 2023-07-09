@@ -168,24 +168,6 @@
                 }
             });
 
-            // CHANGE BULLET FUNCTIONALITY
-            // var num_of_images = 2; // THIS IS A VARIABLE FROM THE USER
-            // var bullets = $('.images .bullets');
-            // if (num_of_images > 0){
-            //     if (num_of_images > 1){
-            //         let gaps = [20,10,5,0];
-            //         for (let index = 1; index < num_of_images + 1; index++) {
-            //             let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
-            //             let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + cx + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
-            //             bullets[0].innerHTML += circle;
-            //         }
-            //     } else {
-            //         $('.images .img-container *').css('display', 'none');
-            //     }
-            // } else {
-            //     $('.images').css('display', 'none');
-            // }
-
             var tracker = $('.images .img-container .tracker');
             var slides = $('.images .img-container .tracker .slide');
             var prev = $('.images .left');
@@ -206,6 +188,7 @@
 
             prev.css('display', 'none');
 
+            console.log(slideWidth);
             for (let index = 0; index < slides.length; index++) {
                 slides[index].style.left = index * slideWidth + 'px';                
             }

@@ -11,10 +11,10 @@ template.innerHTML = `
     <body>
         <div class="review-card">
             <div class="top">
-                <img class="profile-picture" src="\assets\jpg\profile1.jpg" alt="pp.png">
+                <img class="profile-picture" src="" alt="pp.png">
                 <div class="identifiers">
-                    <div class="username">Monica Manlises</div>
-                    <div class="restaurant">Kuya Mel's</div>
+                    <div class="username"><slot name="poster"/></div>
+                    <div class="restaurant"><slot name="resto"/></div>
                 </div>
                 <svg class="rating" width="115" height="22" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g class="flag-1" fill="#595959">
@@ -39,10 +39,10 @@ template.innerHTML = `
                     </g>
                 </svg>
             </div>
-            <div class="title">Title of the Post</div>
+            <div class="title"><slot name="post-title"/></div>
             <div class="body">
                 <span class="main-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor fuga iusto delectus adipisci praesentium, dignissimos tempora ducimus consequuntur, tempore ipsa fugiat molestias reprehenderit. Pariatur maiores praesentium earum itaque temporibus dolores accusamus libero? Excepturi, minima sed! Consequuntur doloremque ut minus?
+                    <slot name="post-text"/>
                 </span>
                 
                 <span class="read-more clickable">Read more</span>
@@ -116,75 +116,6 @@ template.innerHTML = `
         <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
-                
-                // FLAG FUNCTIONALITY
-                var greenFlag = "#41C45E";
-                var grayFlag = "#595959";
-                var redFlag = "#ED352F";
-                let rating = 3; //VARIABLE FROM THE USER
-                for (let index = 1; index < 6; index++) {
-                    let flag = $('.review-card .top .rating .flag-' + index);
-                    if (index <= rating) {
-                        if (rating <= 2)
-                            flag.css('fill', redFlag);
-                        else
-                            flag.css('fill', greenFlag);
-                    } else {
-                        flag.css('fill', grayFlag);
-                    }
-                }
-
-                // READ MORE FUNCTIONALITY
-                var fullText = $(".body .main-text").text();
-                if (fullText.length > 280){
-                    var prevText = fullText.slice(0,260)+"...";
-                    $(".body .main-text").text(prevText);
-                    $(".body .read-more").click(function(){
-                        $(".body .main-text").text(fullText);
-                        $(".body .read-more").css('display', 'none');
-                    });
-                } else {
-                    console.log(fullText.length);
-                    $(".body .read-more").css('display', 'none');
-                }
-
-                // LIKE/DISLIKE FUNCTIONALITY
-                var likeColor = "#40A062";
-                var dislikeColor = "#FF6665";
-                var like_dislike = $('.buttons .like-dislike svg');
-
-                like_dislike.on('click', function(e){
-                    let className = e.currentTarget.classList[0];
-                    let pressedButton = $('.buttons .like-dislike .' + className);
-                    let unpressedButton = $('.buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
-                    
-                    if (pressedButton.css('fill') != 'none')
-                        pressedButton.css('fill', 'none');
-                    else {
-                        pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
-                        pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
-                        unpressedButton.css('fill', 'none');
-                    }
-                });
-
-                // CHANGE BULLET FUNCTIONALITY
-                // var num_of_images = 2; // THIS IS A VARIABLE FROM THE USER
-                // var bullets = $('.images .bullets');
-                // if (num_of_images > 0){
-                //     if (num_of_images > 1){
-                //         let gaps = [20,10,5,0];
-                //         for (let index = 1; index < num_of_images + 1; index++) {
-                //             let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
-                //             let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + cx + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
-                //             bullets[0].innerHTML += circle;
-                //         }
-                //     } else {
-                //         $('.images .img-container *').css('display', 'none');
-                //     }
-                // } else {
-                //     $('.images').css('display', 'none');
-                // }
-
                 var tracker = $('.images .img-container .tracker');
                 var slides = $('.images .img-container .tracker .slide');
                 var prev = $('.images .left');
@@ -258,6 +189,138 @@ class ReviewCardSelf extends HTMLElement {
         super();
         this.attachShadow({mode: "open"});
         this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+    static get observedAttributes(){
+        return ['profpic', 'rating', 'post-text', 'image1', 'image2', 'image3', 'image4']
+    }
+
+    attributeChangedCallback(name, oldValue, newValue){
+        this.shadowRoot.querySelector('.top .profile-picture').src = this.getAttribute('profpic'); 
+        this.updateFlag(this.getAttribute('rating'))
+        this.readMore(this.getAttribute('post-text'));
+        this.likeDislike();
+        var imageList = [this.getAttribute('image1'), this.getAttribute('image2'), this.getAttribute('image3'), this.getAttribute('image4')]
+        this.updateImage(imageList);
+    }
+
+    // FLAG FUNCTIONALITY
+    updateFlag(rating){
+        var greenFlag = "#41C45E";
+        var grayFlag = "#595959";
+        var redFlag = "#ED352F";
+
+        for (let index = 1; index < 6; index++) {
+            let flag = $(this.shadowRoot).find('.review-card .top .rating .flag-' + index);
+            if (index <= rating) {
+                if (rating <= 2)
+                    flag.css('fill', redFlag);
+                else
+                    flag.css('fill', greenFlag);
+            } else {
+                flag.css('fill', grayFlag);
+            }
+        }
+    }
+
+    // READ MORE FUNCTIONALITY
+    readMore(fullText){
+        // var fullText = $(this.shadowRoot).find(".body .main-text").text();
+        var document = $(this.shadowRoot);
+        if (fullText.length > 280){
+            var prevText = fullText.slice(0,260)+"...";
+            document.find(".body .main-text").text(prevText);
+            document.find(".body .read-more").click(function(){
+                document.find(".body .main-text").text(fullText);
+                document.find(".body .read-more").css('display', 'none');
+            });
+        } else {
+            document.find(".body .read-more").css('display', 'none');
+        }
+    }
+
+    // LIKE/DISLIKE FUNCTIONALITY
+    likeDislike(){
+        var document = $(this.shadowRoot);
+        var likeColor = "#40A062";
+        var dislikeColor = "#FF6665";
+        var like_dislike = document.find('.buttons .like-dislike svg');
+
+        like_dislike.on('click', function(e){
+            let className = e.currentTarget.classList[0];
+            let pressedButton = document.find('.buttons .like-dislike .' + className);
+            let unpressedButton = document.find('.buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
+            
+            if (pressedButton.css('fill') != 'none')
+                pressedButton.css('fill', 'none');
+            else {
+                pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
+                pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
+                unpressedButton.css('fill', 'none');
+            }
+        });
+    }
+
+    // IMAGE CAROUSEL FUNCTIONALITY
+    updateImage(imageList){
+        var document = $(this.shadowRoot);
+        var tracker = document.find('.images .img-container .tracker');
+        var slides = document.find('.images .img-container .tracker .slide');
+        var prev = document.find('.images .left');
+        var next = document.find('.images .right');
+        var bullets = document.find('.images .bullets');
+        var slideWidth = slides.clientWidth;
+        var currentBullet = 1;
+        console.log(slides[0]);
+        
+        var moveToSlide = (tracker, currentSlide, targetSlide) => {
+            tracker.css('transform', 'translateX(-' + targetSlide[0].style.left + ')');
+            currentSlide.removeClass('current-slide');
+            targetSlide.addClass('current-slide');
+            console.log(targetSlide[0]);
+        }
+
+        var updateBullets = (change) => {
+            document.find('.images .bullets circle').css('fill', '#EEF6D9');
+            currentBullet += change;
+            document.find('.images .bullets .bullet-' + currentBullet).css('fill', '#7FBF8D');
+        }
+
+        prev.css('display', 'none');
+
+        for (let index = 0; index < slides.length; index++) {
+            slides[index].style.left = index * slideWidth + 'px';      
+            // console.log(slides[index]);          
+        }
+
+        prev.on('click', function(e){
+            let currentSlide = tracker.find('.current-slide');
+            let prevSlide = currentSlide.prev();
+            
+            if (currentBullet == 1+1){                
+                prev.css('display', 'none');
+                moveToSlide(tracker, currentSlide, prevSlide);
+                updateBullets(-1);
+            } else {
+                next.css('display', 'initial');
+                moveToSlide(tracker, currentSlide, prevSlide);
+                updateBullets(-1);
+            }
+        });
+
+        next.on('click', function(e){
+            let currentSlide = tracker.find('.current-slide');
+            let nextSlide = currentSlide.next();
+            if (currentBullet == 4-1){                
+                next.css('display', 'none');
+                moveToSlide(tracker, currentSlide, nextSlide);
+                updateBullets(1);
+            } else {
+                prev.css('display', 'initial');
+                moveToSlide(tracker, currentSlide, nextSlide);
+                updateBullets(1);
+            }
+        });
     }
 }
 
