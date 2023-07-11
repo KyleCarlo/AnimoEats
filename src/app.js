@@ -10,15 +10,17 @@ mongoose.connect("mongodb://127.0.0.1:27017/usersDB", { useNewUrlParser: true})
   });
 
 const userSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
+    firstName: String,
+    lastName: String,
     email: String,
-    password: String
-    // helpfulCount: Number,
-    // reviewCount: Number, 
-    // photoCount: Number, 
-    // dateMade: Date,
-    // biography: String, 
+    password: String,
+    helpfulCount: Number,
+    reviewCount: Number, 
+    photoCount: Number, 
+    monthMade: Number,
+    dateMade: Number,
+    yearMade: Number,
+    biography: String
     // profilepic: Buffer 
 });
 

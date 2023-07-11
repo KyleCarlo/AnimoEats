@@ -13,28 +13,28 @@
     <div class="profile-page-top">
         <div class="profile-bio">
             <img class="profile-picture" src="assets/jpg/profile1.jpg" alt="prof-pic">
-            <a href="user1.html" class="name-holder"><h1 class="profile-username">{{firstname}}</h1></a>
+            <a href="user1.html" class="name-holder"><h1 class="profile-username">{{firstName}}{{lastName}}</h1></a>
             <span class="profile-helpful">
-                <span class="helpful-count bold">10</span>&nbsp;people found their reviews helpful
+                <span class="helpful-count bold">{{helpfulCount}}</span>&nbsp;people found their reviews helpful
             </span>
             
             <div class="profile-reviews">
                 <img class="icon" src="assets/svg/ind-flag-notxt.svg" alt="flag">
-                <span class = "reviews-count bold">2</span>
+                <span class = "reviews-count bold">{{reviewCount}}</span>
                 <span>Reviews</span>
             </div>
             
             <div class="profile-photos">
                 <img class="icon" src="assets/svg/camera.svg" alt="photos">
-                <span class="photos-count bold">5</span>
+                <span class="photos-count bold">{{photoCount}}</span>
                 <span>Photos</span>
             </div>
             <span class="profile-member-since">
-                Member since &nbsp;<span class="member-since-date bold">July 11,2023</span>
+                Member since &nbsp;<span class="member-since-date bold">{{dateMade}}</span>
             </span>
             
             <div class="profile-description">
-                {Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quibusdam ipsa harum? Porro eos dicta distinctio ducimus perferendis tenetur, sequi accusamus consequuntur nisi commodi enim voluptate iure cumque ea ab?
+                {{biography}}    
             </div>
 
             <a href="edit-profile.html" class="update">

@@ -17,83 +17,93 @@ app.engine("hbs", exphbs.engine({extname:'hbs'}));
 app.set("view engine", "hbs");
 app.set("views", "./views");
 
-app.get("/", function(req, res){
-    res.render("login");
-});
+// app.get("/", function(req, res){
+//     res.render("login");
+// });
 
 app.get("/sign-up", function(req,res){
-    res.render("sign-up");
+    console.log('signing-up');
+    // res.send('<h1>hello</h1>');
+    res.render("sign-up");   
 })
 
-app.get("/login", function(req, res){
-    res.render("login");
-})
+// app.get("/login", function(req, res){
+//     res.render("login");
+// })
 
-app.get("/forgotpassword", function(req,res){
-    res.render("forgotpassword");
-})
-
-app.get("/profile", function(req,res){
-    res.render("profile");
-})
+// app.get("/forgotpassword", function(req,res){
+//     res.render("forgotpassword");
+// })
 
 app.post ("/sign-up", async(req,res)=>{
     const today = new Date();
-    const data= {
-        firstname: req.body.firstName,
-        lastname: req.body.lastName,
+    const data= { 
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.emailSignUp,
-        password: req.body.passwordSignUp
-        // helpfulCount: 0,
-        // reviewCount: 0,
-        // photoCount: 0, 
-        // dateMade: today.getDate(),
-        // biography: null,
-        // profilepic: null
+        password: req.body.passwordSignUp,
+        helpfulCount: 0,
+        reviewCount: 0,
+        photoCount: 0,
+        monthMade: today.getMonth() + 1,
+        dateMade: today.getDate(),
+        yearMade: today.getFullYear(),
+        biography: "The user has not yet set a biography."
     }
 
-    // give the data to MongoDB
-    await User.insertMany([data]) 
-    res.render("profile", {firstname:data.firstname});  
-        // lastname: data.lastname, 
-        // helpfulcount:data.helpfulCount, 
-        // reviewcount: data.reviewCount,
-        // photocount: data.photoCount,
-        // date: data.dateMade,  
-        // biography: data.biography
-        // profilepic: data.profilepic
-})
+    console.log(typeof data.firstName);
 
-app.post ("/login", async(req,res)=>{
-    try{
-        const check = await User.findOne({email:req.body.emailLogIn})
-        const email = req.body.emailLogIn;
-        if(check.password === req.body.passwordLogIn){
-            User.findOne({ email: email })
-                .then((user) => {
-                const data = {
-                    firstname: user.firstName,
-                    lastname: user.lastName,
-                    helpfulcount: user.helpfulCount,
-                    reviewcount: user.reviewCount,
-                    photocount: user.photoCount,
-                    date: user.dateMade,
-                    biography: user.biography
-                    // profilepic: user.profilepic
-                };
-                    console.log(data.firstName);
-                    res.render('profile', {firstname: user.firstName});
-                })
-                .catch((error) => {
-                    res.send('Error retrieving user data');
-                });
-        } else {
-        res.send('Invalid Login Credentials');
-        }
-  } catch {
-    res.send('Invalid Login Credentials');
-  }
+    await User.insertMany([data]);
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
+
+    var dateString = months[data.monthMade-1] + " " + data.dateMade + ", " + data.yearMade;
+
+    console.log('success');
+    
+    res.render("profile", {
+        firstName: data.firstName,
+        lastname: data.lastName,
+        email: data.email,
+        password: data.password,
+        helpfulCount: data.helpfulCount,
+        reviewCount: data.reviewCount,
+        photoCount: data.photoCount,
+        dateMade: dateString,
+        biography: data.biography
+    })
 });
+
+// app.post ("/login", async(req,res)=>{
+//     try{
+//         const check = await User.findOne({email:req.body.emailLogIn})
+//         const email = req.body.emailLogIn;
+//         if(check.password === req.body.passwordLogIn){
+//             User.findOne({ email: email })
+//                 .then((user) => {
+//                 const data = {
+//                     firstname: user.firstName,
+//                     lastname: user.lastName,
+//                     helpfulcount: user.helpfulCount,
+//                     reviewcount: user.reviewCount,
+//                     photocount: user.photoCount,
+//                     date: user.dateMade,
+//                     biography: user.biography
+//                     // profilepic: user.profilepic
+//                 };
+//                     console.log(data.firstName);
+//                     res.render('profile', {firstname: user.firstName});
+//                 })
+//                 .catch((error) => {
+//                     res.send('Error retrieving user data');
+//                 });
+//         } else {
+//         res.send('Invalid Login Credentials');
+//         }
+//   } catch {
+//     res.send('Invalid Login Credentials');
+//   }
+// });
 
 
 app.listen(3000,function(){
