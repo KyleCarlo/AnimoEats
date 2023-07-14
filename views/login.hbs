@@ -15,19 +15,24 @@
             <div class="left">
                 <h1>Log In</h1>
                 <form class="log-in-grid" action ="/login" method="post">
-                    <input class = "other" name="email-login" type="text" placeholder="Email">
-                    <input class = "other" name="password-login" type="text" placeholder="Password">
+                    <input class = "other" name="emailLogin" type="text" placeholder="Email">
+                    <input class = "other" name="passwordLogin" type="text" placeholder="Password">
                     <div class = "remember-me">
                         <input type="checkbox">
                         Remember Me?
                     </div>
                     <a href="/forgotpassword">Forgot Password?</a>
-                    <a class = "other button" href="/profile"><input class = "button-inside" name="submit-log-in" type="button" value="Log In"></a>
+                   <div class="other button"><button class = "button-inside" name="submit-log-in" type="submit" value="Log In">Log In</button></div>
                 </form>
                 <div class="old-new-account">
                     New to AnimoEats?
                     <a href="/sign-up">Sign Up</a>
                 </div>
+                {{#if errorMessage}}
+                    <div class="error-message">
+                        {{errorMessage}}
+                    </div>
+                {{/if}}
             </div>
             <div class="right">
                 <a href="index.html">

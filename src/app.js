@@ -20,8 +20,9 @@ const userSchema = new mongoose.Schema({
     monthMade: Number,
     dateMade: Number,
     yearMade: Number,
-    biography: String
-    // profilepic: Buffer 
+    biography: String,
+    // profilepic: Buffer
+    rememberMeToken: String
 });
 
 const reviewSchema = new mongoose.Schema({
