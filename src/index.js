@@ -4,10 +4,29 @@
 
 const express = require("express");
 const app = express();
+
+const session = require("express-session");
+const MongoStore = require('connect-mongo')(session);
+
 const hbs = require("hbs");
 const bodyParser =  require("body-parser");
 const {User, Review} = require('./app');
 const exphbs = require("express-handlebars");
+const path = require("path")
+
+const multer = require("multer");
+const { log } = require("console");
+const storage = multer.diskStorage({
+    destination: (req, file, cb)=>{
+      cb(null, 'uploads')
+    },
+    filename: (req, file,cb)=>{
+      console.log(file)
+      cb(null, Date.now()+path.extname(file.originalname))
+    }
+})
+const upload = multer({storage: storage})
+
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -16,6 +35,17 @@ app.use(express.static("public"));
 app.engine("hbs", exphbs.engine({extname:'hbs'}));
 app.set("view engine", "hbs");
 app.set("views", "./views");
+
+app.use(session({
+    secret: 'SECRET KEY',
+    resave: false,
+    saveUninitialized: true,
+    store: new MongoStore({
+        url: 'mongodb://127.0.0.1:27017/usersDB',
+        ttl: 14 * 24 * 60 * 60,
+        autoRemove: 'native'
+    })
+}));
 
 app.get("/", function(req, res){
     res.render("login");
@@ -35,10 +65,6 @@ app.get("/forgotpassword", function(req,res){
     res.render("forgotpassword");
 })
 
-app.get("/edit-profile", function(req, res){
-    res.render("edit-profile");
-})
-
 app.post ("/sign-up", async(req,res)=>{
     const today = new Date();
     const data= { 
@@ -53,7 +79,7 @@ app.post ("/sign-up", async(req,res)=>{
         dateMade: today.getDate(),
         yearMade: today.getFullYear(),
         biography: "The user has not yet set a biography.",
-        rememberMeToken:null
+        profilepic: null
     }
 
     console.log(typeof data.firstName);
@@ -74,6 +100,8 @@ app.post("/login", async (req, res) => {
             // User not found
             res.send('User not found');
           } else {
+            req.session.user = user;
+            req.session.save();
             const data = {
               firstName: user.firstName,
               lastName: user.lastName,
@@ -81,8 +109,8 @@ app.post("/login", async (req, res) => {
               reviewCount: user.reviewCount,
               photoCount: user.photoCount,
               dateMade: user.dateMade,
-              biography: user.biography
-              // profilepic: user.profilepic
+              biography: user.biography,
+              profilepic: user.profilepic
             };
              const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
             var dateString = months[user.monthMade - 1] + " " + user.dateMade + ", " + user.yearMade;
@@ -117,6 +145,45 @@ app.post("/login", async (req, res) => {
       });
   }
 });
+
+app.get("/edit-profile", function(req, res){
+      const user = req.session.user;
+      console.log(user.email);
+      res.render("edit-profile");
+})
+
+app.post("/edit-profile", upload.single("profilePicture"), async (req, res) => {
+  try {
+      const user = req.session.user;
+      console.log(user.email)
+      if (user.profilepic == null){
+        res.render("edit-profile", {profilePictureEdit: "assets/jpg/profile1.jpg", usernameorig: user.email})
+      } else {
+        imagePath = "uploads/"+ user.profilepic;
+        res.render("/edit-profile", imagePath);
+      }
+      const firstName = req.body.firstNameEdit;
+      const lastName = req.body.lastNameEdit;
+      const username = req.body.userNameEdit;
+      const description = req.body.descriptionEdit;
+      const profilePicture = req.body.profilePicture;
+
+      await user.save(); 
+
+      res.redirect('/profile');
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).send('Failed to update user');
+  }
+});
+
+// Route to handle logout
+app.post('/logout', (req, res) => {
+  // Destroy the session to log the user out
+  req.session.destroy();
+  res.send('Logged out successfully');
+});
+
 
 
 app.listen(3000,function(){
