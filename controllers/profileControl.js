@@ -1,7 +1,7 @@
 import User from "../models/User.js";
 
 const profileControl = {
-    getProfile(req, res) {
+    showEditProfile(req, res) {
         const user = req.session.user;
         console.log(user);
         res.render("edit-profile", {
@@ -10,6 +10,9 @@ const profileControl = {
             profilePicture: user.profilePic,
             description: user.biography
         });
+    },
+    submitEditProfile(req, res) {
+        res.send('Uploaded');
     }
 }
 

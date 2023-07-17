@@ -45,12 +45,23 @@ app.set("views", "./views");
 /**** FILE UPLOAD ****/
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads')
+        let subFolder = '';
+        if(req.route.path == '/edit-profile')
+            subFolder = '/profiles';
+
+        cb(null, 'public/uploads' + subFolder);
     },
     filename: function (req, file, cb) {
-        cb(null, Date.now()+path.extname(file.originalname))
+        let fileName = Date.now(); //default filename
+        
+        if(req.route.path == '/edit-profile')
+            fileName = req.session.user.email.split('@')[0];
+
+        cb(null, fileName+path.extname(file.originalname))
     }
 });
+const upload = multer({ storage: storage });
+
 /**** SESSION ****/
 const sessionStore = MongoStore.create({
     mongoUrl: 'mongodb://127.0.0.1:27017/usersDB',
@@ -81,7 +92,8 @@ app.post("/login", logInControl.submitLogInForm);
 /**** LOG OUT ****/
 app.get("/logout", logOutControl.endSession);
 /**** EDIT PROFILE ****/
-app.get("/edit-profile", profileControl.getProfile);
+app.get("/edit-profile", profileControl.showEditProfile);
+app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 
 app.listen(3000, () => {
     console.log("App started");

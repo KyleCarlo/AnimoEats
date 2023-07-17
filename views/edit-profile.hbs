@@ -16,8 +16,8 @@
         <div class="prof-pic-right">
             <h1 class="username">{{firstName}}</h1>
             {{!-- <span class="change">Change profile photo</span> --}}
-            <button class="profPicIn" type="button" onclick="$('#profPicInEdit').click()">Change profile photo</button>
-            <input id="profPicInEdit" style="visibility: hidden" name="profilePictureEdit" type="file" accept="image/*">
+            <button class="profPicIn clickable" type="button">Change profile photo</button>
+            <input id="profPicInEdit" style="display: none" name="profilePictureEdit" type="file" accept="image/*">
         </div>
         <h1 class="fname">First Name</h1>
         <div class="fname-field">
@@ -42,6 +42,20 @@
             setTimeout(function(){
                 $('.side-profile').addClass('selected');
             },200);
+
+            const pseudoBtn = $('.profPicIn');
+            const picUploadBtn = $('#profPicInEdit');
+            const img = $('.prof-pic img');
+            const reader = new FileReader();
+            pseudoBtn.on('click', function(){
+                picUploadBtn.click();
+            }); 
+            picUploadBtn.on('change', function(){
+                reader.onload = function(e){
+                    img.attr('src', e.target.result);
+                }
+                reader.readAsDataURL(this.files[0]);
+            });
         });
     </script>
 </body>

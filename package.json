@@ -1,7 +1,7 @@
 {
   "name": "CCAPDEV",
   "version": "3.0.2",
-  "description": "",
+  "description": "A food store review web application for the food stores near in DLSU. Specifically designed for Lasallians in DLSU-Manila. This project serves as a course requirement in Web Application Development (CCAPDEV).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
