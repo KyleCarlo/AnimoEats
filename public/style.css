@@ -1108,3 +1108,43 @@ a {
     gap: 20px;
     transition: height 0.5s;
 }
+
+/***** STORE PAGE *****/
+.store-container{
+    display: flex;
+    background-color: var(--white);
+    height: 100vh;
+    overflow: hidden;
+}
+
+.store-container .left{
+    flex-grow: 1;
+    align-self: center;
+    scale: 0.9;
+    margin-left: 2%;
+}
+
+.store-container .left > div{
+    margin: auto;
+}
+
+.store-container .center{
+    flex-grow: 1; 
+    min-width: 300px;  
+    background: url('assets/svg/store-bg.svg');
+    background-size: cover;
+    background-repeat: repeat-y;
+    background-position-y: -10px;
+}
+
+.store-container > .right{
+    height: 100%;
+    flex-grow: 4;
+    background: var(--primary);
+    align-self: center;
+    overflow-y: scroll;
+}
+
+.store-container .right .rev-con > div{
+    margin: 20px auto;
+}
