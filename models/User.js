@@ -13,7 +13,8 @@ const userSchema = new Schema({
     dateMade: Number,
     yearMade: Number,
     biography: String,
-    profilePic: String
+    profilePic: String,
+    restaurantOwner: Boolean
 });
 
 const User = mongoose.model('User', userSchema);

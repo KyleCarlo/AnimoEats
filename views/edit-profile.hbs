@@ -15,7 +15,6 @@
         </div>
         <div class="prof-pic-right">
             <h1 class="username">{{firstName}}</h1>
-            {{!-- <span class="change">Change profile photo</span> --}}
             <button class="profPicIn clickable" type="button">Change profile photo</button>
             <input id="profPicInEdit" style="display: none" name="profilePictureEdit" type="file" accept="image/*">
         </div>
@@ -27,10 +26,10 @@
         <h1 class="lname">Last Name</h1 >
         <div class="lname-field">
             <label class="label-uname" for="username">This field is required.</label>
-            <input type="text" name="userNameEdit" id="username" placeholder="Last Name" value="{{lastName}}">
+            <input type="text" name="lastNameEdit" id="username" placeholder="Last Name" value="{{lastName}}">
         </div>
         <h1 class="desc">Description</h1>
-        <textarea name="description" id="descriptionEdit">{{description}}</textarea>
+        <textarea name="descriptionEdit" id="description">{{description}}</textarea>
         <button class="add-review-btn" type="submit" value="Save Changes" id="submit">Save Changes</button>
     </form>
     <div class="sidebar"></div>

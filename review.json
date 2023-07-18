@@ -1,0 +1,49 @@
+[
+    {
+      "rating": 4,
+      "description": "The food was delicious and the service was excellent.",
+      "helpfulCount": 10,
+      "unhelpfulCount": 2,
+      "images": {
+        "image1": "public/assets/jpg/mcdo.jpg",
+        "image2": "public/assets/jpg/jollibee.jpg",
+        "image3": "public/assets/jpg/mcdo.jpg",
+        "image4": "public/assets/jpg/army-navy.jpg"
+      },
+      "user": "64b545f23e0ef68b6433d8b9", 
+      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
+    },
+    {
+      "rating": 5,
+      "description": "The food was excellent.",
+      "helpfulCount": 1,
+      "unhelpfulCount": 0,
+      "images": {
+        "image1": "public/assets/jpg/army-navy.jpg",
+        "image2": "public/assets/jpg/angry-dobo.jpg",
+        "image3": "public/assets/jpg/army-navy.jpg",
+        "image4": "public/assets/jpg/mcdo.jpg"
+      },
+      "user": "64b5605a3c864c8d7e4fe9f4", 
+      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
+    },
+    {
+      "rating": 3,
+      "description": "The food was super late.",
+      "helpfulCount": 1,
+      "unhelpfulCount": 0,
+      "images": {
+        "image1": "public/assets/jpg/angry-dobo.jpg",
+        "image2": "public/assets/jpg/jollibee.jpg",
+        "image3": "public/assets/jpg/army-navy.jpg",
+        "image4": "public/assets/jpg/mcdo.jpg"
+      },
+      "user": "64b545f23e0ef68b6433d8b9", 
+      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
+    }
+
+
+]

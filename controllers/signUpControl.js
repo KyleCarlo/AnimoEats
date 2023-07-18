@@ -20,10 +20,9 @@ const signUpControl = {
             dateMade: today.getDate(),
             yearMade: today.getFullYear(),
             biography: "The user has not yet set a biography.",
-            profilePic: "assets/png/def-prof.png"
+            profilePic: "assets/png/def-prof.png",
+            restaurantOwner: false
         };
-
-        // console.log(data);
     
         try {
             await User.insertMany([data]);
