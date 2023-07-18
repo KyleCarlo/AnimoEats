@@ -97,6 +97,7 @@ connectToMongo(()=>{
 app.get('/side-bar', componentsControl.showSideBar);
 app.get('/location-card', componentsControl.showLocationCard);
 app.post('/store-prev', componentsControl.showStorePrev);
+app.get('/resto-card', componentsControl.showRestoCard);
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);
 /**** SIGN UP ****/
@@ -116,6 +117,9 @@ app.get("/profile", profileControl.showProfile);
 app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
+app.get("/store", function(req, res){
+    res.render("store");
+});
 
 app.listen(3000, () => {
     console.log("App started");

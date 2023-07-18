@@ -32,6 +32,12 @@ const componentsControl = {
             aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
             cardNum: req.body.cardNum          
         });
+    },
+    showRestoCard(req, res){
+        res.render("components/resto-card");
+    },
+    showRevCard(req, res){
+        res.render("components/review-card-self");
     }
 }
 
