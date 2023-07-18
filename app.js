@@ -98,6 +98,7 @@ app.get('/side-bar', componentsControl.showSideBar);
 app.get('/location-card', componentsControl.showLocationCard);
 app.post('/store-prev', componentsControl.showStorePrev);
 app.get('/resto-card', componentsControl.showRestoCard);
+app.get('/review-card', componentsControl.showRevCard);
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);
 /**** SIGN UP ****/

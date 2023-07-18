@@ -1112,7 +1112,7 @@ a {
 /***** STORE PAGE *****/
 .store-container{
     display: flex;
-    background-color: var(--white);
+    background-color: var(--cream);
     height: 100vh;
     overflow: hidden;
 }
@@ -1141,10 +1141,11 @@ a {
     height: 100%;
     flex-grow: 4;
     background: var(--primary);
+    justify-content: center;
     align-self: center;
     overflow-y: scroll;
 }
 
-.store-container .right .rev-con > div{
+.store-container .right .rev-con-self > div{
     margin: 20px auto;
 }

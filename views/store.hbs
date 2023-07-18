@@ -22,7 +22,7 @@
             $(".sidebar").load("/side-bar");
             $(".store-container .left").load('/resto-card');
             for (let i = 0; i < 5; i++){
-                $('.store-container .right').append($('<div class="rev-con '+ (i+1) +'"></div>').load('/review-card'));
+                $('.store-container .right').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card'));
             }
         });
     </script>
