@@ -34,8 +34,6 @@ const indexControl = {
             limit = 12;
         const skip = (page - 1) * limit;
         let restaurants = await Restaurant.find().skip(skip).limit(limit).exec();
-        // res.send({page: page, limit: limit, restaurants: restaurants});
-        // res.render("index", {restaurants: restaurants});
         restaurants = restaurants.map(restaurant => {
             return {
                 _id: restaurant._id.toString(),
@@ -46,9 +44,8 @@ const indexControl = {
                 bannerPic: restaurant.bannerPic
             }
         });
-        console.log(typeof restaurants);
 
-        res.render("index", { restaurants: [restaurants]});
+        res.render("index", {restaurants: restaurants});
     }
 
 }

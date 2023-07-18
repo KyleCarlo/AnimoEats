@@ -295,11 +295,20 @@
 
             $('.location-card').load('/location-card');
 
-            var listofResto =[ {{restaurants}}];
+            let listOfResto = [];
+            {{#each restaurants}}
+                var obj = {};
+                {{#each this}}
+                    obj.{{@key}} = '{{this}}';
+                {{/each}}
+                listOfResto.push(obj);
+            {{/each}}
 
             // $('.home-bottom').append($('<div></div>').load('/store-prev', 'name: sample'));
 
-            console.log(listofResto);
+            for (let i = 0; i < listOfResto.length; i++){
+                $('.home-bottom').append($('<div class="store-prev-cards '+i+'"></div>').load('/store-prev', {post: listOfResto[i], cardNum: i}));
+            }
         });
     </script>
     

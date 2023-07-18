@@ -96,7 +96,7 @@ connectToMongo(()=>{
 /**** COMPONENTS ****/
 app.get('/side-bar', componentsControl.showSideBar);
 app.get('/location-card', componentsControl.showLocationCard);
-app.get('/store-prev', componentsControl.showStorePrev);
+app.post('/store-prev', componentsControl.showStorePrev);
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);
 /**** SIGN UP ****/

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/style.css">
+    <link rel="stylesheet" href="style.css">
     <title>Store Preview</title>
 </head>
 <body>
@@ -30,7 +30,7 @@
     <script>
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
-            var fullText= {{description}};
+            var fullText= '{{description}}';
             if (fullText.length > 300) {
                 var prevText = fullText.slice(0,280)+"...";
                 $(".store-description .main-text").text(prevText);
@@ -43,8 +43,11 @@
             }
             
             // RATING FUNCTIONALITY
-            var rating = {{aveRating}};
-            $('.store-flag svg text').text(rating);
+            var rating = '{{aveRating}}';
+            var greenFlag = '#008037';
+            if (rating > 3.0){
+                $('.store-prev-cards.{{cardNum}} .store-prev-main .store-flag svg').attr("fill", greenFlag);
+            }
         });
     </script>
 </body>
