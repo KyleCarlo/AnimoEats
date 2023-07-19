@@ -12,8 +12,8 @@
         <div class="resto-header"></div>
         <div class="resto-content">
             <div class="name-rating">
-                <div class="resto-name">Mongolian Bowl</div>
-                <span class="rating-num">3.2</span>
+                <div class="resto-name">{{name}}</div>
+                <span class="rating-num">{{aveRating}}</span>
                 <svg class="rating" width="115" height="22" viewBox="0 0 115 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g class="flag-1 clickable" fill="#595959">
                         <path d="M19.079 0.483624C18.5288 1.02695 18.1172 1.31786 17.4909 1.62161C16.6365 2.03231 15.7999 2.22911 14.5652 2.31039C13.6884 2.36601 12.8072 2.32323 10.7404 2.13071C9.12101 1.9767 7.48371 1.92536 6.70532 2.00237C5.11275 2.16066 3.86018 2.67404 2.86259 3.57673C2.59865 3.81202 2.55839 3.86764 2.59418 3.93609C2.62102 3.97887 3.34572 6.42597 4.20463 9.37361C5.06802 12.3213 5.7793 14.7598 5.79273 14.7897C5.81062 14.8325 5.91351 14.7684 6.11929 14.5972C7.53739 13.3993 9.13443 12.9416 11.5859 13.0186C12.0646 13.0357 12.7624 13.0742 13.1293 13.1084C13.5006 13.1427 14.2432 13.2154 14.7845 13.2667C16.1847 13.3993 18.0456 13.3993 18.7882 13.2667C19.5621 13.1298 20.0498 12.9844 20.6447 12.7063C21.2889 12.4025 21.8123 12.0475 22.3133 11.5555C22.6846 11.1918 22.8233 10.995 22.8725 10.7512C22.9307 10.4645 22.886 10.4218 22.1434 10.0282C20.9758 9.40784 19.8663 8.66772 18.9045 7.86771C18.6943 7.6923 18.5019 7.49551 18.4796 7.43561C18.4482 7.35005 18.493 7.11047 18.6764 6.40886C19.1193 4.70616 19.4727 2.93928 19.7321 1.16813C19.844 0.410896 19.8619 0.184155 19.8261 0.10287C19.7321 -0.0939245 19.6024 -0.0297527 19.079 0.483624Z"/>
@@ -38,17 +38,17 @@
                 </svg>
             </div>
             <div class="loc-price-rev">
-                <div class="resto-loc">location</div>
-                <span class="resto-price">₱₱</span>
+                <div class="resto-loc">{{location}}</div>
+                <span class="resto-price">{{price}}</span>
                 &nbsp;
                 •
                 &nbsp;
-                <span class="resto-reviews">47 Reviews</span>
+                <span class="resto-reviews">{{totalReviews}} Reviews</span>
             </div>
             
             
             <div class="resto-description">
-                <span class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nihil quam assumenda at, quos libero reprehenderit nostrum blanditiis cupiditate autem molestias obcaecati nobis animi quis quaerat eum maiores velit explicabo molestiae. Illo nobis velit, obcaecati ullam accusantium totam optio exercitationem at voluptatem eos atque itaque laborum animi, fugit debitis minus?</span>
+                <span class="main-text">{{description}}</span>
                 <span class="read-more clickable">Read More</span>
             </div>
 
@@ -76,6 +76,15 @@
                 });
             } else {
                 $(".resto-card .read-more").css('display', 'none');
+            }
+
+            // RATING FUNCTIONALITY
+            var rating = '{{aveRating}}';
+            var greenFlag = '#008037';
+            var redFlag = '#ED352F';
+            // TODO: FIX RATING COLORING
+            if (rating > 3.0){
+                $('.store-prev-cards.{{cardNum}} .store-prev-main .store-flag svg').attr("fill", greenFlag);
             }
         });
     </script>

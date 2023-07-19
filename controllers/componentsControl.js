@@ -34,7 +34,14 @@ const componentsControl = {
         });
     },
     showRestoCard(req, res){
-        res.render("components/resto-card");
+        // TODO: EDIT additional
+        res.render("components/resto-card", {
+            name: decodeHtmlEntities(req.body.post.name),
+            location: decodeHtmlEntities(req.body.post.location),
+            description: decodeHtmlEntities(req.body.post.description),
+            aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
+            cardNum: req.body.cardNum          
+        });
     },
     showRevCard(req, res){
         res.render("components/review-card-self");
