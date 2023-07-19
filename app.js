@@ -118,7 +118,8 @@ app.get("/profile", profileControl.showProfile);
 app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
-app.get("/store", function(req, res){
+var restoName = Restaurant.find();
+app.get("/" + restoName, function(req, res){
     res.render("store");
 });
 

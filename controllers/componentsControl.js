@@ -1,3 +1,8 @@
+import Review from "../models/Review.js";
+import Restaurant from "../models/Restaurant.js";
+import mongoose from "mongoose";
+import User from "../models/User.js";
+
 function decodeHtmlEntities(text) {
     var entities = [
         ['amp', '&'],
@@ -24,20 +29,23 @@ const componentsControl = {
     showLocationCard(req, res){
         res.render("components/location-card");
     },
-    showStorePrev(req, res){
+    async showStorePrev(req, res) {
         res.render("components/store-prev", {
             name: decodeHtmlEntities(req.body.post.name),
             location: decodeHtmlEntities(req.body.post.location),
             description: decodeHtmlEntities(req.body.post.description),
             aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
-            cardNum: req.body.cardNum          
+            cardNum: req.body.cardNum
         });
     },
     showRestoCard(req, res){
         res.render("components/resto-card");
     },
-    showRevCard(req, res){
-        res.render("components/review-card-self");
+    async showRevCard(req, res){
+        // const reviews = await Review.find({});
+        res.render("components/review-card-self",
+            // { reviews }
+        );
     }
 }
 
