@@ -7,7 +7,7 @@ const reviewSchema = new Schema({
     rating: Number,
     description: String,
     helpfulCount: Number,
-    unhelpfulount: Number,
+    unhelpfulCount: Number,
     images: {
         image1: String,
         image2: String,
@@ -22,7 +22,8 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Restaurant
     },
-    reply: String
+    reply: String,
+    postTitle: String
 });
 
 const Review = mongoose.model('Review', reviewSchema);

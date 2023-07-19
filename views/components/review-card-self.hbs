@@ -37,12 +37,12 @@
                 </g>
             </svg>
         </div>
-        <div class="title">Title of the Post</div>
+        <div class="title">{{postTitle}}</div>
         <div class="body">
             <span class="main-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolor fuga iusto delectus adipisci praesentium, dignissimos tempora ducimus consequuntur, tempore ipsa fugiat molestias reprehenderit. Pariatur maiores praesentium earum itaque temporibus dolores accusamus libero? Excepturi, minima sed! Consequuntur doloremque ut minus?
+                {{description}}
             </span>
-             
+
             <span class="read-more clickable">Read more</span>
         </div>
 
@@ -55,7 +55,7 @@
                     </g>
                     <path d="M6.55566 9.33279V23.2208" stroke="white" stroke-width="2"/>
                 </svg>
-                <span class="like-count">100</span>
+                <span class="like-count">{{helpfulCount}}</span>
                 <span>|</span>
                 <svg class="dislike clickable" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g class="fill">
@@ -64,7 +64,7 @@
                     </g>
                     <path d="M6.55566 14.888V1.00003" stroke="white" stroke-width="2"/>
                 </svg>
-                <span class="dislike-count">100</span>                
+                <span class="dislike-count">{{unhelpfulCount}}</span>
             </div>
             <div class="edit_delete">
                 <img class="edit clickable" src="../public/assets/svg/pen-comment.svg" alt="edit">
@@ -87,16 +87,16 @@
             <div class="img-container">
                 <ul class="tracker">
                     <li class="slide current-slide">
-                        <img src="../public/assets/jpg/preview1.jpg" alt="review-pic-1">
+                        <img src="{{image1}}" alt="review-pic-1">
                     </li>
                     <li class="slide">
-                        <img src="../public/assets/jpg/preview2.jpg" alt="review-pic-2">
+                        <img src="{{image2}}" alt="review-pic-2">
                     </li>
                     <li class="slide">
-                        <img src="../public/assets/jpg/preview3.jpg" alt="review-pic-3">
+                        <img src="{{image3}}" alt="review-pic-3">
                     </li>
                     <li class="slide">
-                        <img src="../public/assets/jpg/preview4.jpg" alt="review-pic-4">
+                        <img src="{{image4}}" alt="review-pic-4">
                     </li>
                 </ul>
             </div>
@@ -114,7 +114,6 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            
             // FLAG FUNCTIONALITY
             var greenFlag = "#41C45E";
             var grayFlag = "#595959";
@@ -155,7 +154,7 @@
                 let className = e.currentTarget.classList[0];
                 let pressedButton = $('.buttons .like-dislike .' + className);
                 let unpressedButton = $('.buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
-                
+
                 if (pressedButton.css('fill') != 'none')
                     pressedButton.css('fill', 'none');
                 else {
@@ -204,14 +203,14 @@
             prev.css('display', 'none');
 
             for (let index = 0; index < slides.length; index++) {
-                slides[index].style.left = index * slideWidth + 'px';                
+                slides[index].style.left = index * slideWidth + 'px';
             }
 
             prev.on('click', function(e){
                 let currentSlide = tracker.find('.current-slide');
                 let prevSlide = currentSlide.prev();
 
-                if (currentBullet == 1+1){                
+                if (currentBullet == 1+1){
                     prev.css('display', 'none');
                     moveToSlide(tracker, currentSlide, prevSlide);
                     updateBullets(-1);
@@ -227,7 +226,7 @@
                 let nextSlide = currentSlide.next();
 
                 currentSlide.css('animation', 'moveLeft 0.5s ease-in-out');
-                if (currentBullet == 4-1){                
+                if (currentBullet == 4-1){
                     next.css('display', 'none');
                     moveToSlide(tracker, currentSlide, nextSlide);
                     updateBullets(1);
@@ -245,7 +244,7 @@
                 textarea[0].style.height = scHeight + "px";
             });
         });
-
+        // $('.home-bottom').append($('<div></div>').load('/store-prev', 'name: sample'));
     </script>
 </body>
 </html>
