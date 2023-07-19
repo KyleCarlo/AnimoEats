@@ -21,7 +21,7 @@
             </div>
             <div class="store-description">
                 <span class="main-text"></span>
-                <span class="read-more">Read More</span>
+                <span class="read-more clickable">Read More</span>
             </div>
         </div>
     </div>
@@ -31,9 +31,23 @@
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
             var fullText= '{{description}}';
-            if (fullText.length > 300) {
-                var prevText = fullText.slice(0,280)+"...";
+            if (fullText.length > 220) {
+                var prevText = fullText.slice(0, 200) + "...";
                 $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(prevText);
+
+                $(".store-prev-cards.{{cardNum}} .store-description").append('<span class="show-less clickable" style="display: none">Show Less</span>');
+
+                $(".store-prev-cards.{{cardNum}} .read-more").click(function() {
+                    $(this).closest('.store-prev-cards').find('.store-description .main-text').text(fullText);
+                    $(this).hide();
+                    $(this).siblings('.show-less').show();
+                });
+
+                $(".store-prev-cards.{{cardNum}} .show-less").click(function() {
+                    $(this).closest('.store-prev-cards').find('.store-description .main-text').text(prevText);
+                    $(this).hide();
+                    $(this).siblings('.read-more').show();
+                });
             } else {
                 $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(fullText);
                 $(".store-prev-cards.{{cardNum}} .store-prev-main .read-more").css('display', 'none');

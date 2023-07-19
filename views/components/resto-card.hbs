@@ -67,12 +67,20 @@
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
             var fullText = '{{description}}';
-            if (fullText.length > 250) {
-                var prevText = fullText.slice(0,220)+"...";
+            if (fullText.length > 280) {
+                var prevText = fullText.slice(0,260)+"...";
                 $(".resto-description .main-text").text(prevText);
+                $(".resto-description").append('<span class="show-less clickable" style="display: none">Read More</span>');
                 $(".resto-card .read-more").click(function(){
                     $(".resto-description .main-text").text(fullText);
-                    $(".resto-card .read-more").css('display', 'none');
+                    $(this).hide();
+                    $(this).siblings('.show-less').show();
+                });
+
+                $(".resto-card .show-less").click(function() {
+                    $(this).closest('.resto-card').find('.resto-description .main-text').text(prevText);
+                    $(this).hide();
+                    $(this).siblings('.read-more').show();
                 });
             } else {
                 $(".resto-description .main-text").text(fullText);

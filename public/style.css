@@ -376,7 +376,7 @@ a {
 
 }
 
-.store-prev-main .store-prev-content .read-more {
+.store-prev-main .store-prev-content .read-more, .store-prev-main .store-prev-content .show-less {
     color: gray;
     text-align: justify;
     font-size: 8px;
@@ -453,7 +453,7 @@ a {
     text-align: justify;
 }
 
-.resto-card .resto-description .read-more {
+.resto-card .resto-description .read-more, .resto-card .resto-description .show-less {
     opacity: 60%;
     font-size: 12px
 }

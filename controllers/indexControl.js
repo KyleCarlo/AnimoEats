@@ -36,7 +36,7 @@ const indexControl = {
         let restaurants = await Restaurant.find().skip(skip).limit(limit).exec();
         restaurants = restaurants.map(restaurant => {
             return {
-                _id: restaurant._id.toString(),
+                _id: restaurant._id,
                 name: restaurant.name,
                 location: restaurant.location,
                 aveRating: restaurant.aveRating,
