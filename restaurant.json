@@ -1,5 +1,6 @@
 [
     {
+        "_id": "1",
         "name": "McDonald's",
         "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
         "aveRating": 4.0,
@@ -9,6 +10,7 @@
         "bannerPic": "public/assets/jpg/mcdonalds.jpg"
     },
     {
+        "_id": "2",
         "name": "Jollibee",
         "location": "San Andres Corner, Taft Ave, Malate, Manila, 1017 Metro Manila",
         "aveRating": 4.0,
@@ -18,6 +20,7 @@
         "bannerPic": "public/assets/jpg/jollibee.jpg"
     },
     {
+        "_id": "3",
         "name": "Army Navy",
         "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
         "aveRating": 3.0,
@@ -27,6 +30,7 @@
         "bannerPic": "public/assets/jpg/army-navy.jpg"
     },
     {
+        "_id": "4",
         "name": "Angrydobo",
         "location": "2444 Taft Ave, Malate, Manila, 1004 Metro Manila",
         "aveRating": 3.0,

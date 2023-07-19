@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>StoreName</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon">
+    <title>{{storeName}}</title>
+    
 </head>
 <body>
-    <img src="assets/svg/animoeats-logo.svg" alt="logo" class="logo">
+    <img src="../assets/svg/animoeats-logo.svg" alt="logo" class="logo">
     <div class="sidebar"></div>
 
     <div class="store-container">
@@ -20,9 +22,27 @@
     <script type="module">
         $(document).ready(function(){
             $(".sidebar").load("/side-bar");
-            $(".store-container .left").load('/resto-card');
-            for (let i = 0; i < 5; i++){
-                $('.store-container .right').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card'));
+
+            var restaurantInfo = {};
+            {{#each restaurantInfo}}
+                {{#each this}}
+                    restaurantInfo.{{@key}} = '{{this}}';
+                {{/each}}
+            {{/each}}
+
+            var reviews = [];
+            {{#each reviews}}
+                var review = {};
+                {{#each this}}
+                    review.{{@key}} = '{{this}}';
+                {{/each}}
+                reviews.push(review);
+            {{/each}}
+
+            $(".store-container .left").load('/resto-card', {post: restaurantInfo});
+            
+            for (let i = 0; i < reviews.length; i++){
+                $('.store-container .right').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: reviews[i]}));
             }
         });
     </script>

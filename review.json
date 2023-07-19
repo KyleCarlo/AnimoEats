@@ -11,7 +11,7 @@
         "image4": "public/assets/jpg/army-navy.jpg"
       },
       "user": "64b545f23e0ef68b6433d8b9", 
-      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "restaurant": "2", 
       "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
     },
     {
@@ -23,10 +23,10 @@
         "image1": "public/assets/jpg/army-navy.jpg",
         "image2": "public/assets/jpg/angry-dobo.jpg",
         "image3": "public/assets/jpg/army-navy.jpg",
-        "image4": "public/assets/jpg/mcdo.jpg"
+        "image4": ""
       },
       "user": "64b5605a3c864c8d7e4fe9f4", 
-      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "restaurant": "1", 
       "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
     },
     {
@@ -41,7 +41,7 @@
         "image4": "public/assets/jpg/mcdo.jpg"
       },
       "user": "64b545f23e0ef68b6433d8b9", 
-      "restaurant": "64b571bddf3cf4b17dd471f6", 
+      "restaurant": "1", 
       "reply": "Thank you for your feedback. We're glad you enjoyed your experience!"
     }
 

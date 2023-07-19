@@ -20,8 +20,8 @@
                 </svg>
             </div>
             <div class="store-description">
-                <span class="main-text">{{description}}</span>
-                <span class="read-more clickable">Read More</span>
+                <span class="main-text"></span>
+                <span class="read-more">Read More</span>
             </div>
         </div>
     </div>
@@ -33,13 +33,10 @@
             var fullText= '{{description}}';
             if (fullText.length > 300) {
                 var prevText = fullText.slice(0,280)+"...";
-                $(".store-description .main-text").text(prevText);
-                $(".store-prev-main .read-more").click(function(){
-                    $(".store-description .main-text").text(fullText);
-                    $(".store-prev-main .read-more").css('display', 'none');
-                });
+                $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(prevText);
             } else {
-                $(".store-prev-main .read-more").css('display', 'none');
+                $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(fullText);
+                $(".store-prev-cards.{{cardNum}} .store-prev-main .read-more").css('display', 'none');
             }
             
             // RATING FUNCTIONALITY

@@ -13,6 +13,7 @@ import exphbs from "express-handlebars";    //Express-handlebars for templating
 import MongoStore from "connect-mongo";     //Connect-mongo for storing session in MongoDB
 import multer from "multer";        //Multer for file uploads
 import cookieParser from "cookie-parser";
+import {decode} from 'html-entities';
 /**
  * Import local dependencies
  */
@@ -29,7 +30,7 @@ import logInControl from "./controllers/logInControl.js";
 import logOutControl from "./controllers/logOutControl.js";
 import profileControl from "./controllers/profileControl.js";
 import forgotPasswordControl from "./controllers/forgotPasswordControl.js";
-
+import storeControl from "./controllers/storeControl.js";
 /**
  * Initiliaze express app
  */
@@ -97,8 +98,9 @@ connectToMongo(()=>{
 app.get('/side-bar', componentsControl.showSideBar);
 app.get('/location-card', componentsControl.showLocationCard);
 app.post('/store-prev', componentsControl.showStorePrev);
-app.get('/resto-card', componentsControl.showRestoCard);
-app.get('/review-card', componentsControl.showRevCard);
+app.post('/resto-card', componentsControl.showRestoCard);
+app.post('/review-card', componentsControl.showRevCard);
+// app.get('/review-card', componentsControl.showRevCard);
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);
 /**** SIGN UP ****/
@@ -118,14 +120,9 @@ app.get("/profile", profileControl.showProfile);
 app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
-var restoName = Restaurant.find();
-app.get("/" + restoName, function(req, res){
-    res.render("store");
-});
+app.get("/store/:restaurantName", storeControl.showStore);
 
 app.listen(3000, () => {
     console.log("App started");
     mongoose.connect(process.env.MONGODB_URI, { dbName: process.env.DB_NAME });
 });
-
-export { app };
