@@ -1,0 +1,114 @@
+[{
+  "_id": {
+    "$oid": "64b8dc5a14e5a57fb23793ee"
+  },
+  "firstName": "Monica",
+  "lastName": "Manlises",
+  "email": "maria_monica_manlises@dlsu.edu.ph",
+  "password": "Mons-Password",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "Hi, I'm Mon!",
+  "profilePic": "uploads/profiles/maria_monica_manlises.png",
+  "restaurantOwner": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b8e053320a0d98005de887"
+  },
+  "firstName": "Daphne",
+  "lastName": "Go",
+  "email": "daphne_janelyn_go@dlsu.edu.ph",
+  "password": "thisisdapdap",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "The user has not yet set a biography.",
+  "profilePic": "uploads/profiles/daphne_janelyn_go.jpg",
+  "restaurantOwner": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b8e278320a0d98005de88b"
+  },
+  "firstName": "Kyle",
+  "lastName": "Lasala",
+  "email": "kyle_lasala@dlsu.edu.ph",
+  "password": "kykyishere",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "Kyky potpot this him sheesh",
+  "profilePic": "uploads/profiles/kyle_lasala.jpg",
+  "restaurantOwner": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b8e397320a0d98005de89b"
+  },
+  "firstName": "Sebastian",
+  "lastName": "Diaz",
+  "email": "basti_diaz@dlsu.edu.ph",
+  "password": "sebsebwow",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "My views are my views.",
+  "profilePic": "uploads/profiles/basti_diaz.jpg",
+  "restaurantOwner": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b8e3fd320a0d98005de8a1"
+  },
+  "firstName": "Sealtiel",
+  "lastName": "Dy",
+  "email": "sealtiel_dy@dlsu.edu.ph",
+  "password": "sealSeal",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "Hi, I'm seal! sealseal",
+  "profilePic": "uploads/profiles/sealtiel_dy.JPG",
+  "restaurantOwner": false,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "64b8e499320a0d98005de8a7"
+  },
+  "firstName": "Gabriel",
+  "lastName": "Pua",
+  "email": "gabriel_pua@dlsu.edu.ph",
+  "password": "gabIsAwesome",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 20,
+  "yearMade": 2023,
+  "biography": "Hi this is Comrade Gabriel!",
+  "profilePic": "uploads/profiles/gabriel_pua.JPG",
+  "restaurantOwner": false,
+  "__v": 0
+}]
