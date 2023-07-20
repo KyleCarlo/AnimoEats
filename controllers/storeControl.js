@@ -8,8 +8,8 @@ const storeControl = {
             var restaurant = await Restaurant.find( { name: restaurantName });
             restaurant = restaurant[0];
 
-            var reviews = await Review.find({restaurant: restaurant._id.toString()});
-            console.log(restaurant._id.toString());
+            var reviews = await Review.find({restaurant: restaurant._id}); // Seb: Removed .toString() from restaurant._id
+            console.log(restaurant._id); // Seb: Removed .toString() from restaurant._id
             if (!restaurant) {
                 return res.status(404).send("Restaurant not found");
             }
@@ -18,6 +18,7 @@ const storeControl = {
                 restaurantInfo : restaurant
             });
         } catch (error) {
+            console.error("Error in showStore:", error);
             res.status(500).send("Server Error");
         }
     }
