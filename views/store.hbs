@@ -14,7 +14,8 @@
 
     <div class="store-container">
         <div class="left">
-            <button class="add-review-btn">+ Add Review</button>
+            <div class="left-top"></div>
+            <button class="add-review-btn left-bot">+ Add Review</button>
         </div>
         <div class="center"></div>
         <div class="right"></div>
@@ -27,7 +28,7 @@
 
             var restaurantInfo = {{{ restaurantInfo }}};
 
-            $(".store-container .left").load('/resto-card', {post: restaurantInfo});
+            $(".store-container .left-top").load('/resto-card', {post: restaurantInfo});
 
             var listOfReviews = [{{{ reviews }}}];
             listOfReviews = listOfReviews[0];

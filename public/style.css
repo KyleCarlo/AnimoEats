@@ -94,7 +94,7 @@ a {
 
 /***** ADD-REVIEW-BTN *****/
 .add-review-btn {
-    width: 100%;
+    width: 445px;
     height: 29px;
     background-color: #BFDFB8;
     border: none;
@@ -1128,9 +1128,12 @@ a {
     align-self: center;
     scale: 0.9;
     margin-left: 2%;
+    display: grid;
+    row-gap: 25px;
 }
 
-.store-container .left > div{
+.store-container .left > div,
+.store-container .left > button{
     margin: auto;
 }
 

@@ -99,12 +99,12 @@ const componentsControl = {
             helpfulCount: req.body.post.helpfulCount,
             unhelpfulCount: req.body.post.unhelpfulCount,
             cardNum: req.body.cardNum,
-            // images 
+            image1: req.body.post.images.image1,
+            image2: req.body.post.images.image2,
+            image3: req.body.post.images.image3,
+            image4: req.body.post.images.image4
             // rating
         });
-    },
-    showAddRevBtn(req, res){
-        res.render("components/add-review-btn.hbs");
     }
 }
 
