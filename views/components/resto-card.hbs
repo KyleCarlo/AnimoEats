@@ -9,7 +9,9 @@
 
 <body>
     <div class="resto-card">
-        <div class="resto-header"></div>
+        <div class="resto-header">
+            <img src="../{{bannerPic}}" alt="resto-banner">
+        </div>
         <div class="resto-content">
             <div class="name-rating">
                 <div class="resto-name">{{name}}</div>
@@ -51,14 +53,6 @@
                 <span class="main-text"></span>
                 <span class="read-more clickable">Read More</span>
             </div>
-
-            <div class="resto-images">
-                <img class="resto-single-image" src="..\public\assets\jpg\preview1.jpg">
-                <img class="resto-single-image" src="..\public\assets\jpg\preview2.jpg">
-                <img class="resto-single-image" src="..\public\assets\jpg\preview3.jpg">
-                <img class="resto-single-image" src="..\public\assets\jpg\preview4.jpg">
-                <img class="resto-single-image" src="..\public\assets\jpg\preview5.jpg">
-            </div>
         </div>
     </div>
 
@@ -67,7 +61,7 @@
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
             var fullText = '{{description}}';
-            if (fullText.length > 280) {
+            if (fullText.length > 500) {
                 var prevText = fullText.slice(0,260)+"...";
                 $(".resto-description .main-text").text(prevText);
                 $(".resto-description").append('<span class="show-less clickable" style="display: none">Show Less</span>');
@@ -88,14 +82,14 @@
             }
 
             // RATING FUNCTIONALITY
-            var rating = '{{aveRating}}';
+            var rating = Math.floor(parseFloat('{{aveRating}}'));
             var greenFlag = '#008037';
             var redFlag = '#ED352F';
-
-            console.log(rating);
-            // TODO: FIX RATING COLORING
-            if (rating > 3.0){
-                $('.store-prev-cards.{{cardNum}} .store-prev-main .store-flag svg').attr("fill", greenFlag);
+            
+            // FIX RATING COLORING
+            var flags = $('.resto-card .resto-content .rating g');
+            for (let i = 0; i < rating; i++) {
+                $(flags[i]).css('fill', rating >= 3.0 ? greenFlag : redFlag);
             }
         });
     </script>

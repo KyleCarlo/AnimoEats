@@ -1,0 +1,48 @@
+[{
+  "_id": {
+    "$oid": "64b80bb35331324946284763"
+  },
+  "name": "McDonald's",
+  "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
+  "aveRating": 4,
+  "price": 2,
+  "totalReviews": 124,
+  "description": "Welcome to McDonald's, the world-famous fast-food restaurant loved by millions. Indulge in our iconic burgers, crispy fries, and refreshing beverages. Whether you're looking for a quick meal on the go or a place to relax with friends and family, McDonald's has you covered. Visit us today for a delicious and convenient dining experience.",
+  "bannerPic": "public/assets/jpg/mcdonalds.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284764"
+  },
+  "name": "Jollibee",
+  "location": "San Andres Corner, Taft Ave, Malate, Manila, 1017 Metro Manila",
+  "aveRating": 4,
+  "price": "₱₱",
+  "totalReviews": 111,
+  "description": "Welcome to Jollibee, home of the famous Chickenjoy! We are a fast-food chain that brings the joy of Filipino flavors to the world. Our menu features a variety of mouthwatering dishes, including our signature crispy fried chicken, sweet-style spaghetti, and flavorful Jolly burgers. Experience the taste of Jollibee and immerse yourself in Filipino hospitality. Come and create joyful memories with us!",
+  "bannerPic": "public/assets/jpg/jollibee.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284765"
+  },
+  "name": "Army Navy",
+  "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
+  "aveRating": 3,
+  "price": "₱₱₱",
+  "totalReviews": 100,
+  "description": "Welcome to Army Navy, where we serve the best burgers and burritos in town! Our menu is filled with mouthwatering options, from our signature Freedom Fries and LiberTea iced tea to our flavorful 8oz Army Burger and California Burrito. We take pride in providing fresh and high-quality ingredients in every dish. Join us and experience the bold flavors that will satisfy your cravings!",
+  "bannerPic": "public/assets/jpg/army-navy.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284766"
+  },
+  "name": "Angrydobo",
+  "location": "2444 Taft Ave, Malate, Manila, 1004 Metro Manila",
+  "aveRating": 3,
+  "price": "₱₱",
+  "totalReviews": 75,
+  "description": "Welcome to Angrydobo, the home of flavorful and fiery Filipino dishes! We offer a modern twist on traditional Filipino cuisine, showcasing the bold and intense flavors of our signature adobo dishes. From the Angry Adobo Bowl to the Spicy Adobo Tacos, our menu will surely ignite your taste buds. Get ready for a spicy and satisfying culinary adventure at Angrydobo!",
+  "bannerPic": "public/assets/jpg/angry-dobo.jpg"
+}]

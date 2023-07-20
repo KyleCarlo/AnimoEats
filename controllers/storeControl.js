@@ -9,19 +9,38 @@ const storeControl = {
             restaurant = restaurant[0];
 
             var reviews = await Review.find({restaurant: restaurant._id}); // Seb: Removed .toString() from restaurant._id
-            console.log(restaurant._id); // Seb: Removed .toString() from restaurant._id
-            if (!restaurant) {
+            console.log("REVIEWS");
+            console.log(reviews); // Seb: Removed .toString() from restaurant._id
+
+            if (!restaurant || !reviews) {
                 return res.status(404).send("Restaurant not found");
             }
+
+            reviews = reviews.map(review => {
+                return {
+                    _id: review._id,
+                    postTitle: review.postTitle,
+                    rating: review.rating,
+                    description: review.description,
+                    helpfulCount: review.helpfulCount,
+                    unhelpfulCount: review.unhelpfulCount,
+                    images: review.images,
+                    user: review.user,
+                    restaurant: review.restaurant,
+                    reply: review.reply
+                }
+            });
+    
             res.render("store", {
                 storeName : restaurant.name,
-                restaurantInfo : restaurant
+                restaurantInfo : JSON.stringify(restaurant),
+                reviews: JSON.stringify(reviews)
             });
         } catch (error) {
             console.error("Error in showStore:", error);
             res.status(500).send("Server Error");
         }
-    }
+    } 
 
 }
 

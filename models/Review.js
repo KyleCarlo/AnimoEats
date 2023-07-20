@@ -4,6 +4,7 @@ import Restaurant from "./Restaurant.js";
 const { Schema, model } = mongoose;
 
 const reviewSchema = new Schema({
+    postTitle: String,
     rating: Number,
     description: String,
     helpfulCount: Number,
@@ -22,8 +23,7 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Restaurant
     },
-    reply: String,
-    postTitle: String
+    reply: String
 });
 
 const Review = mongoose.model('Review', reviewSchema);

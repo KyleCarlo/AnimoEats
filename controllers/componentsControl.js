@@ -70,19 +70,37 @@ const componentsControl = {
         for (let i = 0; i < req.body.post.price; i++) {
             priceSymbol += "₱";
         }
+        // console.log(req.body.post);
         res.render("components/resto-card", {
-            name: decodeHtmlEntities(req.body.post.name),
+            name: req.body.post.name,
             aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
-            location: decodeHtmlEntities(req.body.post.location),
+            totalReviews: req.body.post.totalReviews,
+            location: req.body.post.location,
             price: priceSymbol,
-            description: decodeHtmlEntities(req.body.post.description),
-            aveRating: parseFloat(req.body.post.aveRating).toFixed(1),        
+            description: req.body.post.description,
+            aveRating: parseFloat(req.body.post.aveRating).toFixed(1),  
+            bannerPic: req.body.post.bannerPic      
         });
 
     },
-    showRevCard(req, res){
+    async showRevCard(req, res){
+        const user = await User.findById(req.body.post.user);
+        const name = user.firstName + " " + user.lastName;
+        const profilePic = user.profilePic;
+        const restaurant = await Restaurant.findById(req.body.post.restaurant);
+        const restoName = restaurant.name;
+        console.log(profilePic);
         res.render("components/review-card", {
-            name: decodeHtmlEntities(req.body.post.name),
+            restoName: restoName,
+            name: name,
+            profilePic: profilePic,
+            postTitle: req.body.post.postTitle,
+            description: req.body.post.description,
+            helpfulCount: req.body.post.helpfulCount,
+            unhelpfulCount: req.body.post.unhelpfulCount,
+            cardNum: req.body.cardNum,
+            // images 
+            // rating
         });
     }
 }
