@@ -102,6 +102,9 @@ const componentsControl = {
             // images 
             // rating
         });
+    },
+    showAddRevBtn(req, res){
+        res.render("components/add-review-btn.hbs");
     }
 }
 
