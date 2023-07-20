@@ -70,7 +70,7 @@
             if (fullText.length > 280) {
                 var prevText = fullText.slice(0,260)+"...";
                 $(".resto-description .main-text").text(prevText);
-                $(".resto-description").append('<span class="show-less clickable" style="display: none">Read More</span>');
+                $(".resto-description").append('<span class="show-less clickable" style="display: none">Show Less</span>');
                 $(".resto-card .read-more").click(function(){
                     $(".resto-description .main-text").text(fullText);
                     $(this).hide();

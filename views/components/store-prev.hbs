@@ -31,22 +31,14 @@
         $(document).ready(function(){
             // READ MORE FUNCTIONALITY
             var fullText= '{{description}}';
-            if (fullText.length > 220) {
-                var prevText = fullText.slice(0, 200) + "...";
-                $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(prevText);
+            if (fullText.length > 300) {
+                var prevText = fullText.slice(0, 280) + "...";
+                $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(prevText)
 
-                $(".store-prev-cards.{{cardNum}} .store-description").append('<span class="show-less clickable" style="display: none">Show Less</span>');
-
+                // Simple implementation of store card > store page
                 $(".store-prev-cards.{{cardNum}} .read-more").click(function() {
-                    $(this).closest('.store-prev-cards').find('.store-description .main-text').text(fullText);
-                    $(this).hide();
-                    $(this).siblings('.show-less').show();
-                });
-
-                $(".store-prev-cards.{{cardNum}} .show-less").click(function() {
-                    $(this).closest('.store-prev-cards').find('.store-description .main-text').text(prevText);
-                    $(this).hide();
-                    $(this).siblings('.read-more').show();
+                    // TODO: Parse hex like ' to plain text because of the ' in the url or remove them entirely
+                    window.location.href = `/store/{{name}}`;
                 });
             } else {
                 $(".store-prev-cards.{{cardNum}} .store-description .main-text").text(fullText);

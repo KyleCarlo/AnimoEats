@@ -315,7 +315,7 @@ a {
     width: 300px;
     background: linear-gradient(143deg, #FEF7DE 46.56%, #F8C1B4 100%);
     border-radius: 15px;
-    height: auto;
+    height: calc(65vh - 65px);
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -376,7 +376,7 @@ a {
 
 }
 
-.store-prev-main .store-prev-content .read-more, .store-prev-main .store-prev-content .show-less {
+.store-prev-main .store-prev-content .read-more {
     color: gray;
     text-align: justify;
     font-size: 8px;
