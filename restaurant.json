@@ -3,7 +3,7 @@
       "$oid": "64b80bb35331324946284763"
     },
     "name": "McDonalds",
-    "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
+    "location": "University Mall Area",
     "aveRating": 4,
     "price": 2,
     "totalReviews": 124,
@@ -15,7 +15,7 @@
       "$oid": "64b80bb35331324946284764"
     },
     "name": "Jollibee",
-    "location": "San Andres Corner, Taft Ave, Malate, Manila, 1017 Metro Manila",
+    "location": "Taft Ave",
     "aveRating": 4,
     "price": 2.5,
     "totalReviews": 111,
@@ -27,7 +27,7 @@
       "$oid": "64b80bb35331324946284765"
     },
     "name": "Army Navy",
-    "location": "2399 Taft Ave, Malate, Manila, 1004 Metro Manila",
+    "location": "Taft Ave",
     "aveRating": 3,
     "price": 3,
     "totalReviews": 100,
@@ -39,7 +39,7 @@
       "$oid": "64b80bb35331324946284766"
     },
     "name": "Angrydobo",
-    "location": "2444 Taft Ave, Malate, Manila, 1004 Metro Manila",
+    "location": "Taft Ave",
     "aveRating": 3,
     "price": 2,
     "totalReviews": 75,

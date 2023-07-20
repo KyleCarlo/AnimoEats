@@ -105,6 +105,10 @@ const componentsControl = {
             image4: req.body.post.images.image4
             // rating
         });
+    },
+    showCreateRev(req, res){
+        if(req.session.user)
+            res.render("components/create-review");
     }
 }
 
