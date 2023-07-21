@@ -786,7 +786,6 @@ nav .right {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    background-color: var(--cream);
 }
 
 .compose-container .compose-header {
@@ -800,7 +799,7 @@ nav .right {
 
 .compose-container form {
     margin: auto;
-    background-color: var(--cream);
+    background-color: white;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -831,12 +830,6 @@ nav .right {
 .compose-container form img {
     width: 25px;
     padding-left: 5px;
-}
-
-.compose-container button{
-    outline: none;
-    border: none;
-    background: transparent;
 }
 
 /* EDIT PROFILE */

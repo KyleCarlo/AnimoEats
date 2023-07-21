@@ -42,7 +42,6 @@ const storeControl = {
         }
     } 
 
-
 }
 
 export default storeControl;
