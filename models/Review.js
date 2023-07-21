@@ -9,6 +9,10 @@ const reviewSchema = new Schema({
     description: String,
     helpfulCount: Number,
     unhelpfulCount: Number,
+    monthPosted: Number, 
+    datePosted: Number,
+    yearPosted: Number,
+    edited: Boolean,
     images: {
         image1: String,
         image2: String,

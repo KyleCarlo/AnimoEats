@@ -696,6 +696,7 @@ a {
     transform: translate(-50%, -50%);
     border-radius: 10px;
     font-family: "Open Sans";
+    
 }
 
 .compose-container .compose-header {
@@ -708,7 +709,7 @@ a {
 
 .compose-container form {
     margin: auto;
-    background-color: white;
+    background-color: var(--cream);
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -739,6 +740,12 @@ a {
 .compose-container form img {
     width: 25px;
     padding-left: 5px;
+}
+
+.compose-container button{
+    outline: none;
+    border: none;
+    background: transparent;
 }
 
 /***** EDIT PROFILE *****/
