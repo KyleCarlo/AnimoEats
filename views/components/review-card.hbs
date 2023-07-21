@@ -144,12 +144,39 @@
             var likeColor = "#40A062";
             var dislikeColor = "#FF6665";
             var like_dislike = $('.rev-con-self.{{cardNum}} .buttons .like-dislike svg');
-
             like_dislike.on('click', function(e){
                 let className = e.currentTarget.classList[0];
                 let pressedButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .' + className);
                 let unpressedButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
 
+                const reviewId = document.getElementById('likeButton').dataset.reviewId;
+                let likeCount = parseInt(document.getElementById('likeCount').value);
+
+                // Send the AJAX request to the server to update the likeCount
+                {{!-- try {
+                const response = await fetch(`/api/review/like/${reviewId}`, {
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ likeCount }) // Send the updated likeCount in the request body
+                });
+
+                if (response.ok) {
+                    const updatedLikeCount = await response.json();
+                    console.log('Like count updated:', updatedLikeCount);
+
+                    // Update the UI to display the new like count
+                    document.getElementById('likeCount').value = updatedLikeCount;
+                } else {
+                    console.error('Failed to update like count');
+                }
+                } catch (error) {
+                console.error('Error while updating like count:', error);
+                } --}}
+
+
+                // Original Code 
                 if (pressedButton.css('fill') != 'none')
                     pressedButton.css('fill', 'none');
                 else {

@@ -39,7 +39,8 @@
             // SHOW COMPOSE REVIEW CARD 
             $('body').append($('<div class="cover" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
             setTimeout(function(){
-            $('body').append($('<div class="compose" style="display: none; position: relative; z-index: 5;"></div>').load('/create-review', {post: restaurantInfo }))}, 300);
+                $('body').append($('<div class="compose" style="display: none; position: relative; z-index: 5;"></div>').load('/create-review', {post: restaurantInfo }))
+            }, 300);
             $(".add-review-btn").on("click", function (){
                 $('.cover').fadeIn();
                 $('.compose').fadeIn();

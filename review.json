@@ -5,6 +5,10 @@
   "postTitle": "Delcious Food",
   "rating": 4,
   "description": "The food was delicious and the service was excellent.",
+  "monthPosted": 7, 
+  "datePosted": 21,
+  "yearPosted": 2023,
+  "edited": false,
   "helpfulCount": 10,
   "unhelpfulCount": 2,
   "images": {
@@ -19,7 +23,9 @@
   "restaurant": {
     "$oid": "64b80bb35331324946284764"
   },
-  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!"
+  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!", 
+  "likeList": [], 
+  "dislikeList":[]
 },
 {
   "_id": {
@@ -28,6 +34,10 @@
   "postTitle": "Excellent Food",
   "rating": 5,
   "description": "The food was excellent.",
+  "monthPosted": 7, 
+  "datePosted": 20,
+  "yearPosted": 2023,
+  "edited": false,
   "helpfulCount": 1,
   "unhelpfulCount": 0,
   "images": {
@@ -42,7 +52,9 @@
   "restaurant": {
     "$oid": "64b80bb35331324946284764"
   },
-  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!"
+  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!",
+  "likeList": [], 
+  "dislikeList":[]
 },
 {
   "_id": {
@@ -51,6 +63,10 @@
   "postTitle": "Super Late very disappointed",
   "rating": 3,
   "description": "The food was super late.",
+  "monthPosted": 7, 
+  "datePosted": 10,
+  "yearPosted": 2023,
+  "edited": false,
   "helpfulCount": 1,
   "unhelpfulCount": 0,
   "images": {
@@ -65,5 +81,7 @@
   "restaurant": {
     "$oid": "64b80bb35331324946284764"
   },
-  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!"
+  "reply": "Thank you for your feedback. We are glad you enjoyed your experience!",
+  "likeList": [], 
+  "dislikeList":[]
 }]

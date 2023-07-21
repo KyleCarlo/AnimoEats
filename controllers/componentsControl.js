@@ -64,6 +64,7 @@ const componentsControl = {
             cardNum: req.body.cardNum
         });
     },
+    
     showRestoCard(req, res){
         // TODO: EDIT additional
         let priceSymbol = "";
@@ -83,6 +84,7 @@ const componentsControl = {
         });
 
     },
+    
     async showRevCard(req, res){
         const user = await User.findById(req.body.post.user);
         const name = user.firstName + " " + user.lastName;
@@ -104,39 +106,49 @@ const componentsControl = {
             image2: req.body.post.images.image2,
             image3: req.body.post.images.image3,
             image4: req.body.post.images.image4,
-            cardNum: req.body.cardNum
+            cardNum: req.body.cardNum,
+            reviewId: req.body.post._id
         });
     },
     showCreateRev(req, res){
-        console.log('RESTO ID ' + JSON.stringify(req.body.post._id));
-        if(req.session.user)
-            res.render("components/create-review");
+        const restaurantId = req.body.post._id;
+        if(req.session.user) //FIX THIS
+            res.render("components/create-review", {restaurantId: restaurantId});
     },
 
     async submitCreateRev(req, res){
-        console.log(req.session.user);
-        res.redirect("/store/Jollibee")
-        // console.log(req.params.restaurantName);
-        //const restoName = windows.location.pathname;
+        // console.log(req.body.restaurantId);
+        // console.log(req.session.user._id);
+        // const resto_id = {"$oid": req.body.restaurantId};
+        // console.log(resto_id);
+        // const resto_name = Restaurant.findById(resto_id, 'name').exec();
+        // console.log(resto_name);
+        // // const today = new Date();
+        // // const data = {
+        // //     postTitle: req.body.subject,
+        // //     rating: req.body.rating,
+        // //     description: req.body.message,
+        // //     helpfulCount: 0,
+        // //     unhelpfulCount: 0,
+        // //     monthPosted: today.getMonth() + 1,
+        // //     datePosted: today.getDate(),
+        // //     yearPosted: today.getFullYear(),
+        // //     edited: false,
+        // //     images: {
 
+        // //     },
+        // //     user: {"$oid": req.session.user._id},
+        // //     restaurant: resto_id
+        // // };
 
-        // const today = new Date();
-        // const data = {
-        //     postTitle: req.body.,
-        //     rating: req.body.,
-        //     description: req.body.,
-        //     helpfulCount: 0,
-        //     unhelpfulCount: 0,
-        //     monthPosted: today.getMonth() + 1,
-        //     datePosted: today.getDate(),
-        //     yearPosted: today.getFullYear(),
-        //     edited: false,
-        //     images: {
-
-        //     },
-        //     user: req.session.user,
-        //     restaurant: req.params.restaurantName
-        // };
+        // // try {
+        // //     await Review.insertMany([data]);
+        // //     console.log(Review.find({}));
+        // //     // res.redirect("/store/");
+        // // } catch (error) {
+        // //     console.error(error);
+        // //     res.status(500).send("An error occurred.");
+        // // }
     }
 }
 

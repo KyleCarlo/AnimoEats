@@ -27,7 +27,15 @@ const reviewSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Restaurant
     },
-    reply: String
+    reply: String, 
+    likeList: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User
+    }],
+    dislikeList: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: User
+    }]
 });
 
 const Review = mongoose.model('Review', reviewSchema);

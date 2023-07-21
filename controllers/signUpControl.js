@@ -27,7 +27,7 @@ const signUpControl = {
         try {
             await User.insertMany([data]);
             console.log(User.find({}));
-            res.render("login");
+            res.redirect("login");
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred.");
