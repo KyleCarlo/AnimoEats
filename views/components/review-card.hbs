@@ -71,14 +71,14 @@
         <div class="images">
             <!-- CAROUSEL BULLETS -->
             <svg class="bullets" width="100%" height="7" viewBox="0 0 36 7" xmlns="http://www.w3.org/2000/svg">
-                {{!-- <circle class="bullet-1" cx="3" cy="3.36317" r="3" fill="#7FBF8D"/>
+                <circle class="bullet-1" cx="3" cy="3.36317" r="3" fill="#7FBF8D"/>
                 <circle class="bullet-2" cx="13" cy="3.36317" r="3" fill="#EEF6D9"/>
                 <circle class="bullet-3" cx="23" cy="3.36317" r="3" fill="#EEF6D9"/>
-                <circle class="bullet-4" cx="33" cy="3.36317" r="3" fill="#EEF6D9"/> --}}
+                <circle class="bullet-4" cx="33" cy="3.36317" r="3" fill="#EEF6D9"/>
             </svg>
             <!-- CAROUSEL EFFECT -->
             <button class="left clickable">
-                <img  src="../assets/svg/left-arrow-btn.svg" alt="left">
+                <img  src="../public/assets/svg/left-arrow-btn.svg" alt="left">
             </button>
             <div class="img-container">
                 <ul class="tracker">
@@ -97,7 +97,7 @@
                 </ul>
             </div>
             <button class="right clickable">
-                <img src="../assets/svg/right-arrow-btn.svg" alt="right">
+                <img src="../public/assets/svg/right-arrow-btn.svg" alt="right">
             </button>
         </div>
 
@@ -114,9 +114,9 @@
             var greenFlag = "#41C45E";
             var grayFlag = "#595959";
             var redFlag = "#ED352F";
-            let rating = "{{rating}}";
+            let rating = 3; //VARIABLE FROM THE USER
             for (let index = 1; index < 6; index++) {
-                let flag = $('.rev-con-self.{{cardNum}} .review-card .top .rating .flag-' + index);
+                let flag = $('.review-card .top .rating .flag-' + index);
                 if (index <= rating) {
                     if (rating <= 2)
                         flag.css('fill', redFlag);
@@ -128,16 +128,17 @@
             }
 
             // READ MORE FUNCTIONALITY
-            var fullText = $(".rev-con-self.{{cardNum}} .body .main-text").text();
+            var fullText = $(".body .main-text").text();
             if (fullText.length > 280){
                 var prevText = fullText.slice(0,260)+"...";
-                $(".rev-con-self.{{cardNum}} .body .main-text").text(prevText);
-                $(".rev-con-self.{{cardNum}} .body .read-more").click(function(){
-                    $(".rev-con-self.{{cardNum}} .body .main-text").text(fullText);
-                    $(".rev-con-self.{{cardNum}} .body .read-more").css('display', 'none');
+                $(".body .main-text").text(prevText);
+                $(".body .read-more").click(function(){
+                    $(".body .main-text").text(fullText);
+                    $(".body .read-more").css('display', 'none');
                 });
             } else {
-                $(".rev-con-self.{{cardNum}} .body .read-more").css('display', 'none');
+                console.log(fullText.length);
+                $(".body .read-more").css('display', 'none');
             }
 
             // LIKE/DISLIKE FUNCTIONALITY
@@ -159,35 +160,29 @@
                 }
             });
 
-            // CHANGE CAROUSEL BULLET FUNCTIONALITY
-            let images = {{{images}}};
-            let num_of_images = 0;
-            for (const key in images)
-                if (images[key] != "")
-                    num_of_images++;
-                    
-            var bullets = $('.rev-con-self.{{cardNum}} .images .bullets');
-            if (num_of_images > 0){
-                if (num_of_images > 1){
-                    let gaps = [20,10,5,0];
-                    for (let index = 1; index < num_of_images + 1; index++) {
-                        let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
-                        let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + (gaps[1]+cx) + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
-                        bullets[0].innerHTML += circle;
-                    }
-                } else {
-                    $('.rev-con-self.{{cardNum}} .images .img-container *').css('display', 'none');
-                }
-            } else {
-                $('.rev-con-self.{{cardNum}} .images').css('display', 'none');
-            }
+            // CHANGE BULLET FUNCTIONALITY
+            // var num_of_images = 2; // THIS IS A VARIABLE FROM THE USER
+            // var bullets = $('.images .bullets');
+            // if (num_of_images > 0){
+            //     if (num_of_images > 1){
+            //         let gaps = [20,10,5,0];
+            //         for (let index = 1; index < num_of_images + 1; index++) {
+            //             let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
+            //             let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + cx + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
+            //             bullets[0].innerHTML += circle;
+            //         }
+            //     } else {
+            //         $('.images .img-container *').css('display', 'none');
+            //     }
+            // } else {
+            //     $('.images').css('display', 'none');
+            // }
 
-            //CAROUSEL FUNCTIONALITY
-            var tracker = $('.rev-con-self.{{cardNum}} .images .img-container .tracker');
-            var slides = $('.rev-con-self.{{cardNum}} .images .img-container .tracker .slide');
-            var prev = $('.rev-con-self.{{cardNum}} .images .left');
-            var next = $('.rev-con-self.{{cardNum}} .images .right');
-            var bullets = $('.rev-con-self.{{cardNum}} .images .bullets');
+            var tracker = $('.images .img-container .tracker');
+            var slides = $('.images .img-container .tracker .slide');
+            var prev = $('.images .left');
+            var next = $('.images .right');
+            var bullets = $('.images .bullets');
             var slideWidth = slides[0].clientWidth;
             var currentBullet = 1;
             var moveToSlide = (tracker, currentSlide, targetSlide) => {
@@ -196,9 +191,9 @@
                 targetSlide.addClass('current-slide');
             }
             var updateBullets = (change) => {
-                $('.rev-con-self.{{cardNum}} .images .bullets circle').css('fill', '#EEF6D9');
+                $('.images .bullets circle').css('fill', '#EEF6D9');
                 currentBullet += change;
-                $('.rev-con-self.{{cardNum}} .images .bullets .bullet-' + currentBullet).css('fill', '#7FBF8D');
+                $('.images .bullets .bullet-' + currentBullet).css('fill', '#7FBF8D');
             }
 
             prev.css('display', 'none');
@@ -211,7 +206,7 @@
                 let currentSlide = tracker.find('.current-slide');
                 let prevSlide = currentSlide.prev();
 
-                if (currentBullet == 2){
+                if (currentBullet == 1+1){
                     prev.css('display', 'none');
                     moveToSlide(tracker, currentSlide, prevSlide);
                     updateBullets(-1);
@@ -227,26 +222,24 @@
                 let nextSlide = currentSlide.next();
 
                 currentSlide.css('animation', 'moveLeft 0.5s ease-in-out');
-                if (currentBullet == num_of_images-1){
+                if (currentBullet == 4-1){
                     next.css('display', 'none');
-                    prev.css('display', 'initial');
                     moveToSlide(tracker, currentSlide, nextSlide);
                     updateBullets(1);
                 } else {
                     prev.css('display', 'initial');
-                    next.css('display', 'initial');
                     moveToSlide(tracker, currentSlide, nextSlide);
                     updateBullets(1);
                 }
             });
 
-            var textarea = $('.rev-con-self.{{cardNum}} .reply .add-reply');
+            var textarea = $('.reply .add-reply');
             textarea.on('keyup', function(e){
                 textarea[0].style.height = "auto";
                 let scHeight = e.target.scrollHeight;
                 textarea[0].style.height = scHeight + "px";
             });
-        }); 
+        });
         // $('.home-bottom').append($('<div></div>').load('/store-prev', 'name: sample'));
     </script>
 </body>
