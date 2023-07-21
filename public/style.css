@@ -94,7 +94,7 @@ a {
 
 /***** ADD-REVIEW-BTN *****/
 .add-review-btn {
-    width: 445px;
+    width: 356px;
     height: 29px;
     background-color: #BFDFB8;
     border: none;
@@ -396,6 +396,7 @@ a {
     border-radius: 15px;
     height: auto;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    scale: 0.8;
 }
 
 .resto-card .resto-header {
@@ -684,7 +685,7 @@ a {
     margin: 2px 0 2px 5px;
 }
 
-/***** EDIT PROFILE COMPONENT *****/
+/***** ADD REVIEW COMPONENT *****/
 
 .compose-container {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -739,6 +740,13 @@ a {
     width: 25px;
     padding-left: 5px;
 }
+
+.compose-container button{
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
 
 /***** EDIT PROFILE *****/
 
@@ -1129,7 +1137,6 @@ a {
     scale: 0.9;
     margin-left: 2%;
     display: grid;
-    row-gap: 25px;
 }
 
 .store-container .left > div,
