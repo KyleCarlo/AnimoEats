@@ -48,26 +48,40 @@ app.engine("hbs", exphbs.engine({extname:'hbs'}));
 app.set("view engine", "hbs");
 app.set("views", "./views");
 
-var remembermeglob = false;
 /**** FILE UPLOAD ****/
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         let subFolder = '';
         if(req.route.path == '/edit-profile')
             subFolder = '/profiles';
+        else if(req.route.path == '/submit-review')
+            subFolder = '/reviews';
 
         cb(null, 'public/uploads' + subFolder);
     },
     filename: function (req, file, cb) {
         let fileName = Date.now(); //default filename
+        let userName = req.session.user.email.split('@')[0];
+        let origName = file.originalname.split('.')[0];
         
         if(req.route.path == '/edit-profile')
-            fileName = req.session.user.email.split('@')[0];
+            fileName = userName;
+        else if(req.route.path == '/submit-review')
+            fileName += '-' + origName + '-' + userName;
 
-        cb(null, fileName+path.extname(file.originalname))
+        cb(null, fileName+path.extname(file.originalname));
     }
 });
-const upload = multer({ storage: storage });
+const upload = multer({ storage: storage , limits : {fileSize : 10*1024*1024}});
+const uploadReview = multer({ 
+    storage: storage ,
+    fileFilter: function (req, file, cb) {
+        if (req.files && req.files.length >= 5) {
+            return cb(new Error("Maximum number of files exceeded."));
+        }
+        cb(null, true);
+    },
+});
 
 /**** SESSION ****/
 const sessionStore = MongoStore.create({
@@ -101,7 +115,7 @@ app.post('/store-prev', componentsControl.showStorePrev);
 app.post('/resto-card', componentsControl.showRestoCard);
 app.post('/review-card', componentsControl.showRevCard);
 app.post('/create-review', componentsControl.showCreateRev);
-app.post('/submit-review', componentsControl.submitCreateRev);
+app.post('/submit-review', uploadReview.array('revUploads', 5), componentsControl.submitCreateRev);
 
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);

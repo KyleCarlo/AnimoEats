@@ -121,10 +121,19 @@ const componentsControl = {
         // console.log(req.session.user._id);
         // const resto_id = {"$oid": req.body.restaurantId};
         // console.log(resto_id);
+
+        /**** MON  *****/
         const resto =  await Restaurant.findById(req.body.restaurantId, 'name');
         const resto_name = resto.name;
-        console.log(resto_name);
         const today = new Date();
+        var imageNames = []
+        for(let i = 0; i < 4; i++){
+            if (req.files[i] != undefined)
+                imageNames.push(req.files[i].path.split("\\").slice(1).join('/'));
+            else {
+                imageNames.push('');
+            }
+        }
         const data = {
             postTitle: req.body.subject,
             rating: req.body.rating,
@@ -136,10 +145,10 @@ const componentsControl = {
             yearPosted: today.getFullYear(),
             edited: false,
             images: {
-                "image1": "uploads/reviews/Army-Navy.jpg",
-                "image2": "uploads/reviews/Angry-Dobo.jpg",
-                "image3": "uploads/reviews/Army-Navy.jpg",
-                "image4": "uploads/reviews/Mcdonalds.jpg"
+                "image1": imageNames[0],
+                "image2": imageNames[1],
+                "image3": imageNames[2],
+                "image4": imageNames[3]
             },
             user: req.session.user._id,
             restaurant: req.body.restaurantId
@@ -147,12 +156,12 @@ const componentsControl = {
 
         try {
             await Review.insertMany([data]);
-            console.log(Review.find({}));
             res.redirect("/store/"+resto_name);
         } catch (error) {
             console.error(error);
             res.status(500).send("An error occurred.");
         }
+        // redirect("/store/"+resto_name);
     }
 }
 

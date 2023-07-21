@@ -36,8 +36,6 @@ const logInControl = {
                                 req.session.cookie.expires = false;
                                 req.session.save();
                                 res.redirect('/profile');
-
-
                         } 
                         else {
                             const currentDate = new Date();

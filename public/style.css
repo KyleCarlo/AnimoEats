@@ -726,9 +726,10 @@ a {
 
 .compose-container .message {
     padding: 5px;
-    height: 40vh;
+    height: 30vh;
     font-size: 14px;
     margin-bottom: 10px;
+    resize: none;
 }
 
 .compose-container .add-icons {
@@ -736,13 +737,9 @@ a {
     grid-template-columns: 50fr 1fr;
 }
 
-.compose-container form img {
+.compose-container form .add-icons img {
     width: 25px;
     padding-left: 5px;
-}
-
-.compose-container .review-uploads img{
-    width: 100px;
 }
 
 .compose-container button{
@@ -751,8 +748,19 @@ a {
     background: transparent;
 }
 
+.compose-container .review-uploads{
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
 
-
+.compose-container .review-uploads *{
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+}
 
 /***** EDIT PROFILE *****/
 
