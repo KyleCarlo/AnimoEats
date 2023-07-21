@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon">
+    <title>{{storeName}}</title>
+    
+</head>
+<body>
+    <img src="../assets/svg/animoeats-logo.svg" alt="logo" class="logo">
+    <div class="sidebar"></div>
+
+    <div class="store-container">
+        <div class="left">
+            <div class="left-top"></div>
+            <button class="add-review-btn left-bot">+ Add Review</button>
+        </div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script type="module">
+        $(document).ready(function(){
+            $(".sidebar").load("/side-bar");
+
+            var restaurantInfo = {{{ restaurantInfo }}};
+
+            $(".store-container .left-top").load('/resto-card', {post: restaurantInfo});
+
+            var listOfReviews = [{{{ reviews }}}];
+            listOfReviews = listOfReviews[0];
+            for (let i = 0; i < listOfReviews.length; i++){
+                $('.store-container .right').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: listOfReviews[i], cardNum: i+1}));
+            }
+        });
+    </script>
+</body>
+</html>
