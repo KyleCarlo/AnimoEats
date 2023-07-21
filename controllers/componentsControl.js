@@ -121,34 +121,38 @@ const componentsControl = {
         // console.log(req.session.user._id);
         // const resto_id = {"$oid": req.body.restaurantId};
         // console.log(resto_id);
-        // const resto_name = Restaurant.findById(resto_id, 'name').exec();
-        // console.log(resto_name);
-        // // const today = new Date();
-        // // const data = {
-        // //     postTitle: req.body.subject,
-        // //     rating: req.body.rating,
-        // //     description: req.body.message,
-        // //     helpfulCount: 0,
-        // //     unhelpfulCount: 0,
-        // //     monthPosted: today.getMonth() + 1,
-        // //     datePosted: today.getDate(),
-        // //     yearPosted: today.getFullYear(),
-        // //     edited: false,
-        // //     images: {
+        const resto =  await Restaurant.findById(req.body.restaurantId, 'name');
+        const resto_name = resto.name;
+        console.log(resto_name);
+        const today = new Date();
+        const data = {
+            postTitle: req.body.subject,
+            rating: req.body.rating,
+            description: req.body.message,
+            helpfulCount: 0,
+            unhelpfulCount: 0,
+            monthPosted: today.getMonth() + 1,
+            datePosted: today.getDate(),
+            yearPosted: today.getFullYear(),
+            edited: false,
+            images: {
+                "image1": "uploads/reviews/Army-Navy.jpg",
+                "image2": "uploads/reviews/Angry-Dobo.jpg",
+                "image3": "uploads/reviews/Army-Navy.jpg",
+                "image4": "uploads/reviews/Mcdonalds.jpg"
+            },
+            user: req.session.user._id,
+            restaurant: req.body.restaurantId
+        };
 
-        // //     },
-        // //     user: {"$oid": req.session.user._id},
-        // //     restaurant: resto_id
-        // // };
-
-        // // try {
-        // //     await Review.insertMany([data]);
-        // //     console.log(Review.find({}));
-        // //     // res.redirect("/store/");
-        // // } catch (error) {
-        // //     console.error(error);
-        // //     res.status(500).send("An error occurred.");
-        // // }
+        try {
+            await Review.insertMany([data]);
+            console.log(Review.find({}));
+            res.redirect("/store/"+resto_name);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("An error occurred.");
+        }
     }
 }
 

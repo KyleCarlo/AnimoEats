@@ -741,6 +741,10 @@ a {
     padding-left: 5px;
 }
 
+.compose-container .review-uploads img{
+    width: 100px;
+}
+
 .compose-container button{
     outline: none;
     border: none;
