@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
     <title>{{firstName}} {{lastName}}</title>
 </head>
 <body class="profile-page-body">
-    <img src="assets/svg/animoeats-logo.svg" alt="logo" class="logo">
+    <img src="../assets/svg/animoeats-logo.svg" alt="logo" class="logo">
     <div class="sidebar"></div>
     <div class="profile-page-top">
         <div class="profile-bio">
-            <img class="profile-picture" src={{profilePic}} alt="prof-pic">
+            <img class="profile-picture" src="../{{profilePic}}" alt="prof-pic">
             <span class="name-holder"><h1 class="profile-username">{{firstName}} {{lastName}}</h1></span>
             <span class="profile-helpful">
                 <span class="helpful-count bold">{{helpfulCount}}</span>&nbsp;people found their reviews helpful
             </span>
             
             <div class="profile-reviews">
-                <img class="icon" src="assets/svg/ind-flag-notxt.svg" alt="flag">
+                <img class="icon" src="../assets/svg/ind-flag-notxt.svg" alt="flag">
                 <span class = "reviews-count bold">{{reviewCount}}</span>
                 <span>Reviews</span>
             </div>
             
             <div class="profile-photos">
-                <img class="icon" src="assets/svg/camera.svg" alt="photos">
+                <img class="icon" src="../assets/svg/camera.svg" alt="photos">
                 <span class="photos-count bold">{{photoCount}}</span>
                 <span>Photos</span>
             </div>
@@ -38,28 +38,22 @@
             </div>
 
             <a href="/edit-profile" class="update clickable">
-                <img class="icon" src="assets/svg/edit-icon.svg" alt="edit">
+                <img class="icon" src="../assets/svg/edit-icon.svg" alt="edit">
                 <span>Update</span>
             </a>
             
             <a href="/logout" class="logout clickable">
-                <img class="icon" src="assets/svg/logout-icon.svg" alt="logout">
+                <img class="icon" src="../assets/svg/logout-icon.svg" alt="logout">
                 <span>Log Out</span>
             </a>
         </div>
     </div>
-    <img class="waves" src="assets/svg/prof-page-bg.svg" alt="waves">
+    <img class="waves" src="../assets/svg/prof-page-bg.svg" alt="waves">
     <div class="profile-page-bot">
         <div class="carousel">
-            <ul class="track">
-                <li class="selected"><review-card-self></review-card-self></li>
-                <li class="slide"><review-card-self></review-card-self></li>
-                <li class="slide"><review-card-self></review-card-self></li>
-                <li class="slide"><review-card-self></review-card-self></li>
-                <li class="slide"><review-card-self></review-card-self></li>
-            </ul>
-            <button class="button-left"><img src="assets/svg/arrow-left.svg" alt="<<"></button>
-            <button class="button-right"><img src="assets/svg/arrow-right.svg" alt=">>"></button>
+            <ul class="track"></ul>
+            <button class="button-left"><img src="../assets/svg/arrow-left.svg" alt="<<"></button>
+            <button class="button-right"><img src="../assets/svg/arrow-right.svg" alt=">>"></button>
         </div>
         
     </div>
@@ -73,10 +67,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script type="module">
         $('document').ready(function(){
-            
-            // SIDEBAR FUNCTIONALITY
-            $('.sidebar').load('components/side-bar.html');
+            // REVIEW CARDS
+            var listOfReviews = [{{{ reviews }}}];
+            listOfReviews = listOfReviews[0];
+            for (let i = 0; i < listOfReviews.length; i++){
+                if (i == 0){
+                    $('.profile-page-bot .track').append($('<li class="selected"></li>').load('/review-card', {post: listOfReviews[i]}));
+                } else {
+                    $('.profile-page-bot .track').append($('<li class="slide"></li>').load('/review-card', {post: listOfReviews[i]}));
+                }
+            }
 
+            // SIDEBAR FUNCTIONALITY
+            $('.sidebar').load('/side-bar');
 
             setTimeout(function(){
                 $('.side-profile').addClass('selected');
@@ -130,6 +133,6 @@
             })
         });
     </script>
-    <script src="../src/index.js" type="module"></script>
+    <script src="../index.js" type="module"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ const storeControl = {
 
             var reviews = await Review.find({restaurant: restaurant._id}); // Seb: Removed .toString() from restaurant._id
             console.log("REVIEWS");
-            console.log(reviews); // Seb: Removed .toString() from restaurant._id
+            console.log(reviews);
 
             if (!restaurant || !reviews) {
                 return res.status(404).send("Restaurant not found");

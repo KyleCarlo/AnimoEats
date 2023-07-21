@@ -1041,10 +1041,12 @@ a {
     left: 50%;
 }
 
-.track * {
+/* Seb: I commented this out to maintain the normal scale of the review cards */
+
+/* .track * {
     scale: 0.7;
     transition: scale 0.5s;
-}
+} */
 
 .track .slide::after {
     content: "";

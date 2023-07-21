@@ -131,7 +131,7 @@ app.post("/forgot-password", forgotPasswordControl.submitForgotPassword);
 /**** LOG OUT ****/
 app.get("/logout", logOutControl.endSession);
 /**** PROFILE ****/
-app.get("/profile", profileControl.showProfile);
+app.get("/profile/:userName", profileControl.showProfile);
 /**** EDIT PROFILE ****/
 app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
