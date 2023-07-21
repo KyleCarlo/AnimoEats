@@ -100,6 +100,8 @@ app.get('/location-card', componentsControl.showLocationCard);
 app.post('/store-prev', componentsControl.showStorePrev);
 app.post('/resto-card', componentsControl.showRestoCard);
 app.post('/review-card', componentsControl.showRevCard);
+app.post('/create-review', componentsControl.showCreateRev);
+app.post('/create-review', componentsControl.submitCreateRev);
 
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);

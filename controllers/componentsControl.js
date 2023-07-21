@@ -106,6 +106,37 @@ const componentsControl = {
             image4: req.body.post.images.image4,
             cardNum: req.body.cardNum
         });
+    },
+    showCreateRev(req, res){
+        console.log('RESTO ID ' + JSON.stringify(req.body.post._id));
+        if(req.session.user)
+            res.render("components/create-review");
+    },
+
+    async submitCreateRev(req, res){
+        console.log(req.session.user);
+        res.redirect("/store/Jollibee")
+        // console.log(req.params.restaurantName);
+        //const restoName = windows.location.pathname;
+
+
+        // const today = new Date();
+        // const data = {
+        //     postTitle: req.body.,
+        //     rating: req.body.,
+        //     description: req.body.,
+        //     helpfulCount: 0,
+        //     unhelpfulCount: 0,
+        //     monthPosted: today.getMonth() + 1,
+        //     datePosted: today.getDate(),
+        //     yearPosted: today.getFullYear(),
+        //     edited: false,
+        //     images: {
+
+        //     },
+        //     user: req.session.user,
+        //     restaurant: req.params.restaurantName
+        // };
     }
 }
 
