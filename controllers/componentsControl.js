@@ -93,17 +93,18 @@ const componentsControl = {
         res.render("components/review-card", {
             restoName: restoName,
             name: name,
+            rating: req.body.post.rating,
             profilePic: profilePic,
             postTitle: req.body.post.postTitle,
             description: req.body.post.description,
             helpfulCount: req.body.post.helpfulCount,
             unhelpfulCount: req.body.post.unhelpfulCount,
-            cardNum: req.body.cardNum,
+            images: JSON.stringify(req.body.post.images),
             image1: req.body.post.images.image1,
             image2: req.body.post.images.image2,
             image3: req.body.post.images.image3,
-            image4: req.body.post.images.image4
-            // rating
+            image4: req.body.post.images.image4,
+            cardNum: req.body.cardNum
         });
     },
     showCreateRev(req, res){
