@@ -37,32 +37,36 @@
             }
 
             // SHOW COMPOSE REVIEW CARD 
-            $('body').append($('<div class="cover" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
-            setTimeout(function(){
+            var viewer = "{{viewer}}";
+            if(viewer){
+                $('body').append($('<div class="cover" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
+                setTimeout(function(){
                 $('body').append($('<div class="compose" style="display: none; position: relative; z-index: 5;"></div>').load('/create-review', {post: restaurantInfo }))
-            }, 300);
-            $(".add-review-btn").on("click", function (){
-                $('.cover').fadeIn();
-                $('.compose').fadeIn();
-
-                setTimeout(function(){
-                    let x = $('.compose-header span');
-                    console.log(x);
-                    x.on('click', function(){
-                        $('.cover').remove();
-                        $('.compose').remove();
-                        body.style.overflow = "initial";
-                    });
                 }, 300);
-            })
+                $(".add-review-btn").on("click", function (){
+                    $('.cover').fadeIn();
+                    $('.compose').fadeIn();
 
-            var isOwner = {{isOwner}};
-            console.log(isOwner);
-            if(isOwner){
-                setTimeout(function(){
-                    $('.review-card .reply').css('display',"flex");
-                    $('.add-review-btn').css('display', "none");
-                }, 300);
+                    setTimeout(function(){
+                        let x = $('.compose-header span');
+                        x.on('click', function(){
+                            $('.cover').remove();
+                            $('.compose').remove();
+                            body.style.overflow = "initial";
+                        });
+                    }, 300);
+                })
+
+                if (isOwner){
+                    setTimeout(function(){
+                        $('.review-card .reply').css('display',"flex");
+                        $('.add-review-btn').css('display', "none");
+                    }, 300);
+                }
+            } else {
+                $(".add-review-btn").on("click", function (){
+                    window.location.href = "/login";
+                })
             }
         });
     </script>

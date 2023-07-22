@@ -2,8 +2,15 @@ import User from "../models/User.js";
 
 const logInControl = {
     showLogInForm(req, res) {
-        console.log('logging-in');
-        res.render("login");
+        const viewer = req.session.user;
+        console.log(viewer);
+        if (!viewer) {
+            console.log('logging-in');
+            res.render("login");
+        } else {
+            const username = viewer.email.split('@')[0];
+            res.redirect('/profile/' + username);
+        }
     },
 
     async submitLogInForm(req, res) {
@@ -19,7 +26,6 @@ const logInControl = {
                         console.log(typeof(remember))
                         if (!req.session.user && remember == "on"){
                              // Create a new session with an extended expiration time
-                            console.log("Im here")
                             req.session.user = user;
 
                             // Set the session to have a longer expiration time
@@ -27,24 +33,20 @@ const logInControl = {
                             req.session.cookie.httpOnly = true;
                             // Update the session expiration time in the session store
                             req.session.save();
-                            console.log('LOG IN SUCCESSFUL BY:\n' + user.firstName + ' ' + user.lastName);
-                            res.redirect('/profile');
                         } else if (!req.session.user && remember != "on"){
                                 // Set the session to be a temporary session
                                 req.session.user = user;
                                 req.session.cookie.httpOnly = true;
                                 req.session.cookie.expires = false;
                                 req.session.save();
-                                res.redirect('/profile');
                         } 
                         else {
                             const currentDate = new Date();
                             const expirationDate = new Date(currentDate.getTime() + (21 * 24 * 60 * 60 * 1000)); // Extend by 3 weeks
                             req.session.cookie.expires = expirationDate; // Set new expiration date
-
-                            // Redirect to the authenticated page
-                            res.redirect('/profile');
                         }
+                        console.log('LOG IN SUCCESSFUL BY:\n' + user.firstName + ' ' + user.lastName);
+                        res.redirect('/');
                     }
                 })
                 .catch((error) => {

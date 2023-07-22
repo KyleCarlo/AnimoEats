@@ -33,16 +33,21 @@ const storeControl = {
 
             const userSesh = req.session.user;
             var isOwner = false;
+            var viewer = null;
 
-            if (userSesh.restaurant==restaurant._id){
-                isOwner = true;
+            if (userSesh){
+                if (userSesh.restaurant == restaurant._id){
+                    isOwner = true;
+                }
+                viewer = userSesh._id;
             }
 
             res.render("store", {
                 storeName : restaurant.name,
                 restaurantInfo : JSON.stringify(restaurant),
                 reviews: JSON.stringify(reviews),
-                isOwner: isOwner
+                isOwner: isOwner,
+                viewer: viewer
             });
         } catch (error) {
             console.error("Error in showStore:", error);

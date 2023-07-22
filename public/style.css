@@ -904,6 +904,7 @@ a {
 
 .edit-prof #submit {
     grid-area: button;
+    width: 100%;
 }
 
 @media (max-width:800px) {
@@ -1052,7 +1053,7 @@ a {
     transition: scale 0.5s;
 } */
 
-.track .slide::after {
+.track > .slide::after {
     content: "";
     width: 100%;
     height: 100%;
@@ -1066,11 +1067,11 @@ a {
     transition: opacity 0.5s;
 }
 
-.track .selected {
+.track > .selected {
     scale: 1;
 }
 
-.track .selected::after {
+.track > .selected::after {
     content: "";
     width: 100%;
     height: 100%;
@@ -1141,6 +1142,12 @@ a {
     justify-items: center;
     gap: 20px;
     transition: height 0.5s;
+}
+
+.profile-page-bot .no-rev{
+    color: var(--cream);
+    position: relative;
+    top: 240px;
 }
 
 /***** STORE PAGE *****/

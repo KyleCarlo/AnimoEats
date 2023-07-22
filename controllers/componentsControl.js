@@ -91,7 +91,9 @@ const componentsControl = {
         const profilePic = user.profilePic;
         const restaurant = await Restaurant.findById(req.body.post.restaurant);
         const restoName = restaurant.name;
-        const userSesh = req.session.user._id;
+        var userSesh = null;
+        if (req.session.user)
+            userSesh = req.session.user._id;
         var dispReply = "display:none;";
         var post = "Post";
         var placeholder = "Add a reply...";

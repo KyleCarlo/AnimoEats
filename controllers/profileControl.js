@@ -3,15 +3,18 @@ import Review from "../models/Review.js";
 
 const profileControl = {
     async showProfile(req, res){
-        const userLoggedIn = req.session.user;
-        const userSesh = userLoggedIn.email.split('@')[0];
-
         const user2 = req.params.userName;
         const user = await User.findOne({ email: { $regex: user2, $options: "i" } });
 
+        var userLoggedIn = req.session.user;
+        var userSesh = null;
         var isSelf = false;
-        if(userLoggedIn.email == user.email)
-            isSelf = true;
+        if (userLoggedIn){
+            userSesh = userLoggedIn.email.split('@')[0];
+        
+            if(userLoggedIn.email == user.email)
+                isSelf = true;
+        }
 
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
         var dateString = months[user.monthMade - 1] + " " + user.dateMade + ", " + user.yearMade;
@@ -50,7 +53,6 @@ const profileControl = {
     },
     showEditProfile(req, res) {
         const user = req.session.user;
-        console.log(user);
         res.render("edit-profile", {
             firstName: user.firstName,
             lastName: user.lastName,
@@ -59,23 +61,18 @@ const profileControl = {
         });
     },
     async submitEditProfile(req, res) {
-        console.log('User updated profile');
-        console.log(req.body);
         try {
             let user = req.session.user;
+            let userName = user.email.split('@')[0];
 
             let upFirstName = req.body.firstNameEdit;
             let upLastName = req.body.lastNameEdit;
             let upDescription = req.body.descriptionEdit;
             let upProfilePicture;
-            console.log('UPLOADED FILE:');
-            console.log(req.file);
             if(req.file != null)
                upProfilePicture = req.file.filename;
-            console.log('upProfilePicture:' + '\n' + upProfilePicture);
             
             const foundUser = await User.findOne({email:user.email}).exec();
-            console.log('foundUser:' + '\n' + foundUser);
 
             if(upFirstName != null)
                 foundUser.firstName = upFirstName;
@@ -87,8 +84,7 @@ const profileControl = {
                 foundUser.profilePic = 'uploads/profiles/' + upProfilePicture;
             await foundUser.save();
             req.session.user = foundUser;
-            console.log('foundUser EDITED:' + '\n' + foundUser);
-            res.redirect('/profile');
+            res.redirect('/profile/' + userName);
         } catch (error) {
           console.error('Error updating user:', error);
           res.status(500).send('Failed to update user');

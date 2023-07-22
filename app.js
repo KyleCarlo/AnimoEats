@@ -145,9 +145,6 @@ app.put("/like", async (req,res)=>{
 
     var alreadyLiked = review.likeList.includes(user._id);
 
-    console.log(review);
-    console.log('alreadyLiked? ' + alreadyLiked);
-
     if (!alreadyLiked){
         Review.findByIdAndUpdate(req.body.reviewId,{
             $addToSet:{likeList: user._id},
@@ -169,7 +166,6 @@ app.put("/like", async (req,res)=>{
         })
         .then(result => {
             res.json(result);
-            console.log(result)
         })
         .catch(err => {
             res.status(422).json({ error: err });
@@ -191,7 +187,6 @@ app.put("/dislike", async (req,res)=>{
         })
         .then(result => {
             res.json(result);
-            console.log(result);
         })
         .catch(err => {
             res.status(422).json({ error: err });
@@ -204,7 +199,6 @@ app.put("/dislike", async (req,res)=>{
         })
         .then(result => {
             res.json(result);
-            console.log(result);
         })
         .catch(err => {
             res.status(422).json({ error: err });
