@@ -91,7 +91,21 @@ const componentsControl = {
         const profilePic = user.profilePic;
         const restaurant = await Restaurant.findById(req.body.post.restaurant);
         const restoName = restaurant.name;
-        console.log(profilePic);
+        const userSesh = req.session.user._id;
+        var dispReply = "display:none;";
+        var post = "Post";
+        var placeholder = "Add a reply...";
+        var value=null;
+        
+        //console.log('TO DISPLAY??'+req.body.post.reply);
+        if(req.body.post.reply){
+            //console.log('DISPLAY CHECK IN');
+            dispReply = "display:block;";
+            post = "Edit";
+            placeholder = null;
+            value = req.body.post.reply;
+        }
+
         res.render("components/review-card", {
             restoName: restoName,
             name: name,
@@ -107,9 +121,33 @@ const componentsControl = {
             image3: req.body.post.images.image3,
             image4: req.body.post.images.image4,
             cardNum: req.body.cardNum,
-            reviewId: req.body.post._id
+            reviewId: req.body.post._id,
+            postOrEdit: post,
+            displayReply:dispReply,
+            ownersReply: req.body.post.reply,
+            repPlaceholder: placeholder,
+            repValue: value,
+            likeList: JSON.stringify(req.body.post.likeList),
+            dislikeList: JSON.stringify(req.body.post.dislikeList),
+            viewer: userSesh    
         });
     },
+
+    async submitOwnersReply(req,res){
+        console.log('OWNER SUBMITTED REPLY');
+        console.log(req.body.revId);
+
+        try{
+            const rev = await Review.findById(req.body.revId);
+            rev.reply = req.body.ownersReply;
+            await rev.save();
+            res.redirect('back');
+        }catch (error) {
+            console.error('Error posting reply:', error);
+            res.status(500).send('Failed to post reply');
+        }
+    },
+
     showCreateRev(req, res){
         const restaurantId = req.body.post._id;
         if(req.session.user) //FIX THIS
@@ -151,7 +189,8 @@ const componentsControl = {
                 "image4": imageNames[3]
             },
             user: req.session.user._id,
-            restaurant: req.body.restaurantId
+            restaurant: req.body.restaurantId,
+            reply:null
         };
 
         try {

@@ -3,18 +3,21 @@ import Review from "../models/Review.js";
 
 const profileControl = {
     async showProfile(req, res){
-        const user = req.session.user;
-        console.log(user);
+        const userLoggedIn = req.session.user;
+        const userSesh = userLoggedIn.email.split('@')[0];
 
-        const userName = user.email.split('@')[0];
+        const user2 = req.params.userName;
+        const user = await User.findOne({ email: { $regex: user2, $options: "i" } });
+
+        var isSelf = false;
+        if(userLoggedIn.email == user.email)
+            isSelf = true;
 
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
         var dateString = months[user.monthMade - 1] + " " + user.dateMade + ", " + user.yearMade;
 
         var reviewsByUser = await Review.find({ user: user._id });
-
-        console.log(reviewsByUser);
-
+        
         reviewsByUser = reviewsByUser.map(review => {
             return {
                 _id: review._id,
@@ -26,7 +29,7 @@ const profileControl = {
                 images: review.images,
                 user: review.user,
                 restaurant: review.restaurant,
-                reply: review.reply
+                reply: review.reply,
             }
         });
 
@@ -41,12 +44,9 @@ const profileControl = {
             dateMade: dateString,
             biography: user.biography,
             profilePic: user.profilePic,
-            reviews: JSON.stringify(reviewsByUser)
+            reviews: JSON.stringify(reviewsByUser),
+            isSelf: isSelf
         });
-        
-        // res.json({
-        //     reviews: reviewsByUser
-        // });
     },
     showEditProfile(req, res) {
         const user = req.session.user;
@@ -71,7 +71,7 @@ const profileControl = {
             console.log('UPLOADED FILE:');
             console.log(req.file);
             if(req.file != null)
-                upProfilePicture = req.file.filename;
+               upProfilePicture = req.file.filename;
             console.log('upProfilePicture:' + '\n' + upProfilePicture);
             
             const foundUser = await User.findOne({email:user.email}).exec();

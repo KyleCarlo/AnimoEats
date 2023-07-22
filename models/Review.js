@@ -7,8 +7,20 @@ const reviewSchema = new Schema({
     postTitle: String,
     rating: Number,
     description: String,
-    helpfulCount: Number,
-    unhelpfulCount: Number,
+    helpfulCount: {
+        type: Number,
+        default: 0,
+        get: function(){
+            return this.likeList.length;
+        }
+    },
+    unhelpfulCount: {
+        type: Number,
+        default: 0,
+        get: function(){
+            return this.dislikeList.length;
+        }
+    },
     monthPosted: Number, 
     datePosted: Number,
     yearPosted: Number,
@@ -30,11 +42,13 @@ const reviewSchema = new Schema({
     reply: String, 
     likeList: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: User, 
+        default: []
     }],
     dislikeList: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: User
+        ref: User,
+        default: []
     }]
 });
 

@@ -8,9 +8,7 @@ const storeControl = {
             var restaurant = await Restaurant.find( { name: restaurantName });
             restaurant = restaurant[0];
 
-            var reviews = await Review.find({restaurant: restaurant._id}); // Seb: Removed .toString() from restaurant._id
-            console.log("REVIEWS");
-            console.log(reviews);
+            var reviews = await Review.find({restaurant: restaurant._id}); 
 
             if (!restaurant || !reviews) {
                 return res.status(404).send("Restaurant not found");
@@ -27,14 +25,24 @@ const storeControl = {
                     images: review.images,
                     user: review.user,
                     restaurant: review.restaurant,
-                    reply: review.reply
+                    reply: review.reply,
+                    likeList: review.likeList,
+                    dislikeList: review.dislikeList
                 }
             });
-    
+
+            const userSesh = req.session.user;
+            var isOwner = false;
+
+            if (userSesh.restaurant==restaurant._id){
+                isOwner = true;
+            }
+
             res.render("store", {
                 storeName : restaurant.name,
                 restaurantInfo : JSON.stringify(restaurant),
-                reviews: JSON.stringify(reviews)
+                reviews: JSON.stringify(reviews),
+                isOwner: isOwner
             });
         } catch (error) {
             console.error("Error in showStore:", error);

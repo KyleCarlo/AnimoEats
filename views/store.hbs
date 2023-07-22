@@ -55,6 +55,15 @@
                     });
                 }, 300);
             })
+
+            var isOwner = {{isOwner}};
+            console.log(isOwner);
+            if(isOwner){
+                setTimeout(function(){
+                    $('.review-card .reply').css('display',"flex");
+                    $('.add-review-btn').css('display', "none");
+                }, 300);
+            }
         });
     </script>
 </body>

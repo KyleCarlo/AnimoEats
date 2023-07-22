@@ -131,6 +131,13 @@
                 viewMore.show();
                 viewTop.hide();
             })
+
+            // TOGGLE EDIT/DELETE;
+            var isSelf = {{isSelf}};
+            if (!isSelf){
+                $('.profile-page-top .update').css('display','none');
+                $('.profile-page-top .logout').css('display','none');
+            }
         });
     </script>
     <script src="../index.js" type="module"></script>

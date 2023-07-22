@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import Restaurant from "./Restaurant.js";
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
@@ -14,7 +15,11 @@ const userSchema = new Schema({
     yearMade: Number,
     biography: String,
     profilePic: String,
-    restaurantOwner: Boolean
+    restaurant: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: Restaurant,
+        default: null
+    }
 });
 
 const User = mongoose.model('User', userSchema);

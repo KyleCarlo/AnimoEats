@@ -101,10 +101,13 @@
             </button>
         </div>
 
-        <!-- <div class="reply">
-            <textarea class="add-reply" name="owners-reply" placeholder="Add a reply..." rows ="1"></textarea>
-            <input class="post-reply" name="post-reply" type="button" value="Post">
-        </div> -->
+        <span class="reply-display" style="{{displayReply}}"><strong>Owner's Reply&nbsp;</strong>{{ownersReply}}</span>
+
+        <form class="reply" action="/owners-reply" method="POST" style="display:none;">
+            <textarea class="add-reply" name="ownersReply" rows ="1" placeholder="{{repPlaceholder}}">{{repValue}}</textarea>
+            <button class="post-reply" name="postReply" type="submit" value="Post">{{postOrEdit}}</button>
+            <input type="text" name="revId" value="{{reviewId}}" style="display:none;">
+        </form>
     </div>
 
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
@@ -141,48 +144,102 @@
             }
 
             // LIKE/DISLIKE FUNCTIONALITY
+            var review ="{{{reviewId}}}";
+            var likeList = [{{{likeList}}}];
+            var dislikeList = [{{{dislikeList}}}];
+            var viewer = "{{viewer}}";
+            var reviewStatusLike = "";
+            var reviewStatusDislike = "";
+
+            if (likeList.length != 0){
+                if (likeList[0].includes(viewer)){
+                    reviewStatusLike = "liked";
+                } 
+            }
+            if (dislikeList.length != 0){
+                if (dislikeList[0].includes(viewer)){
+                    reviewStatusDislike = "disliked";
+                }
+            }
+
+            const LikePost = (review)=>{
+                fetch("/like", {
+                        method:"put",
+                        headers:{
+                            "Content-Type": "application/json",
+                            "Authorization": "Bearer" + localStorage.getItem("jwt")
+                        },
+                        body: JSON.stringify({
+                            reviewId: review
+                        })
+                    }).then(res=>res.json())
+                    .then(result=>{
+                        console.log(result)
+                        reviewStatusLike = "liked";
+                })
+            }
+            const disLikePost = (review)=>{
+                fetch("/dislike", {
+                    method:"put",
+                    headers:{
+                        "Content-Type":"application/json",
+                        "Authorization": "Bearer" + localStorage.getItem("jwt")
+                    },
+                    body: JSON.stringify({
+                        reviewId: review
+                    })
+                }).then(res=>res.json())
+                .then(result=>{
+                    console.log(result)
+                    reviewStatusDislike="disliked";
+                })
+            };
             var likeColor = "#40A062";
             var dislikeColor = "#FF6665";
             var like_dislike = $('.rev-con-self.{{cardNum}} .buttons .like-dislike svg');
+            
+            if (likeList.length != 0)
+                if (likeList[0].includes(viewer)) {
+                    $('.rev-con-self.{{cardNum}} .buttons .like-dislike .like').css('fill', likeColor);
+                } else {
+                    $('.rev-con-self.{{cardNum}} .buttons .like-dislike .like').css('fill', 'none');
+                }
+
+            if (dislikeList.length != 0)
+                if (dislikeList[0].includes(viewer)) {
+                    $('.rev-con-self.{{cardNum}} .buttons .like-dislike .dislike').css('fill', dislikeColor);
+                } else {
+                    $('.rev-con-self.{{cardNum}} .buttons .like-dislike .dislike').css('fill', 'none');
+                }
+            
             like_dislike.on('click', function(e){
                 let className = e.currentTarget.classList[0];
                 let pressedButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .' + className);
                 let unpressedButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .' + (className == 'like' ? 'dislike' : 'like'));
 
-                const reviewId = document.getElementById('likeButton').dataset.reviewId;
-                let likeCount = parseInt(document.getElementById('likeCount').value);
+                let pressedLikeButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .like');
+                let pressedDisLikeButton = $('.rev-con-self.{{cardNum}} .buttons .like-dislike .dislike');
 
-                // Send the AJAX request to the server to update the likeCount
-                {{!-- try {
-                const response = await fetch(`/api/review/like/${reviewId}`, {
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ likeCount }) // Send the updated likeCount in the request body
-                });
+                let pressedCount = parseInt($('.rev-con-self.{{cardNum}} .buttons .'+ className +'-count').text())
+                let unpressedCount = parseInt($('.rev-con-self.{{cardNum}} .buttons .'+ (className == 'like' ? 'dislike' : 'like') +'-count').text())
 
-                if (response.ok) {
-                    const updatedLikeCount = await response.json();
-                    console.log('Like count updated:', updatedLikeCount);
-
-                    // Update the UI to display the new like count
-                    document.getElementById('likeCount').value = updatedLikeCount;
-                } else {
-                    console.error('Failed to update like count');
-                }
-                } catch (error) {
-                console.error('Error while updating like count:', error);
-                } --}}
-
-
-                // Original Code 
-                if (pressedButton.css('fill') != 'none')
+                //COLOR AND COUNT UPDATE
+                if (pressedButton.css('fill') != 'none'){
                     pressedButton.css('fill', 'none');
-                else {
+                    $('.rev-con-self.{{cardNum}} .buttons .'+ className +'-count').text(pressedCount - 1)
+                } else {
                     pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
-                    pressedButton.css('fill', className == 'like' ? likeColor : dislikeColor);
+                    if (unpressedButton.css('fill') != 'none')
+                        $('.rev-con-self.{{cardNum}} .buttons .'+ (className == 'like' ? 'dislike' : 'like') +'-count').text(unpressedCount - 1)
                     unpressedButton.css('fill', 'none');
+                    $('.rev-con-self.{{cardNum}} .buttons .'+ className +'-count').text(pressedCount + 1)
+                }                
+
+                // DATABASE UPDATE
+                if (className === 'like') {
+                    LikePost(review);
+                } else if (className === 'dislike') {
+                    disLikePost(review);
                 }
             });
 
@@ -198,7 +255,7 @@
                 if (num_of_images > 1){
                     let gaps = [20,10,5,0];
                     for (let index = 1; index < num_of_images + 1; index++) {
-                        let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1);
+                        let cx = 36/num_of_images/3 + (gaps[num_of_images - 1]) + 10 * (index - 1) - 5;
                         let circle = '<circle class="bullet-'+index +'" ' + 'cx="' + (gaps[1]+cx) + '" cy="3.36317" r="3"  fill="'+ (index == 1 ? '#7FBF8D' : '#EEF6D9') +'"/>';
                         bullets[0].innerHTML += circle;
                     }
@@ -275,7 +332,8 @@
                 textarea[0].style.height = scHeight + "px";
             });
         }); 
-        // $('.home-bottom').append($('<div></div>').load('/store-prev', 'name: sample'));
+
+        // REPLY FUNCTIONALITY BY OWNER
     </script>
 </body>
 </html>

@@ -116,6 +116,7 @@ app.post('/resto-card', componentsControl.showRestoCard);
 app.post('/review-card', componentsControl.showRevCard);
 app.post('/create-review', componentsControl.showCreateRev);
 app.post('/submit-review', uploadReview.array('revUploads', 5), componentsControl.submitCreateRev);
+app.post('/owners-reply', componentsControl.submitOwnersReply);
 
 /**** HOME ****/
 app.get("/", indexControl.showListRestaurants);
@@ -137,6 +138,79 @@ app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
 app.get("/store/:restaurantName", storeControl.showStore);
+
+app.put("/like", async (req,res)=>{
+    const user = req.session.user; 
+    const review = await Review.findById(req.body.reviewId);
+
+    var alreadyLiked = review.likeList.includes(user._id);
+
+    console.log(review);
+    console.log('alreadyLiked? ' + alreadyLiked);
+
+    if (!alreadyLiked){
+        Review.findByIdAndUpdate(req.body.reviewId,{
+            $addToSet:{likeList: user._id},
+            $pull:{dislikeList: user._id}
+        },{
+            new: true
+        })
+        .then(result => {
+            res.json(result);
+        })
+        .catch(err => {
+            res.status(422).json({ error: err });
+        });
+    } else {
+        Review.findByIdAndUpdate(req.body.reviewId,{
+            $pull:{likeList: user._id}
+        },{
+            new: true
+        })
+        .then(result => {
+            res.json(result);
+            console.log(result)
+        })
+        .catch(err => {
+            res.status(422).json({ error: err });
+        });
+    }
+});
+
+app.put("/dislike", async (req,res)=>{
+    const user = req.session.user;
+    const review = await Review.findById(req.body.reviewId);
+
+    var alreadyDisliked = review.dislikeList.includes(user._id);
+    if (!alreadyDisliked){
+        Review.findByIdAndUpdate(req.body.reviewId,{
+            $addToSet:{dislikeList: user._id},
+            $pull: {likeList: user._id}
+        },{
+            new: true
+        })
+        .then(result => {
+            res.json(result);
+            console.log(result);
+        })
+        .catch(err => {
+            res.status(422).json({ error: err });
+        });
+    } else {
+        Review.findByIdAndUpdate(req.body.reviewId,{
+            $pull:{dislikeList: user._id}
+        },{
+            new: true
+        })
+        .then(result => {
+            res.json(result);
+            console.log(result);
+        })
+        .catch(err => {
+            res.status(422).json({ error: err });
+        });
+    }
+} );
 
 app.listen(3000, () => {
     console.log("App started");

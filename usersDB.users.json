@@ -14,8 +14,8 @@
   "yearMade": 2023,
   "biography": "Hi, I'm Mon!",
   "profilePic": "uploads/profiles/maria_monica_manlises.png",
-  "restaurantOwner": false,
-  "__v": 0
+  "__v": 0,
+  "restaurant": null
 },
 {
   "_id": {
@@ -33,8 +33,8 @@
   "yearMade": 2023,
   "biography": "The user has not yet set a biography.",
   "profilePic": "uploads/profiles/daphne_janelyn_go.jpg",
-  "restaurantOwner": false,
-  "__v": 0
+  "__v": 0,
+  "restaurant": null
 },
 {
   "_id": {
@@ -52,8 +52,10 @@
   "yearMade": 2023,
   "biography": "Kyky potpot this him sheesh",
   "profilePic": "uploads/profiles/kyle_lasala.jpg",
-  "restaurantOwner": false,
-  "__v": 0
+  "__v": 0,
+  "restaurant": {
+    "$oid": "64b80bb35331324946284764"
+  }
 },
 {
   "_id": {
@@ -71,8 +73,10 @@
   "yearMade": 2023,
   "biography": "My views are my views.",
   "profilePic": "uploads/profiles/basti_diaz.jpg",
-  "restaurantOwner": false,
-  "__v": 0
+  "__v": 0,
+  "restaurant": {
+    "$oid": "64b80bb35331324946284763"
+  }
 },
 {
   "_id": {
@@ -90,8 +94,10 @@
   "yearMade": 2023,
   "biography": "Hi, I'm seal! sealseal",
   "profilePic": "uploads/profiles/sealtiel_dy.JPG",
-  "restaurantOwner": false,
-  "__v": 0
+  "__v": 0,
+  "restaurant": {
+    "$oid": "64b80bb35331324946284765"
+  }
 },
 {
   "_id": {
@@ -109,6 +115,44 @@
   "yearMade": 2023,
   "biography": "Hi this is Comrade Gabriel!",
   "profilePic": "uploads/profiles/gabriel_pua.JPG",
-  "restaurantOwner": false,
+  "__v": 0,
+  "restaurant": null
+},
+{
+  "_id": {
+    "$oid": "64ba4090e33a5a05a09702ce"
+  },
+  "firstName": "Bentley",
+  "lastName": "Lu",
+  "email": "bentley_andrew_lu@dlsu.edu.ph",
+  "password": "blu",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 21,
+  "yearMade": 2023,
+  "biography": "The user has not yet set a biography.",
+  "profilePic": "assets/png/def-prof.png",
+  "__v": 0,
+  "restaurant": null
+},
+{
+  "_id": {
+    "$oid": "64ba7479c01e9b1df7133d54"
+  },
+  "firstName": "Camron",
+  "lastName": "Ong",
+  "email": "camron_evan_ong@dlsu.edu.ph",
+  "password": "camOng",
+  "helpfulCount": 0,
+  "reviewCount": 0,
+  "photoCount": 0,
+  "monthMade": 7,
+  "dateMade": 21,
+  "yearMade": 2023,
+  "biography": "The user has not yet set a biography.",
+  "profilePic": "assets/png/def-prof.png",
+  "restaurant": null,
   "__v": 0
 }]
