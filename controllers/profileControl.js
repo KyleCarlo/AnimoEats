@@ -20,7 +20,24 @@ const profileControl = {
         var dateString = months[user.monthMade - 1] + " " + user.dateMade + ", " + user.yearMade;
 
         var reviewsByUser = await Review.find({ user: user._id });
-        
+
+        const totalLikes = reviewsByUser.reduce((total, review) => {
+            return total + review.helpfulCount;
+        }, 0);
+
+        const reviewCount = reviewsByUser.length;
+
+        const totalImages = reviewsByUser.reduce((total, review) => {
+            // Iterate through each image property in the 'images' object and check if it's not null
+            Object.values(review.images).forEach(image => {
+                if (image != "") {
+                    total++;
+                }
+            });
+            return total;
+        }, 0);
+
+
         reviewsByUser = reviewsByUser.map(review => {
             return {
                 _id: review._id,
@@ -35,15 +52,15 @@ const profileControl = {
                 reply: review.reply,
             }
         });
-
+        console.log(totalImages)
         res.render("profile", {
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
             password: user.password,
-            helpfulCount: user.helpfulCount,
-            reviewCount: user.reviewCount,
-            photoCount: user.photoCount,
+            helpfulCount: totalLikes,
+            reviewCount: reviewCount,    
+            photoCount: totalImages,
             dateMade: dateString,
             biography: user.biography,
             profilePic: user.profilePic,

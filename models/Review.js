@@ -26,10 +26,10 @@ const reviewSchema = new Schema({
     yearPosted: Number,
     edited: Boolean,
     images: {
-        image1: String,
-        image2: String,
-        image3: String, 
-        image4: String
+        image1: { type: String, default: null },
+        image2: { type: String, default: null },
+        image3: { type: String, default: null },
+        image4: { type: String, default: null },
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
