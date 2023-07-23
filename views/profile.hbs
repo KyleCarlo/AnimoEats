@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="data:,assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:,">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <title>{{firstName}} {{lastName}}</title>
 </head>
 <body class="profile-page-body">
@@ -52,16 +54,15 @@
     <div class="profile-page-bot">
         <div class="carousel">
             <ul class="track">
-                
+                <p class="no-rev">There's nothing much here...</p>
             </ul>
-            <p class="no-rev">There's nothing much here...</p>
-            <button class="button-left"><img src="../assets/svg/arrow-left.svg" alt="<<"></button>
-            <button class="button-right"><img src="../assets/svg/arrow-right.svg" alt=">>"></button>
+            <button class="button-left" style="display: none"><img src="../assets/svg/arrow-left.svg" alt="<<"></button>
+            <button class="button-right" style="display: none"><img src="../assets/svg/arrow-right.svg" alt=">>"></button>
         </div>
         
     </div>
     <div class="profile-footer">
-        <button class="view-more-btn btn-1">View More Reviews</button>
+        <button class="view-more-btn btn-1" style="display: none">View More Reviews</button>
         <button class="view-more-btn btn-2" hidden>View Top Reviews</button>
     </div>
     <div class="profile-page-more-rev">
@@ -76,12 +77,24 @@
             // REVIEW CARDS
             var listOfReviews = [{{{ reviews }}}];
             listOfReviews = listOfReviews[0];
-            console.log(listOfReviews);
             
-            if (listOfReviews){
-                $('.carousel .no-rev').css('display', 'none');
+            if (listOfReviews.length > 0){
+                $('.carousel .track').empty();
                 for (let i = 0; i < listOfReviews.length; i++){
+                    if (i == 5) break;
                     $('.profile-page-bot .track').append($('<li class="rev-con-self '+ (i+1) + ' ' + (i == 0 ? 'selected':'slide') + '"></li>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
+                }
+                if (listOfReviews.length > 1){
+                    $('.carousel .button-left').css('display', 'block');
+                    $('.carousel .button-right').css('display', 'block');
+                }
+            } 
+
+            if (listOfReviews.length > 5){
+                $('.profile-footer .btn-1').css('display', 'block');
+                for (let i = 5; i < listOfReviews.length; i++){
+                    console.log(listOfReviews[i]);
+                    $('.profile-page-more-rev').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
                 }
             }
 
@@ -90,20 +103,26 @@
             },200);
 
             //CAROUSEL FUNCTIONALITY
+            function toSlideSelect(query, changeTo){
+                let currentCN = query.className.split(' ');
+                currentCN[2] = changeTo;
+                let newCurrentCN = currentCN.join(' ');
+                query.className = newCurrentCN;
+            }
+
             const buttons = $('.carousel button');
             const moveSlide = (numSlide, maxSlide, direction) => {
-                $('.track li')[numSlide].className = 'slide';
-                console.log($('.track li')[numSlide]);
+                toSlideSelect($('.track').children()[numSlide], 'slide');
                 
                 if (numSlide == 0){
                     $('.track').css('transform', 'translateX(calc(-470px / 2 + (-' + (numSlide + (direction == 'left' ? maxSlide-1 : 1)) + ' * (470px + 8%))))');
-                    $('.track li')[numSlide + (direction == 'left' ? maxSlide-1 : 1)];
+                    toSlideSelect($('.track').children()[numSlide + (direction == 'left' ? maxSlide-1 : 1)], 'selected');
                 } else if (numSlide == maxSlide-1){
                     $('.track').css('transform', 'translateX(calc(-470px / 2 + (-' + (numSlide + (direction == 'left' ? -1 : -(maxSlide-1))) + ' * (470px + 8%))))');
-                    $('.track li')[numSlide + (direction == 'left' ? -1 : -(maxSlide-1))].className = 'selected';
+                    toSlideSelect($('.track').children()[numSlide + (direction == 'left' ? -1 : -(maxSlide-1))], 'selected');
                 } else {
                     $('.track').css('transform', 'translateX(calc(-470px / 2 + (-' + (numSlide + (direction == 'left' ? -1 : 1)) + ' * (470px + 8%))))');
-                    $('.track li')[numSlide + (direction == 'left' ? -1 : 1)].className = 'selected';
+                    toSlideSelect($('.track').children()[numSlide + (direction == 'left' ? -1 : 1)], 'selected');
                 }
             };
 
@@ -114,8 +133,6 @@
                 console.log(maxSlide, selectedNum, direction);
                 moveSlide(selectedNum, maxSlide, direction);
             });
-
-            
 
             //VIEW MORE REVIEWS FUNCTIONALITY
             const viewMore = $('.profile-footer .btn-1');
