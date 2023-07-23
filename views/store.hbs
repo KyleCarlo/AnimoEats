@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <link rel="icon" href="../assets/ico/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
     <title>{{storeName}}</title>
     
 </head>
@@ -38,21 +38,26 @@
 
             // SHOW COMPOSE REVIEW CARD 
             var viewer = "{{viewer}}";
+            var isOwner = {{isOwner}};
             if(viewer){
-                $('body').append($('<div class="cover" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
-                setTimeout(function(){
-                $('body').append($('<div class="compose" style="display: none; position: relative; z-index: 5;"></div>').load('/create-review', {post: restaurantInfo}))
-                }, 300);
                 $(".add-review-btn").on("click", function (){
-                    $('.cover').fadeIn();
-                    $('.compose').fadeIn();
+                    $('body').append($('<div class="cover" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
+                    setTimeout(function(){
+                        $('body').append($('<div class="compose" style="display: none; position: relative; z-index: 5;"></div>').load('/create-review', {post: restaurantInfo}))
+                    }, 100);
 
                     setTimeout(function(){
+                        $('.cover').fadeIn();
+                        $('.compose').fadeIn();
+                    }, 100);
+                    
+                    setTimeout(function(){
                         let x = $('.compose-header span');
+                        
                         x.on('click', function(){
                             $('.cover').remove();
                             $('.compose').remove();
-                            body.style.overflow = "initial";
+                            $('body').css("display","initial");
                         });
                     }, 300);
                 })

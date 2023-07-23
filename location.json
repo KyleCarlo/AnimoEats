@@ -1,0 +1,83 @@
+[
+    {
+        "name":"Beside South Gate",
+        "description":"Go to places such as University Mall and McDonalds are located here.",
+        "image":"uploads/locations/beside-south-gate.png",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284764"}
+        ]
+    },
+    {
+        "name":"Bloemen",
+        "description":"Go to snack place inside the university",
+        "image":"uploads/locations/bloemen.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284767"}
+        ]
+    },
+    {
+        "name":"Pericos",
+        "description":"De La Salle Univerisity's very own cafeteria",
+        "image":"uploads/locations/pericos.avif",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284771"}
+        ]
+    },
+    {
+        "name":"Agno Food Court",
+        "description":"Go to lunch place where affordable meals are bought",
+        "image":"uploads/locations/agno.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284768"}
+        ]
+    },
+    {
+        "name":"Residential Area",
+        "description":"Houses more than 3 condimoniums near the university and restaurants",
+        "image":"uploads/locations/residential.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284765"},
+            {"$oid": "64b80bb35331324946284766"}
+        ]
+    },
+    {
+        "name":"Sherwood Place",
+        "description":"Houses a group of restaurants that students usually hang out at",
+        "image":"uploads/locations/sherwood.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284764"}
+        ]
+    }, 
+    {
+        "name": "Beside Razon Area",
+        "description": "Go to restaurants that students go to after a tiring workout or class",
+        "image":"uploads/locations/razon.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284769"}
+        ]
+    }, 
+    {
+        "name": "Gokongwei Area",
+        "description": "Houses a lot of condominiums and restaurants for students on the go",
+        "image":"uploads/locations/goks.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284770"}
+        ]
+    },
+    {
+        "name":"Green Mall",
+        "description":"In need of immediate supplies, they have it all for you from grocery supplies to food stops",
+        "image":"uploads/locations/green.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284772"}
+        ]
+    },
+    {
+        "name":"Henry Sy Area",
+        "description":"Your exclusive cafe inside campus at the comfort of our own library",
+        "images":"uploads/locations/henry.jpg",
+        "restaurants":[
+            {"$oid": "64b80bb35331324946284773"}
+        ]
+    }
+]

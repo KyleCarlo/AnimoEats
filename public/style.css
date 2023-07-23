@@ -58,6 +58,24 @@ span{
     z-index: 1;
 }
 
+.campus-map *{
+    transition: fill 0.2s;
+}
+
+.campus-map .Beside-Razon-Area:hover, 
+.campus-map .Green-Mall:hover,
+.campus-map .Sherwood-Place:hover,
+.campus-map .Gokongwei-Area:hover,
+.campus-map .Bloemen:hover,
+.campus-map .Agno-Food-Court:hover,
+.campus-map .Henry-Sy-Area:hover,
+.campus-map .Residential-Area:hover,
+.campus-map .Beside-South-Gate:hover,
+.campus-map .Pericos:hover{
+    cursor: pointer;
+    fill: yellow;
+}
+
 .homepage .waves{
     width: 100%;
     margin-bottom: -10px;
@@ -177,10 +195,12 @@ span{
 .review-card .username {
     font-size: 14px;
     font-weight: 600;
+    display: block;
 }
 
 .review-card .restaurant {
     font-size: 12px;
+    display: block;
 }
 
 .review-card .title {
@@ -212,8 +232,19 @@ span{
     justify-content: space-between;
 }
 
+.review-card .buttons-right{
+    display: flex;
+    align-items: center;
+}
+
+.review-card .buttons .date{
+    font-style: italic;
+    font-size: 12px;
+}
+
 .review-card .edit_delete {
     display: flex;
+    margin-left: 10px;
     width: 55px;
     justify-content: space-between;
 }
@@ -324,15 +355,22 @@ span{
     width: 300px;
     background: linear-gradient(143deg, #FEF7DE 46.56%, #F8C1B4 100%);
     border-radius: 15px;
-    height: calc(65vh - 65px);
+    height: auto;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .store-prev-main .store-prev-header {
-    height: 200px;
+    height: 210px;
     width: 100%;
     background-size: cover;
     border-radius: 15px 15px 0px 0px;
+    overflow: hidden;
+}
+
+.store-prev-main .store-prev-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .store-prev-main .store-prev-content {
@@ -1189,7 +1227,7 @@ span{
 .store-container > .right{
     height: 100%;
     flex-grow: 4;
-    background: var(--primary);
+    background: var(--primary); 
     justify-content: center;
     align-self: center;
     overflow-y: scroll;
@@ -1197,4 +1235,31 @@ span{
 
 .store-container .right .rev-con-self > div{
     margin: 20px auto;
+}
+
+/***** SEACH RESULT PAGE *****/
+.search-result{
+    background-color: var(--cream);
+    padding: 100px;
+}
+
+.search-result .results{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    transition: height 0.5s;
+}
+
+.search-result select{
+    border-radius: 10px;
+    padding: 2.5px 5px;
+    background-color: var(--primary);
+    color: var(--cream);
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.search-result .resto-result .results{
+    margin: 20px 0;
 }

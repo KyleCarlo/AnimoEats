@@ -7,8 +7,10 @@
     <title>Store Preview</title>
 </head>
 <body>
-    <div class="store-prev-main">
-        <div class="store-prev-header"></div>
+    <a class="store-prev-main" href="/store/{{name}}">
+        <div class="store-prev-header">
+            <img src="../{{bannerPic}}" alt="store-banner">
+        </div>
         <div class="store-prev-content">
             <div class="store-name">{{name}}</div>
             <div class="store-location">{{location}}</div>
@@ -24,7 +26,7 @@
                 <span class="read-more clickable">Read More</span>
             </div>
         </div>
-    </div>
+    </a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script>

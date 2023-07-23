@@ -1,67 +1,28 @@
 import Review from "../models/Review.js";
 import Restaurant from "../models/Restaurant.js";
-import mongoose from "mongoose";
 import User from "../models/User.js";
-import {decodeEntity} from 'html-entities';
-import he from "he";
-
-
-function decodeHtmlEntities(text) {
-    var entities = [
-        ['amp', '&'],
-        ['apos', '\''],
-        ['#x27', '\''],
-        ['#x2F', '/'],
-        ['#39', '\''],
-        ['#47', '/'],
-        ['lt', '<'],
-        ['gt', '>']
-    ];
-
-    for (var i = 0, max = entities.length; i < max; ++i) {
-        var entityPattern = new RegExp('&' + entities[i][0] + ';', 'g');
-        text = text.replace(entityPattern, entities[i][1]);
-    }
-
-    console.log(text);
-
-    return text;
-}
-
-function replaceHtmlEntities(paragraph) {
-    const htmlEntitiesMap = {
-      "&lt;": "<",
-      "&gt;": ">",
-      "&amp;": "&",
-      // Add more entities if needed
-    };
-  
-    // Regular expression pattern to match HTML entities
-    const htmlEntityPattern = /&[A-Za-z0-9]+;/g;
-  
-    // Use the replace() method with a callback function to replace entities
-    const replacedParagraph = paragraph.replace(htmlEntityPattern, (match) => {
-      return htmlEntitiesMap[match] || match; // Replace with corresponding entity or the original match if not found
-    });
-  
-    return replacedParagraph;
-  }
 
 const componentsControl = {
     showSideBar(req, res) {
-        res.render("components/side-bar");
+        const user = req.session.user;
+        var userSesh = null;
+        
+        if (user){
+            userSesh = user.email.split("@")[0];
+        }
+        res.render("components/side-bar", {user: userSesh});
     },
     showLocationCard(req, res){
         res.render("components/location-card");
     },
     async showStorePrev(req, res) {
-
         res.render("components/store-prev", {
-            name: decodeHtmlEntities(req.body.post.name),
-            location: decodeHtmlEntities(req.body.post.location),
-            description: he.decode(req.body.post.description),
+            name: req.body.post.name,
+            location: req.body.post.location,
+            description: req.body.post.description,
             aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
-            cardNum: req.body.cardNum
+            cardNum: req.body.cardNum,
+            bannerPic: req.body.post.bannerPic
         });
     },
     
@@ -91,24 +52,40 @@ const componentsControl = {
         const profilePic = user.profilePic;
         const restaurant = await Restaurant.findById(req.body.post.restaurant);
         const restoName = restaurant.name;
-        var userSesh = null;
-        if (req.session.user)
-            userSesh = req.session.user._id;
-        var dispReply = "display:none;";
-        var post = "Post";
-        var placeholder = "Add a reply...";
-        var value=null;
         
-        //console.log('TO DISPLAY??'+req.body.post.reply);
-        if(req.body.post.reply){
-            //console.log('DISPLAY CHECK IN');
-            dispReply = "display:block;";
-            post = "Edit";
-            placeholder = null;
+        // CHECKS IF POST OWNER
+        var userSesh = null;
+        var isPostOwner = false;
+        if (req.session.user){
+            userSesh = req.session.user._id;
+            if (req.session.user._id == req.body.post.user){
+                isPostOwner = true;
+            }
+        }
+
+        // FOR OWNER's REPLY
+        var dispReply = "display:none;";
+        var postOrEditReply = "Post";
+        var value = null;
+        if(req.body.post.reply != "" && req.body.post.reply != null){
+            dispReply = "display: block;";
+            postOrEditReply = "Edit";
             value = req.body.post.reply;
         }
 
+        // FOR POSTED OR EDITED ON DATE
+        var postedOrEdited = "Posted";
+        if(req.body.post.edited == "true"){
+            //console.log("IN");
+            postedOrEdited = "Last Edited";
+        }
+
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
+        var dateString = months[req.body.post.monthPosted - 1] + " " + req.body.post.datePosted + ", " + req.body.post.yearPosted;
+        //console.log(req.body.post);
+        //console.log(req.body.post._id);
         res.render("components/review-card", {
+            username: user.email.split('@')[0],
             restoName: restoName,
             name: name,
             rating: req.body.post.rating,
@@ -117,6 +94,8 @@ const componentsControl = {
             description: req.body.post.description,
             helpfulCount: req.body.post.helpfulCount,
             unhelpfulCount: req.body.post.unhelpfulCount,
+            postedOrEdited: postedOrEdited,
+            date: dateString,
             images: JSON.stringify(req.body.post.images),
             image1: req.body.post.images.image1,
             image2: req.body.post.images.image2,
@@ -124,26 +103,26 @@ const componentsControl = {
             image4: req.body.post.images.image4,
             cardNum: req.body.cardNum,
             reviewId: req.body.post._id,
-            postOrEdit: post,
+            postOrEditReply: postOrEditReply,
             displayReply:dispReply,
             ownersReply: req.body.post.reply,
-            repPlaceholder: placeholder,
             repValue: value,
             likeList: JSON.stringify(req.body.post.likeList),
             dislikeList: JSON.stringify(req.body.post.dislikeList),
-            viewer: userSesh    
+            viewer: userSesh,
+            isPostOwner: isPostOwner 
         });
     },
 
     async submitOwnersReply(req,res){
-        console.log('OWNER SUBMITTED REPLY');
-        console.log(req.body.revId);
-
         try{
             const rev = await Review.findById(req.body.revId);
+            
+            const resto = await Restaurant.findById(rev.restaurant);
+            
             rev.reply = req.body.ownersReply;
             await rev.save();
-            res.redirect('back');
+            res.redirect('/store/'+resto.name);
         }catch (error) {
             console.error('Error posting reply:', error);
             res.status(500).send('Failed to post reply');
@@ -153,16 +132,12 @@ const componentsControl = {
     showCreateRev(req, res){
         const restaurantId = req.body.post._id;
         if(req.session.user) //FIX THIS
-            res.render("components/create-review", {restaurantId: restaurantId});
+            res.render("components/create-review", {
+                restaurantId: restaurantId
+            });
     },
 
     async submitCreateRev(req, res){
-        // console.log(req.body.restaurantId);
-        // console.log(req.session.user._id);
-        // const resto_id = {"$oid": req.body.restaurantId};
-        // console.log(resto_id);
-
-        /**** MON  *****/
         const resto =  await Restaurant.findById(req.body.restaurantId, 'name');
         const resto_name = resto.name;
         const today = new Date();
@@ -202,7 +177,75 @@ const componentsControl = {
             console.error(error);
             res.status(500).send("An error occurred.");
         }
-        // redirect("/store/"+resto_name);
+    },
+
+    showEditRev(req, res){
+        //console.log(req.body.post)
+        let reviewInfo = req.body.post;
+        res.render("components/edit-review", {
+            restaurant: reviewInfo.restoName,
+            subjectValue: reviewInfo.postTitle,
+            messageValue: reviewInfo.description,
+            ratingValue: reviewInfo.rating,
+            reviewId: reviewInfo.id,
+        });
+     
+    },
+
+    async submitEditRev(req, res){
+        try{
+            const rev = await Review.findById(req.body.reviewId);
+            // SAVE ALL NEW VALUES TO VARIABLES
+            const isValidValue = value => value !== null && value != '';
+            let madeChange = false;
+            // CHECK IF THE VALUES ARE NULL OR SAME WITH CURRENT ENTRIES, SAVE CHANGES IF NOT
+            // postTitle
+            if(isValidValue(req.body.subject)){
+                console.log("1");
+                rev.postTitle = req.body.subject;
+                madeChange = true;
+            }
+
+            // rating
+            if(req.body.rating != rev.rating){
+                console.log("2");
+                rev.rating = req.body.rating;
+                madeChange = true;
+            }
+
+            // description
+            if(isValidValue(req.body.message)){
+                console.log("3");
+                rev.description = req.body.message;
+                madeChange = true;
+            }
+
+            if(madeChange){
+                console.log("MADE CHANGE");
+                rev.edited = true;
+                rev.datePosted = new Date().getDate();
+                rev.monthPosted = new Date().getMonth();
+                rev.yearPosted = new Date().getFullYear();
+            }
+            
+            //console.log(rev);
+
+            await rev.save();
+            res.redirect('back');
+
+        }catch (error) {
+            console.error('Error posting reply:', error);
+            res.status(500).send('Failed to post reply');
+        }
+    },
+    async deleteRev (req, res){
+        try{
+            await Review.findByIdAndDelete(req.body.reviewId).exec();
+            res.redirect('back');
+        } catch (err){
+            console.log(err);
+            res.status(500).send('Failed to delete review');
+        }
     }
 }
 

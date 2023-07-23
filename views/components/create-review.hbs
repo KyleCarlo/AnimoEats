@@ -157,7 +157,7 @@
             const pseudoBtn = $('.compose-container form .add-icons .attach');
             const picUploadBtn = $('#revUpload');
             const img = $('.review-uploads');
-            const reader = new FileReader();
+            
             function handleImagePreview(file) {
                 const reader = new FileReader();
                 const imgElement = document.createElement('img');
@@ -177,20 +177,19 @@
             });
 
             picUploadBtn.on('change', function(){
-                var files = [...this.files].slice(0,4);
+                var len = [...this.files].length;
+                var files = [...this.files].slice(0,len);
                 console.log(files);
                 img.empty(); // Clear previous previews
 
                 // Loop through selected files and create image previews for each one
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < len; i++) {
                     const file = files[i];
                     const imgElement = handleImagePreview(file);
                     img.append(imgElement);
                 }
                 img.css('display', 'flex');
             })
-
-
         </script>
     </body>
 </html>

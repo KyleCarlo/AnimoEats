@@ -5,7 +5,7 @@ const logInControl = {
         const viewer = req.session.user;
         console.log(viewer);
         if (!viewer) {
-            console.log('logging-in');
+            //console.log('logging-in');
             res.render("login");
         } else {
             const username = viewer.email.split('@')[0];
@@ -23,7 +23,7 @@ const logInControl = {
                     if (!user) {
                         res.send('User not found');
                     } else {
-                        console.log(typeof(remember))
+                        //console.log(typeof(remember))
                         if (!req.session.user && remember == "on"){
                              // Create a new session with an extended expiration time
                             req.session.user = user;
@@ -45,7 +45,7 @@ const logInControl = {
                             const expirationDate = new Date(currentDate.getTime() + (21 * 24 * 60 * 60 * 1000)); // Extend by 3 weeks
                             req.session.cookie.expires = expirationDate; // Set new expiration date
                         }
-                        console.log('LOG IN SUCCESSFUL BY:\n' + user.firstName + ' ' + user.lastName);
+                        //console.log('LOG IN SUCCESSFUL BY:\n' + user.firstName + ' ' + user.lastName);
                         res.redirect('/');
                     }
                 })

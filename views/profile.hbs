@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:,assets/ico/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/style.css">
-    <link rel="icon" href="data:,">
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
     <title>{{firstName}} {{lastName}}</title>
 </head>
 <body class="profile-page-body">
@@ -62,7 +60,7 @@
         
     </div>
     <div class="profile-footer">
-        <button class="view-more-btn btn-1" style="display: none">View More Reviews</button>
+        <button class="view-more-btn btn-1" style="display: none">View All Reviews</button>
         <button class="view-more-btn btn-2" hidden>View Top Reviews</button>
     </div>
     <div class="profile-page-more-rev">
@@ -71,7 +69,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script type="module">
         $('document').ready(function(){
-            // SIDEBAR FUNCTIONALITY
+            // SIDEBAR FUNCTIONALITY            
             $('.sidebar').load('/side-bar');
 
             // REVIEW CARDS
@@ -88,19 +86,12 @@
                     $('.carousel .button-left').css('display', 'block');
                     $('.carousel .button-right').css('display', 'block');
                 }
-            } 
-
-            if (listOfReviews.length > 5){
-                $('.profile-footer .btn-1').css('display', 'block');
-                for (let i = 5; i < listOfReviews.length; i++){
+                 $('.profile-footer .btn-1').css('display', 'block');
+                for (let i = 0; i < listOfReviews.length; i++){
                     console.log(listOfReviews[i]);
                     $('.profile-page-more-rev').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
                 }
-            }
-
-            setTimeout(function(){
-                $('.side-profile').addClass('selected');
-            },200);
+            } 
 
             //CAROUSEL FUNCTIONALITY
             function toSlideSelect(query, changeTo){

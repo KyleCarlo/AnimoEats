@@ -13,7 +13,6 @@ import exphbs from "express-handlebars";    //Express-handlebars for templating
 import MongoStore from "connect-mongo";     //Connect-mongo for storing session in MongoDB
 import multer from "multer";        //Multer for file uploads
 import cookieParser from "cookie-parser";
-import {decode} from 'html-entities';
 /**
  * Import local dependencies
  */
@@ -31,6 +30,7 @@ import logOutControl from "./controllers/logOutControl.js";
 import profileControl from "./controllers/profileControl.js";
 import forgotPasswordControl from "./controllers/forgotPasswordControl.js";
 import storeControl from "./controllers/storeControl.js";
+import searchControl from "./controllers/searchControl.js";
 /**
  * Initiliaze express app
  */
@@ -117,9 +117,12 @@ app.post('/review-card', componentsControl.showRevCard);
 app.post('/create-review', componentsControl.showCreateRev);
 app.post('/submit-review', uploadReview.array('revUploads', 5), componentsControl.submitCreateRev);
 app.post('/owners-reply', componentsControl.submitOwnersReply);
+app.post('/edit-review', componentsControl.showEditRev);
+app.post('/submit-edit', uploadReview.array('revUploads', 5), componentsControl.submitEditRev);
+app.post('/delete-review', componentsControl.deleteRev);
 
 /**** HOME ****/
-app.get("/", indexControl.showListRestaurants);
+app.get("/", indexControl.showHomePage);
 /**** SIGN UP ****/
 app.get("/sign-up", signUpControl.showSignUpForm);
 app.post("/sign-up", signUpControl.submitSignUpForm);
@@ -138,7 +141,9 @@ app.get("/edit-profile", profileControl.showEditProfile);
 app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
 app.get("/store/:restaurantName", storeControl.showStore);
-
+/**** SEARCH RESULT ****/
+app.post("/search", searchControl.showSearch);
+app.post("/filter", searchControl.filterControl);
 app.put("/like", async (req,res)=>{
     const user = req.session.user; 
     const review = await Review.findById(req.body.reviewId);

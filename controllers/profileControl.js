@@ -4,15 +4,16 @@ import Review from "../models/Review.js";
 const profileControl = {
     async showProfile(req, res){
         const user2 = req.params.userName;
-        const user = await User.findOne({ email: { $regex: user2, $options: "i" } });
+        const user = await User.findOne({ email: { $regex: user2 + '@', $options: "i" } });
 
         var userLoggedIn = req.session.user;
+
         var userSesh = null;
         var isSelf = false;
         if (userLoggedIn){
             userSesh = userLoggedIn.email.split('@')[0];
         
-            if(userLoggedIn.email == user.email)
+            if (userLoggedIn.email == user.email)
                 isSelf = true;
         }
 
@@ -46,13 +47,19 @@ const profileControl = {
                 description: review.description,
                 helpfulCount: review.helpfulCount,
                 unhelpfulCount: review.unhelpfulCount,
+                monthPosted: review.monthPosted,
+                datePosted: review.datePosted,
+                yearPosted: review.yearPosted,
+                edited: review.edited,
                 images: review.images,
                 user: review.user,
                 restaurant: review.restaurant,
                 reply: review.reply,
+                likeList: review.likeList,
+                dislikeList: review.dislikeList
             }
         });
-        console.log(totalImages)
+        //console.log(totalImages)
         res.render("profile", {
             firstName: user.firstName,
             lastName: user.lastName,
