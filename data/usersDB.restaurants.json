@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "64b80bb35331324946284763"
+  },
+  "name": "McDonalds",
+  "location": "Beside South Gate",
+  "aveRating": 4,
+  "price": 2,
+  "totalReviews": 124,
+  "description": "Welcome to McDonalds, the world-famous fast-food restaurant loved by millions. Indulge in our iconic burgers, crispy fries, and refreshing beverages. Whether you are looking for a quick meal on the go or a place to relax with friends and family, McDonalds has you covered. Visit us today for a delicious and convenient dining experience.",
+  "bannerPic": "uploads/stores/Mcdonalds.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284764"
+  },
+  "name": "Jollibee",
+  "location": "Sherwood Place",
+  "aveRating": 4,
+  "price": 2.5,
+  "totalReviews": 111,
+  "description": "Welcome to Jollibee, home of the famous Chickenjoy! We are a fast-food chain that brings the joy of Filipino flavors to the world. Our menu features a variety of mouthwatering dishes, including our signature crispy fried chicken, sweet-style spaghetti, and flavorful Jolly burgers. Experience the taste of Jollibee and immerse yourself in Filipino hospitality. Come and create joyful memories with us!",
+  "bannerPic": "uploads/stores/Jollibee.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284765"
+  },
+  "name": "Army Navy",
+  "location": "Residential Area",
+  "aveRating": 3,
+  "price": 3,
+  "totalReviews": 100,
+  "description": "Welcome to Army Navy, where we serve the best burgers and burritos in town! Our menu is filled with mouthwatering options, from our signature Freedom Fries and LiberTea iced tea to our flavorful 8oz Army Burger and California Burrito. We take pride in providing fresh and high-quality ingredients in every dish. Join us and experience the bold flavors that will satisfy your cravings!",
+  "bannerPic": "uploads/stores/Army-Navy.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284766"
+  },
+  "name": "Angrydobo",
+  "location": "Residential Area",
+  "aveRating": 3,
+  "price": 2,
+  "totalReviews": 75,
+  "description": "Welcome to Angrydobo, the home of flavorful and fiery Filipino dishes! We offer a modern twist on traditional Filipino cuisine, showcasing the bold and intense flavors of our signature adobo dishes. From the Angry Adobo Bowl to the Spicy Adobo Tacos, our menu will surely ignite your taste buds. Get ready for a spicy and satisfying culinary adventure at Angrydobo!",
+  "bannerPic": "uploads/stores/Angry-Dobo.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284767"
+  },
+  "name": "Infinitea",
+  "location": "Bloemen",
+  "aveRating": 3,
+  "price": 2,
+  "totalReviews": 0,
+  "description": "Welcome to Infinitea, afforable and delicious drinks",
+  "bannerPic": "uploads/stores/Infinitea.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284768"
+  },
+  "name": "Kuya Mels",
+  "location": "Agno Food Court",
+  "aveRating": 5,
+  "price": 2,
+  "totalReviews": 0,
+  "description": "Welcome to Kuya Mels, try our best sellers, salisbury steak and chicken",
+  "bannerPic": "uploads/stores/Kuya-Mels.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284769"
+  },
+  "name": "Starbucks",
+  "location": "Beside Razon Area",
+  "aveRating": 4,
+  "price": 4,
+  "totalReviews": 0,
+  "description": "Welcome to Starbucks, go to coffee place for students",
+  "bannerPic": "uploads/stores/Starbucks.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284770"
+  },
+  "name": "TapaKing",
+  "location": "Gokongwei Area",
+  "aveRating": 2,
+  "price": 3,
+  "totalReviews": 0,
+  "description": "Welcome to TapaKing, the only tapa place you will ever find near the university",
+  "bannerPic": "uploads/stores/TapaKing.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284771"
+  },
+  "name": "Pericos",
+  "location": "Pericos",
+  "aveRating": 5,
+  "price": 1,
+  "totalReviews": 0,
+  "description": "De La Salle Univerisity's very own cafeteria",
+  "bannerPic": "uploads/stores/Pericos.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284772"
+  },
+  "name": "Dunkin Donut",
+  "location": "Green Mall",
+  "aveRating": 4,
+  "price": 2,
+  "totalReviews": 0,
+  "description": "Cheap but tasty coffee just for you",
+  "bannerPic": "uploads/stores/Dunkin-Donuts.jpg"
+},
+{
+  "_id": {
+    "$oid": "64b80bb35331324946284773"
+  },
+  "name": "Coffee Bean",
+  "location": "Henry Sy Area",
+  "aveRating": 4,
+  "price": 3,
+  "totalReviews": 0,
+  "description": "Want coffee! We are here to bring you one at the comfort of your own library",
+  "bannerPic": "uploads/stores/Coffee-Bean.jpg"
+}]
