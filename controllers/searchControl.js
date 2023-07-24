@@ -32,11 +32,11 @@ const searchControl = {
 
     async filterControl (req, res){
         const selectedOption = parseFloat(req.body.filterText);
-        console.log(selectedOption);
+        //console.log(selectedOption);
 
         try {
             const filteredRestaurants = await Restaurant.find({ aveRating: { $gte: selectedOption } });
-            console.log(filteredRestaurants);
+            //console.log(filteredRestaurants);
             res.json(filteredRestaurants);
         } catch (error) {
             console.error(error);

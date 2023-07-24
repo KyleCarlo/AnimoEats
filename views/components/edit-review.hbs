@@ -104,7 +104,8 @@
                     <img src="" alt="upload">
                 </div>
                 <div class="add-icons">
-                    <img src="../assets/png/attach.png" class="attach clickable" alt="attach">
+                    {{!-- <img src="../assets/png/attach.png" class="attach clickable" alt="attach"> --}}
+                    <div class = "attach">Images cannot be edited</div>
                     <button name="submit-create-review" type="submit" value="Submit" class="clickable"><img src="../assets/png/post.png"  class="send clickable" alt="send"></button>
                 </div>
 
@@ -177,7 +178,7 @@
 
             picUploadBtn2.on('change', function(){
                 var files = [...this.files].slice(0,4);
-                console.log(files);
+                //console.log(files);
                 img2.empty(); // Clear previous previews
 
                 // Loop through selected files and create image previews for each one
@@ -198,6 +199,8 @@
                 $('.edit-card').fadeOut(function() {
                     $(this).remove();
                 });
+
+                $('body').css('overflow', 'initial');
             });
         </script>
     </body>

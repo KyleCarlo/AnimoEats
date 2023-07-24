@@ -18,6 +18,7 @@ import cookieParser from "cookie-parser";
  */
 /**** MODELS ****/
 import { connectToMongo } from "./db/conn.js";
+import fs from "fs";
 import User from "./models/User.js";
 import Restaurant from "./models/Restaurant.js";
 import Review from "./models/Review.js";
@@ -35,6 +36,7 @@ import searchControl from "./controllers/searchControl.js";
  * Initiliaze express app
  */
 const app = express();
+
 
 /**
  * Middlewares
@@ -104,6 +106,45 @@ app.use(session({
 connectToMongo(()=>{
     console.log('Connected to MongoDB');
 })
+
+
+// /**
+//  * Loading of JSON Files
+//  */
+// const collectionNames = ['users', 'restaurants', 'reviews', 'locations'];
+// async function insertData(collectionName, jsonData){
+//     try{
+//         const collection = db.collection(collectionName);
+//         await collection.insertMany(jsonData);
+//         console.log("Data inserted into ${collectionName} successfully");
+//     } catch(err){
+//         console.error ("Error inserting data into ${collectionName}:, err");
+//     }
+// }
+
+// function readJSONFile (fileName){
+//     return JSON.parse(fs.readFileSync(fileName, 'utf8'));
+// }
+
+// const jsonFiles = [
+//   { fileName: 'user.json', collectionName: 'users' },
+//   { fileName: 'restaurant.json', collectionName: 'restaurants' },
+//   { fileName: 'review.json', collectionName: 'reviews' },
+//   { fileName: 'location.json', collectionName: 'locations' }
+// ];
+
+// // Call the function to insert data for each JSON file
+// async function insertAllData() {
+//   for (const { fileName, collectionName } of jsonFiles) {
+//     const jsonData = readJSONFile(fileName);
+//     await insertData(collectionName, jsonData);
+//   }
+// }
+
+// // Call the function to insert all data
+// insertAllData();
+
+
 
 /**
  * Controller

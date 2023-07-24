@@ -3,7 +3,7 @@ import User from "../models/User.js";
 const logInControl = {
     showLogInForm(req, res) {
         const viewer = req.session.user;
-        console.log(viewer);
+        //console.log(viewer);
         if (!viewer) {
             //console.log('logging-in');
             res.render("login");

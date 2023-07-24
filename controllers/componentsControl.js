@@ -180,13 +180,14 @@ const componentsControl = {
     },
 
     showEditRev(req, res){
-        //console.log(req.body.post)
-        let reviewInfo = req.body.post;
+        let reviewInfo = (req.body.post);
+        console.log(reviewInfo);
+        // reviewInfo = JSON.stringify(reviewInfo);
         res.render("components/edit-review", {
             restaurant: reviewInfo.restoName,
             subjectValue: reviewInfo.postTitle,
-            messageValue: reviewInfo.description,
-            ratingValue: reviewInfo.rating,
+            messageValue: unescape(reviewInfo.description),
+            ratingValue: parseInt(reviewInfo.rating),
             reviewId: reviewInfo.id,
         });
      
@@ -196,7 +197,7 @@ const componentsControl = {
         try{
             const rev = await Review.findById(req.body.reviewId);
             // SAVE ALL NEW VALUES TO VARIABLES
-            const isValidValue = value => value !== null && value != '';
+            const isValidValue = value => value !== null && value !== '';
             let madeChange = false;
             // CHECK IF THE VALUES ARE NULL OR SAME WITH CURRENT ENTRIES, SAVE CHANGES IF NOT
             // postTitle
@@ -215,7 +216,6 @@ const componentsControl = {
 
             // description
             if(isValidValue(req.body.message)){
-                console.log("3");
                 rev.description = req.body.message;
                 madeChange = true;
             }

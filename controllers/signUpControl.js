@@ -2,7 +2,7 @@ import User from "../models/User.js";
 
 const signUpControl = {
     showSignUpForm(req, res) {
-        console.log('signing-up');
+        //console.log('signing-up');
         res.render("sign-up");
     },
     
@@ -25,7 +25,7 @@ const signUpControl = {
     
         try {
             await User.insertMany([data]);
-            console.log(User.find({}));
+            //console.log(User.find({}));
             res.redirect("login");
         } catch (error) {
             console.error(error);

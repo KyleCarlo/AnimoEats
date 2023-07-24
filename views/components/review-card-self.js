@@ -271,13 +271,13 @@ class ReviewCardSelf extends HTMLElement {
         var bullets = document.find('.images .bullets');
         var slideWidth = slides.clientWidth;
         var currentBullet = 1;
-        console.log(slides[0]);
+        //console.log(slides[0]);
         
         var moveToSlide = (tracker, currentSlide, targetSlide) => {
             tracker.css('transform', 'translateX(-' + targetSlide[0].style.left + ')');
             currentSlide.removeClass('current-slide');
             targetSlide.addClass('current-slide');
-            console.log(targetSlide[0]);
+            //console.log(targetSlide[0]);
         }
 
         var updateBullets = (change) => {

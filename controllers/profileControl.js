@@ -20,7 +20,11 @@ const profileControl = {
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
         var dateString = months[user.monthMade - 1] + " " + user.dateMade + ", " + user.yearMade;
 
-        var reviewsByUser = await Review.find({ user: user._id });
+       var reviewsByUser = await Review.find({ user: user._id });
+    
+        reviewsByUser.sort((a, b) => {
+            return b.helpfulCount - a.helpfulCount;
+        });
 
         const totalLikes = reviewsByUser.reduce((total, review) => {
             return total + review.helpfulCount;

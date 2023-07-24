@@ -50,7 +50,7 @@
          $(document).ready(function(){
             var iconContainers = $('.side-bar-pink .side-bar-green div');
             var searchBar = $('.side-bar .search-bar');
-            console.log("HELLO");
+            //console.log("HELLO");
             $('.side-bar-pink .side-bar-green .selected svg').attr('fill','black');
             
             iconContainers.on('click', function(e){
@@ -64,15 +64,13 @@
                 console.log(target);
                 if (target == 'side-search'){
                     // searchBar.css('transform', 'scaleX(100%)');
-                    console.log("THIS IS BEING SELECTED");
-                    $('.side-bar-pink .side-bar-green .' + target).addClass('selected');
+                    $('.side-search').attr("class", 'side-search selected');
+                    
                     searchBar.css('padding', '14px 15px');
                     searchBar.find('#search').css('width', '250px');
                 } else {
-                    console.log("THIS IS BEING UNSELECTED");
-                    console.log($('.side-search')[0]);
-                    $('.side-search')[0].removeAttribute('class','selected').addAttribute('class','side-search');
-                    //$('.side-search')[0].addClass('side-search');
+                    $('.side-search').attr("class", 'side-search');
+                    
                     searchBar.find('#search').css('width', '0');
                     searchBar.css('padding', '14px 0');
                 }

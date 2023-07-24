@@ -5,7 +5,7 @@
 - Lasala, Kyle Carlo
 - Manlises, Maria Monica
 ## Web App Setup Instructions
-- In your console, type <strong> npm start </strong> to start the application.
+- In your console, type <pre><strong> npm start </strong></pre> to start the application.
   
 - Before trying to load the website, proceed to <strong>MongoDB Compass</strong>.
   

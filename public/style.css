@@ -768,14 +768,16 @@ span{
     grid-template-columns: 1fr 10fr;
     border-bottom: #DBDBDB solid 1px;
     margin-bottom: 10px;
+    font-size: 14px;
 }
 
 .compose-container .message {
     padding: 5px;
     height: 30vh;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 10px;
     resize: none;
+    font-family: var(--def-font);
 }
 
 .compose-container .add-icons {
@@ -806,6 +808,11 @@ span{
     height: 100px;
     width: 100px;
     border-radius: 5px;
+}
+
+.compose-container .attach{
+    font-style: italic;
+    font-size: 12px;
 }
 
 /***** EDIT PROFILE *****/
@@ -1006,7 +1013,6 @@ span{
     width: 200px;
     height: 200px;
     border-radius: 100%;
-    /* border: 2.5px solid var(--primary); */
 }
 
 .profile-page-top .profile-bio .name-holder {
@@ -1181,11 +1187,12 @@ span{
 .profile-page-body > .profile-page-more-rev {
     padding: 10px 0 20px 0;
     background: var(--primary);
-    display: none;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
     justify-items: center;
     gap: 20px;
     transition: height 0.5s;
+    min-height: 70vh;
 }
 
 .profile-page-bot .no-rev{
@@ -1243,9 +1250,17 @@ span{
     padding: 100px;
 }
 
-.search-result .results{
+.search-result .resto-result .results{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    justify-items: center;
+    gap: 20px;
+    transition: height 0.5s;
+}
+
+.search-result .review-result .results{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(470px, 1fr));
     justify-items: center;
     gap: 20px;
     transition: height 0.5s;

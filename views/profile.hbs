@@ -60,7 +60,7 @@
         
     </div>
     <div class="profile-footer">
-        <button class="view-more-btn btn-1" style="display: none">View All Reviews</button>
+        <button class="view-more-btn btn-1" style="display: none">Hide Top Reviews</button>
         <button class="view-more-btn btn-2" hidden>View Top Reviews</button>
     </div>
     <div class="profile-page-more-rev">
@@ -79,18 +79,16 @@
             if (listOfReviews.length > 0){
                 $('.carousel .track').empty();
                 for (let i = 0; i < listOfReviews.length; i++){
-                    if (i == 5) break;
-                    $('.profile-page-bot .track').append($('<li class="rev-con-self '+ (i+1) + ' ' + (i == 0 ? 'selected':'slide') + '"></li>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
+                    if (i < 5)
+                        $('.profile-page-bot .track').append($('<li class="rev-con-self '+ (i+1) + ' ' + (i == 0 ? 'selected':'slide') + '"></li>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
+                    else 
+                        $('.profile-page-more-rev').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
                 }
                 if (listOfReviews.length > 1){
                     $('.carousel .button-left').css('display', 'block');
                     $('.carousel .button-right').css('display', 'block');
                 }
                  $('.profile-footer .btn-1').css('display', 'block');
-                for (let i = 0; i < listOfReviews.length; i++){
-                    console.log(listOfReviews[i]);
-                    $('.profile-page-more-rev').append($('<div class="rev-con-self '+ (i+1) +'"></div>').load('/review-card', {post: listOfReviews[i], cardNum: (i+1)}));
-                }
             } 
 
             //CAROUSEL FUNCTIONALITY
@@ -119,6 +117,7 @@
 
             buttons.on('click', function(e){
                 let direction = e.currentTarget.className.split('-')[1];
+                
                 let selectedNum = $('.track .selected').index();
                 let maxSlide = $('.track').children().length;
                 console.log(maxSlide, selectedNum, direction);

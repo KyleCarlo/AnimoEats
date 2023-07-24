@@ -2,7 +2,7 @@ import User from "../models/User.js";
 
 const forgotPasswordControl = {
     showForgotPassword(req, res){
-        console.log('showing forgot password');
+        //console.log('showing forgot password');
         res.render("forgot-password");
     },
 

@@ -215,6 +215,7 @@
                 var dislikeColor = "#FF6665";
                 var like_dislike = $('.rev-con-self.{{cardNum}} .buttons .like-dislike svg');
                 
+                
                 if (likeList.length != 0)
                     if (likeList[0].includes(viewer)) {
                         $('.rev-con-self.{{cardNum}} .buttons .like-dislike .like').css('fill', likeColor);
@@ -272,6 +273,7 @@
             for (const key in images)
                 if (images[key] != "")
                     num_of_images++;
+
                     
             var bullets = $('.rev-con-self.{{cardNum}} .images .bullets');
             if (num_of_images > 0){
@@ -324,11 +326,11 @@
                 let prevSlide = currentSlide.prev();
                 prev.css('display','initial');
                 next.css('display','initial');
-                if(currentBullet == 0){
+                updateBullets(-1);
+                if(currentBullet == 1){
                     prev.css('display', 'none');
                 }
                 moveToSlide(tracker, currentSlide, prevSlide);
-                updateBullets(-1);
             });
 
             next.on('click', function(e){
@@ -366,8 +368,10 @@
             }
 
             $('.rev-con-self.{{cardNum}} .buttons .edit_delete .edit').on('click', function(){
-                $('body').append($('<div class="cover-edit" style="position: absolute; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'))
+                $('body').append($('<div class="cover-edit" style="position: fixed; top: 0; z-index: 4; width: 100vw; height: 100vh; background-color: black; opacity: 0.5; display: none;"></div>'));
+                
                 setTimeout(function() {
+                    $('body').css('overflow', 'hidden');
                     $('body').append($('<div class="edit-card" style="display: none; position: relative; z-index: 5;"></div>').load('/edit-review', {post: reviewInfo}))
                     $('.cover-edit').fadeIn();
                     $('.edit-card').fadeIn();
