@@ -5,7 +5,25 @@
 - Lasala, Kyle Carlo
 - Manlises, Maria Monica
 ## Web App Setup Instructions
-- <strong>INSERT SETUP HERE</strong>
+- In your console, type <strong> npm start </strong> to start the application.
+  
+- Before trying to load the website, proceed to <strong>MongoDB Compass</strong>.
+  
+- Make the following schemas in the database named <strong>usersDB</strong> and <strong>import the respective json file</strong> located in the project folder for the sample data.
+    - <strong>Schema name: users, JSON File: user.json</strong>
+    - <strong>Schema name: restaurants, JSON File: restaurant.json</strong>
+    - <strong>Schema name: locations, JSON File: location.json</strong>
+    - <strong>Schema name: reviews, JSON File: review.json</strong>
+
+- Load the website by simply typing <strong>http://localhost:3000/</strong>.
+  
+- You may opt to log in using the following details to see the website from the <strong>owner's point of view</strong>.
+    - <strong>username: maria_monica_manlises@dlsu.edu.ph</strong>
+    - <strong>password: Mons-Password</strong>
+
+- However, you can create your own account using the sign up page.
+  
+- For a demonstration of all the functionalities, please refer to our demo video for your reference.  
 ## Project Specifications: Food Store Review Web Application
 - A food store review web application for the food stores near in DLSU. Specifically designed for Lasallians in DLSU-Manila. This project serves as a course requirement in Web Application Development (CCAPDEV).
 ### Required Features
