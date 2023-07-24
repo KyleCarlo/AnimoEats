@@ -815,6 +815,16 @@ span{
     font-size: 12px;
 }
 
+.compose-container input {
+    padding: 0 5px;
+}
+
+.compose-container .message{
+    padding: 7px;
+    font-family: var(--def-font);
+    font-size: 12px;
+}
+
 /***** EDIT PROFILE *****/
 
 .edit-prof-body {
@@ -1096,8 +1106,6 @@ span{
     left: 50%;
     align-items: center;
 }
-
-/* Seb: I commented this out to maintain the normal scale of the review cards */
 
 .track > * {
     scale: 0.7;

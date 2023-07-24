@@ -5,21 +5,21 @@
 - Lasala, Kyle Carlo
 - Manlises, Maria Monica
 ## Web App Setup Instructions
-- In your console, type <pre><strong> npm start </strong></pre> to start the application.
+1. Go to the directory where the <pre>app.js</pre> is located. In your console, type <pre>npm start</pre> to start the application.
   
-- Before trying to load the website, proceed to <strong>MongoDB Compass</strong>.
+2. Before trying to load the website, proceed to <strong>MongoDB Compass</strong>.
   
-- Make the following schemas in the database named <strong>usersDB</strong> and <strong>import the respective json file</strong> located in the project folder for the sample data.
+3. Make the following schemas in the database named <strong>usersDB</strong> and <strong>import the respective json file</strong> located in the project folder for the sample data.
     - <strong>Schema name: users, JSON File: user.json</strong>
     - <strong>Schema name: restaurants, JSON File: restaurant.json</strong>
     - <strong>Schema name: locations, JSON File: location.json</strong>
     - <strong>Schema name: reviews, JSON File: review.json</strong>
 
-- Load the website by simply typing <strong>http://localhost:3000/</strong>.
+4. Load the website by simply typing <strong>http://localhost:3000/</strong>.
   
-- You may opt to log in using the following details to see the website from the <strong>owner's point of view</strong>.
-    - <strong>username: maria_monica_manlises@dlsu.edu.ph</strong>
-    - <strong>password: Mons-Password</strong>
+5. You may opt to log in using the following details to see the website from the <strong>owner's point of view</strong>.
+    - <strong>email: kyle_lasala@dlsu.edu.ph</strong>
+    - <strong>password: kykyishere</strong>
 
 - However, you can create your own account using the sign up page.
   

@@ -26,17 +26,19 @@ const componentsControl = {
         });
     },
     
-    showRestoCard(req, res){
+    async showRestoCard (req, res){
         // TODO: EDIT additional
         let priceSymbol = "";
         for (let i = 0; i < req.body.post.price; i++) {
             priceSymbol += "₱";
         }
         // console.log(req.body.post);
+        var restaurantsReview = await Review.find({restaurant: req.body.post._id});
+        const reviewCount = restaurantsReview.length;
         res.render("components/resto-card", {
             name: req.body.post.name,
             aveRating: parseFloat(req.body.post.aveRating).toFixed(1),
-            totalReviews: req.body.post.totalReviews,
+            totalReviews: reviewCount,
             location: req.body.post.location,
             price: priceSymbol,
             description: req.body.post.description,
