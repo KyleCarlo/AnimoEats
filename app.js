@@ -13,6 +13,7 @@ import exphbs from "express-handlebars";    //Express-handlebars for templating
 import MongoStore from "connect-mongo";     //Connect-mongo for storing session in MongoDB
 import multer from "multer";        //Multer for file uploads
 import cookieParser from "cookie-parser";
+import cookies from "cookies";
 /**
  * Import local dependencies
  */
@@ -87,8 +88,8 @@ const uploadReview = multer({
 
 /**** SESSION ****/
 const sessionStore = MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/usersDB',
-    ttl: 1 * 24 * 60 * 60,
+    mongoUrl: "mongodb+srv://kylelasala:CCAPDEV123456789@ccapdev.m4hroft.mongodb.net/",
+    ttl: 21 * 24 * 60 * 60,
     autoRemove: 'native'
 });
 app.use(session({
@@ -106,45 +107,6 @@ app.use(session({
 connectToMongo(()=>{
     console.log('Connected to MongoDB');
 })
-
-
-// /**
-//  * Loading of JSON Files
-//  */
-// const collectionNames = ['users', 'restaurants', 'reviews', 'locations'];
-// async function insertData(collectionName, jsonData){
-//     try{
-//         const collection = db.collection(collectionName);
-//         await collection.insertMany(jsonData);
-//         console.log("Data inserted into ${collectionName} successfully");
-//     } catch(err){
-//         console.error ("Error inserting data into ${collectionName}:, err");
-//     }
-// }
-
-// function readJSONFile (fileName){
-//     return JSON.parse(fs.readFileSync(fileName, 'utf8'));
-// }
-
-// const jsonFiles = [
-//   { fileName: 'user.json', collectionName: 'users' },
-//   { fileName: 'restaurant.json', collectionName: 'restaurants' },
-//   { fileName: 'review.json', collectionName: 'reviews' },
-//   { fileName: 'location.json', collectionName: 'locations' }
-// ];
-
-// // Call the function to insert data for each JSON file
-// async function insertAllData() {
-//   for (const { fileName, collectionName } of jsonFiles) {
-//     const jsonData = readJSONFile(fileName);
-//     await insertData(collectionName, jsonData);
-//   }
-// }
-
-// // Call the function to insert all data
-// insertAllData();
-
-
 
 /**
  * Controller
@@ -251,6 +213,17 @@ app.put("/dislike", async (req,res)=>{
         });
     }
 } );
+
+app.get('/session/destroy', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.error('Error destroying session:', err);
+    } else {
+      console.log('Session destroyed');
+    }
+  });
+  res.sendStatus(200);
+});
 
 app.listen(3000, () => {
     console.log("App started");

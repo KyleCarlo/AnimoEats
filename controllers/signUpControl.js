@@ -22,9 +22,9 @@ const signUpControl = {
             biography: "The user has not yet set a biography.",
             profilePic: "assets/png/def-prof.png"
         };
-    
+        const newUser = new User(data);
         try {
-            await User.insertMany([data]);
+            await newUser.save();
             //console.log(User.find({}));
             res.redirect("login");
         } catch (error) {

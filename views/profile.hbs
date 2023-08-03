@@ -151,6 +151,14 @@
                 $('.profile-page-top .update').css('display','none');
                 $('.profile-page-top .logout').css('display','none');
             }
+
+            window.addEventListener("beforeunload", function () {
+                // Check the "Remember me" cookie to decide whether to destroy the session
+                const rememberMeCookie = Cookies.get('rememberMe');
+                if (rememberMeCookie === 'false') {
+                    $.get('/session/destroy');
+                }
+            });
         });
     </script>
 </body>

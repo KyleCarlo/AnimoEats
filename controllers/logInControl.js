@@ -17,7 +17,9 @@ const logInControl = {
         try {
             const check = await User.findOne({ email: req.body.emailLogin });
             const remember = req.body.remember;
-            if (check.password == req.body.passwordLogin) {
+            const passwordMatch = await bcrypt.compare(req.body.passwordLogin, check.password);
+            console.log(passwordMatch)
+            if (passwordMatch){
                 User.findOne({ email: req.body.emailLogin })
                 .then((user) => {
                     if (!user) {

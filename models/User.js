@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import Restaurant from "./Restaurant.js";
+import bcrypt from "bcrypt";
 const { Schema, model } = mongoose;
 
 const userSchema = new Schema({
@@ -19,6 +20,21 @@ const userSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: Restaurant,
         default: null
+    }
+});
+
+
+userSchema.pre('save', async function (next) {
+    const user = this;
+    if (!user.isModified('password')) return next();
+
+    try {
+        const saltRounds = 10;
+        const hash = await bcrypt.hash(user.password, saltRounds);
+        user.password = hash; // Update the 'password' field, not 'user.password'
+        next();
+    } catch (err) {
+        return next(err);
     }
 });
 
