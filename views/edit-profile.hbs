@@ -54,14 +54,7 @@
                     img.attr('src', e.target.result);
                 }
                 reader.readAsDataURL(this.files[0]);
-            });
-            window.addEventListener("beforeunload", function () {
-                // Check the "Remember me" cookie to decide whether to destroy the session
-                const rememberMeCookie = Cookies.get('rememberMe');
-                if (rememberMeCookie === 'false') {
-                    $.get('/session/destroy');
-                }
-            });
+            })
         });
     </script>
 </body>

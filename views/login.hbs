@@ -47,13 +47,6 @@
     <!-- JQuery Lib -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script src="index.js">
-        window.addEventListener("beforeunload", function () {
-                // Check the "Remember me" cookie to decide whether to destroy the session
-                const rememberMeCookie = Cookies.get('rememberMe');
-                if (rememberMeCookie === 'false') {
-                    $.get('/session/destroy');
-                }
-            });
     </script>
 </body>
 </html>
