@@ -29,7 +29,6 @@ span{
     cursor: pointer;
 }
 
-
 .logo {
     width: 10%;
     min-width: 150px;
@@ -96,7 +95,36 @@ span{
     transition: height 0.5s;
 }
 
+/***** ABOUT PAGE *****/
+.about-body{
+    background-color: var(--cream);
+    text-align: justify;
+    padding: 100px;
+}
 
+.about-body .content{
+    padding: 50px 500px 50px 100px;
+}
+
+.about-body .list{
+    margin-left: 40px;
+}
+
+.about-body .list > li{
+    font-weight: bold;
+}
+
+.about-body .list > ul{
+    margin-left: 40px;
+}
+
+.nb > li{
+    font-weight: normal!important;
+}
+
+.about-body .content > *{
+    margin-bottom: 40px;
+}
 
 /***** VIEW-MORE-REVIEW-BTN *****/
 .view-more-btn {

@@ -19,11 +19,16 @@
                     <input class = "name" name="lastName" type="text" placeholder="Last Name">
                     <input class = "other" name="emailSignup" type="text" placeholder="Email">
                     <input class = "other" name="passwordSignup" type="text" placeholder="Password">
-                    <div class="other button"><button class = "button-inside" name="submit-sign-up" type="submit" value="Sign Up">Sign Up</button></div>
+                    <button class = "button-inside other button" name="submit-sign-up" type="submit" value="Sign Up">Sign Up</button>
                 </form>
-                <div class="old-new-account">
-                    Already have an account?
-                    <a href="/login">Log In</a>
+                <div class="old-new-account" style="display: flex; flex-direction: row-reverse; justify-content: space-between;">
+                    <span>
+                        <span>Already have an account?</span>
+                        <a href="/login">Log In</a>
+                    </span>
+                    <span class="error-message" style="color: red;">
+                        {{errorMessage}}
+                    </span>
                 </div>
             </div>
             <div class="right">
@@ -33,17 +38,5 @@
             </div>
         </div>
     </div>
-
-    <!-- JQuery Lib -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="index.js">
-        window.addEventListener("beforeunload", function () {
-                // Check the "Remember me" cookie to decide whether to destroy the session
-                const rememberMeCookie = Cookies.get('rememberMe');
-                if (rememberMeCookie === 'false') {
-                    $.get('/session/destroy');
-                }
-            });
-    </script>
 </body>
 </html>

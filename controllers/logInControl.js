@@ -1,4 +1,6 @@
 import User from "../models/User.js";
+import {validationResult} from "express-validator";
+import bcrypt from "bcrypt";
 
 const logInControl = {
     showLogInForm(req, res) {
@@ -18,8 +20,11 @@ const logInControl = {
             const check = await User.findOne({ email: req.body.emailLogin });
             const remember = req.body.remember;
             const passwordMatch = await bcrypt.compare(req.body.passwordLogin, check.password);
-            console.log(passwordMatch)
-            if (passwordMatch){
+            console.log(passwordMatch);
+            const errors = validationResult(req);
+            console.log('PASSWORD MATCH: ' + passwordMatch);
+            console.log('ERRORS (login): ' +  errors.isEmpty());
+            if (passwordMatch && errors.isEmpty()){
                 User.findOne({ email: req.body.emailLogin })
                 .then((user) => {
                     if (!user) {

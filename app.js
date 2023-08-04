@@ -13,15 +13,12 @@ import exphbs from "express-handlebars";    //Express-handlebars for templating
 import MongoStore from "connect-mongo";     //Connect-mongo for storing session in MongoDB
 import multer from "multer";        //Multer for file uploads
 import cookieParser from "cookie-parser";
-import cookies from "cookies";
+import {check} from "express-validator";
 /**
  * Import local dependencies
  */
 /**** MODELS ****/
 import { connectToMongo } from "./db/conn.js";
-import fs from "fs";
-import User from "./models/User.js";
-import Restaurant from "./models/Restaurant.js";
 import Review from "./models/Review.js";
 /**** CONTROLLERS ****/
 import componentsControl from "./controllers/componentsControl.js";
@@ -128,10 +125,10 @@ app.post('/delete-review', componentsControl.deleteRev);
 app.get("/", indexControl.showHomePage);
 /**** SIGN UP ****/
 app.get("/sign-up", signUpControl.showSignUpForm);
-app.post("/sign-up", signUpControl.submitSignUpForm);
+app.post("/sign-up", [check('firstName').notEmpty(), check('lastName').notEmpty(), check('emailSignup').isEmail(), check('passwordSignup').notEmpty()], signUpControl.submitSignUpForm);
 /**** LOG IN ****/
 app.get("/login", logInControl.showLogInForm);
-app.post("/login", logInControl.submitLogInForm);
+app.post("/login", [check('emailLogin').isEmail()], logInControl.submitLogInForm);
 /**** FORGOT PASSWORD ****/
 app.get("/forgot-password", forgotPasswordControl.showForgotPassword);
 app.post("/forgot-password", forgotPasswordControl.submitForgotPassword);
@@ -213,6 +210,10 @@ app.put("/dislike", async (req,res)=>{
         });
     }
 } );
+// ABOUT
+app.get("/about", (req, res) => {
+    res.render("about");
+});
 
 app.get('/session/destroy', (req, res) => {
   req.session.destroy((err) => {
