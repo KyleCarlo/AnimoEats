@@ -157,7 +157,7 @@ const componentsControl = {
             const today = new Date();
             var imageNames = [];
             for(let i = 0; i < 4; i++){
-                console.log(req.files[i].path);
+                console.log(typeof req.files[i]);
                 console.log('BOOL: ' + (req.files[i] != undefined));
                 if (req.files[i] != undefined){
                     console.log(req.files[i].path.split("\\").slice(1).join('/'));
