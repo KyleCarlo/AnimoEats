@@ -236,9 +236,16 @@ const componentsControl = {
             if(madeChange){
                 console.log("MADE CHANGE");
                 rev.edited = true;
-                rev.datePosted = new Date().getDate();
-                rev.monthPosted = new Date().getMonth();
-                rev.yearPosted = new Date().getFullYear();
+                const date = new Date();
+                
+                console.log('DATE' + date);
+                console.log('DAY' + date.getDate());
+                console.log('MONTH' + date.getMonth());
+                console.log('YEAR' + date.getFullYear());
+
+                rev.datePosted = date.getDate();
+                rev.monthPosted = date.getMonth() + 1;
+                rev.yearPosted = date.getFullYear();
             }
             
             //console.log(rev);
