@@ -138,7 +138,11 @@ app.get("/logout", logOutControl.endSession);
 app.get("/profile/:userName", profileControl.showProfile);
 /**** EDIT PROFILE ****/
 app.get("/edit-profile", profileControl.showEditProfile);
-app.post("/edit-profile", upload.single('profilePictureEdit'), profileControl.submitEditProfile); //FILE UPLOAD 
+app.post("/edit-profile", [upload.single('profilePictureEdit'), 
+                        check('firstNameEdit').notEmpty(),
+                        check('lastNameEdit').notEmpty(),
+                        check('descriptionEdit').notEmpty(),
+                    ], profileControl.submitEditProfile); //FILE UPLOAD 
 /**** STORE ****/
 app.get("/store/:restaurantName", storeControl.showStore);
 /**** SEARCH RESULT ****/

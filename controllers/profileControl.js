@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import Review from "../models/Review.js";
+import { validationResult } from "express-validator";
 
 const profileControl = {
     async showProfile(req, res){
@@ -89,33 +90,40 @@ const profileControl = {
         });
     },
     async submitEditProfile(req, res) {
-        try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
             let user = req.session.user;
             let userName = user.email.split('@')[0];
-
-            let upFirstName = req.body.firstNameEdit;
-            let upLastName = req.body.lastNameEdit;
-            let upDescription = req.body.descriptionEdit;
-            let upProfilePicture;
-            if(req.file != null)
-               upProfilePicture = req.file.filename;
-            
-            const foundUser = await User.findOne({email:user.email}).exec();
-
-            if(upFirstName != null)
-                foundUser.firstName = upFirstName;
-            if(upLastName != null)
-                foundUser.lastName = upLastName;
-            if(upDescription != null)
-                foundUser.biography = upDescription;
-            if(upProfilePicture != null)
-                foundUser.profilePic = 'uploads/profiles/' + upProfilePicture;
-            await foundUser.save();
-            req.session.user = foundUser;
             res.redirect('/profile/' + userName);
-        } catch (error) {
-          console.error('Error updating user:', error);
-          res.status(500).send('Failed to update user');
+        } else {
+            try {
+                let user = req.session.user;
+                let userName = user.email.split('@')[0];
+
+                let upFirstName = req.body.firstNameEdit;
+                let upLastName = req.body.lastNameEdit;
+                let upDescription = req.body.descriptionEdit;
+                let upProfilePicture;
+                if(req.file != null)
+                upProfilePicture = req.file.filename;
+                
+                const foundUser = await User.findOne({email:user.email}).exec();
+
+                if(upFirstName != null)
+                    foundUser.firstName = upFirstName;
+                if(upLastName != null)
+                    foundUser.lastName = upLastName;
+                if(upDescription != null)
+                    foundUser.biography = upDescription;
+                if(upProfilePicture != null)
+                    foundUser.profilePic = 'uploads/profiles/' + upProfilePicture;
+                await foundUser.save();
+                req.session.user = foundUser;
+                res.redirect('/profile/' + userName);
+            } catch (error) {
+            console.error('Error updating user:', error);
+            res.status(500).send('Failed to update user');
+            }
         }
     }
 }

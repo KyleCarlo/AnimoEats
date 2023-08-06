@@ -194,8 +194,7 @@ const componentsControl = {
 
     showEditRev(req, res){
         let reviewInfo = (req.body.post);
-        console.log(reviewInfo);
-        // reviewInfo = JSON.stringify(reviewInfo);
+
         res.render("components/edit-review", {
             restaurant: reviewInfo.restoName,
             subjectValue: reviewInfo.postTitle,
@@ -214,7 +213,6 @@ const componentsControl = {
             // CHECK IF THE VALUES ARE NULL OR SAME WITH CURRENT ENTRIES, SAVE CHANGES IF NOT
             // postTitle
             if(isValidValue(req.body.subject)){
-                console.log("1");
                 rev.postTitle = req.body.subject;
                 madeChange = true;
             }
@@ -241,7 +239,6 @@ const componentsControl = {
             }
             
             //console.log(rev);
-
             await rev.save();
             res.redirect('back');
 
