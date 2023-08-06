@@ -158,9 +158,11 @@ const componentsControl = {
             var imageNames = [];
             for(let i = 0; i < 4; i++){
                 console.log(req.files[i]);
-                if (req.files[i] != undefined)
+                console.log(req.files[i].path);
+                if (req.files[i] != undefined){
+                    console.log('IMAGE PUSHING');
                     imageNames.push(req.files[i].path);
-                else {
+                } else {
                     imageNames.push('');
                 }
             }
