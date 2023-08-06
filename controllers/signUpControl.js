@@ -32,7 +32,7 @@ const signUpControl = {
             const newUser = new User(data);
             try {
                 await newUser.save();
-                res.redirect("login");
+                res.render("login", {errorMessage: "Sign up successful. Please log in."});
             } catch (error) {
                 console.error(error);
                 res.status(500).send("An error occurred.");

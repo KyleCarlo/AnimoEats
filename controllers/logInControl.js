@@ -5,9 +5,7 @@ import bcrypt from "bcrypt";
 const logInControl = {
     showLogInForm(req, res) {
         const viewer = req.session.user;
-        //console.log(viewer);
         if (!viewer) {
-            //console.log('logging-in');
             res.render("login");
         } else {
             const username = viewer.email.split('@')[0];

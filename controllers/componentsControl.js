@@ -1,6 +1,7 @@
 import Review from "../models/Review.js";
 import Restaurant from "../models/Restaurant.js";
 import User from "../models/User.js";
+import { validationResult } from "express-validator";
 
 const componentsControl = {
     showSideBar(req, res) {
@@ -50,78 +51,80 @@ const componentsControl = {
     
     async showRevCard(req, res){
         const user = await User.findById(req.body.post.user);
-        const name = user.firstName + " " + user.lastName;
-        const profilePic = user.profilePic;
-        const restaurant = await Restaurant.findById(req.body.post.restaurant);
-        const restoName = restaurant.name;
+        try {
+            const name = user.firstName + " " + user.lastName;
+            const profilePic = user.profilePic;
+            const restaurant = await Restaurant.findById(req.body.post.restaurant);
+            const restoName = restaurant.name;
         
-        // CHECKS IF POST OWNER
-        var userSesh = null;
-        var isPostOwner = false;
-        if (req.session.user){
-            userSesh = req.session.user._id;
-            if (req.session.user._id == req.body.post.user){
-                isPostOwner = true;
+            // CHECKS IF POST OWNER
+            var userSesh = null;
+            var isPostOwner = false;
+            if (req.session.user){
+                userSesh = req.session.user._id;
+                if (req.session.user._id == req.body.post.user){
+                    isPostOwner = true;
+                }
             }
-        }
 
-        // FOR OWNER's REPLY
-        var dispReply = "display:none;";
-        var postOrEditReply = "Post";
-        var value = null;
-        if(req.body.post.reply != "" && req.body.post.reply != null){
-            dispReply = "display: block;";
-            postOrEditReply = "Edit";
-            value = req.body.post.reply;
-        }
+            // FOR OWNER's REPLY
+            var dispReply = "display:none;";
+            var postOrEditReply = "Post";
+            var value = null;
+            if(req.body.post.reply != "" && req.body.post.reply != null){
+                dispReply = "display: block;";
+                postOrEditReply = "Edit";
+                value = req.body.post.reply;
+            }
 
-        // FOR POSTED OR EDITED ON DATE
-        var postedOrEdited = "Posted";
-        if(req.body.post.edited == "true"){
-            //console.log("IN");
-            postedOrEdited = "Last Edited";
-        }
+            // FOR POSTED OR EDITED ON DATE
+            var postedOrEdited = "Posted";
+            if(req.body.post.edited == "true"){
+                //console.log("IN");
+                postedOrEdited = "Last Edited";
+            }
 
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
-        var dateString = months[req.body.post.monthPosted - 1] + " " + req.body.post.datePosted + ", " + req.body.post.yearPosted;
-        //console.log(req.body.post);
-        //console.log(req.body.post._id);
-        res.render("components/review-card", {
-            username: user.email.split('@')[0],
-            restoName: restoName,
-            name: name,
-            rating: req.body.post.rating,
-            profilePic: profilePic,
-            postTitle: req.body.post.postTitle,
-            description: req.body.post.description,
-            helpfulCount: req.body.post.helpfulCount,
-            unhelpfulCount: req.body.post.unhelpfulCount,
-            postedOrEdited: postedOrEdited,
-            date: dateString,
-            images: JSON.stringify(req.body.post.images),
-            image1: req.body.post.images.image1,
-            image2: req.body.post.images.image2,
-            image3: req.body.post.images.image3,
-            image4: req.body.post.images.image4,
-            cardNum: req.body.cardNum,
-            reviewId: req.body.post._id,
-            postOrEditReply: postOrEditReply,
-            displayReply:dispReply,
-            ownersReply: req.body.post.reply,
-            repValue: value,
-            likeList: JSON.stringify(req.body.post.likeList),
-            dislikeList: JSON.stringify(req.body.post.dislikeList),
-            viewer: userSesh,
-            isPostOwner: isPostOwner 
-        });
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September","October","November","December"];
+            var dateString = months[req.body.post.monthPosted - 1] + " " + req.body.post.datePosted + ", " + req.body.post.yearPosted;
+            //console.log(req.body.post);
+            //console.log(req.body.post._id);
+            res.render("components/review-card", {
+                username: user.email.split('@')[0],
+                restoName: restoName,
+                name: name,
+                rating: req.body.post.rating,
+                profilePic: profilePic,
+                postTitle: req.body.post.postTitle,
+                description: req.body.post.description,
+                helpfulCount: req.body.post.helpfulCount,
+                unhelpfulCount: req.body.post.unhelpfulCount,
+                postedOrEdited: postedOrEdited,
+                date: dateString,
+                images: JSON.stringify(req.body.post.images),
+                image1: req.body.post.images.image1,
+                image2: req.body.post.images.image2,
+                image3: req.body.post.images.image3,
+                image4: req.body.post.images.image4,
+                cardNum: req.body.cardNum,
+                reviewId: req.body.post._id,
+                postOrEditReply: postOrEditReply,
+                displayReply:dispReply,
+                ownersReply: req.body.post.reply,
+                repValue: value,
+                likeList: JSON.stringify(req.body.post.likeList),
+                dislikeList: JSON.stringify(req.body.post.dislikeList),
+                viewer: userSesh,
+                isPostOwner: isPostOwner 
+            });
+        } catch (error) {
+            console.log(error);
+        }
     },
 
     async submitOwnersReply(req,res){
         try{
             const rev = await Review.findById(req.body.revId);
-            
             const resto = await Restaurant.findById(rev.restaurant);
-            
             rev.reply = req.body.ownersReply;
             await rev.save();
             res.redirect('/store/'+resto.name);
@@ -140,44 +143,52 @@ const componentsControl = {
     },
 
     async submitCreateRev(req, res){
-        const resto =  await Restaurant.findById(req.body.restaurantId, 'name');
-        const resto_name = resto.name;
-        const today = new Date();
-        var imageNames = []
-        for(let i = 0; i < 4; i++){
-            if (req.files[i] != undefined)
-                imageNames.push(req.files[i].path.split("\\").slice(1).join('/'));
-            else {
-                imageNames.push('');
+        const resto = await Restaurant.findById(req.body.restaurantId, 'name');
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            // res.redirect("/store/"+);
+            let store_name = req.headers.referer.split("/")[4].split('%20').join(' ');
+            res.redirect("/store/"+store_name);
+        } else {
+            const resto_name = resto.name;
+            console.log(resto_name);
+            const today = new Date();
+            var imageNames = [];
+            for(let i = 0; i < 4; i++){
+                if (req.files[i] != undefined)
+                    imageNames.push(req.files[i].path.split("\\").slice(1).join('/'));
+                else {
+                    imageNames.push('');
+                }
             }
-        }
-        const data = {
-            postTitle: req.body.subject,
-            rating: req.body.rating,
-            description: req.body.message,
-            helpfulCount: 0,
-            unhelpfulCount: 0,
-            monthPosted: today.getMonth() + 1,
-            datePosted: today.getDate(),
-            yearPosted: today.getFullYear(),
-            edited: false,
-            images: {
-                "image1": imageNames[0],
-                "image2": imageNames[1],
-                "image3": imageNames[2],
-                "image4": imageNames[3]
-            },
-            user: req.session.user._id,
-            restaurant: req.body.restaurantId,
-            reply:null
-        };
+            const data = {
+                postTitle: req.body.subject,
+                rating: req.body.rating,
+                description: req.body.message,
+                helpfulCount: 0,
+                unhelpfulCount: 0,
+                monthPosted: today.getMonth() + 1,
+                datePosted: today.getDate(),
+                yearPosted: today.getFullYear(),
+                edited: false,
+                images: {
+                    "image1": imageNames[0],
+                    "image2": imageNames[1],
+                    "image3": imageNames[2],
+                    "image4": imageNames[3]
+                },
+                user: req.session.user._id,
+                restaurant: req.body.restaurantId,
+                reply:null
+            };
 
-        try {
-            await Review.insertMany([data]);
-            res.redirect("/store/"+resto_name);
-        } catch (error) {
-            console.error(error);
-            res.status(500).send("An error occurred.");
+            try {
+                await Review.insertMany([data]);
+                res.redirect("/store/"+resto_name);
+            } catch (error) {
+                console.error(error);
+                res.status(500).send("An error occurred.");
+            }
         }
     },
 
@@ -192,7 +203,6 @@ const componentsControl = {
             ratingValue: parseInt(reviewInfo.rating),
             reviewId: reviewInfo.id,
         });
-     
     },
 
     async submitEditRev(req, res){

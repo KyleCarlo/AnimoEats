@@ -115,7 +115,7 @@ app.post('/store-prev', componentsControl.showStorePrev);
 app.post('/resto-card', componentsControl.showRestoCard);
 app.post('/review-card', componentsControl.showRevCard);
 app.post('/create-review', componentsControl.showCreateRev);
-app.post('/submit-review', uploadReview.array('revUploads', 5), componentsControl.submitCreateRev);
+app.post('/submit-review', [uploadReview.array('revUploads', 5), check('message').notEmpty(), check('subject').notEmpty()], componentsControl.submitCreateRev);
 app.post('/owners-reply', componentsControl.submitOwnersReply);
 app.post('/edit-review', componentsControl.showEditRev);
 app.post('/submit-edit', uploadReview.array('revUploads', 5), componentsControl.submitEditRev);

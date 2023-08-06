@@ -24,7 +24,7 @@ const searchControl = {
         try{
             const restoResult = await Restaurant.find(queryForResto);
             const revResult = await Review.find(queryForRev);
-            res.render('search-result', {restaurants: JSON.stringify(restoResult), reviews: JSON.stringify(revResult)});
+            res.render('search-result', {restaurants: JSON.stringify(restoResult), reviews: JSON.stringify(revResult), search: search});
         } catch(err){
             console.log(err);
         }
@@ -32,11 +32,27 @@ const searchControl = {
 
     async filterControl (req, res){
         const selectedOption = parseFloat(req.body.filterText);
-        //console.log(selectedOption);
+        const search = req.body.searchQuery;
 
+        var queryForResto = {};
+        var queryForFilter = {};
+        if (search) {
+            queryForResto.$or = [
+                { name: { $regex: search, $options: 'i' } },
+                { description: { $regex: search, $options: 'i' } },
+            ];
+            queryForFilter.$and = [
+                queryForResto,
+                { aveRating: { $gte: selectedOption } },
+            ];
+        }
+        else{
+            queryForFilter = { aveRating: { $gte: selectedOption } };
+        }
+        
         try {
-            const filteredRestaurants = await Restaurant.find({ aveRating: { $gte: selectedOption } });
-            //console.log(filteredRestaurants);
+            const filteredRestaurants = await Restaurant.find(queryForFilter);
+            console.log(filteredRestaurants);
             res.json(filteredRestaurants);
         } catch (error) {
             console.error(error);

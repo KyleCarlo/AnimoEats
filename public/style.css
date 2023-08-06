@@ -103,7 +103,8 @@ span{
 }
 
 .about-body .content{
-    padding: 50px 500px 50px 100px;
+    padding: 50px 0;
+    width: 60%;
 }
 
 .about-body .list{

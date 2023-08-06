@@ -9,7 +9,7 @@
 <body class="search-result">
     <img src="assets/svg/animoeats-logo.svg" alt="logo" class="logo">
     <div class="sidebar"></div>
-
+    
     <div class="resto-result">
         <div class="header">
             <h1>Restaurants</h1>
@@ -40,16 +40,22 @@
         $(document).ready(function() {
             $('.sidebar').load('/side-bar');
 
+            var searchQuery = '{{ search }}';
             var restaurants = [{{{restaurants}}}];
             var reviews = [{{{reviews}}}];
             restaurants = restaurants[0];
             reviews = reviews[0];
-
-            if (restaurants.length > 0 ){
+            console.log(reviews);
+            console.log(restaurants);
+            console.log(restaurants.length);
+            if (restaurants.length > 0){
                 $('.resto-result .results').empty();
                 for (let i = 0; i < restaurants.length; i++) {
                     $('.resto-result .results').append($('<a class="store-prev-cards '+i+'" href="/"></a>').load('/store-prev', {post: restaurants[i], cardNum: i}));
                 }
+            } else {
+                $('.resto-result .results').empty();
+                $('.resto-result .results').append($('<p>No restaurants matched.</p>'));
             }
 
             if (reviews.length > 0){
@@ -57,27 +63,37 @@
                 for (let i = 0; i < reviews.length; i++) {
                     $('.review-result .results').append($('<a class="rev-con-self '+i+'" href="/"></a>').load('/review-card', {post: reviews[i], cardNum: i}));
                 }
+            } else {
+                $('.review-result .results').empty();
+                $('.review-result .results').append($('<p>No reviews matched.</p>'));
             }
 
-            function fetchData(filterText) {
+            function fetchData(filterText, searchQuery) {
                 fetch('/filter', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ filterText }),
+                    body: JSON.stringify({ filterText, searchQuery }),
                 }).then(res => res.json())
                 .then(result => {
-                    $('.resto-result .results').empty();
-                    for (let i = 0; i < result.length; i++) {
-                        $('.resto-result .results').append($('<a class="store-prev-cards '+i+'" href="/"></a>').load('/store-prev', {post: result[i], cardNum: i}));
+                    if (result.length > 0){
+                        $('.resto-result .results').empty();
+                        for (let i = 0; i < result.length; i++) {
+                            $('.resto-result .results').append($('<a class="store-prev-cards '+i+'" href="/"></a>').load('/store-prev', {post: result[i], cardNum: i}));
+                        }
+                    } else {
+                        $('.resto-result .results').empty();
+                        $('.resto-result .results').append($('<p>No restaurants matched.</p>'));
                     }
                 })
             }
 
             $('.resto-result select').change(function() {
                 var filterText = $(this).val();
-                fetchData(filterText);
+                console.log(filterText);
+                console.log(searchQuery);
+                fetchData(filterText, searchQuery);
             })
         });
     </script>
