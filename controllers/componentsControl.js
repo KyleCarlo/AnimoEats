@@ -159,7 +159,7 @@ const componentsControl = {
             for(let i = 0; i < 4; i++){
                 console.log(req.files[i]);
                 if (req.files[i] != undefined)
-                    imageNames.push(req.files[i].path.split("\\").slice(1).join('/'));
+                    imageNames.push(req.files[i].path);
                 else {
                     imageNames.push('');
                 }
