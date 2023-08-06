@@ -158,8 +158,8 @@ const componentsControl = {
             var imageNames = [];
             for(let i = 0; i < 4; i++){
                 if (req.files[i] != undefined){
-                    console.log(req.files[i].path);
-                    imageNames.push(req.files[i].path);
+                    console.log(req.files[i].path.split('/').slice(1).join('/'));
+                    imageNames.push(req.files[i].path.split('/').slice(1).join('/'));
                 } else {
                     imageNames.push('');
                 }
