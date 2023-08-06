@@ -155,6 +155,7 @@ const componentsControl = {
             const today = new Date();
             var imageNames = [];
             for(let i = 0; i < 4; i++){
+                console.log(req.files[i]);
                 if (req.files[i] != undefined)
                     imageNames.push(req.files[i].path.split("\\").slice(1).join('/'));
                 else {
@@ -181,7 +182,7 @@ const componentsControl = {
                 restaurant: req.body.restaurantId,
                 reply:null
             };
-
+            console.log(data);  
             try {
                 await Review.insertMany([data]);
                 res.redirect("/store/"+resto_name);

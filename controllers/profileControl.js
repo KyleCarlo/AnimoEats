@@ -105,7 +105,7 @@ const profileControl = {
                 let upDescription = req.body.descriptionEdit;
                 let upProfilePicture;
                 if(req.file != null)
-                upProfilePicture = req.file.filename;
+                    upProfilePicture = req.file.filename;
                 
                 const foundUser = await User.findOne({email:user.email}).exec();
 
