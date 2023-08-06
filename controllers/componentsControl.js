@@ -145,11 +145,13 @@ const componentsControl = {
     async submitCreateRev(req, res){
         const resto = await Restaurant.findById(req.body.restaurantId, 'name');
         const errors = validationResult(req);
+        console.log('TRYING TO SUBMIT REVIEW');
         if (!errors.isEmpty()) {
-            // res.redirect("/store/"+);
+            console.log('ERROR IN REVIEW');
             let store_name = req.headers.referer.split("/")[4].split('%20').join(' ');
             res.redirect("/store/"+store_name);
         } else {
+            console.log('NO ERROR IN REVIEW');
             const resto_name = resto.name;
             console.log(resto_name);
             const today = new Date();
