@@ -74,7 +74,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage , limits : {fileSize : 10*1024*1024}});
 const uploadReview = multer({ 
-    storage: storage ,
+    storage: storage,
     fileFilter: function (req, file, cb) {
         if (req.files && req.files.length >= 5) {
             return cb(new Error("Maximum number of files exceeded."));
