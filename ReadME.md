@@ -5,19 +5,7 @@
 - Lasala, Kyle Carlo
 - Manlises, Maria Monica
 ## Web App Setup Instructions
-1. Go to the directory where the <pre>app.js</pre> is located. 
-  
-2. Before trying to load the website, proceed to <strong>MongoDB Compass</strong> paste this URL <pre>mongodb+srv://kylelasala:CCAPDEV123456789@ccapdev.m4hroft.mongodb.net/</pre> and click connect.
-
-3. In your console, type <pre>npm start</pre> to start the application.
-
-4. Load the website by simply typing <strong>http://localhost:3000/</strong>.
-  
-5. You may opt to log in using the following details to see the website from the <strong>owner's point of view</strong>.
-    - <strong>email: kyle_lasala@dlsu.edu.ph</strong>
-    - <strong>password: kykyishere</strong>
-
-- However, you can create your own account using the sign up page.
+1. Go to https://animoeats.onrender.com/
 
 ## Project Specifications: Food Store Review Web Application
 - A food store review web application for the food stores near in DLSU. Specifically designed for Lasallians in DLSU-Manila. This project serves as a course requirement in Web Application Development (CCAPDEV).
