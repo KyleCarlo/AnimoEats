@@ -4,6 +4,10 @@
 - Go, Daphne Janelyn
 - Lasala, Kyle Carlo
 - Manlises, Maria Monica
+
+## Prototype
+- [AnimoEats on Figma](https://www.figma.com/file/uLfvLlvAQFUqybDy3Ggy6O/APPDEV---AnimoEats?type=design&node-id=0%3A1&mode=design&t=4Qtl6cMkuSQnp1Wd-1)
+
 ## Web App Setup Instructions
 1. Go to https://animoeats.onrender.com/
 
