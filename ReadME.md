@@ -1,5 +1,5 @@
 # CCAPDEV Machine Project
-## Group Members
+## Contributors
 - Diaz, Sebastian
 - Go, Daphne Janelyn
 - Lasala, Kyle Carlo
