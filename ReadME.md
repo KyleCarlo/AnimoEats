@@ -1,4 +1,7 @@
 # CCAPDEV Machine Project
+## Introduction
+- Welcome to AnimoEats, a comprehensive food store review web application tailor-made for the vibrant community of De La Salle University (DLSU) Manila. Developed as part of the Web Application Development course (CCAPDEV) at DLSU, this project is a collaborative effort by the talented team of contributors: Sebastian Diaz, Daphne Janelyn Go, Kyle Carlo Lasala, and Maria Monica Manlises.
+
 ## Contributors
 - Diaz, Sebastian
 - Go, Daphne Janelyn
